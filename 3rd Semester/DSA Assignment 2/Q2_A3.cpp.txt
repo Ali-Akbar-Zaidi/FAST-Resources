@@ -1,0 +1,307 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+class AVLtree 
+{
+    struct node
+    {
+        int RollNo;
+        string section, name;
+        float gpa;
+        int height;
+        node* right;
+        node* left;
+
+        node(int data, string section, string name, float gpa) {
+            this->RollNo = data;
+            this->section = section;
+            this->name = name;
+            this->gpa = gpa;
+            height = 1;
+            left = nullptr;
+            right = nullptr;
+        }
+    };
+    node* root;
+
+public:
+    AVLtree() {
+        root = nullptr;
+    }
+
+    int getHeight(node* root) {
+        return root ? root->height : 0;
+    }
+
+    void insert(int roll, string section, string name, float gpa) {
+        insertion(root, roll, section, name, gpa);
+        convertAndSetRoot(root->left);
+        convertAndSetRoot(root->right);
+    }
+
+    void insertion(node*& root, int data, string section, string name, float gpa)
+    {
+        if (root == nullptr)
+        {
+            root = new node(data, section, name, gpa);
+            return;
+        }
+        if (root->RollNo < data)
+            insertion(root->right, data, section, name, gpa);
+        else if (data < root->RollNo)
+            insertion(root->left, data, section, name, gpa);
+        else
+            return;
+
+        if (data < root->RollNo)
+            rightrotation(root);
+        else if (root->RollNo < data)
+            leftrotation(root);
+    }
+
+    void findandDlt(int data)
+    {
+        bool found = false;
+        finding(root, data, found);
+        if (found) {
+            convertAndSetRoot(root->left);
+            convertAndSetRoot(root->right);
+        }
+    }
+
+    void finding(node*& root, int data, bool& found)
+    {
+        if (!root) {
+            found = false;
+            return;
+        }
+        if (root->RollNo < data)
+            finding(root->right, data, found);
+        else if (data < root->RollNo)
+            finding(root->left, data, found);
+        else {
+            found = true;
+            deleteit(root);
+            return;
+        }
+        if (found)
+            managingHeightandBalance(root);
+    }
+
+    void deleteit(node*& root)
+    {
+        node* toDel = root;
+        if (root->right == nullptr) 
+        {
+            root = root->left;
+            delete toDel;
+        }
+        else if (root->left == nullptr) 
+        {
+            root = root->right;
+            delete toDel;
+        }
+        else {
+            int value = getsuccessor(root->right);
+            root->RollNo = value;
+            bool found = true;
+            finding(root->right, value, found);
+        }
+    }
+
+    int getsuccessor(node* root)
+    {
+        while (root->left != nullptr)
+            root = root->left;
+        return root->RollNo;
+    }
+
+    void search(int data)
+    {
+        bool found = false;
+        searching(root, data, found);
+        if (found)
+        {
+            convertAndSetRoot(root->left);
+            convertAndSetRoot(root->right);
+        }
+    }
+
+    void searching(node*& root, int data, bool& found)
+    {
+        if (!root) {
+            cout << "No student exists\n";
+            return;
+        }
+        if (root->RollNo < data)
+            searching(root->right, data, found);
+        else if (data < root->RollNo)
+            searching(root->left, data, found);
+        else 
+        {
+            cout << "Student found:\n";
+            cout << "Name    : " << root->name << endl;
+            cout << "Section : " << root->section << endl;
+            cout << "GPA     : " << root->gpa << endl;
+            found = true;
+            return;
+        }
+        if (found)
+        {
+            if (data < root->RollNo)
+                rightrotation(root);
+            else if (root->RollNo < data)
+                leftrotation(root);
+
+        }
+    }
+
+    void convertAndSetRoot(node*& root)
+    {
+        convertToAVL(root);
+    }
+
+    void convertToAVL(node*& root)
+    {
+        if (root == nullptr)
+            return;
+        convertToAVL(root->left);
+        convertToAVL(root->right);
+        managingHeightandBalance(root);
+    }
+
+    void managingHeightandBalance(node*& root)
+    {
+        root->height = 1 + max(getHeight(root->left), getHeight(root->right));
+        int balance = getHeight(root->left) - getHeight(root->right);
+
+        if (balance > 1) 
+        {
+            node* leftroot = root->left;
+            balance = getHeight(leftroot->left) - getHeight(leftroot->right);
+
+            if (balance >= 0)
+                rightrotation(root);
+            else
+            {
+                leftrotation(root->left);
+                rightrotation(root);
+            }
+        }
+        else if (balance < -1)
+        {
+            node* rightroot = root->right;
+            balance = getHeight(rightroot->left) - getHeight(rightroot->right);
+            if (balance <= 0)
+                leftrotation(root);
+            else 
+            {
+                rightrotation(root->right);
+                leftrotation(root);
+            }
+        }
+    }
+
+    void leftrotation(node*& root)
+    {
+        node* child = root->right;
+        node* childsLeft = child->left;
+
+        child->left = root;
+        root->right = childsLeft;
+        root->height = 1 + max(getHeight(root->left), getHeight(root->right));
+        child->height = 1 + max(getHeight(child->left), getHeight(child->right));
+        root = child;
+    }
+
+    void rightrotation(node*& root)
+    {
+        node* child = root->left;
+        node* childsRight = child->right;
+
+        child->right = root;
+        root->left = childsRight;
+        root->height = 1 + max(getHeight(root->left), getHeight(root->right));
+        child->height = 1 + max(getHeight(child->left), getHeight(child->right));
+        root = child;
+    }
+
+    void displayPreOrder()
+    {
+        cout << "Students (Roll Numbers in Pre-Order): ";
+        preorderTraversal(root);
+        cout << endl;
+    }
+
+    void preorderTraversal(node* root)
+    {
+        if (!root)
+            return;
+        cout << root->RollNo << " ";
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
+    }
+};
+
+int main() 
+{
+    AVLtree mytree;
+    int choice, roll;
+    string section, name;
+    float gpa;
+
+    do
+    {
+        cout << "\nMenu:\n";
+        cout << "1. Add a student\n";
+        cout << "2. Remove a student\n";
+        cout << "3. Search a student by roll number\n";
+        cout << "4. See summary list (pre-order traversal)\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "Enter Roll Number: ";
+            cin >> roll;
+            cin.ignore();
+            cout << "Enter Name: ";
+            getline(cin,name);
+            cout << "Enter Section: ";
+            getline(cin, section);
+            cout << "Enter GPA: ";
+            cin >> gpa;
+            mytree.insert(roll, section, name, gpa);
+            system("cls");
+            break;
+        case 2:
+            cout << "Enter Roll Number to remove: ";
+            cin >> roll;
+            mytree.findandDlt(roll);
+            system("cls");
+            break;
+        case 3:
+            cout << "Enter Roll Number to search: ";
+            cin >> roll;
+            system("cls");
+            mytree.search(roll);
+            break;
+        case 4:
+            system("cls");
+            mytree.displayPreOrder();
+            cout << endl;
+            break;
+        case 5:
+            cout << "Exiting...\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+        }
+       
+    } while (choice != 5);
+
+    return 0;
+}

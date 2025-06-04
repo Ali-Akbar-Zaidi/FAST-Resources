@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML with Errors</title
+</head>
+<body>
+    <h1>Welcome to Our Website</h1>
+    <p>This is a paragraph with an <strong>unclosed tag.
+    <div class="container">
+        <h2>About Us</h2>
+        <p>We are a company dedicated to excellence.</p>
+    </div>
+    <img src="image.jpg" alt="A beautiful landscape>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2
+</li>
+        <li>Item 3
+    </ul>
+    <!-- This is a comment without proper closing
+    <p>Another paragraph with "unbalanced quotes'</p>
+    <a href="https://www.example.com" target="_blank>Visit our partner
+</a>
+</body>
+</html>
+<!DOCTYPE html>
+<!DOCTYPE html>

@@ -1,0 +1,8 @@
+<!DOCTYPE html
+<a href=https://www.example.com" target="_blank" title="Go to Example">Visit Example</a>
+<div>
+<p>
+DAWSDASD
+<!-- asdasd-->
+<div>
+<!DOCTYPE html>

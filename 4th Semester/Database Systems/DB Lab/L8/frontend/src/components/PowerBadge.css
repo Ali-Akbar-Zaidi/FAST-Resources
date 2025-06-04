@@ -1,0 +1,28 @@
+/* Power Type Colors */
+.power-telepathy {
+    background-color: theme('colors.purple.500');
+    color: white;
+  }
+  .power-strength {
+    background-color: theme('colors.red.500');
+    color: white;
+  }
+  .power-speed {
+    background-color: theme('colors.blue.500');
+    color: white;
+  }
+  .power-flight {
+    background-color: theme('colors.sky.500');
+    color: white;
+  }
+  .power-tech {
+    background-color: theme('colors.emerald.500');
+    color: white;
+  }
+  
+  /* Badge Animation */
+  .power-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px currentColor;
+    transition: all 0.2s ease;
+  }

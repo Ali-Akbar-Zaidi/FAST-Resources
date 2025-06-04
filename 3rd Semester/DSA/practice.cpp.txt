@@ -1,0 +1,105 @@
+#include <iostream>
+#include <queue>
+#include <climits>
+
+using namespace std;
+
+class Graph
+{
+private:
+    int **adj; // pointer to pointer for adjacency list
+    int V;     // number of vertices
+
+public:
+    Graph(int V) : V(V)
+    {
+        adj = new int *[V];
+        for (int i = 0; i < V; ++i)
+        {
+            adj[i] = new int[V](); // initialize to 0
+        }
+    }
+
+    ~Graph()
+    {
+        for (int i = 0; i < V; ++i)
+        {
+            delete[] adj[i];
+        }
+        delete[] adj;
+    }
+
+    void addEdge(int u, int v)
+    {
+        adj[u][v] = 1;
+        // adj[v][u] = 1; // Since the graph is undirected
+    }
+
+    vector<int> bfs(int start)
+    {
+        vector<int> distance(V, INT_MAX);
+        queue<int> q;
+        q.push(start);
+        distance[start] = 0;
+
+        while (!q.empty())
+        {
+            int current = q.front();
+            q.pop();
+
+            for (int i = 0; i < V; ++i)
+            {
+                if (adj[current][i] == 1 && distance[i] == INT_MAX)
+                { // Check for an edge and unvisited
+                    distance[i] = distance[current] + 1;
+                    q.push(i);
+                }
+            }
+        }
+        return distance;
+    }
+
+    int findSafestHotel(int hA, int hB)
+    {
+        vector<int> distFromHA = bfs(hA);
+        vector<int> distFromHB = bfs(hB);
+        int minRisk = INT_MAX;
+        int safestHotel = -1;
+
+        for (int i = 1; i < V - 1; i++)
+        { 
+            int totalRisk = distFromHA[i] + distFromHB[i];
+            if (totalRisk < minRisk)
+            {
+                minRisk = totalRisk;
+                safestHotel = i;
+            }
+        }
+
+        return safestHotel;
+    }
+};
+
+int main()
+{
+    Graph g(8); // Assume 8 vertices for hA, hB and hotels
+
+    // Manually add edges based on the problem's graph structure
+    g.addEdge(0, 1);
+    g.addEdge(2, 0);
+    g.addEdge(1, 2);
+    g.addEdge(1, 3);
+    g.addEdge(2, 4);
+    g.addEdge(3, 4);
+    g.addEdge(3, 2);
+    g.addEdge(4, 5);
+    g.addEdge(6, 4);
+    g.addEdge(5, 3);
+    g.addEdge(6, 7);
+    g.addEdge(5, 6);
+    g.addEdge(7, 5);
+
+    cout << "Safest Hotel: " << g.findSafestHotel(0, 7) << endl;
+
+    return 0;
+}

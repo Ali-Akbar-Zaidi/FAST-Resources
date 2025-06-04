@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|solutionrelative:Q3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|solutionrelative:Q2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FB1A8400-303C-4BCD-825F-DE4B5A3E5195}|DSA Assignment 2.vcxproj|solutionrelative:Q1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Q3.cpp",
+              "DocumentMoniker": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q3.cpp",
+              "RelativeDocumentMoniker": "Q3.cpp",
+              "ToolTip": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q3.cpp",
+              "RelativeToolTip": "Q3.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAYwCsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-22T13:41:47.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Q2.cpp",
+              "DocumentMoniker": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q2.cpp",
+              "RelativeDocumentMoniker": "Q2.cpp",
+              "ToolTip": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q2.cpp",
+              "RelativeToolTip": "Q2.cpp",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAowN4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-08T17:59:23.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Q1.cpp",
+              "DocumentMoniker": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q1.cpp",
+              "RelativeDocumentMoniker": "Q1.cpp",
+              "ToolTip": "C:\\Users\\aliak\\source\\repos\\DSA\\Assignment 2\\DSA Assignment 2\\Q1.cpp",
+              "RelativeToolTip": "Q1.cpp",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowHcAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-08T17:58:56.739Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

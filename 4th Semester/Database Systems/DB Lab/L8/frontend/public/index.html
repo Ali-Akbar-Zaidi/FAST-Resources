@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0F1C3F" />
+    <meta
+      name="description"
+      content="Justice League Pakistan - Join the alliance of superheroes protecting the nation"
+    />
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Rajdhani font (used in Tailwind config) -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (replace with your own) -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <title>Justice League Pakistan | Heroes Unite</title>
+    
+    <!-- Preload important assets -->
+    <link rel="preload" href="%PUBLIC_URL%/hero-bg.jpg" as="image">
+    
+    <!-- Twitter/FB meta tags (optional) -->
+    <meta property="og:title" content="Justice League Pakistan" />
+    <meta property="og:description" content="Join the alliance of superheroes protecting the nation" />
+    <meta property="og:image" content="%PUBLIC_URL%/social-preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="bg-gray-900 text-white">
+    <noscript>
+      <div class="p-4 text-center">
+        <h1 class="text-2xl font-bold text-yellow-400 mb-2">JavaScript Required</h1>
+        <p>You need to enable JavaScript to run this heroic application.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+    
+    <!-- Preload scripts (optional) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+  </body>
+</html>

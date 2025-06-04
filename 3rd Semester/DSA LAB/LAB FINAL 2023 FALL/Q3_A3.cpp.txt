@@ -1,0 +1,154 @@
+#include<iostream>
+using namespace std;
+class IntervalHeap 
+{
+    int hsize; //number of elements in heap; 
+    int maxsize; //size of the array 
+    int** h;
+public:
+    IntervalHeap(int s = 100)
+    {
+        maxsize = s;
+        hsize = 0;
+        h = new int* [2];
+        h[0] = new int[maxsize];//store the lower end of closed interval 
+        h[1] = new int[maxsize];//store the higher end of closed interval 
+    }
+    bool insertion(int d1, int d2)
+    {
+        if (!isFull())
+        {
+            h[0][hsize] = d1;
+            h[1][hsize] = d2;
+            int index = hsize++;
+
+            // for min heap  h[0]-------------------------------
+            int parent = (index - 1) / 2;
+            while (index > 0 && h[0][index] < h[0][parent])
+            {
+                swap(h[0][index], h[0][parent]);
+                index = parent;
+                parent = (index - 1) / 2;
+            }
+
+            index = hsize - 1;
+            parent = (index - 1) / 2;
+
+            // for max heap  h[1]-------------------------------
+            while (index > 0 && h[1][index] > h[1][parent])
+            {
+                swap(h[1][index], h[1][parent]);
+                index = parent;
+                parent = (index - 1) / 2;
+            }
+            return true;
+        }
+        else
+        {
+            cout << "Heap-OverFlow" << endl;
+            return false;
+        }
+
+    }
+    bool isFull()
+    {
+        return hsize == maxsize;
+    }
+    void searchedInterval(int start, int end)
+    {
+        bool found = false;
+        for (int i = 0; i < hsize; i++)
+        {
+            if (start <= h[0][i] && h[1][i] <= end)
+            {
+                found = true;
+                cout << "(" << h[0][i] << "," << h[1][i] << ") ";
+            }
+        }
+        if (!found)
+            cout << "No intervals found" << endl;
+    }
+    void printing()
+    {
+        if (hsize == 0)
+        {
+            cout << "Heap is currently Empty\n";
+            return;
+        }
+        cout << "Current Pairs in heap : ";
+        for (int i = 0; i < hsize; i++)
+            cout << "(" << h[0][i] << "," << h[1][i] << ") ";
+        
+        cout << endl;
+    }
+};
+int main()
+{
+        IntervalHeap heap; // Create an IntervalHeap object with default size
+        int choice;
+        do 
+        {
+            cout << "------Menu------\n";
+            cout << "1. Insert values into the interval heap (as pairs).\n";
+            cout << "2. Search intervals within a given range.\n";
+            cout << "3. Print all intervals in the heap.\n";
+            cout << "4. Exit.\n";
+            cout << "Enter your choice: ";
+            cin >> choice;
+
+            switch (choice)
+            {
+                case 1://----------
+                    int d1, d2;
+                    cout << "Enter the values for the interval (start, end): ";
+                    cin >> d1 >> d2;
+                    system("cls");
+                    if (d1 > d2)
+                        cout << "Invalid interval: start should be <= end. Please try again.\n";
+                    else
+                    {
+                   
+                        if (heap.insertion(d1, d2))
+                            cout << "Pair (" << d1 << "," << d2 << ") is inserted" << endl;
+                    }
+                    break;
+
+
+                case 2://-----------
+                    int start, end;
+                    cout << "Enter the range to search (start, end): ";
+                    cin >> start >> end;
+                    system("cls");
+                    if (start > end)
+                        cout << "Invalid range: start should be <= end. Please try again.\n";
+                    else
+                    {
+                        cout << "Intervals within range (" << start << "," << end << "): ";
+                        heap.searchedInterval(start, end);
+                    }
+                    break;
+
+
+                case 3://----------
+                    system("cls");
+                    heap.printing();
+                    break;
+
+
+                case 4://----------
+                    system("cls");
+                    cout << "Exiting...\n";
+                    break;
+
+
+                default://---------
+                    system("cls");
+                    cout << "Invalid choice. Please try again.\n";
+
+            }
+        } while (choice != 4);
+
+        return 0;
+   
+
+}

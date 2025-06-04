@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|D:\\3rd Semester\\DSA\\codes\\Final Prep\\Graph.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|solutionrelative:Graph.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|D:\\3rd Semester\\DSA\\codes\\Final Prep\\DFS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|solutionrelative:DFS.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|D:\\3rd Semester\\DSA\\codes\\Final Prep\\paper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7BD62AE9-FA6E-4636-B6EC-B0B84D50360F}|Final Prep.vcxproj|solutionrelative:paper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "paper.cpp",
+              "DocumentMoniker": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\paper.cpp",
+              "RelativeDocumentMoniker": "paper.cpp",
+              "ToolTip": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\paper.cpp",
+              "RelativeToolTip": "paper.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-20T09:59:09.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DFS.cpp",
+              "DocumentMoniker": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\DFS.cpp",
+              "RelativeDocumentMoniker": "DFS.cpp",
+              "ToolTip": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\DFS.cpp",
+              "RelativeToolTip": "DFS.cpp",
+              "ViewState": "AgIAADoAAAAAAAAAAAAgwDoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-20T08:20:55.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Graph.cpp",
+              "DocumentMoniker": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\Graph.cpp",
+              "RelativeDocumentMoniker": "Graph.cpp",
+              "ToolTip": "D:\\3rd Semester\\DSA\\codes\\Final Prep\\Graph.cpp",
+              "RelativeToolTip": "Graph.cpp",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAYwLQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-19T08:38:22.432Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
