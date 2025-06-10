@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap04.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap06.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1>Chapter 5</H1>
+
+<H1><I> Firewalling Challenges: The Advanced Web</I></H1>
+</B></I><P>For the most part, Internet managers are used to the idea that a proxy server, a specialized HTTP server typically running on a firewall machine, would be enough to provide secure access from Internet connections coming through the firewall into the protected network.</P>
+<P>Sure enough, running a proxy server is one of the most recommended approach to protect your Web site.  But there is more to it than only setting up a proxy, which many times can breach security requirements. Thus, SOCKS comes in the picture.  As a package that enables Internet clients to access protected network without breaching security requirements, SOCKS can also be an add-on feature to your firewall challenge. But not so fast! According to Ying-Da Lee (ylee@syl.dl.nec.com), from NEC, you may bump into few problems using the modified version of Mosaic for X 2.0, which is not supported by its developer, the National Computer Security Association (NCSA).</P>
+<P>Therefore, to implement security in a Web environment is not really the same as to building an Internet firewall. To better understand the challenges in setting up a firewall in a Web-centric environment you must understand the threats and risks you are up against, as well as the implications of integrating different technologies, which includes but are not limited to protocols, devices and services.</P>
+<P>This chapter discusses the main security flaws and risks associated to Web-based connectivity, as well as of the main technologies interacting with the Web, such as media types, programming languages and other security concerns, so that you can better choose and implement the right firewall solution.</P>
+
+<H2><B><I>Extending the Web Server:  Increased Risks</LI></H2>
+
+</B></I><P>As information technologies becomes a commodity to the whole Cyberspace, than everyone wants to have access to it, to use it and... to abuse it.  It becomes an instrument of value, like any other commodity.  Thus, it must be protected before it is stolen.</P>
+<P>Unfortunately, there is a  mob of talented hackers and crackers out there, a mix of cyberpunks and whackers, lurking around, waiting for an opportunity to break-in to a secure system, regardless if it is a Web site or a corporate internal network. They will try to exploit anything, from high level Application Programming Interface (API) to low level services, from malicious applets, to sophisticated client-pull and server-push schemes.</P>
+<P>What are they after?  You should expect them to be after anything!  Many of them will try the same old tricks UNIX crackers did years ago just for the fun of it.  What about publicly posting your client list on the Internet?  What if suddenly, instead of your company’s logo you find one of those looney tunes character on your home page?  Worse!  What if you are been hacked right now and not even noticed?  One thing you can be sure:  soon or later they will knock your door, it is just a matter of statistics!</P>
+<P>The bottom line is there always will be Web security issues you should be concerned with. Many of this security issues are documented at http://www-genome.wi.mit.edu/WWW/faqs/www-security-faq.html, at least for UNIX boxes. Therefore, lets take a look at some of the ways your Web server can be attacked and what you can do to prevent it.</P>
+
+<H2><I> ISAPI</I></H2>
+</B></I><P>When time for integration between systems comes you will need to decide on the approach you will use to create interaction between your applications and the your Webserver.  If you don’t have an Intranet already in place, don’t worry, you will! But before even considering it, you will first need to consider how your users will interact with the system you have in place and decide their level of interaction with your Web-centric applications.</P>
+<P>The choice you make largely depends on what user interactivity you would like to build into the system.  Some aspects of this interactivity are new, and some have been a part of LAN connectivity for some time.  Ideally, when your application is linked with a Web server, your users will be able to use your application in ways unique to being on a Web, whether it is an &quot;Intranet&quot; or the Internet itself.</P>
+<P>Be careful when choosing your Web server though. My recommendation goes for the Purveyor WebServer (http://www.process.com), which has much to offer your existing application and user base.   For instance, Purveyor allows you to use existing user authentication and authorization systems or take advantage of user authentication and authorization using Purveyor.  LAN-based applications can also use Purveyor’s encryption services if desired.  Also, since Purveyor can be configured as a proxy server, it may also be used to allow secure Internet access for users on the LAN.  You may also want to consider the added user interactivity unique to Web technology. </P>
+<P>The reason am highlighting this is that, by considering these design elements beforehand will save you programming time.  Regardless of your Web server, depending on what you wish to do, you may not have much options when choosing how to access server functions, which will be by either of two major interfaces:  the Common Gateway Interface (CGI) or the Internet Server Application Programming Interface (ISAPI).  CGI provides a versatile interface that is portable between systems.  ISAPI is much faster but requires that you write a Windows DLL, which is not a trivial programming exercise.  </P>
+<P>In all considered, the Internet Server Application Programming Interface, (ISAPI) is a high performance interface to back end applications running on your web server. Based on its own DLL ensuring significant performance over CGI, ISAPI is easy to use, well documented, and does not require complex programming. These approaches are often combined.  Some parts of your interface program may call DLLs and others may use the CGI approach. So lets take a look at the CGI approach first then the ISAPI one, so you can have a clear idea of what’s involved as far as security.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Just for the record, if you’re interested in CGI scripts, a good CGI tutorial can be found at URL http://hoohoo.ncsa.uiuc.edu/cgi/.</P>
+</TD></TABLE>
+<H3> CGI</H3>
+</B><P>The Common Gateway Interface is a standard method for writing programs to work with World Wide Web servers.  Programs that use the Common Gateway interface, referred to as CGI scripts, usually take input from HTML forms to execute particular tasks.  Developers may find it appropriate to use CGI in cases where ease of development and portability to other operating systems are important.  CGI scripts are simple to write, and since the user interface is HTML, the CGI script can be initiated by any client that can run a browser.</P>
+<P>As you know, users interact with Web Servers by filling in and submitting HTML forms or clicking on links in HTML documents.  Through these HTML forms or links, the Web can be used to obtain important information and perform specific tasks.  Routine tasks can be moved on-line, facilitating collaboration on projects between individuals and groups.  HTML forms can also allow users to specify what information they want to obtain and what tasks they want to perform.</P>
+<P>A CGI script can be an individual executable program or a chain of programs that can be started by the Purveyor Server in response to a client request.  A typical CGI script may, for instance, take a keyword that a user has submitted in an HTML form and search for that keyword in a specific document or group of documents.  When a user enters this keyword and submits it, the server passes this data to the CGI script.  This program performs operations with the data, sending it back or passing it along to other applications as specified.  When the data finally returns to the server, it is re-formatted into HTML and shipped back to the requesting client. Figure 5.1 illustrates this process.</P>
+
+<!--<B><P>Figure 5.1</P>-->
+<!--</B><I><P>CGI scripts will call other programs when necessary</P></I>-->
+<P>However, CGIs have their limitations. In designing CGI scripts, bear in mind that each time the Web server executes a script it creates a new process and a new drain on available resources.  This is one of the less attractive characteristics of the CGI method.  It requires the server to spawn a new process every time a client invokes a CGI script.  Each CGI call therefore consumes CPU time and server resources so that many simultaneous requests slow the entire system significantly.  This problem can become particularly serious on a busy server with many concurrent requests.  Consequently, the more calls there are to an application, the less suited it may be to CGI scripting because of the load this places on the server.</P>
+<P>Bear in mind also that applications that use the power of corporate and business-to-business intranets often experience many more &quot;hits&quot; per hour than even the most popular internet Web sites.</P>
+<P>Furthermore, CGI programs work within the constraints of the HTTP server.  They communicate with the user through a stateless protocol, so they &quot;forget&quot; every previous transaction.  There is no way of creating intensely interactive applications unless you arrange each step to re-transmit any information that has to be &quot;remembered&quot; from previous steps.  Although it is possible to write a program or a group of programs that build on previous information, you must write them with this stateless environment in mind.</P>
+
+<H3> Internet Server API (ISAPI)</H3>
+</B><P>For cases where peak efficiency is more important than portability to other systems, the best method for extending Web server functionality is by using the Internet Server Application Programming Interface (ISAPI).  Applications using ISAPI are compiled into Dynamic Link Library files (DLLs) that the Web server loads at startup.  ISAPI programs have several key advantages over CGI scripts:</P>
+<P>They are more efficient than CGI scripts because each client request does not spawn a new process.</P>
+<P>Because ISAPI applications are more efficient than CGI scripts and are loaded into memory when the server starts, their performance is substantially superior to CGI programs.</P>
+<P>These executables are the &quot;native&quot; method for extended functionality in the Windows environment. For example, the Microsoft  Win32 Application Programming Interface is a set of Dynamic Link Libraries.</P>
+<P>ISAPI was jointly developed by Process Software and Microsoft Corporation. It has been offered as a standard for all operating systems that support sharable images.  It is an open specification.  We have used it for Windows NT, Windows 95, NetWare and OpenVMS systems.  Microsoft uses it on its Internet Information Server (IIS).</P>
+<P>ISAPI applications run by making calls to resource files called Dynamic Link Libraries.  Dynamic Link Libraries (or DLLs), are executable modules containing functions that applications can call to perform useful tasks.  ISAPI DLLs exist primarily to provide services for Web application modules. These DLLs  are referred to as <I>extension DLLs</I>.  </P>
+<P>Extension DLLs have a number of technical advantages:</P>
+
+<UL>
+<LI>Several applications can share a single copy of any library function within a DLL. </LI>
+<LI>Extension DLLs load into the server’s process space—eliminating the time and resource demands of creating additional processes. </LI>
+<LI>All resources available to the server are also available to its DLLs.</LI>
+<LI>DLLs execute with minimal overhead—considerably faster than EXE files. </LI></UL>
+
+<P>In addition, server can manage DLLs, pre-loading commonly-used ones and unloading those that remain unused for some (configurable) period of time.  The primary disadvantage in using an Extension DLL is that a DLL crash can cause a server crash.</P>
+<P>These advantages make ISAPI an ideal interface for supporting server applications subject to heavy traffic in corporate intranets.  As a matter of fact, the greater the degree of interactivity required of an Web server application, the more the application may be suited to an ISAPI interface. For example, engineers at Process Software use the ISAPI method to support the Purveyor Web Server’s remote server management (RSM) application for just this reason.  A sample screen from the RSM application is shown on figure 5.2.</P>
+
+<!--<B><P>Figure 5.2</P>-->
+<!--</B><I><P>Screenshot of Purveyor’s Remote Server Management</P></I>-->
+<P>The particular method used for ISAPI is called <I>run-time dynamic linking</I>. In this method, an existing program uses the <B>LoadLibrary</B> and <B>GetProcAddress</B> functions to get the starting address of DLL functions, calls them through a common entry point called HttpExtensionProc(), and communicates with them through a data structure called an<I> Extension Control Block</I>. </P>
+<P>The other method is called <I>load-time dynamic linking</I>, which requires building the executable module of the main application (the server) while linking with the DLL’s import library. This method is not suitable for our purposes since it presents barriers to efficient server management of DLL applications.</P>
+<P>How does the server handles the DLLs? The filename extension &quot;DLL&quot; in client requests is reserved for Dynamic Link Library files to be used through this Application Programming Interface.  All extension DLLs must be named in the form *.DLL and no other type of Purveyor Server executables requested by a client may have names of this form.</P>
+<P>When the server gets a request to execute a DLL file, it takes the following steps:</P>
+
+<UL>
+<LI>Checks to see if the requested DLL is already in memory and load it if not already present.  If the DLL does not contain the entry point <B>GetExtensionVersion</B>, the server will not load it.</LI>
+<LI>Executes a call to the entry point <B>GetExtensionVersion</B> to verify that this DLL was written to conform to the API standard.   If the returned value is not valid the server unloads the DLL without executing it.</LI>
+<LI>Executes a call to <B>HttpExtensionProc</B> to begin execution of the DLL.</LI>
+<LI>Responds as needed to the running DLL through the callback functions and the Extension Control Block.</LI>
+<LI>Terminates the operation upon receipt of a return value.  If there is a non-null log string, the server writes the DLL’s log entry to its log.</LI></UL>
+
+<I>
+</I><P>All Extension DLLs must export two entry points:</P>
+
+<UL>
+<B><LI>GetExtensionVersion()</B> - the version of the API specification to which the DLL conforms. </LI></UL>
+<DIR>
+
+<P>&#9;&#9;This entry point is used as a check that the DLL was actually designed to meet this specification, and specifies which version of this specification it uses.  As additional refinements take place in the future, there may be additions and changes which would make the specification number significant. Table 5.1 shows a sample of a suitable definition in C.</P></DIR>
+
+
+<UL>
+<B><LI>HttpExtensionProc()</B> - the entry point for execution of the DLL. This entry point is similar to a main() function in a script executable.  It is the actual startup of the function and has a form (coded in C) as described on Table 5.2.</LI></UL>
+
+<P></A></A></A></A></A></P>
+<B><P>Table 5.1</B> - Using GetExtensionVersion() as an entry point.</P>
+<B><DIR>
+
+</B><FONT SIZE=3><P>BOOL WINAPI GetExtensionVersion( HSE_VERSION_INFO  *version  )</P>
+<P>{</P>
+<P>  version-&gt;dwExtensionVersion  = HSE_VERSION_MAJOR;</P>
+<P>  version-&gt;dwExtensionVersion = version-&gt;dwExtensionVersion &lt;&lt; 16;</P>
+<P>  version-&gt;dwExtensionVersion = version-&gt;dwExtensionVersion | HSE_VERSION_MINOR;</P>
+<P>  sprintf( version-&gt;lpszExtensionDesc, &quot;%s&quot;, &quot;This is a sample Extension DLL&quot; );</P>
+<P>  return TRUE;</P>
+</FONT>
+<P>&nbsp;</P></DIR>
+
+<B><P>Table 5.2</B> - Using HttpExtensionProc() as an entry point.</P>
+
+<FONT SIZE=3><P>&nbsp;</P><DIR>
+
+<P>DWORD WINAPI HttpExtensionProc(LPEXTENSION_CONTROL_BLOCK lpEcb);</P>
+
+</FONT><P>&nbsp;</P>
+<P>&nbsp;</P></DIR>
+
+<P>Upon termination, ISAPI programs must return one of the following codes:</P>
+<B><FONT SIZE=3><P>HSE_STATUS_SUCCESS</B><BR>
+</P>
+</FONT><P>The Extension DLL has finished processing and the server can disconnect and free up allocated resources.</P>
+<B><FONT SIZE=3><P>HSE_STATUS_SUCCESS_AND_KEEP_CONN</B><BR>
+</P>
+</FONT><P>The Extension DLL has finished processing and the server should wait for the next HTTP request if the client supports persistent connections.  The Extension should only return this if they were able to send the correct Content-Length header to the client.</P>
+<B><FONT SIZE=3><P>HSE_STATUS_PENDING</B><BR>
+</P>
+</FONT><P>The Extension DLL has queued the request for processing and will notify the server when it has finished (see HSE_REQ_DONE_WITH_SESSION under the Callback Function ServerSupportFunction ).</P>
+<B><FONT SIZE=3><P>HSE_STATUS_ERROR</B><BR>
+</P>
+</FONT><P>The Extension DLL has encountered an error while processing the request and the server can disconnect and free up allocated resources.</P>
+<P>There are four Callback Functions used by DLLs under this specification:</P>
+
+<UL>
+<B><LI>GetServerVariable - </B>obtains information about a connection or about the server itself.  The function copies information (including CGI variables) relating to an HTTP connection or the server into a buffer supplied by the caller.  If the requested information pertains to a connection, the first parameter is a connection handle.  If the requested information pertains to the server, the first parameter may be any value except NULL.</LI>
+<B><LI>ReadClient - </B>reads data from the body of the client's HTTP request.  It reads information from the body of the Web client's HTTP request into the buffer supplied by the caller.  Thus, the call might be used to read data from an HTML form which uses the POST method.  If more than *lpdwSize bytes are immediately available to be read, ReadClient will return after transferring that amount of data into the buffer. Otherwise, it will block waiting for data to become available.  If the client’s socket is closed, it will return TRUE but with zero bytes read.</LI>
+<B><LI>WriteClient - </B>write data to the client.  This function sends information to the Web client from the buffer supplied by the caller.</LI>
+<B><LI>ServerSupportFunction</B> - provides the Extension DLLs with some general purpose functions as well as functions that are specific to HTTP server implementation. This function sends a service request to the server. </LI></UL>
+
+<P>The server calls your application DLL at HttpExtensionProc() and passes it a pointer to the ECB structure.  Your application DLL then decides what exactly needs to be done by reading all the client input (by calling the function <B>GetServerVariable()</B> ). This is similar to setting up environment variables in a Direct CGI application. </P>
+<P>Since the DLL is loaded into the same process address space as that of HTTP server, an access violation by the Extension DLL crashes the server application.  Ensure the integrity of your DLL by testing it thoroughly.  DLL errors can also corrupt the server’s memory space or may result in memory or resource leaks.  To take care of this problem, a server should wrap the Extension DLL entry point in a &quot;try/except clause&quot; so that access violations or other exceptions will not directly effect the server.  For more information on the &quot;try/except&quot; clause, refer to the help section on C/C++ Language under Visual C++ v2.0 help. </P>
+<P>Although it may initially require more development resources to write the DLLs needed to run ISAPI applications, the advantages of using ISAPI are evident.  ISAPI makes better use of system resources by keeping shared functions in a single library, and spawning only a single process for applications invoked by more than one client.  The fact that the server pre-loads these libraries at startup ensures quicker program performance and faster server response time.  Finally, the quickness and efficiency of ISAPI make it well suited for applications that require user interaction and that may be subject to heavy traffic, such as those that take full advantage of the intranet.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more information on ISAPI programming, you may wish to participate in the Microsoft forum - ISAPI-L.  You can subscribe by sending e-mail to:</P>
+<P>    LISTSERV@peach.ease.lsoft.com. </P>
+<P>Include a one-line message with  the body:</P>
+<P>    SUBSCRIBE ISAPI-L &lt;firstname&gt;&lt;lastname&gt;</P>
+<P>To send messages to the mailing list, e-mail them to:</P>
+<P>    ISAPI-L@peach.ease.lsoft.com</P>
+<P>Microsoft has also made several PowerPoint  presentations that deal with ISAPI development available at the following URL:  http://www.microsoft.com/intdev/pdc/pdcserv.htm. These presentations describe ISAPI advantages, filters and programming techniques while providing several examples of ISAPI applications.</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For your information, ISAPI is available on Purveyor for Windows NT and Purveyor for OpenVMS, developed by Process Software Corp. For additional information and program documentation, check their Web site at URL http://www.process.com/news/spec.htp.</P>
+</TD></TABLE>
+<H3> A Security Hole on IIS exploits ISAPI</H3>
+</B><P>However, if Web developers take advantage of ISAPI wonderful features, so do hackers, by reverting the &quot;IUSR_MACHINENAME&quot; account&quot; of Microsoft’s Internet Information Server (IIS). </P>
+<P>The exploit here is that ISAPI scripts run under the IUSR_MACHINENAME account under IIS, so ISAPI inherits the security permissions of this account. Thus, if the ISAPI program were to contain a simple call labeled &quot;RevertToSelf(),&quot; for example, there you have a major hole!</P>
+<P>As soon as that line of the program is executed, the ISAPI program reverts it’s authority to the system account, which hold all access privileges on the server. At this point, a hacker is capable to execute anything on the server, including &quot;system()&quot; calls.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>If you want to try the exploit above, check the URL http://www.ntsecurity.net/security/webguest.htm, which has a DLL called REVERT.DLL that you can run from any Intel based IIS box. The script, once downloaded to your scripts directory on the IIS machine, once executed, will create a directory called C:\IIS-REVERT-TEST without your authorization!</P>
+</TD></TABLE>
+<H3> What can you do About it?</H3>
+</B><P>Not much can be done to prevent this exploit. Don’t be naive, don’t run any ISAPI scripts that you don’t understand  or don’t trust the source code, especially it comes from a shareware or freeware site! A good measure is to compile the source code yourself.  I would not recommend you to run a script without compiling it or trusting the developer/source code. </P>
+<P>Also, make sure to test the ISAPI applications as much as you can on a standalone machine before you make it available on the Net.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>To learn more about ISAPI, check the ISAPI Tutorials page at URL http://www.genusa.com/isapi/isapitut.htm</P>
+</TD></TABLE>
+<H2><I> NSAPI</I></H2>
+</B></I><P>Netscape Server Application Programming Interface (NSAPI) is Netscape’s version of ISAPI, which also works on UNIX systems that support shared objects, and can be used as a framework for implementing custom facilities and mechanisms. However, NSAPI groups a series of functions to be used specifically with Netscape Server, allowing it to extend the core functionality of the Netscape Server. According to Netscape (http://developer.netscape.com/misc/developer/conference/proceedings/s5/sld002.html ) NSAPI provides flexibility, control, efficiency, and multi-platform solutions which includes but is not limited to: </P>
+
+<UL>
+<LI>Faster CGI-type functions </LI>
+<LI>Database connectivity </LI>
+<LI>Customized logging </LI>
+<LI>Version control </LI>
+<LI>Personalized web site for each clients </LI>
+<LI>Alternative access control </LI>
+<LI>Custom user authentication </LI>
+<LI>Revised version of an existing server functionality </LI>
+<LI>Plug-in applications</LI></UL>
+
+
+<P>The Yale University suggests NSAPI to be very efficient (http://pclt.cis.yale.edu/pclt/webapp/apis.htm).  This is easy to grasp as NSAPI works very tight with the Netscape Server. The functions that Netscape provides through the NSAPI interface can locate information and 

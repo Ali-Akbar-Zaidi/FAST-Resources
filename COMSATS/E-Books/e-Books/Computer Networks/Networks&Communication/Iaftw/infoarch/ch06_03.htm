@@ -1,0 +1,607 @@
+<html><head><title>Designing the Search Interface (Information Architecture for the World Wide Web)</title><link href="../style/style1.css" type="text/css" rel="stylesheet" />
+
+<meta name="DC.Creator" content="Peter Morville and " /><meta scheme="MIME" content="text/xml" name="DC.Format" /><meta content="en-US" name="DC.Language" /><meta content="O'Reilly &amp; Associates, Inc." name="DC.Publisher" /><meta scheme="ISBN" name="DC.Source" content="1565922824L" /><meta name="DC.Subject.Keyword" content="stuff" /><meta name="DC.Title" content="Information Architecture for the World Wide Web" /><meta content="Text.Monograph" name="DC.Type" />
+
+</head><body bgcolor="#ffffff">
+
+<img alt="Book Home" src="gifs/smbanner.gif" border="0" usemap="#banner-map" /><map name="banner-map"><area alt="Information Architecture for the World Wide Web" href="index.htm" coords="1,-2,616,66" shape="rect" /><area alt="Search this book" href="jobjects/fsearch.htm" coords="629,-11,726,25" shape="rect" /></map>
+
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch06_02.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm">Information Architecture for the World Wide Web</a></td><td width="228" valign="top" align="right"><a href="ch06_04.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr></table></div>
+<hr align="left" width="684" />
+
+
+<h2 class="sect1">6.3. Designing the Search Interface</h2>
+
+
+<p>
+<a name="INDEX-410" />With so much variation among
+users to account for, there can be no single ideal search interface.
+Although the literature of information retrieval includes many
+studies of search interface design, many variables preclude the
+emergence of the right way to design search interfaces. Here are a
+few of the variables on the table:</p>
+
+
+<ul><li><p>The level of searching expertise users have: Are they comfortable
+with Boolean operators, or do they prefer natural language? Do they
+need a simple or high-powered interface? What about a help page?</p></li><li><p>The kind of information the user wants: Do they want just a taste, or
+are they doing comprehensive research? Should the results be brief,
+or should they provide extensive detail for each document?</p></li><li><p>The type of information being searched: Is it made up of structured
+fields or full text? Is it navigation pages, destination pages, or
+both? HTML or other formats?</p></li><li><p>How much information is being searched: Will users be overwhelmed by
+the number of documents retrieved?</p></li></ul>
+<p>We can, however, provide basic advice that you should consider when
+designing a search interface.</p>
+
+
+<a name="ch06-13-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.1. Support Different Modes of Searching</h3>
+
+
+<p>
+<a name="INDEX-411" />Before diving into design, think
+hard about why users are searching your site, and what they want to
+get out of their search. Are they likely to search for certain types
+of information, such as specific product descriptions or staff
+directory entries? If so, support modes of searching that are
+delineated by content types -- use the same interface to allow
+users to search the product catalog, or the staff directory, or other
+content areas (content-delineated indexing involves the creation of
+<em class="emphasis">search zones</em>, which we'll cover later in
+this chapter). Are non-English speakers important to your site? Then
+provide them with search interfaces in their native languages,
+including language-specific directions, search commands and
+operators, and help information. Does your site need to satisfy users
+with different levels of sophistication with online searching? Then
+consider making available both a basic search interface and an
+advanced one.</p>
+
+
+<p>For example, one of our clients, UMI, sells dissertations to an
+audience that includes researchers, librarians, and others who have
+been using advanced online information systems for years. We needed
+an interface that would accommodate this important expert audience
+who were used to complex Boolean and proximity operators, and who
+were already very used to the arcane search languages of other
+commercial information services. However, a simple search interface
+was also required, because at times users wouldn't need all the
+firepower of an advanced search interface, especially when conducting
+simple, known-item searches. Additionally, because it had become
+available via the Web, a whole new audience of novices would
+encounter this product for the first time; we assumed that these
+newbies wouldn't be comfortable with a complex search
+interface.</p>
+
+
+<a name="ch06-17122" /><div class="figure"><img height="402" alt="Figure 6-1" src="figs/info_0601.gif" width="502" /></div><h4 class="objtitle">Figure 6-1. Although we could have simplified this interface by foregoing the three radio button selections, they add utility and let users know what they are searching without taking up too much screen space.</h4>
+
+<p>So we created a simple interface that almost anyone could figure out
+and use right away, shown above in <a href="ch06_03.htm#ch06-17122">Figure 6-1</a>. A
+simple search box is ideal for the novice or for a user with a pretty
+good sense of what he or she is looking for. (We made sure to provide
+a single search query box; our experience shows that most users
+don't care for separate boxes, one for each query term, divided
+by Boolean operators.) Minimal filtering options are provided,
+including searching for keywords within title and abstract fields,
+searching within the author field, or searching within the
+publication number field. These filtering options provide the user
+with more power by allowing more specific searching. But because the
+labels Keyword, Author, and Publication Number are fairly
+self-explanatory, they don't force the user to think too much
+about these options.</p>
+
+
+<a name="ch06-20254" /><div class="figure"><img height="423" alt="Figure 6-2" src="figs/info_0602.gif" width="488" /></div><h4 class="objtitle">Figure 6-2. Because they present so much information, more complex search interfaces generally can't be embedded on other pages and instead require a dedicated page.</h4>
+
+<p>For the advanced users, a more powerful interface was created, shown
+above in <a href="ch06_03.htm#ch06-20254">Figure 6-2</a>. This interface supports the
+following types of searching:</p>
+
+
+<dl>
+<dt><b>Fielded Searching </b></dt>
+<dd><p>
+<a name="INDEX-412" />Author,
+Keyword, Title, Subject, and ten other fields are searchable. A
+researcher could, for example, find a dissertation related to his or
+her area of interest by searching the subject field, and learn who
+that doctoral student's advisor was by reading the abstract. To
+find other related dissertations, the researcher could then search
+the Advisor field to learn about other doctoral students who shared
+the same advisor.</p></dd>
+
+
+<dt><b>Familiar Query Language </b></dt>
+<dd><p>In <a href="ch06_03.htm#ch06-20254">Figure 6-2</a>, the style "field(search
+term)" is used (e.g., "keyword(drosophila)").
+Because many different query language conventions are supported by
+traditional online products, users may be used to an established
+convention. The effort to support these users is made by allowing
+variant terms. For the field Degree Date, the user can enter either
+"ddt," "da," "date,"
+"yr," or "year."</p></dd>
+
+
+<dt><b>Longer Queries </b></dt>
+<dd><p>More complex queries often require more space than the single line
+entry box found in the simple search interface in <a href="ch06_03.htm#ch06-17122">Figure 6-1</a>. The more complex interface supports a much
+longer query.</p></dd>
+
+
+<dt><b>Reusable Result Sets </b></dt>
+<dd><p>Many traditional online information products allow searchers to build
+sets of results that can be reused. In this example, we've
+ANDed together the two sets that we've already found, and could
+in turn combine this result with other sets during the iterative
+process of searching.</p></dd>
+
+</dl>
+
+
+<p>Because this advanced interface supports so many different types of
+searching, we provided a substantial help page to assist users. For
+users of common browsers, the help page shown in <a href="ch06_03.htm#ch06-10399">Figure 6-3</a> launches in a separate browser window so that
+users don't need to exit the search interface<a name="INDEX-413" /> to get help.</p>
+
+
+<a name="ch06-10399" /><div class="figure"><img height="418" alt="Figure 6-3" src="figs/info_0603.gif" width="377" /></div><h4 class="objtitle">Figure 6-3. This help page serves as a ready reference to help users take advantage of the searching capability offered by this search engine and offers examples. It launches in a separate browser window.</h4>
+</div>
+
+
+
+
+<a name="ch06-14-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.2. Searching and Browsing Systems Should Be Closely Integrated</h3>
+
+
+<p>
+<a name="INDEX-414" /> <a name="INDEX-415" />As we mentioned earlier, users typically
+need to switch back and forth between searching and browsing. In
+fact, users often don't know if they need to search or browse
+in the first place. Therefore, these respective systems
+shouldn't live in isolation from one another.</p>
+
+
+<p>When we redesigned the Argus Clearinghouse, we integrated these two
+elements on a single page called Search/Browse, shown in <a href="ch06_03.htm#ch06-14017">Figure 6-4</a>. This combined interface to searching and
+browsing makes it clear to the user what he or she can do there. The
+search/browse approach can be extended by making search and browse
+options available on the search results page as well, especially on
+null results pages, when a user might be at a dead end and needs to
+be gently led back into the process of iterative searching and
+browsing before frustration sets in.</p>
+
+
+<a name="ch06-14017" /><div class="figure"><img height="459" alt="Figure 6-4" src="figs/info_0604.gif" width="486" /></div><h4 class="objtitle">Figure 6-4. Because its vertical space requirements are relatively small, the simple search interface is located toward the top of the page. It is followed by a browsing scheme too long to be displayed in its entirety. But users get a sense of what they'll see if they scroll further.</h4>
+</div>
+
+
+
+
+<a name="ch06-15-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.3. Searching Should Conform to the Site's Look and Feel </h3>
+
+
+<p>
+<a name="INDEX-416" /> <a name="INDEX-417" />Search engine interfaces, and more
+importantly, retrieval results, should look and behave like the rest
+of your site. This advice may seem painfully obvious, but because
+many search engines are packaged as ready-to-go add-ons to a site,
+site developers don't bother to customize them.<a href="#FOOTNOTE-15">[15]</a> For example, the interface and
+results produced by the Excite search engine are easy to detect. In
+fact, they look and work so similarly from site to site that
+it's easy to forget that they are actually parts of individual
+sites. <a href="ch06_03.htm#ch06-17942">Figure 6-5</a> is a great example of a search
+interface which hasn't been customized, while <a href="ch06_03.htm#ch06-21078">Figure 6-6</a> shows how the search interface can be
+integrated with the rest of the site's look and feel.</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-15" /><p>[15]It should be mentioned that some search engines, like
+AltaVista, don't allow you to modify search and retrieval
+results pages.</p>
+
+</blockquote>
+
+
+<a name="ch06-17942" /><div class="figure"><img height="423" alt="Figure 6-5" src="figs/info_0605.gif" width="488" /></div><h4 class="objtitle">Figure 6-5. Search results from a search engine that hasn't been customized ...</h4>
+
+<a name="ch06-21078" /><div class="figure"><img height="335" alt="Figure 6-6" src="figs/info_0606.gif" width="488" /></div><h4 class="objtitle">Figure 6-6. ... and from one that has. In <a href="ch06_03.htm#ch06-17942">Figure 6-5</a>, the search results use Excite's standard images, and look more like they're part of Excite's site than Chevron's. The Chrysler site's searching system's look and feel is much more closely integrated with the rest of the site.</h4>
+</div>
+
+
+
+
+<a name="ch06-16-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.4. Search Options Should Be Clear</h3>
+
+
+<p>
+<a name="INDEX-418" /> <a name="INDEX-419" />We all pay lip service to the need for
+user documentation, but with searching, it's really a must.
+Because so many different variables are involved with searching,
+there are many opportunities for things to go wrong. On a Help or
+Documentation page, consider letting the user know the following:</p>
+
+
+<ol>
+<li><p><em class="emphasis">What is being searched.</em> Users often assume that
+their search query is being run against the full text of every page
+in your site. Instead your site may support fielded searching (as in
+the UMI example above), or another type of selective searching (see
+"Indexing the Right Stuff " later in this chapter). If
+they're curious, users should be able to find out exactly what
+they are searching.</p></li><li><p><em class="emphasis">How they can formulate search queries.</em> What good
+is it to build in advanced querying capabilities if the user never
+knows about them? Show off the power of your search engine with
+excellent real life examples. In other words, make sure your examples
+actually work and retrieve relevant documents if the user decides to
+test them.</p></li><li><p><em class="emphasis">User options.</em> Can the user do other neat things
+such as changing the sorting order of retrieval results? Show them
+off as well!</p></li>
+<li><p><em class="emphasis">What to do if the user can't find the right
+information.</em> It's important to provide the user with
+some tricks to handle the following three situations:</p>
+<blockquote>
+a. "I'm getting too much stuff."<br>
+b. "I'm not getting anything."<br>
+c. "The stuff I'm getting stinks!"
+</blockquote>
+<p>For case (a), you might suggest approaches that narrow the retrieval
+results. For example, if your system supports the Boolean operator
+AND, suggest that users combine multiple search terms with an AND
+between them (ANDing together terms reduces retrieval size).</p>
+
+
+<p>If they are retrieving zero results, as in case (b), suggest the
+operator OR, the use of multiple search terms, the use of truncation
+(which will retrieve a term's variants), and so on.</p>
+
+
+<p>If they are completely dissatisfied with their searches, case (c),
+you might suggest that they contact someone who knows the
+site's content directly for custom assistance. It may be a
+resource-intensive approach, but it's a far superior last
+resort to ditching the user without helping them at all.<a name="INDEX-420" /> <a name="INDEX-421" /></p></li></ol>
+</div>
+
+
+
+
+<a name="ch06-17-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.5. Choose a Search Engine That Fits Users' Needs</h3>
+
+
+<p>
+<a name="INDEX-422" />
+<a name="INDEX-423" />At this point, you ideally will know
+something about the sorts of searching capabilities that your
+site's users will require (not to mention what your budget will
+allow!). So select a search engine that satisfies those needs as much
+as possible. For example, if you know that your site's users
+are already very familiar with a particular way of specifying a
+query, such as the use of Boolean operators, then the search engine
+you choose should also support using Boolean operators. Does the size
+of your site suggest that users will get huge retrieval results? Be
+sure that your engine supports techniques for whittling down
+retrieval sizes, such as the AND and NOT operators, or that it
+supports relevance-ranked results that list the most relevant results
+at the top. Will users have a problem with finding the right terms to
+use in their search queries? Consider building in a thesaurus
+capability (AltaVista's SearchWizard
+(<a href="http://altavista.digital.com/av/lt/help.html">http://altavista.digital.com/av/lt/help.html</a>)
+is a common example) or synonym table so that a query for the term
+<em class="emphasis">car</em> may retrieve documents with the term
+<em class="emphasis">automobile</em>. As the market for search engines
+booms, more and more interesting options will be packaged with these
+tools; let your users' needs be the major factor that guides
+your choice.</p>
+
+<blockquote>
+<table border="1" cellpadding="6">
+<tr><td>
+<a name="ch06-18-fm2xml" />
+<h4 class="objtitle">Finding a Search Engine</h4>
+
+
+<p>
+<a name="INDEX-424" />Okay, you've decided you want to
+provide a search engine for your web site. Where do you get one?</p>
+
+
+<p>There are several commercial solutions for web site indexing. Lycos
+licenses its search engine technology for individual web sites. So
+does Infoseek.</p>
+
+
+<p>Excite for Web Servers, or EWS, is a free version of the Excite
+search engine. You can get it from <a href="http://www.excite.com/navigate/">http://www.excite.com/navigate/</a>. The only
+requirement is that you include a link back to their web site.</p>
+
+
+<p>Other freeware search engines include Glimpse (<a href="http://glimpse.cs.arizona.edu:1994/">http://glimpse.cs.arizona.edu:1994/</a>) and
+SWISH (Simple Web Indexing System for Humans) (<a href="http://www.eit.com/software/swish/">http://www.eit.com/software/swish/</a>).</p>
+</td></tr>
+</table>
+</blockquote>
+
+
+</div>
+
+
+
+
+<a name="ch06-19-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.6. Display Search Results Sensibly</h3>
+
+
+<p>
+<a name="INDEX-425" /> <a name="INDEX-426" />You can configure how your search
+engine displays search results in many ways. There is no right way to
+do it. How you configure your search engine's results depends
+on two factors.</p>
+
+
+<p>The first factor is the degree of structure your
+<a name="INDEX-427" />content has. What will your search
+engine be able to display besides just the titles of retrieved
+documents? Is your site's content sufficiently structured so
+that the engine can parse out and display such information as an
+author, a date, an abstract, and so on?</p>
+
+
+<p>The other factor is what your site's users really want. What
+sorts of information do they need and expect to be provided as they
+review search results?</p>
+
+
+<p>When you are configuring the way your search engine displays results,
+you should consider these issues:</p>
+
+
+<ol><li><p>How much information should be displayed for each retrieved document?</p>
+
+
+<p>
+<a name="INDEX-428" />
+<a name="INDEX-429" />A simple rule is
+to display less information per result when you anticipate large
+result sets. This will shorten the length of the results page, making
+it easier to read. Another rule is to display less information to
+users who know what they're looking for, and more information
+to users who aren't sure what they want. (Based on your initial
+research and assumptions about who will be using your site, you
+should be able to make at least an intelligent guess as to which
+types of users your site should support.)</p>
+
+
+<p>When it's hard to distinguish retrieved documents because of a
+commonly displayed field (such as the title), show more information
+to help the user differentiate the results. Consider allowing the
+user to choose how much information should be displayed. The Ann
+Arbor District Library, for example, allows users to display
+retrieval results in three different modes, thus allowing the same
+tool to serve users with varying information needs; see <a href="ch06_03.htm#ch06-19528">Figure 6-7</a>.</p>
+
+
+<a name="ch06-19528" /><div class="figure"><img height="335" alt="Figure 6-7" src="figs/info_0607.gif" width="488" /></div><h4 class="objtitle">Figure 6-7. The Ann Arbor District Library provides three options (Citation, Summary, and Full) to help users control the amount of information they receive about each retrieved document.</h4></li>
+
+<li><p>What information should be displayed for each retrieved document?</p>
+
+
+<p>Which fields you show for each document obviously depends on which
+fields are available in each document (i.e., how structured your
+content is). What your engine displays also depends on how the
+content is to be used. Users of phone directories, for example, want
+phone numbers first and foremost. So it makes sense to show them the
+information from the <em class="emphasis">phone number</em> field on the
+results page (see Figures <a href="ch06_03.htm#ch06-28401">Figure 6-8</a> and <a href="ch06_03.htm#ch06-22025">Figure 6-9</a>). Lastly, the amount of space available on a
+page is limited: you can't have each field displayed, so you
+should choose carefully, and use the space that is available wisely.</p>
+
+
+<a name="ch06-28401" /><div class="figure"><img height="339" alt="Figure 6-8" src="figs/info_0608.gif" width="488" /></div><h4 class="objtitle">Figure 6-8. Although this page from the Four11 phone directory is visually uncluttered, it could be better ; users need to click on a name to retrieve the actual phone number. City, state, and ZIP codes are useful in helping distinguish one C. Harris from the other, but there is no good reason not to display phone numbers on this page.</h4>
+
+<a name="ch06-22025" /><div class="figure"><img height="435" alt="Figure 6-9" src="figs/info_0609.gif" width="500" /></div><h4 class="objtitle">Figure 6-9. Yahoo!'s phone directory may not be as aesthetically appealing, but it gets the job done. Users can use the address information to determine the right C. Harris, and then can view the phone number without clicking further. The use of single lines for each entry also minimizes scrolling.</h4></li>
+
+<li><p>How many retrieved documents should be displayed?</p>
+
+
+<p>
+<a name="INDEX-430" />How many documents are displayed
+depends on the preceding two factors. If your engine displays a lot
+of information for each retrieved document, you'll want to
+consider a smaller size for the retrieval set, and vice versa.
+Additionally, the user's monitor resolution and browser
+settings will affect the amount of information that can be displayed
+individually. Your best bet is to provide a variety of settings that
+the user can opt to select based on his or her own needs, and always
+let the user know the total number of retrieved documents.</p>
+
+
+<li><p>How should retrieved documents be sorted?</p>
+
+
+<p>
+<a name="INDEX-431" />
+<a name="INDEX-432" />
+<a name="INDEX-433" />
+
+Common options for sorting
+retrieval results include:</p>
+
+<ul>
+<li><p>in chronological order</p></li>
+<li><p>alphabetically by title, author, or other fields</p></li>
+<li><p>by an odd thing called relevance</p></li>
+</ul>
+<p>Certainly, if your site is providing access to press releases or
+other news-oriented information, sorting by <em class="emphasis">reverse
+</em>chronological order makes good sense. Chronological order
+is less common, and can be useful for presenting historical data.</p>
+
+
+<p>Alphabetical sorts are a good general purpose sorting approach (most
+users are familiar with the order of the alphabet!). Alphabetical
+sorting works best if initial articles such as <em class="emphasis">a</em>
+and <em class="emphasis">the</em> are omitted from the sort order (certain
+search engines provide this option). Users will find this helpful as
+they are more likely to look for <em class="emphasis">The Naked Bungee Jumping
+Guide</em> under <em class="emphasis">N</em> rather than
+<em class="emphasis">T</em>.</p>
+
+
+<p>
+<a name="INDEX-434" /> <a name="INDEX-435" /> <a name="INDEX-436" />Relevance <a name="INDEX-437" />is an interesting concept; when a
+search engine retrieves 2,000 documents, isn't it great to have
+them sorted with the most relevant at the top, and the least relevant
+at the bottom? Well, certainly, if this actually would work.
+Relevance ranking algorithms (there are many flavors) are typically
+determined by some combination of the following: how many of the
+query's terms occur in the retrieved document; how many times
+those terms occur in that document; how close to each other those
+terms occur (e.g., are they adjacent, in the same sentence, or in the
+same paragraph?); and where the terms occur (e.g., a document with
+the query term in its title is more likely to be relevant than a
+document with the query term in its body).</p>
+
+
+<p>It's confusing for certain if you're responsible for
+configuring the search engine, and probably more so for users.
+Different relevance ranking algorithms make sense for different types
+of content, but with most search engines, the content you're
+searching is apples and oranges. So, for example, a retrieval might
+rank Document A higher than Document B, but Document B is definitely
+more relevant. Why? Because Document B is a bibliographic citation to
+a really relevant work, but Document A is a long document that just
+happens to contain many instances of the terms in the search query.</p>
+
+
+<p>Our advice is to use relevance with caution and consider doing
+something that few search tools do: <em class="emphasis">let the user know how
+your engine is calculating relevance.</em> Or, as with the Java
+implementation of Lycos Pro (<a href="ch06_03.htm#ch06-28049">Figure 6-10</a>), let the
+user control the relevance algorithm.</p></li></ol>
+<a name="ch06-28049" /><div class="figure"><img height="464" alt="Figure 6-10" src="figs/info_0610.gif" width="500" /></div><h4 class="objtitle">Figure 6-10. Lycos Pro's Java Power Panel allows users to determine which document characteristics are most relevant to their searches through adjusting their settings. Although it's not likely something you'll whip up in minutes for your own site, it is an interesting concept.</h4>
+
+<p>Many search engines use counterintuitive sorting approaches by
+default, including when the file was last updated or indexed (a
+variant of chronological ordering), or what physical directory the
+file resides in. Avoid these defaults; they are obtuse and will
+confuse the user. Whatever approach you use, make the ranking order
+clear to users by making the sort field a prominent part of each
+result. Consider shifting the decision on what sort is most useful by
+giving the user the option of selecting their own sorting option.
+<a name="INDEX-438" /> <a name="INDEX-439" /> <a name="INDEX-440" /></p>
+</div>
+
+
+
+
+<a name="ch06-20-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.7. More About Relevance</h3>
+
+
+<p>Let's say you're interested in knowing what the New
+Jersey sales tax is. Maybe you're driving through on a trip,
+and want to know if you should stop at an outlet mall or wait until
+you get to Pennsylvania, where you know the sales tax. So you go to
+the State of New Jersey web site and search on <em class="emphasis">sales
+tax</em> (see <a href="ch06_03.htm#ch06-21258">Figure 6-11</a>).</p>
+
+
+<a name="ch06-21258" /><div class="figure"><img height="461" alt="Figure 6-11" src="figs/info_0611.gif" width="485" /></div><h4 class="objtitle">Figure 6-11. Results from the query "sales tax" in the State of New Jersey web site. </h4>
+
+<p>The 20 results are scored at either 84% or 82% relevant. Why does
+each document receive only one of two scores? Are the documents in
+each group so similar to each other? And what the heck makes a
+document 2% more relevant than another? Let's compare two
+retrieved documents, one which received an 84% relevancy score (<a href="ch06_03.htm#ch06-39673">Figure 6-12</a>), the other 82% (<a href="ch06_03.htm#ch06-18104">Figure 6-13</a>).</p>
+
+
+<a name="ch06-39673" /><div class="figure"><img height="292" alt="Figure 6-12" src="figs/info_0612.gif" width="342" /></div><h4 class="objtitle">Figure 6-12. Sales &amp; Use Tax: Business was scored at 84% relevancy...</h4>
+
+<a name="ch06-18104" /><div class="figure"><img height="292" alt="Figure 6-13" src="figs/info_0613.gif" width="342" /></div><h4 class="objtitle">Figure 6-13. ...and Sales &amp; Use Tax: Individuals received an 82% relevancy ranking. Can you tell the difference?</h4>
+
+<p>As you can see, these documents are almost exactly the same. Both
+have very similar titles, and neither uses hidden &lt;META&gt; tags
+to prejudice the ranking algorithm. Finally, both documents mean
+essentially the same thing, differing only in that one deals with
+businesses and the other with individual consumers. The only apparent
+difference? While <em class="emphasis">sales</em> and
+<em class="emphasis">tax</em> appear within &lt;TITLE&gt; and &lt;H1&gt;
+tags of both documents, they appear in the body of only the first
+document, not in the second. The search engine probably adds 2% to
+the score of the first document for this reason. <em class="emphasis">Probably,
+</em>because, as the algorithm isn't explained, we
+don't know for sure if this is the correct <a name="INDEX-441" />explanation.<a name="INDEX-442" /> <a name="INDEX-443" /> <a name="INDEX-444" /></p>
+</div>
+
+
+
+
+<a name="ch06-21-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.8. Always Provide the User with Feedback</h3>
+
+
+<p>
+<a name="INDEX-445" />
+<a name="INDEX-446" /> <a name="INDEX-447" />When a user executes a search, he or
+she expects results. Usually, a query will retrieve at least one
+document, so the user's expectation is fulfilled. But sometimes
+a search retrieves zero results. Let the user know by creating a
+different results page specially for these cases. This page should
+make it painfully clear that nothing was retrieved, and give an
+explanation as to why, tips for improving retrieval results, and
+links to both the Help area and to a new search interface so the user
+can try again (see <a href="ch06_03.htm#ch06-24318">Figure 6-14</a>).</p>
+
+
+<a name="ch06-24318" /><div class="figure"><img height="257" alt="Figure 6-14" src="figs/info_0614.gif" width="407" /></div><h4 class="objtitle">Figure 6-14. Although no results were retrieved, the user is presented with other options, such as trying another search, reviewing the search tips, or switching to browse mode. These options dissuade users from giving up on finding information in the site.</h4>
+</div>
+
+
+
+
+<a name="ch06-22-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.3.9. Other Considerations</h3>
+
+
+<p>You might also consider including a few easy-to-implement but very
+useful things in your engine's search results:</p>
+
+
+<ul><li><p>Repeat back the original search query prominently on the results
+page.</p>
+
+
+<p>As users browse through search results, they may forget what they
+searched for in the first place. Remind them. Also include the query
+in the page's title; this will make it easier for users to find
+it in their browser's history lists.</p></li><li><p>Let the user know how many documents in total were retrieved.</p>
+
+
+<p>Users want to know how many documents have been retrieved before they
+begin reviewing the results. Let them know; if the number is too
+large, they should have the option to refine their search.</p></li><li><p>Let the user know where he or she is in the current retrieval set.</p>
+
+
+<p>It's helpful to let users know that they're viewing
+documents 31- 40 of the 83 total that they've retrieved.</p></li><li><p>Always make it easy for the user to revise a search or start a new
+one.</p>
+
+
+<p>Give them these options on every results page, and display the
+current search query on the Revise Search page so they can modify it
+without reentering it.<a name="INDEX-448" /></p></li></ul>
+</div>
+
+
+<hr align="left" width="684" />
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch06_02.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm"><img alt="Home" src="../gifs/txthome.gif" border="0" /></a></td><td width="228" valign="top" align="right"><a href="ch06_04.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr><tr><td width="228" valign="top" align="left">6.2. Understanding How Users Search</td><td width="228" valign="top" align="center"><a href="index/index.htm"><img alt="Book Index" src="../gifs/index.gif" border="0" /></a></td><td width="228" valign="top" align="right">6.4. In an Ideal World: The Reference Interview</td></tr></table></div>
+<hr align="left" width="684" />
+
+<img alt="Library Navigation Links" src="../gifs/navbar.gif" border="0" usemap="#library-map" />
+<p><font size="-1"><a href="copyrght.htm">Copyright &copy; 2002</a> O'Reilly &amp; Associates. All rights reserved.</font></p>
+
+<map name="library-map"><area href="../index.htm" coords="0,1,78,93"" shape="rect" /><area href="../wdesign/index.htm" coords="89,1,164,98" shape="rect" /><area href="../xhtml/index.htm" coords="172,2,252,105" shape="rect" /><area href="../audio/index.htm" coords="257,1,359,100" shape="rect" /><area href="../css/index.htm" coords="364,2,444,132" shape="rect" /><area href="../action/index.htm" coords="452,1,547,126" shape="rect" /><area href="../infoarch/index.htm" coords="553,4,658,100" shape="rect" /></map>
+
+</body></html>

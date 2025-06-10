@@ -1,0 +1,276 @@
+<html><head><title>Designing Navigation Systems (Information Architecture for the World Wide Web)</title><link href="../style/style1.css" type="text/css" rel="stylesheet" />
+
+<meta name="DC.Creator" content="Peter Morville and " /><meta scheme="MIME" content="text/xml" name="DC.Format" /><meta content="en-US" name="DC.Language" /><meta content="O'Reilly &amp; Associates, Inc." name="DC.Publisher" /><meta scheme="ISBN" name="DC.Source" content="1565922824L" /><meta name="DC.Subject.Keyword" content="stuff" /><meta name="DC.Title" content="Information Architecture for the World Wide Web" /><meta content="Text.Monograph" name="DC.Type" />
+
+</head><body bgcolor="#ffffff">
+
+<img alt="Book Home" src="gifs/smbanner.gif" border="0" usemap="#banner-map" /><map name="banner-map"><area alt="Information Architecture for the World Wide Web" href="index.htm" coords="1,-2,616,66" shape="rect" /><area alt="Search this book" href="jobjects/fsearch.htm" coords="629,-11,726,25" shape="rect" /></map>
+
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch03_03.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm">Information Architecture for the World Wide Web</a></td><td width="228" valign="top" align="right"><a href="ch04_02.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr></table></div>
+<hr align="left" width="684" />
+
+
+
+<h1 class="chapter">Chapter 4. Designing Navigation Systems</h1>
+<div class="htmltoc"><h4 class="tochead">Contents:</h4><p>
+<a href="ch04_01.htm">Browser Navigation Features</a><br />
+<a href="ch04_02.htm">Building Context</a><br />
+<a href="ch04_03.htm">Improving Flexibility</a><br />
+<a href="ch04_04.htm">Types of Navigation Systems</a><br />
+<a href="ch04_05.htm">Integrated Navigation Elements</a><br />
+<a href="ch04_06.htm">Remote Navigation Elements</a><br />
+<a href="ch04_07.htm">Designing Elegant Navigation Systems</a><br /></p></div>
+
+
+
+
+
+
+
+
+
+<p><em>Just wait, Gretel, until the moon rises, and then we shall see
+the crumbs of bread which I have strewn about, they will show us our
+way home again.</em></p>
+<blockquote>
+--Hansel and Gretel
+</blockquote>
+
+
+
+<p>
+<a name="INDEX-183" />
+<a name="INDEX-184" />As our fairy tales
+suggest, getting lost is often a bad thing. It is associated with
+confusion, frustration, anger, and fear. In response to this danger,
+we have developed navigation tools to prevent people from getting
+lost. From bread crumbs to compass and astrolabe to maps, street
+signs, and global positioning systems, people have demonstrated great
+ingenuity in the design and use of navigation tools.</p>
+
+
+<p>We use them to chart our course, to determine our position, and to
+find our way back. They provide a sense of context and comfort as we
+explore new places. Anyone who has driven through an unfamiliar city
+as darkness falls understands the importance that navigation tools
+play in our lives.</p>
+
+
+<p>On the Web, navigation is rarely a life or death issue. However,
+getting lost in a large web site can be confusing and frustrating.
+While a well-designed hierarchical organization scheme will reduce
+the likelihood that users will become lost, a complementary
+navigation system is often needed to provide context and to allow for
+greater flexibility of movement within the site.</p>
+
+
+<p>Navigation systems can be designed to support associative learning by
+featuring resources that are related to the content currently being
+displayed. For example, a page that describes a product may include
+<em class="emphasis">see also</em> links to related products and services
+(this type of navigation can also support a company's marketing
+goals). As users move through a well-designed navigation system, they
+learn about products, services, or topics associated to the specific
+content they set out to find.</p>
+
+
+<p>Any page on a web site may have numerous opportunities for
+interesting <em class="emphasis">see also</em> connections to other areas
+of the site. The constant challenge in navigation system design is to
+balance this flexibility of movement with the danger of overwhelming
+the user with too many options.</p>
+
+
+<p>Navigation systems are composed of a variety of elements. Some, such
+as graphical navigation bars and pop-up menus, are implemented on the
+content-bearing pages themselves. Others, such as tables of contents
+and site maps, provide remote access to content within the
+organization structure. While these elements may be implemented on
+each page, together they make up a navigation system that has
+important site-wide implications. A well-designed navigation system
+is a critical factor in determining the success of your web site.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="sect1"><a name="ch04-29441" />
+<h2 class="sect1">4.1. Browser Navigation Features</h2>
+
+
+<p>
+<a name="INDEX-185" /> <a name="INDEX-186" /> <a name="INDEX-187" />When designing a navigation system, it
+is important to consider the environment the system will exist in. On
+the Web, people use web browsers such as Netscape Navigator and
+Microsoft Internet Explorer to move around and view web sites. These
+browsers sport many built-in navigation features.</p>
+
+
+<p><em class="emphasis">Open URL</em> allows direct access to any page on a
+web site. <em class="emphasis">Back</em> and <em class="emphasis">Forward</em>
+provide a bidirectional backtracking capability. The
+<em class="emphasis">History</em> menu allows random access to pages
+visited during the current session, and <em class="emphasis">Bookmark</em>
+enables users to save the location of specific pages for future
+reference. Web browsers also go beyond the Back button to support a
+"bread crumbs" feature by color-coding hypertext links.
+By default, unvisited hypertext links are one color and visited
+hypertext links are another. This feature helps users understand
+where they have and haven't been and can help them to retrace
+their steps through a web site.</p>
+
+
+<p>Finally, web browsers allow for a prospective view that can influence
+how users navigate. As the user passes the cursor over a hypertext
+link, the destination URL appears at the bottom of the browser
+window, ideally hinting about the nature of that content (see <a href="ch04_01.htm#ch04-14397">Figure 4-1</a>). If files and directories have been carefully
+labeled, prospective view gives the user context within the content
+hierarchy. If the hypertext link leads to another web site on another
+server, prospective view provides the user with basic information
+about this off-site destination.</p>
+
+
+<a name="ch04-14397" /><div class="figure"><img height="375" alt="Figure 4-1" src="figs/info_0401.gif" width="500" /></div><h4 class="objtitle">Figure 4-1. In this example, the cursor is positioned over the Investor Info button. The prospective view window at the bottom shows the URL of the Investor Info page.</h4>
+
+<p>
+<a name="INDEX-188" />Much research, analysis, and testing has
+been invested in the design of these browser-based navigation
+features. However, it is remarkable how frequently site designers
+unwittingly override or corrupt these navigation features. For
+example, designers often modify the unvisited and visited link colors
+with no consideration for the bread crumbs feature. They focus on
+aesthetics, attempting to match link colors with logo colors.
+It's common to see a complete reversal of the blue and purple
+standard. This is a classic sacrifice of usability<a href="#FOOTNOTE-5">[5]</a> for aesthetics and belies a
+lack of consideration for the user and the environment. It's
+like putting up a green stop sign at a road intersection because it
+matches the color of a nearby building.</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-5" /><p>[5]Analysis of a usability test that explored the impact of
+graphic design on users' ability to find information lead to
+the following conclusion: "Of all the graphic design elements
+we looked at, the only one that is strongly tied to user success was
+the use of browser-default link color....Our theory is that use of
+the default colors is helpful because users don't have to
+relearn every time they go to a new site." Jared Spool et al.,
+<em class="emphasis">Web Site Usability</em> (Andover, MA: User Interface
+Engineering, 1997).</p>
+
+</blockquote>
+
+
+<p>Given proper understanding of the aesthetic and usability issues, you
+can in fact modify the link colors and create an intelligent
+balance.<a href="#FOOTNOTE-6">[6]</a> Unfortunately, this convention has been violated so
+frequently, the standard may no longer be standard.</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-6" /><p>[6]For an example, see Michigan Comnet
+at <a href="http://comnet.org/">http://comnet.org/</a>. The link colors have been
+modified slightly to match the logo colors, but the
+red:purple/visited:unvisited link standard is maintained.</p>
+
+</blockquote>
+
+
+<p>
+<a name="INDEX-189" /> <a name="INDEX-190" /> <a name="INDEX-191" /> <a name="INDEX-192" />A second common example of inadvertently
+disabling valuable browser navigation features involves prospective
+view. Image maps have become a ubiquitous navigation feature on web
+sites. The graphic navigation bar allows the aesthetically pleasing
+presentation of navigation options. Unfortunately, server-side image
+maps completely disable the prospective view feature of web browsers.
+Instead of the destination URL preview, the XY coordinates of the
+image map are presented. This information is distracting, not useful.
+Again, a solution that balances aesthetics and usability is
+available. Through an elegant use of tables (or by using client-side
+image maps), you can present a graphical navigation bar that
+leverages the browser-based prospective view feature.</p>
+
+
+<p>Once you are sensitive to the built-in navigation features of web
+browsers, it is easy to avoid disabling or duplicating those
+features. In fact, it is both possible and desirable to find ways to
+leverage them. In designing navigation systems, you should consider
+all elements of that system. Web browsers are an extremely common and
+integral part of the user's navigation experience. From a
+philosophical perspective, we might say that web pages do not exist
+in the absence of a web browser. So, don't override or corrupt
+the browser!<a name="INDEX-193" /> <a name="INDEX-194" /> <a name="INDEX-195" /></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr align="left" width="684" />
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch03_03.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm"><img alt="Home" src="../gifs/txthome.gif" border="0" /></a></td><td width="228" valign="top" align="right"><a href="ch04_02.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr><tr><td width="228" valign="top" align="left">3.3. Creating Cohesive Organization Systems</td><td width="228" valign="top" align="center"><a href="index/index.htm"><img alt="Book Index" src="../gifs/index.gif" border="0" /></a></td><td width="228" valign="top" align="right">4.2. Building Context</td></tr></table></div>
+<hr align="left" width="684" />
+
+<img alt="Library Navigation Links" src="../gifs/navbar.gif" border="0" usemap="#library-map" />
+<p><font size="-1"><a href="copyrght.htm">Copyright &copy; 2002</a> O'Reilly &amp; Associates. All rights reserved.</font></p>
+
+<map name="library-map"><area href="../index.htm" coords="0,1,78,93"" shape="rect" /><area href="../wdesign/index.htm" coords="89,1,164,98" shape="rect" /><area href="../xhtml/index.htm" coords="172,2,252,105" shape="rect" /><area href="../audio/index.htm" coords="257,1,359,100" shape="rect" /><area href="../css/index.htm" coords="364,2,444,132" shape="rect" /><area href="../action/index.htm" coords="452,1,547,126" shape="rect" /><area href="../infoarch/index.htm" coords="553,4,658,100" shape="rect" /></map>
+
+</body></html>

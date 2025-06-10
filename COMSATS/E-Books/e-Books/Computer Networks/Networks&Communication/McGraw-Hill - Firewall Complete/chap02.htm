@@ -1,0 +1,640 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap01.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap03.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1>Chapter 2</H1>
+<H1><I>Basic Connectivity</I></H1>
+
+</B></I><P>As you saw on chapter 1, &quot;Internetworking Protocols and Standards: An Overview,&quot; the popularity of TCP/IP and all the standards and protocols derived from it makes the issue of basic connectivity critical for many organizations. As we realize, there are indeed many ways to get connected on the Internet, some more effective then others due to their ability to interact with a variety of environments and computers.</P>
+<P>Regardless if you look at the Internet as a verb, as internetworking couple LANs or WANs, or you use it as a noun, as comprising two or more different networks, you will have to get down to basics when talking about connectivity and how you will connect clients, servers and networks (LAN and WAN), and ultimately, how you will protect this connections.  We also discussed on chapter 1 about the many protocols used and in use on the Internet, as well as those being developed and proposed (IPv6). But can your organization take advantage of the Internet, or the IP technology for that matter?  What kind of topology you have in your company? How is file transfer, electronic mail, host terminal emulation sessions, hardware integration and most of all, security, handled at your company?</P>
+<P>These are issues that you need to have clear in your mind so that you can communicate with management and MIS in your company and to focus in the technology that you need to effectively deploy your basic connectivity plan, no matter with you are just starting or have a large and complex network system.  When internetworking, you must keep the focus of secure connections and how you intend to deploy it.</P>
+<P>TCP/IP technology will provide the basic connectivity that is needed within any organization as it collects, analyses, and distributes information. Advanced knowledge of rapidly evolving storage technologies will always be essential to accommodate voice, video, and other broad bandwidth sources of information. But you must be ready to chose and deploy the right protocol, the right technology, for the kind of connectivity you need securely, after all, the Internet, as it is discussed later in more details, is a wild place!</P>
+<P>Being the Internet basically a virtual network that allows users to communicate with all connected servers and hosts, as if they were part of a local network, then there is a need for all details of this network to be hidden from all users.  This is were the basic connectivity requirements starts, and the basis on which this virtual network exists is actually provided by the TCP/IP suite.  The many protocols, as seen on Chapter 1, establishes the format and the rules that must be followed for information to be exchanged between systems. But how are services to network users provided and what are the security issues surrounding it?</P>
+<P>TCP/IP defines a wide range of application layer protocols that provide services to network users, including remote login, file copying, file sharing, electronic mail, directory services, and network management facilities. Some application protocols are widely used, others are employed only for specialized purposes. Although throughout this chapter we will only concentrate on some of these protocols and their security weaknesses, the following are the most commonly used TCP/IP application layer protocols:</P>
+
+<UL>
+<B><LI>PING</B> - According to the Computer Dictionary (http://nightflight.com/foldoc/), PING was probably originally contrived to match submariners’ term for the sound of a returned sonar pulse! But actually, this is a program used to test network connectivity by sending them one, or repeated, ICMP echo requests and waiting for replies. Since ping works at the IP level its server-side is often implemented entirely within the operating system kernel and is thus pretty much the lowest level test of whether a remote host is alive. Ping will often respond even when higher level, TCP-based services cannot. </LI>
+<B><LI>TELNET</B> - This is the Internet standard protocol for remote login. It runs on top of TCP/IP.</LI>
+<B><LI>Rlogin</B>  - Similar to TELNET, Rlogin is the 4.2BSD UNIX utility to allow a user to log in on another host via a network. Rlogin communicates with a daemon on the remote host.</LI>
+<B><LI>Rsh</B> - The acronym stands for &quot;Remote shell.&quot; This is a Berkeley UNIX networking command to execute a given command on a remote host, passing it input and receiving its output. Rsh communicates with a daemon on the remote host.</LI>
+<B><LI>FTP</B> - Acronym for File Transfer Protocol, this is a client-server protocol that enables the file transferring between two computers over a TCP/IP network. </LI>
+<B><LI>TFTP</B> - Acronym for Trivial File Transfer Protocol, this is a very similar to FTP, this is a simple file transfer protocol usually used for down-loading boot code to diskless workstations.</LI>
+<B><LI>SMTP</B> - Acronym for Simple Mail Transfer Protocol, this protocol is used to transfer electronic mail between computers.</LI>
+<B><LI>Kerberos</B> -  This is an authentication system developed at MIT, based on symmetric key cryptography.</LI>
+<B><LI>X</B> <B>Windows</B> - A specification for device-independent windowing operations on bitmap display devices.</LI>
+<B><LI>DNS Name</B> - A general-purpose distributed, replicated, data query service chiefly used on Internet for translating hostnames into Internet addresses.</LI>
+<B><LI>NFS</B> - Acronym for Network File System, a protocol that allows a computer to access files over a network as if they were on its local disks.</LI>
+<B><LI>SNMP</B> - Acronym for Simple network Management Protocol, which is the Internet standard protocol to manage nodes on an IP network.</LI></UL>
+
+
+<H2><B><I>What Happened to TTY</LI></H2>
+
+</B></I><P>TTY is actually a TeleTYpe terminal, characterized by a noisy mechanical printer, a very limited character set, and poor print quality. </P>
+<P>But especially in the UNIX world, TTY is characterized as any terminal at all. The term can be used to refer to the particular terminal controlling a given job, besides also being the name of a UNIX command which outputs the name of the current controlling terminal! Also, the term can refer to any serial port, whether or not the device connected to it is a terminal.  I think this happens because under UNIX such devices have names of the form tty*. Yes the term has some ambiguity, so does the way it is still being used nowadays</P>
+<P>For the purpose of focusing on basic connectivity its main usability nowadays, lets stick to TTY as being a device that allows text messages to be converted into speech and vice-versa.  Also called a Telecommunications Device for the Deaf (TDD), this is a terminal device used widely by deaf people for text communication over telephone lines. </P>
+<P>Usually, a relay operator is necessary  to interact between a sender or  receiver without a TTY modem. If someone needs to communicate with a person who has a TTY, the Relay operator will type in what the user is saying on his/her TTY. The information is then "relayed" to the caller without a TTY and vice versa. </P>
+<P>The major difference between a TTY/TDD device and a regular modem is that a TTY uses the BAUDOT coding to communicate and a typical modem will use ASCII. BAUDOT coding is not new and also supports a very limited character number of character set. That is one reason modem manufacturers migrated to ASCII. Also, these device communicate at a very low speed, about 300 or less baud.  Most of TTYs in US communicate at 45.45 bits per second.</P>
+<P>Although standard modems are no compatible to TTY, there are some of TTY modems that support ASCII communications. But again, you may have problems suing them as most of the TTY modems will communicate at a maximum speed of 300 baud, some being as low as 110.</P>
+<P>By the same token, there are modems that will do the ASCII to BAUDOT conversion allowing you a decent level of conversion.</P>
+
+<H2><I> What is the Baudot Code?</I></H2>
+</B></I><P>Extensively used in telegraph systems, the Baudot code was invented by the Emile Baudot in 1870. This asynchronous code uses only five bits, allowing up to 32 different characters. To accommodate all the letters of the alphabet and numerals, two of the 32 combinations were used to select alternate character sets. Table 2.1 shows a list of all the possible characters available in Baudot.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>There is a software, as show on the screenshot of figure 2.1,  that allows you a modem to talk with a TTY modem that has the ASCII mode option turned on.  You can find more information about it at the URL http://tap.gallaudet.edu/asciitdd.htm.</P>
+</TD></TABLE>
+<!--<B><P>Figure 2.1</P>-->
+<!--</B><I><P>Web site of the ASCII-TTY software.</P></I>-->
+<B><P>Table 2.1 - All Possible Characters in Baudot</P></B>
+<TABLE BORDER CELLSPACING=1 BORDERCOLOR="#808080" CELLPADDING=7 WIDTH=295>
+<TR><TD WIDTH="27%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#ffffff"><P>Binary</B></FONT></TD>
+<TD WIDTH="18%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#ffffff"><P>Hex</B></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#ffffff"><P>LTRS</B></FONT></TD>
+<TD WIDTH="27%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#ffffff"><P>FIGS</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00011</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>03</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>A</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>-</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11001</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>19</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>B</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>?</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01110</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0E</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>C</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>:</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01001</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>09</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>D</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>$</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00001</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>01</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>E</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>3</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01101</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0D</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>F</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>!</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11010</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1A</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>G</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>&amp;</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10100</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>14</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>H</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>#</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00110</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>06</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>I</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>8</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01011</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0B</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>J</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>BELL</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01111</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0F</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>K</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>(</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10010</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>12</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>L</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>)</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11100</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1C</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>M</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>.</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01100</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0C</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>N</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>,</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11000</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>18</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>O</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>9</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10110</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>16</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>P</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>0</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10111</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>17</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>Q</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>1</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01010</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>0A</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>R</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>4</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00101</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>05</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>S</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>‘</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10000</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>10</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>T</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>5</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00111</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>07</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>U</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>7</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11110</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1E</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>V</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>;</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10011</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>13</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>W</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>2</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11101</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1D</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>X</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>/</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10101</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>15</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>Y</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>6</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>10001</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>11</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>Z</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>"</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>01000</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>08</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>CR</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>CR</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00010</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>02</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>LF</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>LF</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00100</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>04</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>SP</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>SP</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11111</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1F</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>LTRS</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>LTRS</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>11011</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>1B</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>FIGS</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>FIGS</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<P>00000</TD>
+<TD WIDTH="18%" VALIGN="TOP">
+<P>00</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>Unused</TD>
+<TD WIDTH="27%" VALIGN="TOP">
+<P>Unused</TD>
+</TR>
+</TABLE>
+
+
+<P>Where ‘CR’ is carriage return, ‘LF’ is linefeed, ‘BELL’ is the bell, ‘SP’ is space, and ‘STOP’ is the stop character.</P>
+
+<H2><B><I>UNIX to UNIX CoPy (UUCP)</LI></H2>
+
+</B></I><P>The UNIX to UNIX CoPy (UUCP) is the built-in networking system that comes with every UNIX system, which is basically used to provide access to the Internet off-line. UUCP features are limited in many ways, only allowing the exchange of messages and not providing a remote login facility as TCP/IP does. However, it is still very common among the BBS’s (Bulletin Board System) to allow users to have access to electronic mail, although this feature is very slow and awkward if compared to TCP/IP-based systems.</P>
+<P>Now, within UUCP there is actually very simple program called &quot;uucp.&quot; The basically function of uucp is to copy files from one host to another, but it also allows certain actions to be performed on the remote host. Just make sure not to confuse UUCP with uucp, as the first was named after the later, but are not the same thing. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>These are the key UUCP programs:</P>
+<B><P>uucp</B> - allows the request of file transferring between remote machines </P>
+<B><P>UUX</B> - request command execution on remote machines, mail transfers</P>
+<B><P>UUXQT</B> - process remote requests locally, both uucp and UUX, running on background.</P>
+<B><P>UUCICO</B> - calls and transfers files and requests by UUCP and UUX. Master/Slave configuration</P>
+</TD></TABLE>
+<P>Another property of UUCP is that it allows to forward jobs and files through several hosts, through a chain, provided they cooperate. The most important services provided by UUCP networks these days are electronic mail and news. </P>
+<P>Finally, UUCP is also the medium of choice for many dial-up archive sites which offer public access. You can usually access them by dialing them up with UUCP, logging in as a guest user, and download files from a publicly accessible archive area. These guest accounts often have a login name and password of uucp/nuucp or something similar.</P>
+
+<H2><B><I>SLIP and PPP</LI></H2>
+
+</B></I><P>SLIP or Serial Line Internet Protocol is a communications protocol that supports an Internet connection (i.e., using TCP/IP) over a dial-up line using an RS-232 serial port connected to a modem. </P>
+<P>SLIP modifies a standard Internet datagram By appending a special SLIP END character an Internet datagram, SLIP modifies the datagram, which allows it to be distinguished as separate. SLIP requires a port configuration of 8 data bits, no parity, and hardware flow control. However, SLIP does not provide error detection, and relies on other high-layer protocols for this. Over a particularly error-prone dial-up link therefore, SLIP on its own would not be satisfactory. </P>
+<P>In order to work properly, a SLIP connection must have its IP address configuration set each time before it is established.</P>
+<P>As for PPP or Point-to-Point Protocol,  is a newer protocol that does essentially the same thing SLIP does. However it’s better designed and more acceptable due to its advantages over SLIP. PPP has a number of advantages over SLIP through its design to operate both over asynchronous connections and bit-oriented synchronous systems, and the ability to configure connections to a remote network dynamically, as well as test a link is for connectivity. </P>
+
+<TABLE CELLPADDING=10 CELLSPACING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>NOTE:</B><P>PPP can be configured to encapsulate different network layer protocols (such as IP, IPX, or AppleTalk) by using the appropriate Network Control Protocol (NCP).  For more information, check the URL http://www.virtualschool.edu/mon/DialupIP/slip-ppp.html </P>
+</TD></TABLE>
+
+<H2><B><I>Rlogin</LI></H2>
+
+</B></I><P>Just like TELNET, rlogin connects your terminal on the current local host system lhost to the remote host system rhost. </P>
+<P>Cygnus Solutions (http://www.cygnus.com) has a product called KerbNet, as shown on the screenshot of their site on figure 2.2, that enables a very secure connection using rlogin.</P>
+
+<!--<B><P>Figure 2.2</P>-->
+<!--</B><I><P>Cygnus KerbNet page.  Making networking secure through Kerberos.</P></I>-->
+<P>The version built to use Kerberos authentication is very similar to the standard Berkeley rlogin, except that instead of the `rhosts’ mechanism, it uses Kerberos authentication to determine whether a user is authorized to use the remote account. </P>
+<P>Each user may have a private authorization list in a file `.klogin’ in his login directory. This file functions much like the `.rhosts’ file, by allowing non-local users to access the Kerberos service on the machine where the `.klogin’ file exists. For example, user `joe@EAT.COM’ would normally not be permitted to log in to machines in the `MUSSELS.COM’ realm. However, Joe’s friend `bertha@MUSSELS.COM’ can create a `.klogin’ file in her home directory, that contains the line `joe@EAT.COM’. This allows Joe to log in as Bertha to Bertha’s machine, even though does not have a ticket identifying him as Bertha. </P>
+<P>Each line in this file should contain a Kerberos principal name of the form `principal.instance@realm’. The following are all valid Kerberos principal names. </P>
+<P>If the originating user is authenticated to one of the principals named in `.klogin’, access is granted to the account. The principal `accountname@localrealm’ is granted access if there is no `.klogin’ file.</P>
+<P>Otherwise, a login and password is prompted for on the remote machine as in login. To avoid security problems, the `.klogin’ file must be owned by the remote user. </P>
+<P>If there is some problem in gathering the Kerberos authentication information, an error message is printed and the standard UCB rlogin is executed in place of the Kerberos rlogin. This permits the use of the same rlogin command to connect to hosts that do not use CNS, as well as to host which do.</P>
+
+<H2><B><I>Virtual Terminal Protocol (TELNET)</LI></H2>
+
+</B></I><P>The TELNET protocol is probably on of the most used application protocol to log onto other hosts to obtain or  exchange information. Both computers involved in the connection must use/support the TELNET protocol in order for TELNET to work. The computer that you are connecting to via TELNET will usually prompt you for a username and password; if you are not connecting to a public or general account, you will need to have your own account set up prior to your login.</P>
+<P>There are few connection-oriented security requirements that you should be aware of when TELNETing:</P>
+
+<UL>
+<LI>Confidentiality</LI>
+<LI>Integrity</LI>
+<LI>Peer-entity authentication</LI>
+<LI>Identity-based access control</LI></UL>
+
+
+<P>All these requirements implicitly assume that there is a basic security implemented at a connection level, stream-oriented, using point-to-point application protocol.  But you can not assume that the connection is secure, as not always you will find security mechanisms implemented within the application protocols.  If necessary, you must try to implement security mechanisms at lower layers, such as the transport or the network layers. </P>
+<P>The Transport Layer Security Protocol (TLSP), which became an Internet Standard in July of 1992, is a possible solution for the lack of security of TELNET connections.  TLSP will run under the transport layer and provide security services to TELNET connections on a per-connection basis by providing end-to-end cryptographic encoding directly above the network layer. </P>
+<P>One of the main advantages of relaying on this lower layer security mechanisms is that it can avoid the duplication of security efforts. But again, I’m not sure how many developers or implementation professionals would be willing to introduce new software into operating system kernels. Therefore, you would be better off providing security for TELNET connections at the Application layer than at the Network or Transport layer.</P>
+
+<H2><I> Columbia University’s KERMIT: a Secure and Reliable TELNET Server</I></H2>
+</B></I><P>Information Systems and Technology has come a long way, but many of the main operating systems (OS) do not provide TELNET features that would make its use and security implementations more reliable or at least available. Windows NT 4.0 does have a TELNET interface, as show on figure 2.3, which does a great job, but ever since Windows 95 came out, the comp.os.ms-windows.win95.* newsgroups have been flooded with requests for a "TELNET server" or "TELNET daemon" for Windows 95. </P>
+
+<!--<B><P>Figure 2.3</P>-->
+<!--</B><I><P>Windows NT 4.0 TELNET logon Interface</P></I>-->
+<P>Why? There is a great document at Columbia University’s Web site, at URL http://www.columbia.edu/kermit/k95host.html that discuss this issue and introduce a great product, KERMIT, that does a great job fulfilling the Windows 95/NT user community.</P>
+<P>As the article indicates, people who own Windows 95 systems want to be able to grant access to their friends, relatives, co-workers, customers, or clients – and to themselves -- at other locations even when those coming into the Windows 95 system do not have Windows 95, or any other version of Windows for that matter (!), or even a PC. In situations like this, "remote access" solutions like PcAnywhere can not be used. </P>
+<P>Meanwhile, others want their friends or customers to be able to dial in (not TELNET) to their Windows 95 PCs, because one party or both are not on the Internet. People also have a need for TELNET server for the same security reasons outlined above.  They want to be able to TELNET to a host, a log in. That is, they need a mechanism to provide some form of authentication and access control -- not just a wide-open DOS prompt.</P>
+<P>Columbia University’s Kermit 95 has lots of features to aid a TELNET connection, as well as making it more secure and easy to use. Figure 2.4 gives you a good overview of Kermit 95 (K-95). You can see the K-95 Dialer interface in the background, and the Connection one in front of it with the entry settings highlighted, open to its first page, and finally the session itself, a dialup connection to a BBS. </P>
+<P>Also, figure 2.4 shows in the background, a second session, this one via Internet to a UNIX server, where a piece of a "man page" is showing, to illustrate how the K-95 Dialer can manage multiple sessions. Usually, all you would have to do to open a session would be to double-click on the desired entry.</P>
+
+<!--<B><P>Figure 2.4</P>-->
+<!--</B><I><P>Kermit-95 Dialer and Connection Interface</P></I>-->
+<P>Figure 2.5 shows the terminal settings page of the entry notebook. Kermit provides one of these notebooks for each connection, so each one can have a different emulation, character size, character set, screen size, colors, and so on. All these settings apply equally well to dialup connections and to TELNET or RLOGIN sessions, and they are all applied automatically as part of the connection process. These notebooks give you fully customized one-button access to every dialup and Internet service or computer that you use. </P>
+
+<!--<B><P>Figure 2.5</P>-->
+<!--</B><I><P>The Terminal Settings Notebook Page</P></I>-->
+<P>Figure 2.6 shows how you can give K-95 the information it needs to place your calls correctly, no matter where you are. You don’t have to use any of these features if you always make your calls from the same place, but if you travel around with a laptop, you’ll be amazed at the convenience. Just tell Kermit 95 (or Windows 95) your new location, and all the numbers in the dialing directory will "just work". </P>
+
+<!--<B><P>Figure 2.6</P>-->
+<!--</B><I><P>Setting your Dialing Location</P></I>-->
+<P>Another great feature of K95 is that, unlike many computers or TELNET services that require different codes for backspacing (many times you have to assign the appropriate code to your PC’s backspace), Kermit 95 allows you to assign for each computer or host in your directory their own key settings, specified on the Keyboard tab of its settings notebook, as shown in figure 2.7. </P>
+
+<!--<B><P>Figure 2.7</P>-->
+<!--</B><I><P>The Keyboard setup tab of Kermit-95</P></I>-->
+<P>As also shown on figure 2.7, to solve the Backspace problem, just push the appropriate button. Kermit 95 also allows you to load in an entire custom key map for your whole keyboard if you need to (figure 2.7 shows the Key map for host-based WordPerfect 5.1, which is distributed with Kermit 95). </P>
+<P>Figure 2.8 illustrates some of K-95’s features, such as,</P>
+
+<UL>
+<B><LI>Tall screens</B> - Did you know that in your TELNET sessions without Kermit 95, the Lynx main page is in a 43-line screen?</LI>
+<B><LI>Multi-sized screens</B> - Which are based on the size of the fonts, </LI>
+<B><LI>Ability to display Latin-1 8-bit characters</B> - Figure 2.7 blue screen shows a sample of German font.</LI>
+<B><LI>File transferring</B> - K-95 can actually achieve great transfer rates using long packets and sliding windows, even when, as showing on figure 2.8, the PC is fairly heavily loaded up with other processes.</LI>
+<B><LI>Simultaneous multi-sessions</B> - K-95, as you can see on the same figure, can handle various other sessions simultaneously, such as ANSI terminal emulation on a dialup session to a BBS, plus the ability to customize your screen colors for each session.</LI></UL>
+
+
+<!--<B><P>Figure 2.8</P>-->
+<!--</B><I><P>Kermit-95 multi-session feature</P></I>-->
+<P>Figure 2.9 shows various context-sensitive pop-up help windows in the Terminal screen - "Important Keys", mouse buttons, Compose-key functions.</P>
+
+<!--<B><P>Figure 2.9</P>-->
+<!--</B><I><P>Kermit-95 context-sensitive help screens</P></I>-->
+<H2><I> TELNET Services Security Considerations</I></H2>
+</B></I><P>Despite products such as Kermit or other security mechanisms you’ve implemented, there are potential security measures you should be aware of:</P>
+
+<UL>
+<B><LI>Time out strategies:</LI>
+<LI>Length of TELNET sessions - </B>You can setup the duration of your users’s TELNET session.  The length of time could be based on the type of user or the individual user. For example, guest account using TELNET at your company could have a shorter logon time (5-10 minutes) than technical support, upper management or any other qualified/certified user.</LI>
+<B><LI>Session time-out</B> -  A TELNET session can be setup to time-out if no activity occurs after a specific timeframe.</LI>
+<B><LI>Secure screen savers</B> - You could use a time out screen saver to go off when no activity occurs in a session after a certain period of time.  In this case, unlike session time-out, the TELNET session would remain active on the network, but protected. Users could be warned before time-out occurred.</LI>
+<B><LI>Data protection strategies:</LI>
+<LI>Clearinghouse directories</B> - You should implement corporate wide temporary directories where unverified data entries are saved. Also you should make sure these data would remain unmodifiable by any unauthorized users after entry verified by electronic signature.</LI>
+<B><LI>Protect sensitive data</B> - Make sure to protect sensitive data, by only allowing validated users to access it and reminding every user that all data is confidential.</LI></UL>
+
+
+<H2><I> A Systems Manager Approach to Network Security</I></H2>
+</B></I><P>When we talk about Internet security, what do mean? Do we mean the processes or we mean the results? Do we mean setting up access control and authorization mechanisms or we mean ensuring that users can only perform tasks they are authorized to do, only obtain information they are authorized to have, and are unable to cause damage to any data, applications and operating areas they have access to? I think the later statement defines more of a security environment then the earlier one.</P>
+<P>The issue is that network security calls for protections against malicious attack by hackers and intruders, but security is also associated with controlling and authorization mechanisms and the prevention of the effects of errors and equipment failures.</P>
+<P>This section aims to provide you with specific measures you should take to improve the security of your network. Although it won’t still guarantee a 100% security of your site, you will need more then that, such as cryptography (see chapter 3 &quot;Cryptography: Is it Enough?&quot;) and firewalls, discussed throughout this book, before going into specifics, you must understand who your enemies, your risks and challenges are, as well as what are the basic proactive (not reactive!!) alternatives you can use to prevent a security incident.</P>
+
+<H3> From Who Are You Protecting Your Network?</H3>
+</B><P>Yes, of course you’re protecting your network from hackers, wackers and crackers! But you should consider who these &quot;bandits&quot; might be and want so you can built your security around it.  Thus, you must understand what their motivations are. Also, you must determine what they might want to do and the damage that they could cause to your network.</P>
+<P>But keep in mind that even if you were to put all the security measures together, they would never be able to make it impossible for a user to perform unauthorized tasks with a computer system. They can only make it harder. The idea is to make sure the network security controls are beyond either the attacker’s ability or motivation.</P>
+
+<H3> Is All the Security Efforts Worth?</H3>
+</B><P>Please understand that any security measures you adopt will usually reduce the convenience and accessibility of your services. Security can also delay productivity of your users, as well as systems’ processing (and many times dedicated hardware), besides creating an expensive administrative and educational overhead. </P>
+<P>Therefore, it’s important that when we begin to design our security measures (and we’ll do it later on in this book!), you should understand their costs and weigh those costs against the potential benefits. To do that, you must understand the costs of the measures themselves and the costs and likelihood’s of security breaches. If you incur security costs out of proportion to the actual dangers, you have done yourself a disservice.</P>
+
+<H3> What does Your Gut Feelings Tell You?</H3>
+</B><P>Every security professional, by condition or opinion, has his/her own underlying assumptions. You may feel that you have never being hacked, after all not always you can tell it for sure!  Maybe you assume that you know more than any hacker, or that your security is enough. No matter what your assumptions and gut feelings are, be careful! If you leave it alone and do not validate it any assumption can become a potential security hole.</P>
+
+<H3> Watch for Confidentiality</H3>
+</B><P>I know you’ve heard many times already about confidentiality, but if you stop to think about it, most security policies are based on secrets. Your passwords are secret, so are your encryption keys, right?</P>
+<P>But how secret is secret? Very often, they aren’t! The most important part of keeping secrets is knowing the areas you need to protect and keep secret! Thus, start by asking yourself what knowledge would enable someone to circumvent your system. Once you identify it, be zealous about it! Guard that knowledge and assume that everything else is known to your beloved hackers. But don’t go nuts! The more secrets you have, the harder it will be to keep all of them... secret!</P>
+<P>Your Internet security policy should be developed so that only a limited number of secrets need to be kept, and a selected number of people would need to know it.</P>
+
+<H3> To Err is Human!</H3>
+</B><P>Many security policies fail because they did not considered the human factor. Your users are the ones actually using, enforcing or breaking the security policy, and to them, rules and procedures can be difficult to remember, or they don’t feel it makes sense to be generating &quot;nonsense&quot; passwords every six months, and so on.</P>
+<P>That’s why it is still very common to find passwords written on the undersides of keyboards, modems are connected to a networks without any security measures, to avoid onerous dial-in security procedures, and so forth! The bottom line is that, if your security measures interfere with essential use of the system, those measures will be resisted by your users and they WILL circumvent it! To make sure you get the support of your users, must make sure that your security procedures are not getting in the way of they work, that they are still getting their jobs done without stress.  You’ll need to sell it to them!</P>
+<P>Remember that any user can compromise your security policy and statistically speaking, most security break-ins came from inside, which not necessarily mean from your users, but it means that there was a hole in the security from within.</P>
+<P>Passwords, for instance, can often be found simply by calling the user on the telephone, claiming to be a system administrator, and asking for them. If your users understand security issues, and if they understand the reasons for your security measures, they are far less likely to make a hacker’s life easier. At a minimum, users should be taught never to release passwords or other secrets over unsecured telephone lines (especially cellular telephones) or electronic mail. </P>
+
+<H3> Where is your Achilles Tendon?</H3>
+</B><P>Every network and security policy has vulnerabilities. Yours is not an exception. Since weak points of a system are usually the ones exploited, you must be aware of the areas that present a danger to your security and plug the holes right away. Identifying your network’s weak points is the first step towards developing a sound and secure network.</P>
+
+<H3> The KISS Principle!</H3>
+</B><P>It’s all right that you create appropriate barriers around your network to protect it against the wild Internet.  But don’t forget the KISS (Keep It Simple... Stern!) principle! The security of a system is only as good as the weakest security level of any single host in the system, so understand your environment, how it normally functions, knowing what is expected and what is unexpected, and build your policy around it.</P>
+<P>Keep your eye on unusual events. It can help you to catch intruders before they can damage the system. Use auditing tools to help you to detect those unusual events.</P>
+
+<H2><I> TELNET Session Security Checklist</I></H2>
+
+<UL>
+</B></I><LI>Enforce the use of passwords of at least 8 character and force them to be changed every 6 months</LI>
+<LI>Restrict TELNET sessions and access by password and terminal location</LI>
+<LI>If TELNET sessions are started from home or any other remote location, by telephone dial-up, you should require a second password or a call-back procedure</LI>
+<LI>Passwords should be encrypted</LI>
+<LI>Do not allow the share of passwords!</LI>
+<LI>Log all access by password and network address and construct reports of usage with user name, network address and date (Access audit trail). </LI>
+<LI>Develop user profiles and monitor deviations from the profile. </LI>
+<LI>TELNET users should sign a confidentiality agreement.</LI>
+<LI>Run security test drills periodically with some available security testing programs, and lastly</LI>
+<LI>As shown on figure 2.10, implement a firewall!</LI></UL>
+
+
+<!--<B><P>Figure 2.10</P>-->
+<!--</B><I><P>Filtering TELNET (and FTP) connections</P></I>-->
+<H2> Trivial File Transfer Protocol (TFTP) </H2>
+</B></I><P>TFTP provides file transfer capabilities with minimal network overhead. Although TFTP uses UDP to transport files between network devices, it supports time-out and retransmission techniques to ensure data delivery.</P>
+<P>One of TFTP main weakness is that it allows unauthorized remote access to system or user files because it provides remote access to files, without asking for a password. That’s why TFTP is typically used for the initialization of diskless computers, of X terminals, or of other dedicated hardware. But since the TFTP daemon does not limit access to specific files or hosts, a remote intruder could easily use the service to obtain copies of the password file of other system or user files, or even to remotely overwrite files. </P>
+<P>Therefore, my recommendation is that you restrict TFTP access to only limited subdirectory trees in the hard drive of your server.  Never allow an user to access the root directory of a server, and restrict TFTP access by using a tcp wrapper. </P>
+
+<H2><I> TFTP Security Considerations</I></H2>
+</B></I><P>For security’s sake, TFTP should not be run, but if you must, then use the secure option/flag to restrict access to a directory that has no valuable information, or run it under the control of a chroot wrapper program.</P>
+<P>Another utility you can use is rpcinfo, which can talk to the portmapper and show you if the host is running NIS (and even if it is a NIS server or slave), if a diskless workstation is around, if it is running NFS, and any of the info services (rusersd, rstatd, etc.), as well as any other unusual programs.</P>
+<P>Secure RPC can help you a lot in diminish the threat on your remote connections, but it has its own problems as it is difficult to administer and the cryptographic methods available for it are not strong.  Yes, I know what you’re probably thinking, that NIS+, from Sun, fixes some of these problems.  But have you seeing substantial results? Don’t forget that NIS+ has been limited to running on Suns only!</P>
+<P>The solution?  Here we come with packet filtering again, or firewalls if you prefer. If you filter packets coming on port 111, at the very least, a lot of security incidents can be avoided. </P>
+<P>But don’t rely only on it. The portmapper only knows about RPC services.  Other network services can be located with a brute-force method that connects to all network ports.  Many network utilities and windowing systems listen to specific ports, such as port 25 for sendmail, port 23 for TELNET and port 6000 for X windows. SATAN includes a program that scans the ports of a remote hosts and reports on its findings providing outputs like the ones below:</P>
+
+<PRE><FONT SIZE=3><P>hacker % tcpmap poorsite.com</P>
+<P> Mapping 148.158.28.1</P>
+<P> port 21: ftp</P>
+<P> port 23: telnet</P>
+<P> port 25: smtp</P>
+<P> port 37: time</P>
+<P> port 79: finger</P>
+<P> port 512: exec</P>
+<P> port 513: login</P>
+<P> port 514: shell</P>
+<P> port 515: printer</P>
+<P> port 6000: (X)</P>
+</PRE></FONT>
+<P>This indicates that poorsite.com is running X windows.  If not protected properly (via the magic cookie or xhost mechanisms), window displays can be captured or watched, user keystrokes may be stolen, programs executed remotely, etc.  Also, if the target is running X and accepts a telnet to port 6000, that can be used for a denial of service attack, as the target’s windowing system will often &quot;freeze up&quot; for a short period of time.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you want to get some free security resources from the Internet, try this sites:</P>
+
+<UL>
+<LI>The CERT (Computer Emergency Response Team) advisory mailing list, by sending e-mail to cert@cert.org, and ask to be placed on their mailing list.</LI>
+<LI>The Phrack newsletter.  Send an e-mail message to phrack@well.sf.ca.us and ask to be added to the list.</LI>
+<LI>The Firewalls mailing list.  Send the following line in the body of the message (blank subject line) to majordomo@greatcircle.com: subscribe firewalls</LI></UL>
+
+<P>For free software:</P>
+
+<UL>
+<LI>COPS (Computer Oracle and Password System) is available via anonymous ftp from URL ftp://archive.cis.ohio-state.edu, in pub/cops/1.04+.</LI>
+<LI>The tcp wrappers are available via anonymous ftp from URL ftp://ftp.win.tue.nl, in pub/security.</LI>
+<LI>Crack is available from URL ftp://ftp.uu.net, in /usenet/comp.sources.misc/volume28.</LI></UL>
+
+</TD></TABLE>
+<H2> File Transfer Protocol (FTP)</H2>
+</B></I><P>File Transfer Protocol (FTP) is the primary method of transferring files over the Internet. By using FTP you can transfer files across de globe. Although there are sites or certain areas of a site that requires authentication, usually you can logon to a site anonymously.</P>
+<P>Through the login process you will have to enter your username, which when connecting anonymously is the word &quot;anonymous,&quot; and the password, which usually will be your e-mail address (not a requirement but a custom and netiquette so the sites can track the level of FTP usage). Figure 2.11 shows a login connection to an FTP site, and figure 2.12 shows the authentication process once you’re connected to the site.</P>
+
+<!--<B><P>Figure 2.11</P>-->
+<!--</B><I><P>Connecting to an FTP site</P></I>-->
+<!--<B><P>Figure 2.12</P>-->
+<!--</B><I><P>Being authenticated as anonymous on an FTP site</P></I>-->
+<P>You must be careful with anonymous FTP, which is very similar to have someone logged on with a &quot;guest&quot; account on your network’s server.  Once a hacker is inside your FTP server, he/she can exploit it and put in danger the security of your site, so at the very least, your FTP server should always be outside of a firewall or have no connections to your server or workstations attached to your server.</P>
+
+<H2><B><I>Some of the Challenges of Using Firewalls</LI></H2>
+
+</B></I><P>One of the major challenges of security when internetworking is when protected networks, or Intranets, converge with unprotected ones, such as the Internet.  This convergence forms an internetworked &quot;blob&quot; that can look like figure 2.13.</P>
+
+<!--<B><P>Figure 2.13</P>-->
+<!--</B><I><P>Being authenticated as anonymous on an FTP site</P></I>-->
+<P>The scenario shown on figure 2.13 is a bit confusing, and therefore, very much prompt for security problems.  Thus, corporate IS departments rush to set in place security tools that many times are immature rather then being a complete solution to address the variety of challenges the Internet presents to the corporation’s internetworking. That’s why, usually what we see as a solution for the &quot;blob&quot; is a series of security measures that ends up looking more like a fruit salad then a controllable and efficient Internet security system.  Some of the flavors we find, isolated or combined, include but are not limited to: </P>
+
+<UL>
+<LI>Password-based security</LI>
+<LI>Customized access controls </LI>
+<LI>Encryption schemes</LI>
+<LI>Firewalls</LI>
+<LI>Proxy servers</LI></UL>
+
+
+<P>Well, sometimes we won’t find anything!</P>
+<P>In order to take advantage of the potential the Internet and the Web brings, which includes the tremendous growth of the electronic commerce industry, businesses must be able to:</P>
+
+<UL>
+<LI>Have an open door to the Internet, allowing the exchange of resources and corporate identity, just like a store front needs to have the other open to the public.  By selling its good via a &quot;drive-thru&quot; environment will not last for long.  Nevertheless, while open the Internet door to its internal network, the company must maintain the control over who accesses their internal resources and who doesn’t.</LI>
+<LI>Identify and authenticate customers who use the Internet to access their corporate networks. This includes customers using both e-mail and tunneling connections.</LI>
+<LI>Ensure that private information sent over the public Internet can be transmitted securely for the customer’s and company’s protection.</LI></UL>
+
+<P>These are some of the major challenges in using a firewall effectively, not as part of the blob! We, as what I would call now Internet Managers, have a challenge, which it is also the challenge of this book, to successfully and effectively address the security requirements outlined on figure 2.14, which should be accomplished by the time you finish reading it.</P>
+
+<!--<B><P>Figure 2.14</P>-->
+<!--</B><I><P>Security Requirements of an Organization.</P></I>-->
+<H2> Increasing Security on IP Networks</H2>
+</B></I><P>As you realized by now, network security is a broad topic that can be addressed at the data link, where packet snooping and encryption problems can occur, at the network or protocol layer, the point at which we control IP packets and routing updates, and at the application layer, where, for example, host-level bugs become issues.</P>
+<P>As you and your organization have more and more access to the Internet, and as you expand your organization’s networks, the challenge you have to provide security for your LAN/WAN and Intranets becomes increasingly difficult. You will have to determine which areas of your network you must protect, learn how to restrict your internal (and external users and customers) user access to these areas, and determine which types of network services you should filter to prevent potential security breaches.</P>
+<P>Chapters one and this chapter addressed the many characteristics and security issues of IP protocols and services.  This chapter also identified several weaknesses at the IP protocol and services level, but also provided alternatives for increasing security on the IP networks as well as few features and processes you can use to enhance the security level of your site. These features included controls to restrict access to routers and communication servers by way of console port, Telnet, SNMP, and so on.  But those measures are not enough, so you must consider implementing firewalls. Although firewall concepts were introduced on chapter one, much more on its architecture and setup needs to be discussed, but before we do that, lets take a look at few other alternatives widely and effectively used: cryptography. After all, a question remains: is it enough?  That’s what chapter three is all about.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap01.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap03.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>

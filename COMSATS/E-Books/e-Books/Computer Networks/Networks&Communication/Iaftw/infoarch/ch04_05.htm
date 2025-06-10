@@ -1,0 +1,272 @@
+<html><head><title>Integrated Navigation Elements (Information Architecture for the World Wide Web)</title><link href="../style/style1.css" type="text/css" rel="stylesheet" />
+
+<meta name="DC.Creator" content="Peter Morville and " /><meta scheme="MIME" content="text/xml" name="DC.Format" /><meta content="en-US" name="DC.Language" /><meta content="O'Reilly &amp; Associates, Inc." name="DC.Publisher" /><meta scheme="ISBN" name="DC.Source" content="1565922824L" /><meta name="DC.Subject.Keyword" content="stuff" /><meta name="DC.Title" content="Information Architecture for the World Wide Web" /><meta content="Text.Monograph" name="DC.Type" />
+
+</head><body bgcolor="#ffffff">
+
+<img alt="Book Home" src="gifs/smbanner.gif" border="0" usemap="#banner-map" /><map name="banner-map"><area alt="Information Architecture for the World Wide Web" href="index.htm" coords="1,-2,616,66" shape="rect" /><area alt="Search this book" href="jobjects/fsearch.htm" coords="629,-11,726,25" shape="rect" /></map>
+
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch04_04.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm">Information Architecture for the World Wide Web</a></td><td width="228" valign="top" align="right"><a href="ch04_06.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr></table></div>
+<hr align="left" width="684" />
+
+
+<h2 class="sect1">4.5. Integrated Navigation Elements</h2>
+
+
+<p>
+<a name="INDEX-237" /> <a name="INDEX-238" />In global and local navigation systems,
+the most common and important navigation elements are those that are
+integrated into the content-bearing pages of the web site. As users
+move through the site or sub-site, these are the elements they see
+and use again and again. Most integrated navigation elements fit into
+one of two categories: navigation bars and pull-down menus.</p>
+
+
+<a name="ch04-8-fm2xml" /><div class="sect2">
+<h3 class="sect2">4.5.1. Navigation Bars</h3>
+
+
+<p>
+<a name="INDEX-239" />You can implement navigation bars in many
+ways and use them for the hierarchical, global, and local navigation
+systems. In simplest form, a <a name="INDEX-240" />
+<a name="INDEX-241" />navigation bar is a collection of
+hypertext links grouped together on a page. Alternatively, the
+navigation bar may be graphical in nature, implemented as an image
+map or as graphic images within a table structure.</p>
+
+
+<p>The decision to use text versus <a name="INDEX-242" />graphic navigation bars falls primarily
+within the realms of graphic design and technical performance rather
+than information architecture. Graphic navigation bars tend to look
+nicer but can significantly slow down the page loading speed
+(although, if you're able to reuse the same global navigation
+bar throughout the site, loading speed will only be hurt once, since
+the image will be cached locally). If you do use graphic navigation
+bars, you need to be sensitive to the needs of users with low
+bandwidth connections. You should also consider those users with
+text-only browsers (there are still quite a few out there) and those
+users with high-end browsers who turn off the graphical capabilities
+to get around more quickly. Appropriate use of the &lt;ALT&gt;
+attribute to define replacement text for the image will ensure that
+your site supports navigation for these users.</p>
+
+
+<p>
+<a name="INDEX-243" />However, key issues related to the
+architecture should also influence this decision. For example, it is
+usually much easier to add options to a text menu than a
+graphic-based menu. If you anticipate substantial growth or change in
+a particular area, it may make sense to employ a textual navigation
+bar, like the one in <a href="ch04_05.htm#ch04-40132">Figure 4-10</a>. Cost is also an
+issue, since graphic navigation bars require more work to create and
+change than text-based bars. In many cases, you might employ a
+graphic bar for global navigation and a textual menu for local
+navigation. A good graphic designer will strike an elegant balance
+between form and function in creating these navigation bars.</p>
+
+
+<a name="ch04-40132" /><div class="figure"><img height="382" alt="Figure 4-10" src="figs/info_0410.gif" width="500" /></div><h4 class="objtitle">Figure 4-10. C/Net provides a high-profile example of the use of text-based navigation options.</h4>
+
+<p>
+<a name="INDEX-244" />
+<a name="INDEX-245" />It is often best to place the navigation bar towards the top and/or bottom of the page, rather than at the side.<a href="#FOOTNOTE-9">[9]</a> Placement at the top provides immediate access to the navigation system as well as an instant sense of context within the site. This supports the scenario in which a user quickly scans the first paragraph and decides to move on to other areas of the site. Placement at the bottom assumes navigation once the page has been fully read. Placement at both the top and bottom should be determined by the length of the content.</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-9" /><p>[9]One usability study showed that "Sites with navigation buttons or links at the top and bottom of pages did slightly better than sites with navigation buttons down the side of the page." Spool et al., 24.</p>
+
+</blockquote>
+
+
+
+
+
+<p>
+<a name="INDEX-246" />
+<a name="INDEX-247" />Graphical navigation bars may employ several
+techniques for conveying content and context, including textual
+labels and icons. Textual labels are the easiest to create and by far
+most clearly indicate the contents of each option. Icons, on the
+other hand, are relatively difficult to create and often fail to
+indicate the contents of each option. It's difficult to
+represent abstract concepts through images. A picture may say a
+thousand words, but often they're the wrong words. Icons can
+successfully be used to complement the <a name="INDEX-248" />
+<a name="INDEX-249" />textual labels. Since repeat users may
+become so familiar with the icons that they no longer take the time
+to read the textual labels, icons are useful in facilitating rapid
+menu selection for them. See <a href="ch04_05.htm#ch04-20323">Figure 4-11</a> for an
+example.</p>
+
+
+<a name="ch04-20323" /><div class="figure"><img height="192" alt="Figure 4-11" src="figs/info_0411.gif" width="448" /></div><h4 class="objtitle">Figure 4-11. This navigation bar, which appears at the bottom of the page, demonstrates an interesting blend of graphic icons (with labels) and textual options. The global navigation icons provide a splash of color, while their labels ensure usability. The textual local navigation options allow for the creation of many footer navigation bars without restrictive costs.</h4>
+
+<p>However, hidden minefields may plague an iconic system. First, the
+Internet's global nature introduces the potential for confusion
+or even anger, since an image may have very different meanings from
+one culture to another. Second, the iconic system may work well for a
+limited number of menu options, but if the decision is made to add
+one or more options, creating an appropriate icon can be very
+challenging. While icons certainly work well sometimes, the skillful
+use of a color system can facilitate rapid menu selection without the
+inherent problems of iconic systems. (For more about the use of
+icons, see <a href="ch05_01.htm">Chapter 5, "Labeling Systems"</a>.)<a name="INDEX-250" /></p>
+</div>
+
+
+
+
+<a name="ch04-9-fm2xml" /><div class="sect2">
+<h3 class="sect2">4.5.2. Frames</h3>
+
+
+<p>
+<a name="INDEX-251" /> <a name="INDEX-252" />Frames
+present an additional factor to consider in the application of
+textual or graphical navigation bars. Frames allow you to define one
+or more independently scrollable "panes" within a single
+browser window. Hypertextual links within one pane can control the
+content displayed in other panes within that same window. This
+enables the designer to create a static or independently scrolling
+navigation bar that appears on every page in that area of the web
+site. This frame-based navigation bar will be visible to the user in
+the same location in the browser window even while scrolling through
+long documents. By separating the navigation system from content in
+this way, frames can provide added context and consistency as users
+navigate a web site.</p>
+
+
+<p>However, frames present several serious problems, both from the
+consumer's and producer's perspective. Architects should
+proceed very carefully in considering frame-based navigation
+solutions. Let's review a few of the major considerations.</p>
+
+
+<a name="ch04-10-fm2xml" /><div class="sect3">
+<h3 class="sect3">4.5.2.1. Screen real estate</h3>
+
+
+<p>
+<a name="INDEX-253" />Static navigation bars implemented
+through frames often take up significant portions of valuable screen
+real estate (see <a href="ch04_05.htm#ch04-33604">Figure 4-12</a>). No matter how far the
+user scrolls, the navigation bar always stays with them. The addition
+of winking, blinking banner advertisements into the static navigation
+bar often compounds this problem. On a large, high resolution monitor
+this may be only a minor irritation. On a standard 640 x 480 monitor,
+these frames can be really annoying. If you're going to use a
+frame-based navigation bar, keep it relatively small and
+non-obtrusive. You should also consider a vertical rather than
+horizontal frame, since left-to-right reading lends itself to narrow
+text columns like those found in newspapers and magazines.</p>
+
+
+<a name="ch04-33604" /><div class="figure"><img height="299" alt="Figure 4-12" src="figs/info_0412.gif" width="499" /></div><h4 class="objtitle">Figure 4-12. <em class="emphasis">The</em> Wall Street Journal's Interactive Edition makes use of frames. It's a relatively elegant implementation, but it limits screen real estate and disables basic navigation features.</h4>
+</div>
+
+
+
+<a name="ch04-11-fm2xml" /><div class="sect3">
+<h3 class="sect3">4.5.2.2. The page model</h3>
+
+
+<p>
+<a name="INDEX-254" />
+<a name="INDEX-255" />
+<a name="INDEX-256" />The Web is built upon a model of
+pages, with each page having a unique address or URL. Users are
+familiar with the concept of pages. Frames confuse this issue, by
+slicing up pages into independent panes of content. By violating the
+page model, the use of frames frequently disables important browser
+navigation features such as bookmarking, visited and unvisited link
+discrimination, and history lists. Frames can also confuse and
+frustrate users executing simple tasks such as using the back button,
+reloading a page, and printing a page. While web browsers have
+improved in their ability to handle frames, they can't remove
+the confusion caused by violating the page model.</p>
+</div>
+
+
+
+<a name="ch04-12-fm2xml" /><div class="sect3">
+<h3 class="sect3">4.5.2.3. Display speed</h3>
+
+
+<p>
+<a name="INDEX-257" /> <a name="INDEX-258" />Right off the bat, a web page with
+multiple panes will take a hit on display speed. Since each pane is a
+separate file with its own URL, loading and displaying each pane
+requires a separate client-server interaction. In other words, the
+user spends a lot of time watching "Host Contacted"
+messages fly by at the bottom of the screen. This problem is
+compounded by heavy graphics use.</p>
+</div>
+
+
+
+<a name="ch04-13-fm2xml" /><div class="sect3">
+<h3 class="sect3">4.5.2.4. Complex design</h3>
+
+
+<p>In theory, there are some compelling reasons to try frames. You can
+make global navigation bars or section headers (or advertisements)
+visible to the user at all times. However, in practice, designing
+user-friendly web sites using frames is quite challenging. Frames add
+a layer of complexity that many architects and designers deal with
+unsuccessfully. You must think about the multiple ways users will
+access your frame-based documents. What if they come from another
+frame-based document? Then you face the danger of frames within
+frames. In addition, while most web browsers now support frames,
+different browsers on different computer platforms display the frames
+and their contents slightly differently. This requires more testing
+and more careful design. Before using frames, make sure you consider
+the additional overhead in architecture and design.</p>
+</div>
+</div>
+
+
+
+
+<a name="ch04-14-fm2xml" /><div class="sect2">
+<h3 class="sect2">4.5.3. Pull-Down Menus</h3>
+
+
+<p>
+<a name="INDEX-259" />
+<a name="INDEX-260" />Pull-down menus compactly provide for
+many navigation options. The user can expand what appears as a
+single-line menu to present dozens of options (as shown in <a href="ch04_05.htm#ch04-40216">Figure 4-13</a>). The most common pull-down menus on the Web
+are implemented using the standard interactive forms syntax. Users
+must choose an option from the menu and then hit a Go or Submit
+button to move to that destination.</p>
+
+
+<a name="ch04-40216" /><div class="figure"><img height="611" alt="Figure 4-13" src="figs/info_0413.gif" width="500" /></div><h4 class="objtitle">Figure 4-13. This pull-down menu enables users to select a location without first going to a separate web page. This approach avoids further cluttering the main page with a long list of locations.</h4>
+
+<p>You can implement a more sophisticated version of the pull-down menu
+(also know as the <em class="emphasis">pop-up
+menu</em>
+<a name="INDEX-261" />) on the Web by using a programming
+language such as Java or JavaScript. As the user moves the cursor
+over a word or area on the page, a menu pops up. The user can
+directly select an option from that menu.</p>
+
+
+<p>Use pull-down and pop-up menus with caution. These menus allow
+designers to pack lots of options on one page. This is usually what
+you are working hard to avoid. Additionally, menus hide their options
+and force the user to act before being able to see those options.
+However, when you have a very straightforward, exact organization
+scheme, these menus can work <a name="INDEX-262" /> <a name="INDEX-263" /> <a name="INDEX-264" /> <a name="INDEX-265" />well.<a name="INDEX-266" /> <a name="INDEX-267" /></p>
+</div>
+
+
+<hr align="left" width="684" />
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch04_04.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm"><img alt="Home" src="../gifs/txthome.gif" border="0" /></a></td><td width="228" valign="top" align="right"><a href="ch04_06.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr><tr><td width="228" valign="top" align="left">4.4. Types of Navigation Systems</td><td width="228" valign="top" align="center"><a href="index/index.htm"><img alt="Book Index" src="../gifs/index.gif" border="0" /></a></td><td width="228" valign="top" align="right">4.6. Remote Navigation Elements</td></tr></table></div>
+<hr align="left" width="684" />
+
+<img alt="Library Navigation Links" src="../gifs/navbar.gif" border="0" usemap="#library-map" />
+<p><font size="-1"><a href="copyrght.htm">Copyright &copy; 2002</a> O'Reilly &amp; Associates. All rights reserved.</font></p>
+
+<map name="library-map"><area href="../index.htm" coords="0,1,78,93"" shape="rect" /><area href="../wdesign/index.htm" coords="89,1,164,98" shape="rect" /><area href="../xhtml/index.htm" coords="172,2,252,105" shape="rect" /><area href="../audio/index.htm" coords="257,1,359,100" shape="rect" /><area href="../css/index.htm" coords="364,2,444,132" shape="rect" /><area href="../action/index.htm" coords="452,1,547,126" shape="rect" /><area href="../infoarch/index.htm" coords="553,4,658,100" shape="rect" /></map>
+
+</body></html>

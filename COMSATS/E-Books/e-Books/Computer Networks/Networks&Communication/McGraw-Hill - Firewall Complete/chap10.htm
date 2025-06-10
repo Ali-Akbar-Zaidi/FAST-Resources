@@ -1,0 +1,554 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap09.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap11.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 10</H1>
+<H1><I> Putting It Together: Firewall design and Implementation</I></H1>
+</B></I><P>This chapter discusses what you need to know about firewalls and its implementations.  In some ways it complements chapter 7, &quot;What is an Internet/Intranet Firewall After All?,&quot; as it goes beyond the basic concepts discussed on that chapter.  This chapter reviews the different firewall technologies used today, their strengths and their weaknesses, and the tradeoffs involved when designing a firewall system and implementing it to your specific application and corporate needs.</P>
+
+<H2> Reviewing the Basics</H2>
+</B></I><P>We discussed on chapter 7 that firewalls helps to protect private networks from unauthorized intruders. But there are many firewalls available on the market, as someone said once, &quot;from the basement-brewed firewalls to the me-too firewalls from the larger manufacturers.&quot; Chapter 14, &quot;Types of Firewalls and Products on the Market&quot; gives you an extensive list of all the major firewall vendors, their products and in-depth details and discussion about the product strength, pros and cons. When reviewing those products, keep in mind that the underlying technology used in the firewalls is very important to the security and integrity of the firewalls.</P>
+<P>As you already know, unless you skipped chapter 7, which I recommend to get back there, there are currently two main firewall technologies: packet filtering and application level. But we also discussed that depending on the technology employed, firewalls can be classified in four categories: </P>
+
+<UL>
+<B><LI>Packet filters</B> - This type of firewall provide access control at the IP layer and either accept, reject or drop packets based mainly on source, destination network addresses and the type of applications. Packet filtering firewalls provide a simple level of security at a relatively inexpensive price. These type of firewalls also provide a high level of performance and are normally transparent to the users. </LI>
+<B><LI>Weaknesses of packet filtering firewalls:</LI></UL>
+
+<OL>
+
+<OL>
+
+</B><LI>They are vulnerable to attacks aimed at protocols higher than the network level protocol, which is the only level they understand.</LI>
+<LI>Since the network level protocol requires certain knowledge of its technical details, and not every administrator have them, packet filtering firewalls are usually more difficult to configure and verify, which increases the risks for systems misconfigurations, security holes and failures.</LI>
+<LI>They cannot hide the private network topology and therefore expose the private network to the outside world.</LI>
+<LI>These firewalls have very limited auditing capabilities, and as you know, auditing should play a major role in the security policy of your company.</LI>
+<LI>Not all Internet applications are supported by packet filtering firewalls.</LI>
+<LI>These firewalls not always support some of the security policies clauses such as user-level authentication and time-of-day access control.</LI></OL>
+</OL>
+
+
+<UL>
+<B><LI>Application-level firewalls</B> - Application-level firewalls provide access control at the application-level layer. Thus, it act as application-level gateways between two networks. Since application level firewalls function at the application layer, they have the ability to examine the traffic in detail, making them more secure than packet filtering firewalls. Also, this type of firewall are usually slower than packet filtering due to their scrutiny of the traffic. Thus, to some degree they are intrusive, restrictive and normally require users to either change their behavior or use specialized software in order to achieve policy objectives. Application-level firewalls are thus not transparent to the users.</LI>
+<B><LI>Advantages of application-level firewalls:</LI></UL>
+
+<OL>
+
+<OL>
+
+</B><LI>Since they understand application-level protocol, they can defend against all attacks.</LI>
+<LI>They are usually much easier to configure then packet filtering ones, as they don’t require you to know all the details about the lower level protocols.</LI>
+<LI>They can hide the private network topology.</LI>
+<LI>They have full auditing facilities with tools to monitor the traffic and manipulate the logs files which contain information such as source, destination network addresses, application type, user identification and password, start and end time of access, and the number of bytes of information transferred in all directions.</LI>
+<LI>They can support more security policies including user-level authentication and time-of-day access control.</LI></OL>
+</OL>
+
+
+<UL>
+<B><LI>Hybrid firewalls</B> - Realizing some of these weaknesses with packet filtering and application-level firewalls, some vendors have introduced hybrid firewalls which combine both packet filtering with application-level firewall techniques. While these hybrid products attempt to solve some of the weaknesses mentioned above, they introduce some of the weaknesses inherent in application-level firewalls as outlined above. </LI>
+<B><LI>Weakness of hybrid firewalls:</LI></UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+</B><P>1. Since hybrid firewalls still rely on packet filtering mechanisms to support certain applications, they still have the same security weaknesses</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+<B><LI>Second-generation application-level firewalls - </B>This type of firewall is still being an application-level firewall, only that in its so called second generation, which solves the transparency problem of its earlier version without compromising performance. </LI>
+<B><LI>Advantages of second generation application-level firewalls</B>:</LI></UL>
+
+<OL>
+
+<OL>
+
+<LI>They can be used as an Intranet firewall due to their transparency and generally higher performance. </LI>
+<LI>They can provide full network address translation in addition to network topology hiding.</LI>
+<LI>They can support more advanced user-level authentication mechanism.</LI></OL>
+</OL>
+
+
+<H2> Selecting a Firewall</H2>
+</B></I><P>Before you start selecting a firewall from chapter 14, you should develop a corporate security policy, as discussed on chapter 7, and then select the firewall that can be used to implement the chosen policy. When evaluating firewalls, care must be taken to understand the underlying technology used in the firewall as some firewall technologies are inferior in security to others.</P>
+<P>The basic concept of a firewall will always be the same, so you should evaluated a firewall based on the level of security and implementation features it offers. When I say security features I mean the ability a firewall product has to deliver security based and consistent to your corporate security objectives and policy. The following are some of the characteristics you should be looking for in a firewall:</P>
+
+<UL>
+<B><LI>Security Assurance</B> - Independent assurance that the relevant firewall technology fulfills its specifications and assurance that it is properly installed.  Is the firewall product certified by the National Computer Security Association (NCSA - http://www.ncsa.com/) What about the Communications Security Establishment (CSE) evaluation, does it has one?</LI>
+<B><LI>Privilege Control</B> - The degree to which the product can impose user access restrictions.</LI>
+<B><LI>Authentication</B> - What kind of access control the product provides?  Does it supports authorizations?  What about authentication techniques. These techniques include security features such as source/destination computer network address authentication, password authentication, access control cards, and fingerprint verification devices.</LI>
+<B><LI>Audit Capabilities</B> - The ability of the product to monitor network traffic, including unauthorized access attempts, generate logs, and provide statistical reports and alarms.</LI></UL>
+
+
+<P>As for implementation features, you should be looking for the ability a product has to satisfy your network management requirements and concerns. A good firewall product should be:</P>
+
+<UL>
+<B><LI>Flexibility</B> - The firewall should be open enough to accommodate the security policy of your company, as well as allow for changes in the feature.  Remember, a security policy should very seldom change, but security procedures should always be reviewed, especially in light of Internet and Web-centric new applications!</LI>
+<B><LI>Performance</B> - A firewall should be fast enough so that users wouldn’t feel the screening of packets. The volume of data throughput and transmission speed associated with the product should be reasonable enough, consistent to your bandwidth to the Internet.</LI>
+<B><LI>Scalability</B> - Is the firewall scaleable? The product should be able to adapt to multi-platforms and instances within your protected network.  This includes OSs, machines and security configurations.</LI></UL>
+
+
+<P>As far as integrated features, look for the ability of an firewall to meet your and users needs, such as:</P>
+
+<UL>
+<B><LI>Ease of Use</B> - The firewall product should ideally have a Graphical User Interfaces (GUI), which simplifies your job when installing, configuring and managing it.</LI>
+<B><LI>Transparency</B> - How transparent is the firewall product to your user? If you adopt a confuse system to use, then the users will develop resistance against it and will end up not using it. Conversely, the more transparent the firewall is to your users, the more likely it will be for them to support you and use it appropriately.</LI>
+<B><LI>Customer Support</B> - The extent to which a vendor supports customer needs, such as providing prompt access to technical expertise for installation, use and maintenance, and comprehensive training courses.</LI></UL>
+
+
+<H2> Considerations About the Security Policy</H2>
+</B></I><P>A security policy is very important when setting up a firewall at your company, as it outlines what assets you consider worth protecting and what actions or risk management procedures you must cover in order to protect your corporate assets. </P>
+<P>Network security policies often must integrate security issues from all previous policies. Usually companies seek outside assistance when first creating their network security policy. </P>
+<P>The following is a boiler plate for you to use when creating a security policy.  Make sure to add or remove any item that don’t apply to your environment:</P>
+<B><P ALIGN="CENTER">&quot;Your Company Name&quot; Security Policy</P></B>
+<OL TYPE="I">
+
+<LI>Security Policy</LI></OL>
+
+<P>&#9;Definition</P>
+<P>&#9;Reasons for adopting a security policy</P>
+<P>&#9;Mission statement</P>
+<OL START=2 TYPE="I">
+
+<LI>Security Policy and Procedures</LI></OL>
+
+<P>&#9;How should it be reenforced</P>
+<P>&#9;Support from upper management</P>
+<P>&#9;Special circumstances and exceptions to the rule</P>
+<P>&#9;Need for upper management approval</P>
+<OL START=3 TYPE="I">
+
+<LI>Development of General Security Policy</LI></OL>
+
+<P>&#9;Objectives and security goals</P>
+<P>&#9;Definitions</P>
+<P>&#9;General security policy and procedures:</P>
+<P>&#9;&#9;About the networks</P>
+<P>&#9;&#9;About the Intranet</P>
+<P>&#9;&#9;About the Internet</P>
+<P>&#9;&#9;About the Extranet</P>
+<P>&#9;&#9;About telecommuters</P>
+<P>&#9;&#9;About remote users</P>
+<P>&#9;&#9;About Application use</P>
+<P>&#9;&#9;About hardware use</P>
+<OL START=4 TYPE="I">
+
+<LI>Security Profile</LI></OL>
+
+<P>&#9;Of desktops and workstations</P>
+<P>&#9;Of networks</P>
+<P>&#9;Of Intranet</P>
+<P>&#9;Of Internet</P>
+<P>&#9;Of Extranet</P>
+<P>&#9;Of applications</P>
+<P>&#9;Of telecommuters</P>
+<P>&#9;Of remote users</P>
+<OL START=5 TYPE="I">
+
+<LI>Profile of Threats and Countermeasure</LI></OL>
+
+<P>&#9;Viruses</P>
+<P>&#9;Worms</P>
+<P>&#9;Applets</P>
+<P>&#9;Trojan Horses</P>
+<P>&#9;Security holes</P>
+<P>&#9;Espionage</P>
+<OL START=6 TYPE="I">
+
+<LI>Developing Specific Rules and Procedures</LI></OL>
+
+<P>&#9;For the company</P>
+<P>&#9;For personnel</P>
+<P>&#9;For wiring</P>
+<P>&#9;For networks</P>
+<P>&#9;For logistics</P>
+<P>&#9;For Operations</P>
+<P>&#9;For workstations</P>
+<P>&#9;For servers</P>
+<P>&#9;For remote access services</P>
+<OL START=7 TYPE="I">
+
+<LI>Technical Support</LI></OL>
+
+<P>&#9;Common goals and mission statement</P>
+<P>&#9;Specific goals and procedures</P>
+<P>&#9;Procedures for auditing corporate security</P>
+<OL START=8 TYPE="I">
+
+<LI>Auditing Policy</LI></OL>
+
+<P>&#9;Automatic generation of login reports</P>
+<P>&#9;Security checklist</P>
+<OL START=9 TYPE="I">
+
+<LI>Technology Policy and Procedures</LI></OL>
+
+<P>&#9;Adopted access control mechanisms</P>
+<P>&#9;Firewall and proxy servers</P>
+<P>&#9;Security management</P>
+<P>&#9;Risk management and control</P>
+
+<H2><I> Issues to Consider About Physical Security</I></H2>
+</B></I><P>Network security interacts with physical security because the size or shape of the network "machine" or entity can span a building, campus, country or the world due to interconnections and trust relationships. The weakest link in an international network, for example, may be the fact that a serial-line maintenance cable passes over a public restroom at corporate headquarters! Physical security policy may have to be updated, and the physical policy must be taken into account when creating the network policy. </P>
+
+<H2><I> Issues to Consider About Access Control</I></H2>
+</B></I><P>Access control explicitly decides for each packet of network traffic whether or not it is allowed and what action is appropriate. A firewall determines if the packet or session is consistent with it's copy of the security policy.</P>
+<P>With a sufficiently powerful policy engine, the firewall can implement fine-grained (and therefore more secure) polices. Good policy engines impose the fewest restrictions on which policies they can implement. Good access control includes managing remote access and enables administrators to provide more or less access to users depending on from where they are working. </P>
+
+<H2><I> Issues to Consider About Authentication</I></H2>
+</B></I><P>Authentication is how users to the network infrastructure who they are. The type of authentication used varies depending on from where users are authenticating. From their desk, a simple user id and password may be sufficient because of the accompanying physical security. When connection to the firewall from the Internet, a token-based authentication may be necessary. </P>
+
+<H2><I> Issues to Consider About Encryption</I></H2>
+</B></I><P>Encryption can ensure data integrity or protect sensitive information sent over insecure lines. Such protection is usually essential for remote access to important company assets or as extra protection when using company Intranet. </P>
+<P>A serious issue with encryption is how to manage the "keys." Keys are used to encrypt and decrypt the data. If you have only one or two connections that must be encrypted, then manual key distribution is fine. If you have 100's or 1,000's of keys to distribute, then only automated key management will work. Manual distribution of large numbers of key is too insecure or costly. </P>
+
+<H2><I> issues to Consider About Security Auditing </I></H2>
+</B></I><P>Once a security policy has been implemented, it must be periodically checked to ensure that all components and employees are in compliance. Without sufficient auditing, a company may have no legal recourse if there is a security breach. Auditing can also find problems before they turn into security breaches. Auditing and monitoring products are relatively new so many tasks must still be done manually and less frequently than desired. </P>
+
+<H2><I> Issues to Consider About Training</I></H2>
+</B></I><P>You must train your users about the information system in place, from the desktop, and applications to the network and access to the Internet. Otherwise they will be one of the most serious threat to your network security. If your users do not understand the power and proper use of your network, then they can unintentionally compromise security. In particular, employees must manage passwords properly and recognize when someone asks them for inappropriate information about the network. </P>
+
+<H2> </A></A>Responding to an Incident: Your Network Under Attack</H2>
+</B></I><P>It is very hard for you to detect if your site has been broken-in to.  If your site was been broken by a hacker, chances are you would never know!  They are very difficult to be detected!  If it was broken by a cracker, you may be able to trace it more easily.</P>
+<P>Fortunately, for those of you using an UNIX systems, there is a program called &quot;tripwire,&quot; that can perform periodical scans in your system to detect if any system files or programs have been modified. But this is not enough to prevent a hacker to invade your system and not every operating system platforms have tools like tripwire.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Tripwire is distributed free of charge.  If interested in downloading it, try URL: ftp://coast.cs.purdue.edu/pub/COAST/Tripwire/</P>
+</TD></TABLE>
+<P>Another quick check you can do is to check your access and error log files for suspicious activity. Look for traces of system commands such as "rm", "login", "/bin/sh" and "Perl."  </P>
+<P>For those on Windows NT platform, check the Security log in the Event Log periodically, looking for suspicious activities.</P>
+<P>Also, hackers usually try to trick a CGI script into invoking a command by entering long, very long lines in URL requests with the purpose to overrun a program’s input buffer.  Lastly, look for repeated failed attempts to access a password or section protected by passwords.  Overall, these could be an indication that someone is trying to break-in to your site.</P>
+<P>Sites are been broken-in to more and more every day.  As the technology, specially the Web technology, changes so rapidly, systems become obsolete or vulnerable to new threads very quickly.  Even the most protected system can become vulnerable by a creation of a new Java applet not predicted into its present security system.</P>
+<P>Web server running operating systems (OS) such as SunOS and UNIX, which are based on the client/server abstraction are particularly sensitive to these moving Internet technology trends.  As they usually are developed to model the network as an extension of its internal data bus, which also extends a series of features hardly found in other OS platforms, these same extensions opens a door (if not many!) to hacker and intruders. </P>
+<P>But opening a door for potential hackers is only the index of the whole Bible! There is much more to it when come to intrusion detection.</P>
+<P>Nowadays, hackers are very aware of the typical security models utilized by MIS and deployed all over the Internet.  As a matter of fact, they use it for they own interest.  Password systems, access and authentication systems are not sufficient to guarantee the security of a protected network.  </P>
+<P>Hackers can write simple applets to act as Network File System (NFS) clients, for instance, and bypass all the access control system normally used, gaining total access to internal networks or users files.  But this is not merely a security hole of NFS, it extends to almost every network service available.</P>
+<P>When comes to secure your site, you must rely and apply every resource you can to guarantee the safety of your site and users.  Firewalls and proxy server, as you saw on chapter 10, will not totally resolve the problem, but they will greatly enhance your chances of survival.  </P>
+<P>Once you have done everything you can to protect your site, from hardware to software, from security policy to its implementation, the only thing you can do is to accept the odds and wait for the day that you may need to face an incident.  I hope you never will, but if you do, you must be prepared to deal with the incident, from the systems perspective, to the legal one.</P>
+
+<H2><B><I>Dealing With an Incident</A></A></LI></H2>
+
+</B></I><P>Our battle in protecting our site and protected network system can be compared with the same battle we go through in protecting our own bodies.  In order to prevent from a virus disease we must isolate it, analyze it, observe it, learn from it, so that we can reverse its vital conditions and hopefully exterminate it.</P>
+<P>The same is true with computer security.  We must be able to isolate our attackers, analyze it, observe it and learn from it as well.  Unfortunately, not much is discussed about the hacker, the intruder, the attacker. Much description goes for the symptoms that evidences its presence and the devastating consequences of its attacks.</P>
+<P>Just like with viruses, no one really knows much about the hackers, only about the signs of their presence.  The good news is that this hacker do have forms.  Most of them are usually male, computer science students.  Of course, all of them have access to the Internet and know very well the UNIX environment.</P>
+<P>We could move on and ask ourselves why the hacker do what they do.  But it would be out of the scope of this book, so lets just say, I hacker likes to challenge himself and the majority of the times he will break into a system, just for the challenge of been able to do so.</P>
+<P>A hacker, like a bug (or virus), usually follows a standard pattern to break into a site.  Usually he tries to:</P>
+<OL>
+
+<B><LI>Determine his next target</B>, which is the systems he will be working on.  This is usually accomplished by checking machines listed in .rhosts and .netrc files, found on systems that already were broken in to.  Also, a hacker can try to gather such a list from the domain name system, or DNS. Through the DNS a hacker is capable to know the machine name, its Internet Address, the type o machines, and even the owner and department that machine belongs to.</LI>
+<B><LI>Access the target system</B>, which will require from a hacker to forge his i.d. as of a regular user within the company.  In systems where the authentication of an user relies on his username and password, a hacker has some advantage as usernames are usually known by everyone.  </LI>
+<P>Many times these usernames are composed of the last name and first initial or a combination of both.  Even if a username is not so obvious, it is easy to obtain through finger and ruser. </P>
+<P>However, the password is not something so easy to break if users choose them with at least 12 to 15 characters, and they are not found on any dictionary.  There are too many combinations to be tried, and even if a hacker is to use password cracking tools (see Appendix H), it is too much time consuming and not guaranteed to work in a timely fashion.  At least, it will demand patience and a lot of time.  Further, with Windows NT and the majority of the operating systems, the machine will disconnect after the third or fifth attempt to enter a correct password anyway.  That is why a hacker will usually rely on network services such as NIS, RLOGIN/RSH, NFS.  More will be discussed about it ahead.</P>
+<B><LI>Consolidate his position</B>, by using regular services as cracking tools.</LI></OL>
+
+<P>There are several services that can be used as cracking tools as well.  The following is a selection of some of them, which you should be careful when making them available and using them.</P>
+
+<H2><I> Network Information Service as Cracking Tool</A></A></I></H2>
+</B></I><P>The network information service (NIS) can be very useful for a hacker as it provides a database service of multiple clients and replicated servers.  This service stores various information such as password files, group files, and the like.  Only clients with the NIS domain name have access to it, as a way to protect it, since it holds sensitive information.</P>
+<P>Unfortunately, by default installation, usually the NIS domain is also the DNS domain name for the site, or something very similar. Once a hacker gets access to it a get a copy of the password file, he only needs to run one of the many password cracker applications (some listed on Appendix H) to gain access to the system.  </P>
+<P>This is very practical with UNIX-based systems, but not so with Windows NT, Macintosh and other platforms.  However, as I write this book couple password cracking systems were released for Windows NT.  </P>
+<P>In trying to resolve this problem, shadow passwords can be used.  This consists of two databases, the actual password file, available for privileged  users and another one available to everyone.  It makes it harder to break in but not impossible as a shadow file can still be read by anyone as long as they make the request from a privileged port. </P>
+
+<H2><I> Remote Login/Shell Service as Cracking Tool</A></A></I></H2>
+</B></I><P>The remote login service provides a remote terminal service so that users can access the network remotely as if they were directly attached to it.  It is much the same of the Remote Access Service (RAS) for Windows NT and Windows 95.  The authentication in these services is done by entering the username and the password, as well as the domain name.</P>
+<P>The problem is that many times, in the attempt to ease the operation for the users, the domain name and password is giving automatically.  The user only needs to enter his/her password.</P>
+<P>Also, the user usually has an option to have the password remembered by the system next time he/she logs in so it doesn’t have to be entered!  The remote shell service, a related service, allows anyone already authenticated into the system to log in onto trusted domains and execute commands on those domains. This service uses the same authentication mechanism as the login service; for this reason the two services are discussed here as one.  If not monitored very closely, remote access sessions can also be a major threat to the system, as very often it even by-passes any installed firewall.</P>
+<P>When used wisely these trust mechanisms are very valuable. Users don’t have to type their password every time they log into a trusted machine and remote commands can be executed without logging in first. The bad decision here is to let the user decide who to trust and who not to trust!  For example, if in a .rhosts file the user Mario trusts the user Lourdes and in turn Lourdes trust the user Marcio and Marcio trusts the user Celia, Celia can become Lourdes through the trusting relationship.  If any oth this accounts are broken in to, all the other ones become exposed as well.</P>
+
+<H2><I> Network File System as Cracking Tool</A></A></I></H2>
+</B></I><P>Sun’s Network File System (NFS) is one of the most important and vulnerable network service in the system, as it provides full access to files and directories. The major security hole is that NFS’s access control mechanisms are very hard to maintain, and are hardly adequate. Another hole is that it doesn’t have user authentication, even when using the so-called secure NFS implementation.</P>
+<P>Every user can write his own NFS client, specify any identity and read or write files. An NFS client that provides this basic functionality can easily be written in about 300 lines of C code. The secure NFS tries to fix this security hole but it doesn’t totally succeeds.  The problem is that the underlying cryptosystem doesn’t work, and can be broken very easily.</P>
+<P>File handles also used to (it has been fixed!) represents a major vulnerability. They can be constructed without the help of the mount daemon, which allows a client to directly go to the NFS daemon, and bypass the access control mechanisms which are enforced by the mount daemon. </P>
+
+<H2><I> File Transfer Protocol Service as Cracking Tool</A></A></I></H2>
+</B></I><P>The File Transfer Protocol (FTP) service allows clients to copy files from one machine to another. It resembles NFS in a way, but is intended for long haul networks. Clients normally need to be authenticated.  </P>
+<P>Nevertheless, FTP implementation has been well known for its security holes.  Over time, FTP has become a very complex and difficult system to understand as features were added.  For instance, a major security hole of this system is that it can be tricked to give a hacker the permissions of a determined user, while the hacker actually logs in using a public account. These bugs have all been fixed, but FTP services became so broad that I recommend you to watch it very closely.</P>
+<P>That is why it is so important to keep your eyes on the directory permissions of an FTP server.  Once a hacker is in, the first thing he will check is if he can write do that directory.  If so, he will probably put a .rhosts file into it containing his name and his current machine. Since the directory is often the home directory of the user ftp (or ftpd), a simple remote login sufficed to get into the system!</P>
+<P>There are several other security risks with FTP, which is not the scope of this book to get into it.  The purpose here is to show you the many open doors present in your system, even with a firewall in place. </P>
+<P>Just like a virus, a hacker goes to a period of &quot;incubation.&quot;  Once he breaks into a system, he starts to consolidate his position, which I call the incubation stage.  Usually it is done by simply placing a .rhosts file in the home directory of a cracked account.  There are other methods, but this is usually very effective.</P>
+<P>Besides consolidating his presence in this new &quot;body,&quot; a hacker is also interested on what is there for him: mailboxes, user’s information, etc. Once inside, a hacker will not waste time in consolidating his position there.  Usually he will target applications that require passwords, such as TELNET and FTP.</P>
+<P>Therefore, it is important that you try spot a hacker as soon as you can, possibly before he consolidates his presence within your system.  The following is a shell script sample for spotting a hacker.  You can base on it to tailor your own, depending on the system you are trying to protect:</P>
+<PRE><FONT SIZE=3><P>#!/bin/sh</P>
+<P>LOGFILE=logfile</P>
+<P>while true; do</P>
+<P>        case 'date | cut -d" " -f5 | cut -d: -f1' in</P>
+<P>        (18|19|20|21|22|23|00|01|02|03|04|05|06|07)</P>
+<P>                (echo "======= "; date) &gt;&gt; $LOGFILE</P>
+<P>                (echo "who"; who) &gt;&gt; $LOGFILE</P>
+<P>                (echo "ps axl"; ps axl) &gt;&gt; $LOGFILE</P>
+<P>                (echo "netstat -n"; netstat -n) &gt;&gt; $LOGFILE</P>
+<P>                sleep 600</P>
+<P>                ;;</P>
+<P>        *)</P>
+<P>                sleep 3600</P>
+<P>                ;;</P>
+<P>        esac</P>
+<P>done</P></I></PRE></FONT>
+<P>&nbsp;</P>
+<H2><B><I>To Do List in Case of an Incident</A></A></LI></H2>
+
+</B></I><P>I hope you will never have a break in at your site.  But unfortunately, chances are that you will.  So if you ever need to respond to a security incident there are some steps worth following.  Although you don’t need to follow this steps in order, and maybe some of them not even apply to your situation, you should at least review them as it will help you to get control of the situation sooner, than later.</P>
+<P>Borrowing Garfinkel’s rules for incident response, make sure you:</P>
+<OL>
+
+<LI>Don’t panic! And</LI>
+<LI>Document everything!</LI></OL>
+
+<P>Many times, in face of a hacker’s attack, there is not much you can do other than feel sorry about what happened to your site and/or users.  Other times, you might be able to even stop a hacker from going any further!  So your steps, in case of an incident should be:</P>
+
+<UL>
+<LI>Assess the situation,</LI>
+<LI>Cut off the link,</LI>
+<LI>Analyze the problem, and</LI>
+<LI>Take action.</LI></UL>
+
+
+<H2><I> Assessing the Situation</A></A></I></H2>
+</B></I><P>The first initiative you should make when a break in is confirmed should be to assess the damages, the seriousness of the break in as soon as possible.  For instance, there was a time I used to be directly involved with computer security incidents.  I used to have a white board at my office for situations like that.  In every situation, I would start assessing the incident by writing down few questions on the board:</P>
+
+<UL>
+<LI>Did the hacker actually succeeded in breaking into the site?  If so, you will need to act very quickly, regardless if the hacker is still in or not.  The main goal here isn’t to catch him, but to protect your users, documents and systems resources.</LI>
+<LI>Is the hacker still acting in your system?  If so, you will need to stop him!  You will need to decide when and how, but it should be as soon as possible.  If not, then you may have some time to work on it before he strikes again.</LI>
+<LI>What is the best way to halt the system until you can have more control over the situation?  You may have to shutdown the system, or at list stopping the affected service (FTP, Gopher, TELNET, etc.).  Maybe you will even need to shutdown your Internet connection.</LI>
+<LI>Is there any possibility for this attack to be an inside threat?  If so, you will need to be more careful not to let the solution you will take transpire.</LI>
+<LI>Can you learn with it the attacker?  If you think you are protected, that nothing is at stake, then you may want to give some line for the &quot;fish&quot; and learn a little more about it, see what he is up to.  </LI></UL>
+
+
+<H2><I> Cutting Off the Link</A></A></I></H2>
+</B></I><P>Once you assessed the situation, you should be in the position to start making some decision, taking some actions.  At least short term ones.  The first one should be to cut off the link.  What that means will depend on your environment.  Go back to your white board, take a look at the notes already there and based on it put some more down:</P>
+
+<UL>
+<LI>Can you shutdown your server?  Do you need to?  If you can, you might as well do it.  It will give you some time to get the facts straight.  If you can’t, you may want to shutdown some services, or at least log everyone out.</LI>
+<LI>Do you care about tracing down the hacker?  If you do, you may not want to shutdown the connections to the Internet, as you will lose track of him.</LI>
+<LI>Is it possible that other clients were affected?  If so, you may want to shutdown the server and check every one directly connected to the server.</LI>
+<LI>By shutting down the server, can you afford to lose some useful systems information you may need.</LI></UL>
+
+
+<H2><I>  Analyze the Problem</A></A></I></H2>
+</B></I><P>Now it is time to go back to your white board, add up all the information you wrote there, subtract the hyper reactions the followed the realization you have been hit and come up with the results.  At this point, you must have a plan.</P>
+<P>Take your time.  The worse is over, your system is probably already down, and surely, you will learn something new today!  Make sure to think thoroughly about the actions you are about to take. Evidently, at this point you already identified the security hole and will be fixing it.  Make sure your fix won’t create another security hole or will affect other services or processes.  Will your approach resolve the problem?</P>
+<P>Once you have the whole plan ready, bounce it off someone else you trust.  Try someone out of the picture, not affected by the same bias you may are.</P>
+
+<H2><I> Take Action</A></A></I></H2>
+</B></I><P>It is time to implement your emergence response plan.  Make sure upper management, users and service providers are aware of the incident.  </P>
+<P>You don’t need to give them much information, especially the technical ones, but should give them a reasonable timeframe for the restoration of the system.  </P>
+<P>Notify CERT, exchange your information with them.  Not only you will be helping them to alert others about it but they might be able to help you with their expertise.</P>
+<P>Finally, repair the security hole and restore the system.  Make sure to document the whole incident, learn from it and archive it.</P>
+
+<H2><B><I>Catching an Intruder</A></A></LI></H2>
+
+</B></I><P>It is very difficult to catch intruders.  Especially when they try to cover up their tracks.  Chances are that if you are able to spot a hacker attack, it will be by accident! Very unlikely intentional.</P>
+<P>However, even though you will need a lot of luck to spot a hacker in your system, there are some guidelines that you can follow to help you to be more lucky:</P>
+
+<UL>
+<LI>Always keep an eye on your log files, examine them regularly, especially those generated by the system log service and the wtmp file.</LI>
+<LI>Watch for unusual hosts connections, as well as unusual times (instruct users about connection times, so it can be easier to eliminate possibilities).</LI>
+<LI>Watch for accounts that are not being used for a while and suddenly become active.  You should always disable or delete unused accounts.</LI>
+<LI>Expect a hacker’s visit usually between the hours of 6PM to 8AM, Saturdays, Sundays, and holidays. Yes, they can come at any time!  </LI>
+<LI>Set a shell script to run every 10 minutes during these times logging all the process an network connections.  For instance, I have a log file set in Performance Monitor (Windows NT) running during those hours, tracking RAS connections, processes and network connection activities).to a file. The shell script above is an example of it.  But don’t count on it.  Hacker are not stupid and will quickly find out that they are been watched!</LI></UL>
+
+
+<H2><B><I>Reviewing Security</A></A></LI></H2>
+
+</B></I><P>There is so much that should be discussed when reviewing security.  Many books were written about it.  Associations and task forces were created for that purpose.  </P>
+<P>The following is a summary list of security issues you should review.  It is not a complete list, of course, but it does try to address some of the main issues affecting your Web environment.  At the end of this book you will find some complementary bibliography references do complement this information:</P>
+
+<UL>
+<LI>Make sure to install the NIS latest patches when working with it.</LI>
+<LI>Do not use any wildcards on trusted hosts databases (/etc/hosts.equiv), if you have any, remove them.   </LI>
+<LI>Be very careful when using .rhosts and .netrc.  You should consider disallowing them from foreign hosts. </LI>
+<LI>As with trusted hosts database, do not use wild-cards nor store plain-text passwords in the .netrc file.</LI>
+<LI>As with NIS, make sure to install the latest patches for NFS.</LI>
+<LI>Ensure that you specify to which hosts you export your file system. You may want to write-protect the user file system (/usr) when exproting it.</LI>
+<LI>You may wan to disallow setuid and root access for any NFS file system.</LI>
+<LI>You may also want to turn off the off the "-n" option of the mount daemon (/etc/rc.local). Although some people believe the system will be slightly unsecured (including the mount daemon manual), this is not true.  You will have not security at all!</LI>
+<LI>When offering FTP service, make sure to write-protect the FTP spool directory.</LI></UL>
+
+<P>As you can see, there are few things you can do to prevent break-ins.  As more control you  have over your system, more will be your alternatives to prevent it and even to try to catch an intruder... as far as system’s at least.  Legally speaking, unfortunately there is not much you can do yet.  The legal system in U.S. is trying to move fast, but not fast enough, one may say.</P>
+
+<H2> Persecuting the Hacker: What the Legal System has to Say</A></A></H2>
+</B></I><P>Computer security law is a new field, not yet established in the realms of law.  The meaning of most technical computer terms are still a bit foreign or unclear in the courtrooms. </P>
+<P>The legal establishment had yet to reach broad agreement on many key issues. Even the meaning of such basic terms as "data" can be the subject of contention.</P>
+<P>Computer security law is still moving very slow, and if it moves,  it is mostly due to litigation coming to court and making attorneys and judges very much reluctant due to their lack of knowledge and understanding of technical terms and security issues.</P>
+<P>But the American Bar Association has already a full plate as computer security law and public policy needs to be developed. Needless to say, the legal perspective in pursuing a hacker is not in a solid ground yet, but the government and ABA acknowledges it and are working to resolve the issue.  </P>
+<P>The American Bar Association’s (ABA) Science and Technology Section is responding to the control, legal and security issues associated with the Electronic Data Interchange (EDI) and the electronic commerce information technologies.</P>
+<P>The Section has specialty committees in several areas under the Electronic Commerce and Information Technology Division:</P>
+
+<UL>
+<B><LI>The CyberNotary Committee</B> - The committee tries to address, and recommend solutions, to the discrepancies between international law and the U.S. law, which many times turns out to be inadequate to practice due to legal system’s differences, costs and liabilities.  </LI>
+<LI>The advent of electronic commerce demands a more reliable authentication and certification system of electronic "documents" to assure the reliability and enforceability of underlying acts, especially overseas.</LI>
+<LI>Although the legal and technical infrastructure doesn’t yet exist, the CyberNotary Project has a proposal to rectify the lack of security in the international legal transactions as well as those that are placed electronically. The CyberNotary office is a concrete initiative that aims to bring together the information technology and the legal expertise. </LI>
+<B><LI>The Information Security Committee</B> -  The committee explores the computer security issues, included but not limited to those related to cryptograph, risk analysis, standards and  commercial reasonableness and the relationship between security and the legal efficacy of electronic commerce.</LI>
+<B><LI>Electronic Commerce Payment Committee</B> -  This committee is dedicated to explore, considers the requirements of, and recommend on the legal solutions to meet the needs arising from undertaking electronic payments within the context of electronic commerce.</LI>
+<B><LI>Judicial Electronic Data Interchange (EDI) Committee</B> - This Committee considers the use of EDI as the vehicle for administration of justice, among information systems of two or more parties.</LI></UL>
+
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you would like to have more information about ABA’s Science and Technology Section (STS) and its Committees, you can check the URL: http:// http://www.intermarket.com/ecl/</P>
+</TD></TABLE>
+<H2><I> What The Legal System Has To Say</A></A></I></H2>
+</B></I><P>Back in 1990 the government began a nationwide campaign to crackdown on illicit computer hackers.  There were several arrests, criminal charges, and even a dramatic show-trial, with several guilty pleas, and confiscation of data and equipment all over the country. </P>
+<P>The U.S. Secret Service joined forces with state and local law enforcement groups throughout the nation to try to put a stop on the &quot;computer underground&quot; community, the hackers and crackers community.  It was a showdown!  There is even a book reviving those moments, The Hacker Crackdown, by Bruce Sterling (bruces@well.sf.ca.us).</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you want to know more about this crackdown, check Bruce’s electronic version of the book at URL: http://homepage.eznet.net/~frac/crack.html</P>
+</TD></TABLE>
+<P>The FBI’s National Computer Crime Squad is dedicated to detecting and preventing all types of computer-related crimes. When an incident is detected, the tendency is to overreact, and many times, based on the legal infrastructure do deal with the issue, that is what ends up happening.</P>
+<P>Network intrusions, for instance, have been made illegal by the U.S. federal government, but detection and enforcement are very difficult. The law, as it presents when facing computer crimes, is very much limited in essence and scope.  It does not take much to realize it when you take the criminal case of Kevin Mitnick’s, aka the Condor, when recently pleating bargain.  His final plea and the crimes he allegedly committed had very little connection to each other.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you are not familiar with Kevin Mitnick’s case, he was arrested back in February of 1995 for for allegedly breaking into the home computer of Tsutomu Shimomura, a respected member of the computer security world. </P>
+<P>Kevin, also known as &quot;Condor,&quot; was suspected of spoofing Tsutomu’s computer and stealing computer security tools to distribute over the Internet. By the beginning of July, the federal prosecutors and Kevin’s lawyers had reached a plea bargain agreement whereby Kevin would admit the charges of &quot;possessing unauthorized access devices&quot; in exchange of the prosecutors dropping 22 charges brought against him. </P>
+<P>According to the sentence guidelines, Kevin’s admitting he was guilty would carry a maximum prison sentence of eight months.</P>
+</TD></TABLE>
+<P>The fact is that corporations and governments alike, love to spy on the enemy. The Web is providing new opportunities for this.  Wired Magazine (June of 1996), commented that more and more the American people are watching less television at night to spend an average of 11 hours in front of a computer screen.  Mostly likely on the Web!</P>
+<P>Hackers-for-hire became a trend. Somewhat, an idol.  I had the chance, while writing this book, to talk to some of them, and what I found out is that there is a status quo in been a hacker.   Just check the magazine and newspaper articles about them, it is always catching, vibrating.  Crackers are living to become hackers, and hackers and law enforcement agents are re-living the tale (tale?).</P>
+<P>Tracing hackers and crackers is a very labor-intensive, specially the first.  Convictions are hard to be reached, as the laws are not written with electronic theft in mind.</P>
+<P>For instance, how would you qualify a scenario where your site is victimized with mail bombing?  Hackers, with little effort, can instruct a computer to repeatedly send electronic mail to your Webmasters account to such a extend that it could generate a &quot;denial of service&quot; state and potentially shutdown your entire site. Is this action illegal?  It may not be.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>The journalist Joshua Quittner and Michelle Slatalla had their home computer targeted by hackers and flooded with mail bombs.  Also, their phone lines were rerouted for a whole weekend.</P>
+</TD></TABLE>
+<P>The problem is that, there is not a concrete definition yet for the term &quot;computer-related crime.&quot;  What is the difference between illegal or deliberate abuses of the Internet and an annoying act.  Unfortunately, one could look at e-mail bombing both ways.</P>
+<P>Legal systems everywhere, and ABA/STS is an example, are very busy trying to find ways of dealing with crimes and criminals on the Internet. As it stands, there is no common sense on how hackers an other computer criminals are prosecuted.  It varies from one jurisdiction to another. It is as cases like Kevin Mitnick and Jake Baker unfolds that the world’s legal system starts to react and be ready for this new cast of citizens.</P>
+<P>Computer information systems present a whole slew of legal issues. For instance, your Web site can very well be used for dissemination of useful information, but it can also be used as an outlet for defamation, contrabanded materials, etc. How should this situation be treaded? In case of a computer crime at your site where users where affected, who is liable, you or the &quot;hacker?&quot;  Is the crime his fault, since he was the author, or the Webmaster’s, since he controls and provides access to the site?</P>
+
+<H2><I> The Current Regulations</A></A></I></H2>
+</B></I><P>There are multiple ways for regulating a wide variety of crimes, or potential crimes, for that matter.  Therefore, the regulatory environment governing computer information systems is still somewhat confused. </P>
+<P>The Federal Communications Commission (FCC), is responsible for regulating broadcasters and common carriers providing electronic data.  However, FCC does not regulate computer information systems because it is considered to be an &quot;enhanced&quot; service.  </P>
+<P>What the legal system has to say? Not much at the moment.  Pursuing a hacker through the legal system is a much harder and &quot;almost impossible&quot; task then tracking he/she down on your system after an attack.  However, there are case laws and statutes in existence that deals with some specific aspects of computer information systems:</P>
+
+<UL>
+<B><LI>Defamation</B> -  It can occur on a computer information system, or your Web site, for the matter, in a number of forms. You, as the Web administrator, must guard your site and users from it.  Defamation can occurs in two forms, libel and slander. Computer technology and other forms of technology makes it hard to distinguish between an act that was libel or slander. Many courts are advocating the elimination of the distinction.  Speech on the Internet, for instance, has more of the characteristics of libel than slander. However, written or printed words are considered more harmful than spoken words because they are deemed more premeditated and deliberate. </LI></UL>
+<DIR>
+
+<P>Another issue, can a person sue for defamation that occurred to a fictitious name (username) or a persona that appears on a computer? Because defamation involves speech, defamation raises serious First Amendment concerns. As it stands, liability may result if the act was libelous, and may not, if the defamation concerns public figures, public officials, or matters of public interest. </P></DIR>
+
+
+<UL>
+<B><LI>Fighting Words</B> - This is a kind of speech that is not given First Amendment protection." If one of your users insult another user using words that are, by their very utterance inflicting injury or tending to incite, then he/she may have committed a crime.  </LI></UL>
+<DIR>
+
+<H1><I> of the U.S. Code reads: </P></I></H1>
+
+<H1><I> Whoever, with intent to extort from any person, firm association, or corporation, any money or other thing of value, transmits in interstate or foreign commerce any communication containing any threat to kidnap any person or any threat to injure the person of another, shall be fined not more than $5,000 or imprisoned not more than twenty years, or both."  This section was recently applied to convict a college freshman who sent an E-mail message to President Clinton threatening that "One of these days, I'm going to come to Washington and blow your little head off. I have a bunch of guns, I can do it." </P></I></H1>
+</DIR>
+
+
+<UL>
+<B><LI>Child Pornography</B> -  This is another area that is regulated.  Recent international investigations into illegal child-pornography distribution via computer network have resulted in search warrants being issued to U.S. Customs agents in at least 15 states.</LI>
+<B><LI>Fraud and Abuse</B> -  The fraud and abuse statute states that it is a crime to fraudulently access or abuse the access to a computer.</LI></UL>
+
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>The Fraud and Abuse Statute</I> states that:</P></B><P>&quot;a) whoever </P>
+<OL>
+
+<LI>Knowingly accesses a computer without authorization or exceeds authorized access, and by means of such conduct obtains information that has been determined by the United States Government pursuant to an Executive order or statute to require protection against unauthorized disclosure for reasons of national defense or foreign relations, or any restricted data, as defined in paragraph y. of section 11 of the Atomic Energy Act of 1954, with the intent or reason to believe that such information so obtained is to be used to the injury of the United States, or to the advantage of any foreign nation;</LI>
+<LI>Intentionally accesses a computer without authorization or exceeds authorized access, and thereby obtains information contained in a financial record of a financial institution, or of a card issuer as defined in section 1602(n) of title 15, or contained in a file of a consumer reporting agency on a consumer, as such terms are defined in the Fair Credit Reporting Act (15 U.S.C. 1681 et seq.);</LI>
+<LI>Intentionally, without authorization to access any computer of a department or agency of the United States, accesses such a computer of that department or agency that is exclusively for the use of the Government of the United States or, in the case of a computer not exclusively for such use, is used by or for the Government of the United States and such conduct affects the use of the Government's operation of such computer,</LI>
+<H2> of this section.</H2>
+<LI>Intentionally accesses a Federal interest computer without authorization, and by means of one or more instances of such conduct alters, damages, or destroys information in any such Federal interest computer, or prevents authorized use of any such computer or information, and thereby</LI></OL>
+
+<OL TYPE="A">
+
+<OL TYPE="A">
+
+<LI>causes loss to one or more others of a value aggregating $1,000 or more during any one year period; </LI>
+<LI>modifies or impairs, or potentially modifies or impairs, the medical examination, medical diagnosis, medical treatment, or medical care of one or more individuals; or</LI></OL>
+</OL>
+
+<P>6. knowingly and with intent to defraud traffics (as defined in section 1029) in any password or similar information through which a computer may be accessed without authorization, if</P>
+<P>(A) such trafficking affects interstate or foreign commerce; or</P>
+<P>(B) such computer is used by or for the Government of the United States;</P>
+<H2> of this section.</H2>
+<H1><I> of this section is </I></H1>
+<H1>(1) of this section which does not occur after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph; and</H1>
+<H1>(1) of this section which occurs after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph; and</H1>
+<H1>(1) of this section which does not occur after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph; and (B) a fine under this title or imprisonment for not more than ten years, or both, in the case of an offense under subsection </H1>
+<H1>(6) of this section which occurs after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph; and</H1>
+<H1>(5) of this section which does not occur after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph; and</H1>
+<H1>(5) of this section which occurs after a conviction for another offense under such subsection, or an attempt to commit an offense punishable under this subparagraph.</H1>
+<H2><I> The United States Secret Service shall, in addition to any other agency having such authority, have the authority to investigate offenses under this section. Such authority of the United States Secret Service shall be exercised in accordance with an agreement which shall be entered into by the Secretary of the Treasury and the Attorney General.</I></H2>
+</TD></TABLE>
+<H2> Protecting Your Corporate Site</A></A></H2>
+</B></I><P>Unfortunately, despite the government, ABA and other agencies efforts, there is not much the law can do for you and your users.  At least, not in s short term or without lots of time and money to battle in the legal system.</P>
+<P>Your best bet than is to make sure you can protect your Web site.  This whole book discussed the several ways you can protect your site, emphasizing on the use of firewalls.  I hope you take to heart what was discussed and start putting in practice.  It will save you time an grieve. </P>
+<P>Nevertheless, I would like to close this book by reminding you of the very basic Web site security requirements to keep in mind:</P>
+
+<UL>
+<LI>Confidentiality</LI>
+<LI>Integrity, and</LI>
+<LI>Availability.</LI></UL>
+
+<P>The only way you will be able to achieve excellence in these areas is going to be by regulating the flow of users, services and activity of your site with predetermined set of rules, the security policy.</P>
+<P>The security policy, which should precede any of the security strategies you may implement (firewalls, packet filtering, access control and authentication, etc.), will specify which subjects can access which objects.  Thus, it is important that you have very clear what are the subjects you will be dealing with at your site (e.g. internal users, external users, clients leasing portions of your site, etc.) and objects to be accessed or offered (e.g. Web services, links, leased home pages, etc.)</P>
+<P>You will need to devote some time an effort to elaborate your security policy.  Security measures are employed to prevent illicit tampering with your &quot;users and clients as well as your services offered. </P>
+
+<H2><I> Preventing Break-ins at Your Site</A></A> </I></H2>
+</B></I><P>As your site gains momentum, your users will increasingly rely on the services you provide to carry out many essential functions of their day-to-day life. Luckily, your site will become part of their &quot;bookmarks&quot; right at the first visit.  If your site is to be depended upon, it is essential that you, Webmasters, systems administrators and everyone else responsible for its operation to recognize the vulnerabilities to which the site is subject and take the steps to implement appropriate safeguards.  That is what this book is all about. </P>
+<P>Internet security, while a relatively recent concern, is subject to a variety of interpretations. Historically, security measures have been applied to the protection of classified information from the threat of disclosure in a MIS or computer lab environment.  But nowadays, in an environment where general Internet users are capable to shift from personal home pages on the Web to personal IPSs, much attention has been directed to the issue of individual privacy as it relates to personal information stored in the computerized data systems.</P>
+<P>Data integrity in financial, scientific and process control applications at your site should be another focus of attention.</P>
+<P>When setting up you security policy, remember that security policy, like your car insurance, is to a large extent applied risk management:  you should try to achieve a tolerable level of risk at the lowest possible cost. The goal is to reduce the risk exposure of your site to an acceptable level, best achieved by a formal assessment of your risks. This includes a number of components, such as the identification of the Web site assets, values, threats and vulnerabilities, as discussed in this book, as well as the financial impact of each threat-asset combination.</P>
+<P>When analyzing your risks, make sure to involve as many people as possible, from users to managers and upper management. If confidentiality is a specific concern, based on the services you will provide (dating services, financial services, etc.), additional protection must be provided through the application of hardware/software security solutions as well as mandatory regulatory requirements. </P>
+<P>Make sure to include specific security administrative practices, assigning security responsibilities to all professionals involved with the operation and maintenance of the site.  Make sure to determine:</P>
+
+<UL>
+<LI>A procedure to ensure that risks are identified (auditing logs, printing activity reports, implementation of configuration and security checklists. Etc.); </LI>
+<LI>Individual security duties and the appropriate assignment of responsibilities; </LI>
+<LI>File access policy and designated restricted areas in your disk farm; </LI>
+<LI>Authorization and authentication procedures for new users and services (you can’t be in control of the site 24 hours a day, seven days a week!  Have a documented set of procedures);; </LI>
+<LI>A contingency plan, in case of emergencies. </LI></UL>
+
+
+<H2> Final Considerations</A></A></H2>
+</B></I><P>Internet security is possible!  Break-ins, although inevitable, can be prevented when you are aware of security issues. However, this means that all the issues discussed in this book would have to be taken into consideration, that this book would not be enough to guide you in securing you site as new threats arise everyday and the Web and computer technology is to diverse to be comprised in a single book.</P>
+<P>Internet security and firewall management is a full-time job.  The systems manager or the Webmaster, or the LAN administrator, or the MIS director and so on, cannot be blamed in case of an incident.  They probably didn’t have time!  </P>
+<P>If the people involved with the every-day activity and operation of your site could known the information contained in this book, the risks of your site being attacked and the resulting damage could be much less. This is exactly why I wrote this book.  Not for the gurus.  Not for the technically skilled.  It was to give an survey of the threats a Web site faces, the existence of hackers to make our work more... enjoyable.</P>
+<P>By no means, don’t you have the illusion that by following the information and guidelines of this book your site will be impossible to penetrate.</P>
+<P>Finally, make sure to keep security into account during the whole phase of your Web site design. This will also make security much more user friendly.</P></BODY>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap09.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap11.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>
+

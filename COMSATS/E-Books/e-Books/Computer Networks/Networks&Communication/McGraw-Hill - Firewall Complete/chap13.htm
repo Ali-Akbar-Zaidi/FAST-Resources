@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap12.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap14.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 13</H1>
+<H1><I>Firewall Toolkits And Case Studies</LI></I></H1>
+
+<H2> The TIS Internet Firewall Toolkit</H2>
+</B></I><P>The TIS Internet Firewall Toolkit is a set of programs and configuration practices designed to facilitate the building of network firewalls. Components of the toolkit, while designed to work together, can be used in isolation or can be combined with other firewall components. The toolkit software is designed to run on UNIX systems using TCP/IP with a Berkeley-style "socket" interface. </P>
+<P>I recommend you to access TIS URL at http://www.tis.com/docs/products/fwtk/fwtkoverview.html and download the complete document from where this section was extracted. Throughout that documentation, a distinction is made between "configuration practices" and software. A configuration practice is a specific way of configuring existing system software, while a software component of the toolkit is a separate program which may replace or enhance existing system software. </P>
+<P>Therefore, when the documentation refers to the configuration practice applicable to configuring some system daemon in a secure manner, it is assumed that the base operating system in question has existing support for that software, and that it is capable of being configured. The exact details of how to configure various system utilities differ from vendor implementation to vendor implementation and are outside of the scope of this document. In general, most UNIX systems with BSD-style networking will support all the functionality and services referred to herein. </P>
+<P>Installing the toolkit assumes that you have practical experience with UNIX systems administration and TCP/IP networking. At a minimum, a firewall administrator should be familiar with installing software and maintaining a running UNIX system. Since components of the toolkit are released in source code form, familiarity with building packages using make is required. </P>
+<P>The toolkit does not try to provide a "turnkey" network firewall, since every installation's requirements, network topology, available hardware, and administrative practices are different. Depending on how the toolkit is configured, different levels of security can be achieved. The most rigorous security configurations are not for everyone, while for others anything less will not suffice. It is the responsibility of the firewall installer to understand the security policy of the network that is to be protected[1], to understand what constitutes acceptable and unacceptable risks, and to rationalize them with the requirements of the end users. Performing this analysis is the hardest task in implementing any security system. The toolkit, unfortunately, cannot do it for you; it can only provide the components from which to assemble a solution. </P>
+<P>The toolkit consists of three basic components, which are all discussed on that paper: </P>
+
+<UL>
+<LI>Design Philosophy</LI>
+<LI>Configuration Practices / Verification Strategies</LI>
+<LI>Software Tools </LI></UL>
+
+<P>If you decide on using the toolkit you may use any or none of these components, as you see fit.</P>
+<P>Good luck!</P>
+
+<H2>Case Studies: Implementing Firewalls</H2>
+
+</B></I><P>What kind of firewall is right for your organization? Truthfully, there is not a correct and definite answer. A security policy developed by a Fortune 500 company certainly will not be suitable for a small business owner that yet needs this level of protection on his day-to-day business.</P>
+<P>The following are brief scenarios, ficticious, just to illustrate what this book has tried to accomplish as far as enhancing the Internet security of your users and protecting your company’s assets from the wild Internet.</P>
+
+<H2>Firewalling a Big Organization: Application-Level Firewall and Package Filtering, a Hybrid System</H2>
+
+</B></I><P>Other Peoples Money, Inc. (OPM), might find an application-level firewall (see chapter 14, &quot;Types of Firewall Products&quot;) and packet filters adequate for its needs, based on its outgoing access capabilities and high, diversified income traffic. OPM my even consider creating a DMZ zone where they Web server, RASing connectivity and other not so public services would be secured, but not to the point of compromising the protected LAN.</P>
+<P>It would be advisable to implement CERT's recommendation of an additional router to filter and block all packets whose addresses are originated from inside the protected network. This two-router solution is not complicated to deploy, and is very cost-effective when you consider that OPM would be exposed to spoofing by allowing all 600 employees throughout the country to have access to its Web server and internal network.</P>
+<P>When implementing two routers, OPM should purchase them from different companies (that is, choose two different brands). It might sound like nonsense, but if a hacker is able to break into one router due to a bug or a back door on the router's code, the second router will not have the same codes. Even though the firewall will no longer be transparent, which will require users to log on to it, the site will be protected, monitored, and safe. The two routers create a package-filtering firewall while the bastion host functions as an application-gateway firewall, where the software will be installed.</P>
+
+<H2>Firewalling a Small Organization: Packet Filtering or Application-Level Firewall, a Proxy Implementation</H2>
+
+</B></I><P>The same model used at OPM would suit Dry Water Co., although the policy would be much simpler than OPM’s. </P>
+<P>A proxy server, or one of the firewalls listed on chapter 14 would be enough. GNET’s firewall on a diskette would probably be the most adequate.</P>
+<P>This configuration would assume that all the department and internal organizations trust each other and the internal users. But even if they didn’t every users could have their own GNET at their computer.  </P>
+
+<H2>Firewalling in a Subnet Architecture</H2>
+
+</B></I><P>If you decide to protect subnets within your organization, the IP-level filtering might be the most appropriate versus other types of filtering. This model enables each type of client and service basically to be supported within the internal network. </P>
+<P>No modifications or special client software would be necessary. The access through the IP-level filtering firewall will be totally transparent for the user and the application. The existing router can be utilized for the implementation of the IP-level filtering. There will be no need to buy an expensive UNIX host or firewall product. But again, as you review the products outlined on chapter 14, you may decide to filter those subnet connection using application-level solutions, especially if you don’t have the hardware necessary.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap12.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap14.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>

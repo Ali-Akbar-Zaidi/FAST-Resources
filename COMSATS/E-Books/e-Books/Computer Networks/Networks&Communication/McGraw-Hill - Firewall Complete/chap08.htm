@@ -1,0 +1,947 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap07.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap09.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 8</H1>
+<H1><I> How Vulnerable Are Internet Services?</I></H1>
+</B><P>The implementation of Internet services must be carefully considered due to its vulnerabilities and threats. This chapter lists some of the most common implemented services and discusses the risks associated with each one of them.</P>
+
+<H2><B>Protecting and Configuring Vulnerable Services</LI></H2>
+
+</B><P>In this section, lets take a look at the industry standard protocols and services, its characteristics and how they interact with the Internet and firewall so we can be aware of security threats and countermeasures as well as a configuration checklist, with loopholes to watch for and security issues.</P>
+
+<H2><I><B>Electronic Mail Security Threats</LI></I></H2>
+
+</B><P>Electronic mail (E-mail) is a wonderful tool to have on the Internet, but it brings threats to your privacy and security. This section discusses some of these threats, such as e-mail bombing and spamming, as well as the risks of downloading certain attachments.</P>
+<P>One of the main weaknesses of e-mail messages is that not always it can be traced. The Reuters, awhile ago, published an article about President Clinton receiving a death threat over the Internet via e-mail. According to the article, the e-mail message was originated at a Taiwan university and contained the message </P>
+<PRE><FONT SIZE=3><P>&quot;President Clinton, when you are out for a visit, we will assassinate you." </P>
+</PRE></FONT>
+<P>The United States asked Taiwan officials to investigate the incident, but the director of the university computer center concluded that there was no way to find a record of the person logging in and out on the Internet and sending the message to President Clinton. Thus, you should be aware of e-mail threats and what you can do to prevent against these pitfalls.</P>
+<P>You can be threaten by anyone using an anonymous e-mail, and you won’t be able to track him or her down. Take this other example, of Jonathan Littman, one of the few journalists covering the computer underground. When Kevin Mitnick, was arrested, Littman had become the uber-hacker’s inside, to the extend of even writing a book, entitled &quot;The Fugitive Game.&quot;  The problem is that on the book he was sympathetic to Mitnick, and ended up receiving some retaliation for some hackers, which sent him several e-mail threats, vowed through anonymous messages.  </P>
+<P>E-mail threats also includes people scanning your messages in search of valuable information, such as credit card, social security numbers or systems authentication information?  When an e-mail message travels through the Internet it can be exposed to little programs that automatically will scan the mail feed into a computer, looking for specific information, just like you do in your mail program when you want to locate a particular message stored in one of your message folders. </P>
+<P>A good preventive measure to this kind of attack is through message encryption.  As discussed on chapter 3, &quot;Cryptography, Is It Enough,&quot; encryption does hacking much more difficult. Also, there are lots of encryption tools out there, such as Pretty Good Privacy (PGP) and digital signatures to aid you on this process.  You should encrypt and sign all your e-mail messages.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For information on protecting electronic information, check out &quot;An Attorney’s Guide To Protecting, Discovering, and Producing Electronic Information&quot; by Michael Patrick (phone 1-800-341-7874 x-310).</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you would like more information on e-mail bombing and spamming, check out Byron Palmer’s Web page at URL <B>http://mwir.lanl.gov:8080/E-mail_Spamming.html</P>
+</TD></TABLE>
+<H2><I><B>Simple Mail Transfer Protocol (SMTP)</LI></I></H2>
+
+</B><P>Have you heart about e-mail bombing? This is a form of stalking, an anonymous type of harassment to which you can’t reply back to the sender. E-mail bombing is illegal, but hard to track, because of the anonymous ways e-mail can be sent, usually consisting of sending large amount of messages, from hundreds to thousands of e-mail messages, to a single e-mail address, usually generating a denial-of-service on the mail server.</P>
+<P>But don’t confuse e-mail bombing with spamming. E-mail <I>bombing</I> is characterized by abusers repeatedly sending numerous copies of the same e-mail message to a particular address, whereas e-mail <I>spamming</I> is a variant of bombing; it refers to sending the same e-mail to hundreds or thousands of users (or to lists that expand to that many users). E-mail spamming can be made worse if recipients reply to the e-mail, causing all the original addressees to receive the reply. Spamming also may occur innocently, as a result of someone sending a message to a mailing list without realizing that the list explodes to thousands of users, or as a result of an incorrectly set-up responder message. If the identity of the account sending the message is altered, then e-mail bombing or spamming is being combined with &quot;spoofing,&quot; which makes it almost impossible to track the author and the origin of the message. Later on this chapter there is a section on spoofing, make sure to read it.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>A good source of information about e-mail spoofing is at the URL <B>ftp://info.cert.org/pub/tech_tips/email_spoofing</B>.</P>
+</TD></TABLE>
+<P>As mentioned in the chapter above, the large amount of e-mails coming in to a server, as a result of e-mail bombing and spamming can generate a denial-of-service (where the server denies to honor a request or a task, to the extreme of freezing up) on the server, through loss of network connectivity, system crashes, or even failure of a service (where the ability to execute that service fails on the server) because of:</P>
+
+<UL>
+<LI>overloaded network connections</LI>
+<LI>used up system resources</LI>
+<LI>filled up disk as a result of multiple postings and syslog entries</LI></UL>
+
+
+<H3> Preventing against E-mail Attacks</A></A></A></H3>
+</B><P>It is very important that you are able to detect e-mail bombing or spamming as soon as possible. One of the signs your system will present when under attack is sluggishness. If e-mail is slow or is not being sent or received, it could be that your mail server is either trying to process a large number of messages, or already has suffered a denial-of-service, as mentioned above.</P>
+<P>If you are experiencing such a condition in your server, I recommend you do:</P>
+
+<UL>
+<LI>Identify the source of the e-mail by checking the headers, and immediately reconfigure your firewall (or router) to block incoming packets from that address. Be careful before assuming that the author of the attack is the person showing on the header of the message, as many times the name appearing there is just an alias, in a attempt to hide the true identity.</LI>
+<LI>If your e-mail service is through an Internet Service Provider (ISP), let them know about the bombing or spamming incident so that they can reconfigure their router or firewall, to prevent messages coming from the address of origin.</LI>
+<LI>Contact the Computer Emergency Response Team (CERT) at <B>cert@cert.org</B> about the attack so that they can track the incidents. The CERT Coordination Center charter is to work with the Internet community to facilitate its response to computer security events involving Internet hosts, to take proactive steps to raise the community’s awareness of computer security issues, and to conduct research targeted at improving the security of existing systems. </LI></UL>
+
+
+<P>There is no way to block e-mail bombing and spamming. However, there are a few things you can do to protect yourself and decrease the likelihood of a bombing or spamming attack. One, you should keep your e-mail software up to date at all times. Two, make sure you maintain the updates, patches, and bug fixes that are released by your e-mail developer. The third thing is a little more technical. You could develop a tool that would check for and alert you to incoming messages that originate from the same user or same site in a short span of time. You then could block these connections at the router level. </P>
+<P>For example, once you identify from where this messages are coming from, the sites domain (spuky@badboy.com, for example) you can go to your firewall and block, or deny, any messages coming from that site.  You can even re-direct it to a wastebasket directory where it will be periodically deleted.  You will probably not be able to identify the author of these messages but you can at least stop receiving them by blocking them before they hit your mailbox. </P>
+<P>One alternative to keep in mind is that, if you have only one or two e-mail servers, make sure to set up your firewall to allow only SMTP connections coming from the Internet to your e-mail server.  From there you will have to block the SMTP port not to allow connections arriving directly at the user’s computers. </P>
+<P>The way you do this will vary from firewall to firewall software.  If you are using an router as firewall, you will have to insert a line on its configuration file, denying connections to the SMTP port. By blocking access to your SMTP port you will prevent the injection of spamming messages through it. </P>
+<P>You can block the SMTP port by turning off your mailers SMTP daemon mode and run it out of inetd instead. If you combine this with running smap from the TIS Firewall Toolkit, the configuration will look like this:</P>
+<P>At the /etc/inetd.conf: </P>
+<PRE><FONT SIZE=3><P>smtp&#9;stream&#9;tcp&#9;nowait&#9;root&#9;/usr/local/etc/tcpd&#9;smap</P>
+</PRE></FONT><P>At the /etc/hosts.allow:</P>
+<PRE><FONT SIZE=3><P>smap : ALL</P>
+</PRE></FONT><P>At /etc/hosts.deny:</P>
+<PRE><FONT SIZE=3><P>smap : spammer.com .spammer.com 128.xxx.000.0</P>
+</PRE></FONT><P>at the /usr/local/etc/netperm-table:</P>
+<PRE><FONT SIZE=3><P>smap, smapd:            userid 32</P>
+<P>smap, smapd:            directory /var/spool/smap</P>
+<P>smapd:                  executable /usr/local/libexec/smapd</P>
+<P>smapd:                  sendmail /usr/sbin/sendmail</P>
+</PRE></FONT>
+<P>You can use the above example as a boilerplate, as the paths will vary according to your environment as well as the site(s) you’re blocking. This should sufice to keep e-mail spamming and bombing coming from spammer.com or anyone in the IP range of 128.xxx.000.0 from accessing your SMTP server. Now, watch your server!  This technique could overload your server as it will generate a process for every incoming mail message. If your server already works at more then 30% of its capacity, you may want to try a different technique discussed here.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>You can try to block spamming by using smap. According to Craig Hagan (hagan@cih.com), spammers often use third-party relaying to distribute spam via an intermediary party’s mailer, so Hagan proposes a routine, which you can review and download from URL http://www.cih.com/~hagan/smap-hacks/ to prevent your mailer from being misused by the relaying mailer.</P>
+<P>You can also use sendmail to block spamming and bombing. Axel Zinser (azin0999@rz.uni-hildesheim.de) has developed patches for blocking spam with sendmail versions 8.6.12, 8.7.3 or 8.8.2. For more information, check the URL http://spam.abuse.net/spam/tools/mailblock.html.</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Check CERT for additional information on filtering SMTP connections in your firewall, at URL <B>ftp://info.cert.org/pub/tech_tips/packet_filtering.</P>
+</TD></TABLE>
+<H3> Be Careful With E-Mail Attachments</A></A></A></A></A></H3>
+</B><P>Have you ever thought about the potential danger of e-mail attachments? The majority of the mail packages, such as MS Exchange and cc:Mail have a setting in which you can specify if you want attachments to go as separate files , or to be encapsulated. The risk with these attachments is that they can contain various threats, from viruses and malicious macros to small Trojan Horses applets. </P>
+<P>According to Integralis, the developers of MIMESweeper e-mail security (http://www.mimesweeper.integralis.com/), viruses can be inserted into email attachments, just as part of the header or even in the body. Some of the most threatening and successful current viruses and logic bomb codes are document-based and as you probably know, most email attachments are also documents. Therefore, e-mail attachments becomes one of the easiest way to get a virus into your computer or company.</P>
+<P>In order to protect yourself against such a threat you must be very careful with opening attachments, as they are the carriers of the threat.  Make sure you know the origin of it and that you can trust the attachment is clean and free of bugs!  If you can’t, then you must use an e-mail virus detector to scan the messages you receive, such as MIMESweeper, .  </P>
+<P>An especial attention should be given to encoded and ZIPped file attachments, as many times they are skipped or not supported by anti-virus packages.  This attachments could contain viruses and macro bombs.</P>
+<P>There are viruses that can gain access to your computer via the attachments you download or open from your mail that could apparently damage your computer.  Even though the media portraits that viruses can damage your computer hardware, I haven’t yet seeing a single one capable of doing so.  Nevertheless, there are viruses that can make your hard drive behave as it was faulty.</P>
+<P>For instance, if you were to activate a virus, downloaded along with an attachment, known as Rainbow, this virus would alter the partition table located in the Master Boot Record of your hard drive in such a way that, if you attempt to boot from a clean uninfected system disk with MS-DOS 5.x or 6.x, the machine would simply hang.</P>
+<P>The most notorious virus attached to e-mail messages of 1997 is the so called AOL4FREE.COM, which actually is a Trojan Horse. This Trojan is a simple .BAT file created to issue a DOS command (DELTREE) to delete the complete file directory tree on the hard drive.  Although you can not activate this Trojan by simply reading your e-mail, you must be very careful when dealing with attachments. </P>
+<P>Another famous e-mail attached virus that appeared on the Net around February of 1997 was ShareFun.A.  Although a macro virus, this one has a new feature: once activated, there is a 25% chance that it will launch MS Mail and attach itself to a newly self-created email message and then grab 3 random mail addresses from your Personal Address Book (PAB) file, set the Subject line to read "You have GOT to read this!" and send it on it's way. </P>
+<P>In order to protect yourself against e-mail attachments make sure you know the origin of it and that you can trust the attachment is clean and free of bugs!  If you can’t, then you must use an e-mail virus detector to scan the messages you receive, such as MIMESweeper, from Integralis.  </P>
+<P>E-mail anti-viruses packages can scan e-mail messages as they come in from the host mail system. By using a recursive disassembly, these applications can completely open your message and any attachments so that anti-virus tools can check for viruses embedded within the data. </P>
+<P>As for macro viruses, make sure to download the latest version of Word/Excel macro anti-viruses, SCANPROT.DOT from Microsoft or even third-parties such as Datafellows, at URL://www.datafellows.com. Note that by simply installing SCANPROT.DOT will not protect you from being infected by macro virus attached to your e-mails.  If you open a Word or Excel document simply by clicking with your mouse over the attachment, SCANPROT will not be started.  You must download the file, launch Word or Excel and open the file from within the application.</P>
+<P>If the security of your SMTP connections and corporate messages traveling through it is really important, I recommend you to consider using Riordan’s Internet Privacy Enhanced Mail (RIPEM), which it is a still-to-be completed but practical implementation of Privacy Enhanced Mail (PEM). </P>
+<P>PEM is a standard for allowing the transfer of encrypted electronic mail generated over a long period of time by a working group of specialists. Note that RIPEM is not really a complete implementation of PEM. RIPEM specifies certificates for authenticating keys, and RIPEM does not handle those yet. The addition of key authentication is planned for the near future, as well as for the Macintosh version, which are different from the PC version due to their distinct operating system. RIPEM provides your SMTP mail with the security facilities provided by PEM, which are:</P>
+
+<UL>
+<B><LI>Disclosure protection, </B>which is optional and protects the contents of messages from unauthorized disclosure.</LI>
+<B><LI>Originator authenticity, </B>which allows digital signature and reliability of a message to be verified.</LI>
+<B><LI>Message integrity measures, </B>which assures that the message has not being modified during the transmission, and </LI>
+<B><LI>Non-repudiation of origin </B>which allows for the verification of the identity of the original sender of the message.</LI></UL>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more information on RIPEM, and if you want to download a copy of it, check the FTP site at URL ftp://ftp.rsa.com/rsaref/. Note that there are restrictions for downloading RIPEM, as it uses the RSAREF library of cryptographic routines, which is considered munitions and thus is export-restricted from distribution without an export license to persons who are not citizens or permanent residents in the U.S or Canada. Thus, I strongly recommend you to read the frequently asked questions for RIPEM at URL http://www.cs.indiana.edu/ripem/ripem-faq. </P>
+<B><I></TD></TABLE></I>
+<P>You can use RIPEM with popular mailers such as Berkeley, mush, Elm, and MH. Code also is included in elisp to allow the easy use of RIPEM inside GNU Emacs. Post your interfaces or improvements for RIPEM to the newsgroup on USENET, <B>alt.security.ripem</B>.</P>
+<P>Zimmermann’s Pretty Good Privacy (PGP), is another product you can use to encrypt your SMTP messages.  However, unlike RIPEM, PGP tries to approach the issue of trustworthiness, but as I understand it, it does so without respect to any enunciated criteria or policy. Thus the question remains: Can you trust someone you’re with whom you are interacting through e-mail, by signing a contract or something similar (using digital signatures), just because he’s authenticated over PGP or RIPEM?</P>
+
+<H2><I><B>Post Office Protocol (POP)</LI></I></H2>
+
+</B><P>As an Internet standard, POP (Post Office Protocol) defines the means of accessing and downloading electronic mail from a server. POP clients use the SMTP protocol to SEND messages, POP is only used to retrieve messages. POP version 2, or POP2 (or POP3) are standards wide in use, especially POP3, which added some new functionality to the interface. POP is also a TCP/IP based protocol, meaning you need a network connection between client and host.</P>
+<P>POP2 or POP3 clients are available from a wide variety of sources on the Internet for MSDOS, Windows, OS/2, UNIX, Macintosh, and several other platforms. As you probably already know, POP clients look and feel just like PC-based e-mail packages and require no access to the host (server) other than a mailbox and mailbox password.</P>
+<P>With POP, mail is delivered to a shared server, which then is retrieved by an user that connects to the server and downloads all of the pending mail to the "client" machine. Thereafter, all mail processing is local to the client machine. </P>
+<P>But you must keep in mind that when you are dealing with POP configuration you ultimately are dealing with private information coming and going through it.  You are dealing with issues such confidentiality, integrity and liabilities! Thus, I recommend you not to allow your users to transfer mail over the Internet through a POP, because it can reveal passwords and the messages are totally unprotected.  If they must transfer it, then implement packet filtering. You might be able to implement some proxy too, but it will require some minor coding.</P>
+<P>Recently, CERT Advisory CA-97.09 (August 27, 1997), reported on a vulnerability with POP and Internet Message Access Protocol (IMAP). According to CERT, some versions of the University of Washington's implementation of the IMAP and POP has a security hole that allows remote users to obtain unauthorized root access without even having access to an account on the system.</P>
+<P>CERT/CC team recommends installing a patch if one is available or upgrading to IMAP4rev1. Until you can do so, CERT recommends you to disable the IMAP and POP services at your site.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Should you need to update to IMAP4rev1, you can download it from the University of Washington FTP server at URL ftp://ftp.cac.washington.edu/mail/imap.tar.Z. Note that the checksums change when files are updated.</P>
+</TD></TABLE>
+<P>If you are not able to temporarily disable the POP and IMAP services, then try to limit access to the vulnerable services to machines in your local network. This can be done by installing the tcp_wrappers, since POP is launched out of inetd.conf, for loggins and access control. This doesn’t mean that your POP is safe now, and you still have to do run the fix, hopefully already available by the publishing of this book, or upgrade to IMAP4ver1. Additionally, you should consider filtering connections at the firewall to minimize the impact of unwanted connections.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you need access to the tcp_wrappers tool, you can download it from CERT’s FTP server at URL ftp://info.cert.org/pub/tools/tcp_wrappers/tcp_wrappers_7.5.tar.gz</P>
+</TD></TABLE>
+<P>The BorderWare firewall is an example of a product that runs all standard Internet servers including a full function electronic mail server with POP and SMTP support.  But BorderWare is not the only one, check chapter 14, &quot;Types of Firewall,&quot; for the complete list.</P>
+
+<H2><I><B>Multimedia Internet Mail Extensions (MIME)</LI></I></H2>
+
+</B><P>MIME is an acronym for Multipurpose Internet Mail Extensions.  The standard for attaching non-text files to standard Internet mail messages. Unfortunately, MIME is not secure. Thus, RSA developed S/MIME, which is a specification for secure MIME by offering authentication (using digital signatures) and privacy (using encryption).</P>
+<P>S/MIME, PGP, and PEM are similar, as they specify methods for securing your electronic mail. However, PGP can be thought of as both a specification and an application as it relies on users to exchange keys and establish trust in each other. S/MIME, on the other hand, utilizes hierarchies in which the roles of the user and the certifier are formalized, which makes S/MIME more secure and more scaleable than PGP implementations. </P>
+<P>If we were to compare PEM with S/MIME, we’ll need to take in consideration that PEM is an early standard for securing e-mail that specified a message format and a hierarchy structure. The PEM message format is based on 7-bit text messages, whereas S/MIME is designed to work with MIME binary attachments as well as text. The guidelines for hierarchies are also more flexible in S/MIME. This should allow for both easy set-up for small workgroups that don't need to be part of an all-encompassing hierarchy, and an easy path to move workgroups to the hierarchy that best suits their needs.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more information about RSA’s S/MIME, check their URL at http://www.rsa.com/smime/html/faq.html#gnrl.1.</P>
+</TD></TABLE>
+<P>Now, one way to have more control over your SMTP mail is to tunnel them to a specific server where they can be screened. You can easily do this by setting up an HTML email form and using the &quot;Mailto&quot; function.   You would enter a line code it in HTML as </P>
+<PRE><FONT SIZE=3><P>&lt;A HREF=&quot;mailto:user@hisdomain.com&quot;&gt;user@hisdomain.com&lt;/A&gt;</P></I></PRE></FONT>
+<P>The safedude<I>@murphylaw.com</I> eventually will be replaced by an Internet address.  Every time an user clicks on the email anchor, a special form pops-up.  The user then writes his message and sends it to you.  </P>
+<P>However, there are many other options, in many different script languages.  It all will depend on how much you want to invest on it, in time and effort, and the resources you have available.</P>
+<P>To create an email comment form, you will need to create a form which sends mail to you from any browser that supports forms. For UNIX server, there is a very flexible CGI script, cgimail, which can be downloaded from MIT’s Web site. I have not seen any other tool for this purpose with such a level of flexibility.  It is also very easy to install and use. </P>
+<P>Since cgimail requires an ASCII form, it can be later emailed, which allows users with disabilities to access it. If you want to download it, check the mit-dcns-cgi at the  URL: http://web.mit.edu/wwwdev/www/dist/mit-dcns-cgi.html.</P>
+
+<P>If you rather work with ANSI C, there is very simple email form package called Simple CGI Email Handler, which I strong recommend.  It is based on the post_query.c code provided with the NCSA httpd 1.1 package, released to the public domain.</P>
+<P>You should be aware of AIX, which definitely is vulnerable to it.  The SunOS 4.1.3 does not allow these escape sequences, unless mail is being run from an actual terminal.  With version 2.1, you don’t need to be concerned about it as the tilde escapes were replaced with spaces. </P>
+<P>If you are interested on this script, you can download it from the URL: http://www.boutell.com/email/.</P>
+<P>If you like Perl, there is another email form package called the &quot;Web Mailto Gateway,&quot; developed by Doug Stevenson (doug+@osu.edu).  The following source code can be found at URL: http://www.mps.ohio-state.edu/mailto/mailto_info.html.</P>
+<PRE><FONT SIZE=3><P>#!/usr/local/bin/perl</P>
+<P>#</P>
+<P># Doug's WWW Mail Gateway 2.2</P>
+<P># 5/95</P>
+<P># All material here is Copyright 1995 Doug Stevenson.</P>
+<P>#</P>
+<P># Use this script as a front end to mail in your HTML.  Not every browser</P>
+<P># supports the mailto: URLs, so this is the next best thing.  If you</P>
+<P># use this script, please leave credits to myself intact!  :)  You can</P>
+<P># modify it all you want, though.</P>
+<P>#</P>
+<P># Documentation at:</P>
+<P>#    http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html</P>
+<P>#</P>
+<P># Configurable items are just below.  Also pay special attention to</P>
+<P># GET method arguments that this script accepts to specify defaults</P>
+<P># for some fields.</P>
+<P>#</P>
+<P># I didn't exactly follow the RFCs on mail headers when I wrote this,</P>
+<P># so please send all flames my way if it breaks your mail client!!</P>
+<P># Also, you'll need cgi-lib.pl for the GET and POST parsing.  I use</P>
+<P># version 1.7.</P>
+<P>#</P>
+<P># Requires cgi-lib.pl which can be found at</P>
+<P>#    http://www.bio.cam.ac.uk/web/form.html</P>
+<P>#</P>
+<P># PLEASE: Use this script freely, but leave credits to myself!!  It's</P>
+<P>#         common decency!</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.1 to 1.2:</P>
+<P>#</P>
+<P># A common modification to the script for others to make was to allow</P>
+<P># only a certain few mail addresses to be sent to.  I changed the WWW</P>
+<P># Mail Gateway to allow only those mail addresses in the list @addrs</P>
+<P># to be mailed to - they are placed in a HTML &lt;SELECT&gt; list, with either</P>
+<P># the selected option being either the first one or the one that matches</P>
+<P># the "to" CGI variable.  Thanks to Mathias Koerber</P>
+<P># &lt;Mathias.Koerber@swi.com.sg&gt; for this suggestion.</P>
+<P>#</P>
+<P># Also made one minor fix.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.2 to 1.3:</P>
+<P>#</P>
+<P># Enhancing the enhancements from 1.2.  You can now specify a real name</P>
+<P># or some kind of identifier to go with the real mail address.  This</P>
+<P># infomation gets put in the %addrs associative array, either explicitly</P>
+<P># defined, or read from a file.  Read the information HTML for instructions</P>
+<P># on how to set this up.  Also, real mail addresses may hidden from the</P>
+<P># user.  Undefine or set to zero the variable $expose_address below.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.3 to 1.4</P>
+<P>#</P>
+<P># The next URL to be fetched after the mail is sent can be specified with</P>
+<P># the cgi varaible 'nexturl'.</P>
+<P>#</P>
+<P># Fixed some stupid HTML mistake.</P>
+<P>#</P>
+<P># Force user to enter something for the username on 'Your Email:' tag,</P>
+<P># if identd didn't get a username.</P>
+<P>#</P>
+<P># Added Cc: field, only when %addrs is not being used.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Quickie patch to 1.41</P>
+<P>#</P>
+<P># Added &lt;PRE&gt;formatted part to header entry to make it look nice and fixed a</P>
+<P># typo.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Version 2.0 changes</P>
+<P>#</P>
+<P># ALL cgi varaibles (except those reserved for mail info) are logged</P>
+<P># at then end of the mail received.  You can put forms, hidden data,</P>
+<P># or whatever you want, and the info for each variable will get logged.</P>
+<P>#</P>
+<P># Cleaned up a lot of spare code.</P>
+<P>#</P>
+<P># IP addresses are now correctly logged instead of just hostnames.</P>
+<P>#</P>
+<P># Made source retrieval optional.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 2.0 to 2.1</P>
+<P>#</P>
+<P># Fixed stupid HTML error for an obscure case.  Probably never noticed.</P>
+<P>#</P>
+<P># Reported keys are no longer reported in an apparently random order; they</P>
+<P># are listed in the order they were received.  That was a function of perl</P>
+<P># hashes...changed to a list operation instead.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 2.1 to 2.2</P>
+<P>#</P>
+<P># Added all kinds of robust error checking and reporting.  Should be</P>
+<P># easier to diagnose problems from the user end.</P>
+<P>#</P>
+<P># New suggested sendmail flag -oi to keep sendmail from ending mail</P>
+<P># input on line containing . only.</P>
+<P>#</P>
+<P># Added support for setting the "real" From address in the first line</P>
+<P># of the mail header using the -f sendmail switch.  This may or may not</P>
+<P># be what you want, depending on the application of the script.  This is</P>
+<P># useful for listservers that use that information for identification</P>
+<P># purposes or whatever.  This is NOT useful if you're concerned about</P>
+<P># the security of your script for public usage.  Your mileage will vary,</P>
+<P># please read the sendmail manual about the -f switch.</P>
+<P>#    Thanks to Jeff Lawrence (jlaw@irus.rri.uwo.ca) for figuring this</P>
+<P>#    one out.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Doug Stevenson</P>
+<P># doug+@osu.edu</P>
+<P>######################</P>
+<P># Configurable options</P>
+<P>######################</P>
+<P># whether or not to actually allow mail to be sent -- for testing purposes</P>
+<P>$active = 1;</P>
+<P># Logging flag.  Logs on POST method when mail is sent.</P>
+<P>$logging = 1;</P>
+<P>$logfile = '/usr/local/WWW/etc/mailto_log';</P>
+<P># Physical script location.  Define ONLY if you wish to make your version</P>
+<P># of this source code available with GET method and the suffix '?source'</P>
+<P># on the url.</P>
+<P>$script_loc = '/usr/local/WWW/cgi-bin/mailto.pl';</P>
+<P># physical location of your cgi-lib.pl</P>
+<P>$cgi_lib = '/usr/local/WWW/cgi-bin/cgi-lib.pl';</P>
+<P># http script location</P>
+<P>$script_http = 'http://www-bprc.mps.ohio-state.edu/cgi-bin/mailto.pl';</P>
+<P># Path to sendmail and its flags.  Use the first commented version and</P>
+<P># define $listserver = 1if you want the gateway to be used for listserver</P>
+<P># subscriptions -- the -f switch might be neccesary to get this to work</P>
+<P># correctly.</P>
+<P>#</P>
+<P># sendmail options:</P>
+<P>#    -n  no aliasing</P>
+<P>#    -t  read message for "To:"</P>
+<P>#    -oi don't terminate message on line containing '.' alone</P>
+<P>#$sendmail = "/usr/lib/sendmail -t -n -oi -f";  $listserver = 1;</P>
+<P>$sendmail = "/usr/lib/sendmail -t -n -oi";</P>
+<P># set to 1 if you want the real addresses to be exposed from %addrs</P>
+<P>#$expose_address = 1;</P>
+<P># Uncomment one of the below chunks of code to implement restricted mail</P>
+<P># List of address to allow ONLY - gets put in a HTML SELECT type menu.</P>
+<P>#</P>
+<P>#%addrs = ("Doug - main address", "doug+@osu.edu",</P>
+<P>#         "Doug at BPRC", "doug@polarmet1.mps.ohio-state.edu",</P>
+<P>#         "Doug at CIS", "stevenso@cis.ohio-state.edu",</P>
+<P>#         "Doug at the calc lab", "dstevens@mathserver.mps.ohio-state.edu",</P>
+<P>#         "Doug at Magnus", "dmsteven@magnus.acs.ohio-state.edu");</P>
+<P># If you don't want the actual mail addresses to be visible by people</P>
+<P># who view source, or you don't want to mess with the source, read them</P>
+<P># from $mailto_addrs:</P>
+<P>#</P>
+<P>#$mailto_addrs = '/usr/local/WWW/etc/mailto_addrs';</P>
+<P>#open(ADDRS,$mailto_addrs);</P>
+<P>#while(&lt;ADDRS&gt;) {</P>
+<P>#    ($name,$address) = /^(.+)[ \t]+([^ ]+)\n$/;</P>
+<P>#    $name =~ s/[ \t]*$//;</P>
+<P>#    $addrs{$name} = $address;</P>
+<P>#}</P>
+<P># version</P>
+<P>$version = '2.2';</P>
+<P>#############################</P>
+<P># end of configurable options</P>
+<P>#############################</P>
+<P>##########################</P>
+<P># source is self-contained</P>
+<P>##########################</P>
+<P>if ($ENV{'QUERY_STRING'} eq 'source' &amp;&amp; defined($script_loc)) {</P>
+<P>    print "Content-Type: text/plain\n\n";</P>
+<P>    open(SOURCE, $script_loc) ||</P>
+<P>        &amp;InternalError('Could not open file containing source code');</P>
+<P>    print &lt;SOURCE&gt;;</P>
+<P>    close(SOURCE);</P>
+<P>    exit(0);</P>
+<P>}</P>
+<P>require $cgi_lib;</P>
+<P>&amp;ReadParse();</P>
+<P>#########################################################################</P>
+<P># method GET implies that we want to be given a FORM to fill out for mail</P>
+<P>#########################################################################</P>
+<P>if ($ENV{'REQUEST_METHOD'} eq 'GET') {</P>
+<P>    # try to get as much info as possible for fields</P>
+<P>    # To:     comes from $in{'to'}</P>
+<P>    # Cc:     comes from $in{'cc'}</P>
+<P>    # From:   comes from REMOTE_IDENT@REMOTE_HOST || $in{'from'} || REMOTE_USER</P>
+<P>    # Subject: comes from $in{'sub'}</P>
+<P>    # body comes from $in{'body'}</P>
+<P>    $destaddr = $in{'to'};</P>
+<P>    $cc = $in{'cc'};</P>
+<P>    $subject = $in{'sub'};</P>
+<P>    $body = $in{'body'};</P>
+<P>    $nexturl = $in{'nexturl'};</P>
+<P>    if ($in{'from'}) {</P>
+<P>        $fromaddr = $in{'from'};</P>
+<P>    }</P>
+<P>    # this is for NetScape pre-1.0 beta users - probably obsolete code</P>
+<P>    elsif ($ENV{'REMOTE_USER'}) {</P>
+<P>        $fromaddr = $ENV{'REMOTE_USER'};</P>
+<P>    }</P>
+<P>    # this is for Lynx users, or any HTTP/1.0 client giving From header info</P>
+<P>    elsif ($ENV{'HTTP_FROM'}) {</P>
+<P>        $fromaddr = $ENV{'HTTP_FROM'};</P>
+<P>    }</P>
+<P>    # if all else fails, make a guess</P>
+<P>    else {</P>
+<P>        $fromaddr = "$ENV{'REMOTE_IDENT'}\@$ENV{'REMOTE_HOST'}";</P>
+<P>    }</P>
+<P>    # Convert multiple bodies (separated by \0 according to CGI spec)</P>
+<P>    # into one big body</P>
+<P>    $body =~ s/\0//;</P>
+<P>    # Make a list of authorized addresses if %addrs exists.</P>
+<P>    if (%addrs) {</P>
+<P>        $selections = '&lt;SELECT NAME="to"&gt;';</P>
+<P>        foreach (sort keys %addrs) {</P>
+<P>            if ($in{'to'} eq $addrs{$_}) {</P>
+<P>                $selections .= "&lt;OPTION SELECTED&gt;$_";</P>
+<P>            }</P>
+<P>            else {</P>
+<P>                $selections .= "&lt;OPTION&gt;$_";</P>
+<P>            }</P>
+<P>            if ($expose_address) {</P>
+<P>                $selections .= " &amp;lt;$addrs{$_}&gt;";</P>
+<P>            }</P>
+<P>        }</P>
+<P>        $selections .= "&lt;/SELECT&gt;\n";</P>
+<P>    }</P>
+<P>    # give them the form</P>
+<P>    print &amp;PrintHeader();</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Doug\'s WWW Mail Gateway $version&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;&lt;IMG SRC="http://www-bprc.mps.ohio-state.edu/pics/mail2.gif" ALT=""&gt;</P>
+<P>The WWW Mail Gateway $version&lt;/H1&gt;</P>
+<P>&lt;P&gt;The &lt;B&gt;To&lt;/B&gt;: field should contain the &lt;B&gt;full&lt;/B&gt; Email address</P>
+<P>that you want to mail to.  The &lt;B&gt;Your Email&lt;/B&gt;: field needs to</P>
+<P>contain your mail address so replies go to the right place.  Type your</P>
+<P>message into the text area below. If the &lt;B&gt;To&lt;/B&gt;: field is invalid,</P>
+<P>or the mail bounces for some reason, you will receive notification</P>
+<P>if &lt;B&gt;Your Email&lt;/B&gt;: is set correctly.  &lt;I&gt;If &lt;B&gt;Your Email&lt;/B&gt;:</P>
+<P>is set incorrectly, all bounced mail will be sent to the bit bucket.&lt;/I&gt;&lt;/P&gt;</P>
+<P>&lt;FORM ACTION="$script_http" METHOD=POST&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>    print "&lt;P&gt;&lt;PRE&gt;        &lt;B&gt;To&lt;/B&gt;: ";</P>
+<P>    # give the selections if set, or INPUT if not</P>
+<P>    if ($selections) {</P>
+<P>        print $selections;</P>
+<P>    }</P>
+<P>    else {</P>
+<P>        print "&lt;INPUT VALUE=\"$destaddr\" SIZE=40 NAME=\"to\"&gt;\n";</P>
+<P>        print "        &lt;B&gt;Cc&lt;/B&gt;: &lt;INPUT VALUE=\"$cc\" SIZE=40 NAME=\"cc\"&gt;\n";</P>
+<P>    }</P>
+<P>    print &lt;&lt;EOH;</P>
+<P> &lt;B&gt;Your Name&lt;/B&gt;: &lt;INPUT VALUE="$fromname" SIZE=40 NAME="name"&gt;</P>
+<P>&lt;B&gt;Your Email&lt;/B&gt;: &lt;INPUT VALUE="$fromaddr" SIZE=40 NAME="from"&gt;</P>
+<P>   &lt;B&gt;Subject&lt;/B&gt;: &lt;INPUT VALUE="$subject" SIZE=40 NAME="sub"&gt;&lt;/PRE&gt;</P>
+<P>&lt;INPUT TYPE="submit" VALUE="Send the mail"&gt;</P>
+<P>&lt;INPUT TYPE="reset" VALUE="Start over"&gt;&lt;BR&gt;</P>
+<P>&lt;TEXTAREA ROWS=20 COLS=60 NAME="body"&gt;$body&lt;/TEXTAREA&gt;&lt;BR&gt;</P>
+<P>&lt;INPUT TYPE="submit" VALUE="Send the mail"&gt;</P>
+<P>&lt;INPUT TYPE="reset" VALUE="Start over"&gt;&lt;BR&gt;</P>
+<P>&lt;INPUT TYPE="hidden" NAME="nexturl" VALUE="$nexturl"&gt;&lt;/P&gt;</P>
+<P>&lt;/FORM&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;H2&gt;Information about the WWW Mail Gateway&lt;/H2&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF="http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#about"&gt;</P>
+<P>About the WWW Mail Gateway&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF="http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#new"&gt;</P>
+<P>New in version $version&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF="http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#misuse"&gt;</P>
+<P>Please report misuse!&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;ADDRESS&gt;&lt;P&gt;&lt;A HREF="/~doug/"&gt;Doug Stevenson: doug+\@osu.edu&lt;/A&gt;</P>
+<P>&lt;/P&gt;&lt;/ADDRESS&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>}</P>
+<P>#########################################################################</P>
+<P># Method POST implies that they already filled out the form and submitted</P>
+<P># it, and now it is to be processed.</P>
+<P>#########################################################################</P>
+<P>elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {</P>
+<P>    # get all the variables in their respective places</P>
+<P>    $destaddr = $in{'to'};</P>
+<P>    $cc       = $in{'cc'};</P>
+<P>    $fromaddr = $in{'from'};</P>
+<P>    $fromname = $in{'name'};</P>
+<P>    $replyto  = $in{'from'};</P>
+<P>    $sender   = $in{'from'};</P>
+<P>    $errorsto = $in{'from'};</P>
+<P>    $subject  = $in{'sub'};</P>
+<P>    $body     = $in{'body'};</P>
+<P>    $nexturl  = $in{'nexturl'};</P>
+<P>    $realfrom = $ENV{'REMOTE_HOST'} ? $ENV{'REMOTE_HOST'}: $ENV{'REMOTE_ADDR'};</P>
+<P>    # check to see if required inputs were filled - error if not</P>
+<P>    unless ($destaddr &amp;&amp; $fromaddr &amp;&amp; $body &amp;&amp; ($fromaddr =~ /^.+\@.+/)) {</P>
+<P>        print &lt;&lt;EOH;</P>
+<P>Content-type: text/html</P>
+<P>Status: 400 Bad Request</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto error&lt;/H1&gt;</P>
+<P>&lt;P&gt;One or more of the following necessary pieces of information was missing</P>
+<P>from your mail submission:</P>
+<P>&lt;UL&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;To&lt;/B&gt;:, the full mail address you wish to send mail to&lt;/LI&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;Your Email&lt;/B&gt;: your full email address&lt;/LI&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;Body&lt;/B&gt;: the text you wish to send&lt;/LI&gt;</P>
+<P>&lt;/UL&gt;</P>
+<P>Please go back and fill in the missing information.&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    exit(0);</P>
+<P>    }</P>
+<P>    # do some quick logging - you may opt to have more/different info written</P>
+<P>    if ($logging) {</P>
+<P>        open(MAILLOG,"&gt;&gt;$logfile");</P>
+<P>        print MAILLOG "$realfrom\n";</P>
+<P>        close(MAILLOG);</P>
+<P>    }</P>
+<P>    # Log every CGI variable except for the ones reserved for mail info.</P>
+<P>    # Valid vars go into @data.  Text output goes into $data and gets.</P>
+<P>    # appended to the end of the mail.</P>
+<P>    # First, get an ORDERED list of all cgi vars from @in to @keys</P>
+<P>    for (0 .. $#in) {</P>
+<P>        local($key) = split(/=/,$in[$_],2);</P>
+<P>        $key =~ s/\+/ /g;</P>
+<P>        $key =~ s/%(..)/pack("c",hex($1))/ge;</P>
+<P>        push(@keys,$key);</P>
+<P>    }</P>
+<P>    # Now weed out the ones we want</P>
+<P>    @reserved = ('to', 'cc', 'from', 'name', 'sub', 'body', 'nexturl');</P>
+<P>    local(%mark);</P>
+<P>    foreach (@reserved) { $mark{$_} = 1; }</P>
+<P>    @data = grep(!$mark{$_}, @keys);</P>
+<P>    foreach (@data) {</P>
+<P>        $data .= "$_ -&gt; $in{$_}\n";</P>
+<P>    }</P>
+<P>    # Convert multiple bodies (separated by \0 according to CGI spec)</P>
+<P>    # into one big body</P>
+<P>    $body =~ s/\0//;</P>
+<P>    # now check to see if some joker changed the HTML to allow other</P>
+<P>    # mail addresses besides the ones in %addrs, if applicable</P>
+<P>    if (%addrs) {</P>
+<P>        if (!scalar(grep($_." &lt;$addrs{$_}&gt;" eq $destaddr ||</P>
+<P>                         $destaddr eq $_, keys(%addrs)))) {</P>
+<P>            print &amp;PrintHeader();</P>
+<P>            print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;WWW Mail Gateway: Mail address not allowed&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;</P>
+<P>&lt;H1&gt;Mail address not allowed&lt;/H1&gt;</P>
+<P>&lt;P&gt;The mail address you managed to submit, &lt;B&gt;$destaddr&lt;/B&gt;, to this script is</P>
+<P>not one of the pre-defined set of addresses that are allowed.  Go back and</P>
+<P>try again.&lt;/P&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>            exit(0);</P>
+<P>        }</P>
+<P>    }</P>
+<P>    # if we just received an alias, then convert that to an address</P>
+<P>    $realaddr = $destaddr;</P>
+<P>    if ($addrs{$destaddr}) {</P>
+<P>        $realaddr = "$destaddr &lt;$addrs{$destaddr}&gt;";</P>
+<P>    }</P>
+<P>    # fork over the mail to sendmail and be done with it</P>
+<P>    if ($active) {</P>
+<P>        if ($listserver) {</P>
+<P>            open(MAIL,"| $sendmail$fromaddr") ||</P>
+<P>                &amp;InternalError('Could not fork sendmail with -f switch');</P>
+<P>        }</P>
+<P>        else {</P>
+<P>            open(MAIL,"| $sendmail") ||</P>
+<P>                &amp;InternalError('Could not fork sendmail with -f switch');</P>
+<P>        }</P>
+<P>        # only print Cc if we got one</P>
+<P>        print MAIL "Cc: $cc\n" if $cc;</P>
+<P>        print MAIL &lt;&lt;EOM;</P>
+<P>From: $fromname &lt;$fromaddr&gt;</P>
+<P>To: $realaddr</P>
+<P>Reply-To: $replyto</P>
+<P>Errors-To: $errorsto</P>
+<P>Sender: $sender</P>
+<P>Subject: $subject</P>
+<P>X-Mail-Gateway: Doug\'s WWW Mail Gateway $version</P>
+<P>X-Real-Host-From: $realfrom</P>
+<P>$body</P>
+<P>$data</P>
+<P>EOM</P>
+<P>    close(MAIL);</P>
+<P>    }</P>
+<P>    # give some short confirmation results</P>
+<P>    #</P>
+<P>    # if the cgi var 'nexturl' is given, give out the location, and let</P>
+<P>    # the browser do the work.</P>
+<P>    if ($nexturl) {</P>
+<P>        print "Location: $nexturl\n\n";</P>
+<P>    }</P>
+<P>    # otherwise, give them the standard form.</P>
+<P>    else {</P>
+<P>        print &amp;PrintHeader();</P>
+<P>        print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto results&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto results&lt;/H1&gt;</P>
+<P>&lt;P&gt;Mail sent to &lt;B&gt;$destaddr&lt;/B&gt;:&lt;BR&gt;&lt;BR&gt;&lt;/P&gt;</P>
+<P>&lt;PRE&gt;</P>
+<P>&lt;B&gt;Subject&lt;/B&gt;: $subject</P>
+<P>&lt;B&gt;From&lt;/B&gt;: $fromname &amp;lt;$fromaddr&gt;</P>
+<P>$body&lt;/PRE&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;A HREF="$script_http"&gt;Back to the WWW Mailto Gateway&lt;/A&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>    }</P>
+<P>}                               # end if METHOD=POST</P>
+<P>#####################################</P>
+<P># What the heck are we doing here????</P>
+<P>#####################################</P>
+<P>else {</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto Gateway error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto Gateway error&lt;/H1&gt;</P>
+<P>&lt;P&gt;Somehow your browser generated a non POST/GET request method and it</P>
+<P>got here.  You should get this fixed!!&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>}</P>
+<P>exit(0);</P>
+<P>#</P>
+<P># Deal out error messages to the user.  Gets passed a string containing</P>
+<P># a description of the error</P>
+<P>#</P>
+<P>sub InternalError {</P>
+<P>    local($errmsg) = @_;</P>
+<P>    print &amp;PrintHeader();</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>Content-type: text/html</P>
+<P>Status: 502 Bad Gateway</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto Gateway Internal Error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto Gateway Internal Error&lt;/H1&gt;</P>
+<P>&lt;P&gt;Your mail failed to send for the following reason:&lt;BR&gt;&lt;BR&gt;</P>
+<P>&lt;B&gt;$errmesg&lt;/B&gt;&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    exit(0);</P>
+<P>}</P>
+<P>##</P>
+<P>## end of mailto.pl</P>
+<P>##</P></I></PRE></FONT>
+<P>If your server can run CGI scripts and is configured with sendmail, this is the right mail gateway script to have in your HTML, you will need to be able to run CGI scripts on your server though.</P>
+<P>The use of firewalls can enhance your protection.  It can restrict the access of outside mail to only few machines and re-enforce security on those machines.  Usually these machines would act as a gateway to the company and a firewall as a guard, a security agent, controlling what’s coming in or going out.</P>
+<P>Nevertheless, messages will need to come into the company, and a firewall will not be able to screen those messages for hostile applets or scripts.  At most, there are few techniques to filter threatening characters in the mail address, if you can come up with a table so that the firewall can recognize it.</P>
+<P>Thus, always keep in mind that, since SMTP lacks authentication, forging email is not something difficult. If your site allows connections to the SMTP port, anyone can connect to the that port and issue commands that will send emails that appears to be from you or even a fictitious.</P>
+
+<H2><B>File Transferring Issues</LI></H2>
+
+</B><P>File transferring is one of the Internet services most used. With the Web, this service became much easier to use, and therefore, more difficult to control and secure.  Thus, for security reasons, companies connected to the Internet often block FTP, TELNET, and GOPHER access. Firewalls and proxy servers can protect your site by controlling the access to authenticated FTP sites.</P>
+
+<H2><I><B>File Transfer Protocol (FTP)</LI></I></H2>
+
+</B><P>Security is one of the major opponents of FTP services.  Many companies bar FTP fearing been attacked by a hacker, or even having an intruder eavesdropping the site.  </P>
+<P>Using private FTP over the Internet has some security implications. As with rcp, the user name and password are transmitted in the clear, so anyone on the route between your client and server can sniff your user name and password. They can then use your user name and password to gain unauthorized access to the server. The data you transfer are also unencrypted and can be sniffed as well.</P>
+<P>These two problems can be overcome by using a SSL (Secure Socket Layer) version of the FTP server and client program. When using SSL, all network traffic is encrypted, and the client and server can use strong authentication. There is one drawback however, the SSL protocol requires a third, independent party, as a CA (Certification Authority). This CA must be trusted by both parties and is used in establishing the true identity of the client and server. In the case of a Web browser, this CA is one of the &quot;true&quot; authorities, like Verisign is (for more information on VeriSign, check their URL at http://www.verisign.com). However, for a dedicated FTP connection between a client and a server this CA can be any party that is trusted by both.</P>
+<P>To resolve this problem, there are firewall and proxy products available to incorporate a secured anonymous FTP server, which provides read-only access to a protected and limited file hierarchy. This products provide an interface mechanism that enables a writable incoming directory to allow the sending of files to a firewall. The data areas are then accessed only from the internal network.  For more information on firewalls, refer to chapter 14, &quot;Types of Firewalls,&quot; where it lists all the main firewall products available on the market.</P>
+<P>Try to develop a configuration checklist based on the environment you have, don’t go around coping recommendations from books or from the Web! Instead, used them as a template to be customized to the needs and systems characteristics of your company.  The following are configuration suggestions to be considered (Remember! Add to the list depending on your needs!):</P>
+
+<UL>
+<LI><B>Check if your FTP server is running correctly</A></A></B> - Periodically you should check if your FTP Server service is running correctly.  If you are using a Windows NT server, you can try to use FTP on the local system by typing the IP loopback address from the command line: </LI></UL>
+
+<PRE><FONT SIZE=3><P ALIGN="CENTER">ftp 127.0.0.1. </P></I></PRE></FONT><DIR>
+<DIR>
+<DIR>
+
+<P>&#9;&#9;There should be no difference between the interaction with a local server and other Windows NT and most UNIX clients. This can also be used to determine whether the directories, permissions, and so on of the FTP Server service are configured properly.</P></DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+<B><LI>Check if your FTP server is configured right</B> - If you find any problems after the test above, f</A></A>ollowing CIAC’s recommendations, you should consider the following guidelines when configuring your FTP Server:</LI>
+
+<UL>
+<LI>Make sure that files and directories in the anonymous FTP area are not owned by the user &quot;ftp&quot;, which is the user ID of anonymous users.  The risk is that anything owned by it can be modified, replaced, or deleted by any remote user on the Internet.</LI>
+<LI>Make sure not to place any encrypted passwords from the system password file &quot;etc/passwd&quot; password file in the anonymous FTP area &quot;~ftp/etc/passwd.&quot; A hacker can retrieve these encrypted passwords and also attempt to decrypt them.  Try not to set directories or files as writable for anonymous users. Even though some remote users may find it easier to have an incoming directory available for dropping files, hackers can use these areas to store contraband files, which can include copyrighted materials, etc.</LI></UL>
+
+<LI><B>Check if your anonymous FTP configuration safe</A></A></B> - Anonymous FTP can be a valuable service at your site, but you must configure it right and take the time to administer it. Otherwise, you will be opening doors, inviting intruders, hacker and cracker to come in. As a alerted you above, not all the recommendations I am listing here will necessarily apply to you as your environment and/or system platform might differ.  So please, remember that:</LI>
+
+<UL>
+<LI>Make sure you have the latest version of the FTP daemon/server.</LI>
+<LI>When setting up FTP directories, make sure the anonymous FTP root directory, &quot;~ftp,&quot; and its sub-directories are not owned by the FTP account or even in the same group.  Otherwise, as stressed earlier, these can be an open door for attackers, specially if the directory is not write-protected.</LI>
+<LI>You should have the FTP root  directory and its sub-directories owned by root and also have only root with permissions to write on it.  This way you will keep your FTP service secure.  The following is an example of an anonymous FTP directory structure:</LI></UL>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<PRE><FONT SIZE=3><P>drwxr-xr-x  7   root    system  512 Mar 1     15:17 ./</P>
+<P>drwxr-xr-x 25   root    system  512 Jan 4    11:30 ../</P>
+<P>drwxr-xr-x  2   root    system  512 Dec 20  15:43 bin/</P>
+<P>drwxr-xr-x  2   root    system  512 Mar 12  16:23 etc/</P>
+<P>drwxr-xr-x 10   root    system  512 Jun 5   10:54 pub/</P></I></PRE></FONT></DIR>
+
+<P>&#9;Note that files and libraries, including those used by the FTP daemon and those in ~ftp/bin and ~ftp/etc, should have the same protections as these directories:  not be owned by FTP or in the same group and be write-protected.  </P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+
+<UL>
+
+<UL>
+<LI>Never place system files in the ~ftp/etc directory.  It will allow open access to attackers to get a copy of these files.  Keep in mind that these files are optional and are not used for access control. Instead, use a dummy version of both the ~ftp/etc/passwd and ~ftp/etc/group files, owned by root. This way, have the dir command using these dummy versions to show the owner and group names of the files and directories.</LI>
+<LI>Make sure that the ~/ftp/etc/passwd file do not contain any account names already contained in the system’s /etc/passwd file.  Include on these files only the necessary information to the FTP hierarchy or needed to show owner and group names. </LI>
+<LI>If you have a firewall set up in place, it is possible for hackers to gain access to your FTP server through the Web, by-passing the firewall.  That is one of the reasons why some sites rather have the Web server outside the firewall. Therefore, make sure the password field has been cleared.  The following example shows the use of asterisks (*) to clear the password field.  The example was taken from a passwd file at the  anonymous FTP area on cert.org:</LI></UL>
+</UL>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<PRE><FONT SIZE=3><P>ssphwg:*:3144:20:Site Specific Policy Handbook Working Group::</P>
+<P>cops:*:3271:20:COPS Distribution::</P>
+<P>cert:*:9920:20:CERT::</P>
+<P>tools:*:9921:20:CERT Tools::</P>
+<P>ftp:*:9922:90:Anonymous FTP::</P>
+<P>nist:*:9923:90:NIST Files::</P></I></PRE></FONT></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>It is important to understand that there is a risk in allowing anonymous FTP connections to write to your server.  Therefore, you must evaluate the risks involved before opening the door.  Besides the risks already discussed earlier (temporary storage for contraband files, etc.), an attacker could generate a malicious upload of endless files to the point of causing denial of service problems in your server.  </P>
+
+<H2><I><B>Trivial File Transfer Protocol (TFTP) </LI></I></H2>
+
+</B><P>But FTP is not the only protocol used to transfer files, as defined in RFCs 783 and 951.  Trivial File Transfer Protocol (TFTP) is commonly used by dedicated devices to transfer configuration files.</P>
+<P>If you are running TFTP on a UNIX system, turn it off! TFTP provides significant security risks. If you take the AIX version 3.x, for example, it allows remote users to upload /etc/passwd.</P>
+<P>Also, there are scanners, such as NSS (Network Security Scanner) and CONNECT, that will specifically search for open TFTP holes. If you must run TFTP, make sure to,</P>
+
+<UL>
+<LI>Use shadowed password,</LI>
+<LI>Run TFTP in a secure mode by setting it in inet.conf with the -s option,</LI>
+<LI>Log and check your connections daily!</LI></UL>
+
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You can download Joe Hentzel’s TFTP CONNECT scanner from the URL http://www.giga.or.at/pub/hacker/unix/.</P>
+</TD></TABLE>
+<H2><I><B>File Service Protocol (FSP) </LI></I></H2>
+
+</B><P>File Service Protocol (FSP) is very similar to FTP in the way or works and its features. However, FSP has protection against network overload (never forks) and logs the username of the connection coming in to the server. There is a scanner, called FSPScan, developed by Wen-King Su,  that scans for FSP servers. You can download it from the URL http://www.giga.or.at/pub/hacker/unix.</P>
+
+<H2><I><B>UNIX-to-UNIX Copy Protocol (UUCP)</LI></I></H2>
+
+</B><P>UNIX-to-UNIX Copy Protocol (UUCP) is a software program that facilitates file transfer from one UNIX system to another UNIX system via dial-up phone lines. UUCP protocol also describes the international network used to transfer USENET News and electronic mail. </P>
+<P>If using UUCP, make sure to disallow name service, as you don’t want to be giving out potentially_ compromising information. In general, you don't want people to know what the internal structure of your network really is. Also, for any open port above 1023, as long as your system isn't listening on a port, that port is not vulnerable.</P>
+<P>Nonetheless, try to use a proxy server, rather than allowing the packet through directly. This allows some logging, possibly some action to be taken on the firewall.</P>
+
+<H2> The Network News Transfer Protocol (NNTP)</A></A></A></H2>
+</B><P>NNTP is a protocol used for moving around Usenet News, a bulletin board-like on the Internet, with a variety of articles in many subjects. Grouped into newsgroups, the articles are selected by their content. </P>
+<P>When setting up news to be accessed through your Web server, you will use NNTP to link news to your site.  You will have to decide where your news server will be located in order to preserve security.  Assuming that you have or will be installing a firewall at your site, you have the option to place NNTP at the firewall machine, the bastion host.  Or you can have NNTP outside of your protected network, if your Web server is placed outside of it.</P>
+<P>However, to secure news links is not something difficult to do.  The major issue you will face is on controlling the private news your internal users may create.  Chances are your users will be exchanging sensitive information among each other, but if external users have access to these groups, then you may have a breach of confidentiality situation to deal with.  NNTP can help you to control access to these private groups.</P>
+<P>The proxing capabilities of NNTP can help you to filter the Usenet news postings by receiving and storing it than forwarding it to a server you have designated.  </P>
+<P>NNTP is a TCP-based service with store-and-forward characteristics protocol.  For the most part, NNTP is a very secure protocol, carrying a very secure service.  The reason being is that all the incoming connections to your site will be coming from a licit connection from a news feed location.</P>
+<P>Regardless where you place your firewall, make sure to have the news being feed straight from your news provider to your news server.  You will be able to do this very easily by using packet filtering or, in case you have a firewall, through a proxy server.</P>
+<P>Although NNTP is a fairly secure protocol and easy installation, the following are few recommendations you should keep in mind when configuring news at your Web site:</P>
+
+<UL>
+<LI>Do not allow the news server to reside in your firewall (bastion host) machine.  News are very disk storage demanding, and you don’t want to have your firewall machine crashing do to lack of disk space!  </LI>
+<LI>Make sure to disable automated group creation.  It can present a risk to your site as if groups are not created properly it could enable (specially in UNIX) commands to be issued.</LI></UL>
+
+<P>If you ever decide to install Usenet-Web, make sure not to run the usenet-web-index-rebuild.pl program at the same time as the usenet-web-archiver.pl. </P>
+<P>Also, make sure to disable any cron jobs that could be running the usenet-web-archiver.pl before you run usenet-web-index-rebuild.pl.</P>
+<P>It might look obvious to place the news server on your firewall machine, as discussed above, avoid doing so.  If you must, then you may want to consider a dual firewall system, which will increase cost and maintenance.</P>
+<P>If you are using a firewall at your site, one of the easiest way to configure your news gateway is through packet filtering.  The following is a small list of recommendations:</P>
+
+<UL>
+<LI>The packet filtering should allow incoming NNTP connections carrying news from ports above 1023 or the remote system and 119 on your Web or news server.  Conversely, you should set packets with the ACK bit set from port 119 on your Web server to ports equal or greater then 1023.</LI>
+<LI>By the same token, make sure your NNTP outgoing connections are set from packets 1023 on your news server to the remote system, on port 119.  As above, the packets with ACK bit set from 119 on the remote system to port above 1023 on your Web server.</LI>
+<LI>Make sure your news gateway is compatible with your firewall.  Remember that I  the HTTP environment, clients use ports above 1023, which without the gateway could be problem.</LI></UL>
+
+
+<H2><B>The Web and the HTTP Protocol</LI></H2>
+
+</B><P>The Hypertext Transfer Protocol (HTTP) is an application-level protocol developed for distributed, collaborative, hypermedia information systems. The HTTP protocol is very generic and stateless, allowing systems to be built independently of the data being transmitted.  It is also an object-oriented protocol with capabilities to be used for a variety of tasks, which includes but is not limited to name servers, distributed object management systems and extension of its request methods, or commands. </P>
+<P>One of the great features of HTTP is the typing and negotiation of data representation.  This protocol has been in use since 1990, with the W3 global information initiative.</P>
+<P>The most current version of HTTP is version 1.0, which is supported by all Web servers in the market.  But there is also another version of the protocol, HTTP-NG (Next Generation), which promises to use the bandwidth available more efficiently and enhance the HTTP protocol.  </P>
+<P>Further, HTTP is a protocol that can be generically used for communication between user agents and proxies or gateways to other Internet protocols, such as SMTP, NNTP, FTP, Gopher and WAIS.</P>
+<P>Nevertheless, all this flexibility offered by HTTP comes at a price:  it makes Web server, and clients, very difficult to secure.  The openness and stateless, characteristics of the Web, accounts for its quick success, but makes it very difficult to control and protect.  </P>
+<P>On the Internet, HTTP communication generally takes place over TCP/IP connections. It uses as default port 80, but other ports can be used, which does not prevent HTTP from being implemented on top of any other protocol.  In fact, HTTP can use any reliable transport.</P>
+<P>When a browser receives a data type it does not understand, it relies on additional applications to translate it to a form it can understand.  These applications are usually called viewers, and should be the one of the first concerns you should have when preserving security.  You must be careful when installing one, because, again, the underlying HTTP protocol running on your server will not stop the viewer from executing dangerous commands.  </P>
+<P>You should be especially careful with proxy and gateway applications.  You must be cautions when forwarding requests that are received in a format different than the one HTTP understands.  It must take into consideration the HTTP version in use, as the protocol version indicates the protocol capability of the sender.  A proxy or gateway should never send a message with a version indicator greater than its native version.  Otherwise, if a higher version request is received, both the proxy or the gateway must either downgrade the request version, respond with an error, or switch to a tunnel behavior.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you need more information on HTTP, check the URL: http://www.w3.org/hypertext/WWW/Protocols/ </P>
+<P>There is a series of utilities intended for Web server administrators available at the URL: ftp://src.brunel.ac.uk/WWW/managers/ </P>
+</TD></TABLE>
+<H2><I><B>Proxying HTTP </LI></I></H2>
+
+</B><P>The majority of HTTP clients, such as Purveyor and Netscape Navigator, support a variety of proxying schemes, SOCKS and transparent proxying. </P>
+<P>Purveyor, for instance, provides proxy support for not only HTTP, but also FTP and GOPHER protocols, creating a secure LAN environment by restricting Internet activities of LAN users. The proxy server offers improved performance by allowing internal proxy caching. Purveyor also provides proxy-to-proxy support for corporations with multiple proxy servers.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For more information on Purveyor Webserver, check Process Software’s URL: http://www.process.com.</P>
+</TD></TABLE>
+<P>If you are running your Web server on Windows NT, Windows 95 or NetWare, you can use Purveyor Webserver’s proxy features to enhance security.  In addition, you can increase the performance of your server as Purveyor can locally cache Web pages obtained from the Internet.  </P>
+<P>You should consider installing a firewall at your site, regardless if you are placing your server outside or inside your protected network.  The openness of HTTP is too great for you to risk.  Besides, you still have all the viewers and applets to worry about.  </P>
+<P>When selecting a firewall, make sure to choose one that includes HTTP proxy server.  It will be useful for protecting your browsers.  Some firewalls, such as the TIS Firewall Toolkit, provide HTTP proxying totally transparent to the user. </P>
+
+<H2><I><B>HTTP Security Holes </LI></I></H2>
+
+</B><P>The HTTP protocol has some more security holes to justify a firewall.  One of them is that it allows remote users to request communication to a remote server machine, and to execute commands remotely.  This security hole compromises the Web server and the client in many ways, including but not being limited to:</P>
+
+<UL>
+<LI>Arbitrary authentication of remote requests.</LI>
+<LI>Arbitrary authentication of Web servers.</LI>
+<LI>Breach of privacy of request and responses.</LI>
+<LI>Abuse of server features and resources.</LI>
+<LI>Abuse of servers by exploiting its bugs and security holes.</LI>
+<LI>Abuse of log information (extraction of IP addresses, domain names, file names, etc.)</LI></UL>
+
+<P>Most of these security holes are well known.  Some applications like Netscape’s SSL and NCSA’s S-HTTP try to address the issue, but only partially.</P>
+<P>Web servers are very vulnerable to client’s behavior over the Internet.  Therefore, clients should prompt a user before allowing HTTP access to reserved ports other than the port reserved for it. Otherwise, these could cause the user to unadvertedly cause a transaction to occur in a different and danger protocol.</P>
+<P>You must be careful also with the GET and HEAD methods!  The so trivial link to click an anchor to subscribe or reply to a service can trigger an applet to run without the user’s knowledge, which enables the abuse by malicious users.</P>
+<P>Another security hole of HTTP has to do with server logs.  Usually, a Web server logs a large amount of personal data about information requested by different users. Evidently, this information should remain confidential.  HTTP allows the information to be retrieved without any access permission scheme.</P>
+<P>Many other HTTP limitations and security holes exist if we were to break down the ramifications of the above security issues presented by the protocol.  Here are few HTTP configuration checklist to help you out:</P>
+
+<UL>
+<LI>When configuring your HTTP server, never use raw IP addresses to allow access to your pages. Otherwise, you will end up with a bunch of them in your access list, which only will make maintenance harder. </LI>
+<LI>If you ever have problems with misconfigured clinet’s domain server, have them contacting the LAN or systems administrator to fix it so you can reverse their names correctly. If you are the one to fix the problem, take the time and do it!  In a the long run you will be thankful for it as otherwise, you may end up with a huge list of raw IP addresses on your list.</LI>
+<LI>You have to deal with access.conf files, make sure to put only one name per directive, which will ease the file editing, as you can comment out any directive by simply placing the &quot;#&quot; character at the start of the line. </LI>
+<LI>Remember to reboot your server after any changes made on your access.conf, as the changes you made will not take effect until you re-start the system.</LI>
+<LI>Always have an access control list of the top-level document directory.  It will be useful when updating the file later.</LI></UL>
+
+
+<H2><B>Security of Conferencing</LI></H2>
+
+</B><P>Of course, there must be a practical reason for you to use the Web for conferencing.  Not only there is a large variety of hardware and software, but the fact that the Web provides a common user interface for Internet utilities like FTP, Telnet, Gopher, and WAIS allows the users to reach all the resources available on the Internet without having to leave the Web.</P>
+<P>Despite the advances of Web technology in the past three or four years, there are still a series of issues to be addressed before considering conferencing, at least in a large scale.  The following is a summary list of the main challenges affecting Web conferencing deployment:</P>
+
+<UL>
+<B><LI>Freshness of information</B> - Just like with news gateways, users want to read only the new messages added since their last visit.  In the Web environment, either the client or the server could do this.  </LI>
+<B><LI>Ability to submit files to the system</B> -  Users should be able to upload files onto the conferencing system.  To have to type it all over again in the Web form is unproductive. </LI>
+<B><LI>Incorporate images and sound to the messages</B> -  Thus one of the most exciting features enabled by the Web, image and sound is one of the most difficult to implement.  As long as an image is already available on a Web server, you can link any HTML message to it. </LI>
+<B><LI>Risks of HTML usage</B> -  It might seem natural to allow users to manipulate HTML markups in their messages, but it may create a formatting problem, as users may produce messages not compatible with your conferencing application. Users would have to be aware of structural elements such as message headers and navigation buttons.</LI>
+<B><LI>Keeping users on track</B> -  On the Web, it is very easy for an user to take side trips by clicking on a hyperlink.   This could be a problem if these links were to be appended to the message.</LI>
+<B><LI>Speed</B> - To carry sound and image on the Web can be a problem for users with low bandwidth connection.  A 14.400 baud modem on the Web can be awfully slow when transferring image and sound.  </LI></UL>
+
+<P>The bottom line, you must take in consideration the clientele accessing your site, the Web conferencing technology to be deployed and the bandwidth you have available to deploy this service.  Conferencing involves skimming over a lot of stuff to find the most interesting nuggets, so you need to be able to move around quickly.</P>
+
+<H2><B>Watch This Services</LI></H2>
+
+</B><P>Besides all, you should keep an eye on these following services, as they also can affect the security of your site if you don’t configure them appropriately</P>
+
+<H2><I><B>Gopher</LI></I></H2>
+
+</B><P>Gopher is not as used as before, but it is still fast and efficient.  Believe it or not, Gopher is fairly secure but there are some issues I would like to alert you about. One of the most popular Gopher server is the one of the University of Minnesota (found at boombox.micro.umn.edu), which is run by a lot of the Gophers available out there. </P>
+<P>You should know that there is a bug on both Gopher and Gopher+ in all versions that were available before August of 1993, as reported in CERT Advisory CA-93:11. This bug allows hacker to obtain password files, both remotely or locally, by potentially gaining unrestricted access to the account running the public access client and reading any file accessible to this account.  This includes the /etc/passwd and other sensitive files.</P>
+<P>If you want to review this bug, you can check it at the Defense Data Network Bulletin 9315, which can be viewed at the URL HTTP://www.arc.com/database/security_bulletins/DDN/sec-9315.txt.</P>
+<P>You should be alert about Gophers proxying an FTP session. Even if access is restricted to an FTP directory on your server, the Gopher can be used to perform a bounce attack. Thus, be careful when protecting an FTP server behind a firewall. If the Gopher server is not protected, a hacker can use it to trespass the firewall.</P>
+<P>Another vulnerability, reported by NASA Automated Systems Incident Response Capability (NASIRC), indicates a failure in the gopher servers gpopher1.1 (Gopher) and gopher2.012 (Gopher+) internal access controls, which can allow files in directories above the gopher data directory, such as the password file, to be read if the gopherd does not run chroot. This vulnerability only affects servers that are started with the option "-c". Without this option, gopherd runs chroot and access to files above the gopher-data directory is disabled.</P>
+
+<H2><I><B>finger</LI></I></H2>
+
+</B><P>Finger is a program that tells you whether someone is logged on to a particular local or remote computer. Through finger you might be able to learn the full name, terminal location, last time logged in, and other information about an user logged onto a particular host, depending on the data that is maintained about users on that computer. Finger originated as part of BSD UNIX. </P>
+<P>To finger another Internet user, you need to have the finger program on your computer or you can go to a finger gateway on the Web and enter the name of the user. The user's computer must be set up to handle finger requests. A ".plan" file can be created for any user that can be fingered.</P>
+<P>An intruder can use finger to find information about a site, and use finger gateways to protect his identity. </P>
+
+<H2><I><B>whois</LI></I></H2>
+
+</B><P>Whois is a program run by InterNIC that will tell you the owner of any second-level domain name. For example, you can look up the name of the owner of your own access provider by entering for example, &quot;process.com&quot; and whois will tell you the owner of that second-level domain name. The InterNIC Web whois is at http://rs.internic.net/cgi-bin/whois. </P>
+<P>whois can also be used to find out whether a domain name is available or has already been taken. If you enter a domain name you are considering and the search result is "No match," the domain name is likely to be available and you can apply to register it through your service provider. </P>
+<P>The security risk with whois is that a hacker can look-up information about his/her target before striking.  As a matter of fact, this information can be used for exploring security weaknesses in your system.</P>
+<P>For instance, there is program on a Gopher server that will produce similar results as whois, but this one will tell you the names of all domain name holders associated with a specific second-level domain name. This program is at gopher://rs.internic.net/7waissrc%3A/rs/whois.src. At IBM, for example, you can lookup information about its employees by checking their whois service at http://whois.ibm.com. The same goes for Stanford University, which you can look-up information about their students.</P>
+
+<H2><I><B>talk</LI></I></H2>
+
+</B><P>Talk is a UNIX service that allows two users to communicate over the Internet via text-based terminals.  It’s much similar to the Net send command and IRC, only that the connection is directed by the persons e-mail address. Thus, if you were to talk to me via the Internet you would issue a command:</P>
+<PRE><FONT SIZE=3><P>talk goncalves@process.com</P>
+</PRE></FONT>
+<P>By issuing this command the local talk program would contact the remote talk daemon.  If I’m available, assuming that I have talk connections enabled, my screen would split and conversation would take place.  If you’re familiar with the chat command of Windows for Workgroups, bundled with the network tools, you know what I’m talking about.</P>
+<P>The risk with this service is that information can be gathered from an unadvertised user that engage in conversation with someone unknown out on the Internet.</P>
+
+<H2><I><B>IRC</LI></I></H2>
+
+</B><P>Internet Relay Chat (IRC), just like talk, allows the communication over the Internet.  However, IRC allows multiple users conversing at the same time.</P>
+<P>The main risk is that file transferring can be done over IRC without any traced left behind, its like a cash transaction without receipts! Even though these file transferring can be done through FTP, etc., IRC makes it possible without any server software running.</P>
+
+<H2><I><B>DNS</LI></I></H2>
+
+</B><P>As you already know, Domain Name System (DNS) is the way that Internet domain names are located and translated into Internet Protocol (IP) addresses. Because maintaining a central list of domain name/IP address correspondences would be impractical, the lists of domain names and IP addresses are distributed throughout the Internet in a hierarchy of authority. There is probably a DNS server within close geographic proximity to your access provider that maps the domain names in your Internet requests or forwards them to other servers in the Internet. </P>
+<P>As far as risks with DNS, you should be aware of spoofing. When a DNS machine is compromised, this machine has been a victim of a spoofing. Not that it happens very often, but there has been reports, both at DDN and CIAC, about DNS spoofing. </P>
+<P>CIAC’s advisory, entitled &quot;Domain Name Server Vulnerability alerts about the possibility of an intruder to spoof BIND into providing incorrect name data at the DNS server, allowing for unauthorized access or re-routing of connections.  Can you imagine if all private connections of the Secret Services were re-routed to a hackers home server? Fortunately (or should I say hopefully), the Secret Service is already using Skipjack or some other kind of strong encryption in their IP connections!</P>
+<P>But fear not! A DNS spoofing is not an easy task. It’s not enough for an intruder to gain access to the DNS server.  The intruder will have to re-route the addresses of that database, which would easily give him away. It’s like breaking the window of a jewelry store, it’s just a matter of minutes before the police arrives. But again, with a good plan, how much time would a hacker need to get what he wants? </P>
+
+<H2><I><B>Network Management Station (NMS)</LI></I></H2>
+
+</B><P>As described by Aday Pabrai and Vijay Gurbani in their book &quot;Internet and TCP/IP Network Security, by McGraw-Hill, &quot;Network Management Station (NMS)is a system responsible for supporting a network management protocol and applications necessary for it to process and access information from entities (managed nodes) on the network.&quot;</P>
+<P>The only security feature provided by NMS is access control. NMS, additionally provides authentication and privacy. </P>
+
+<H2><I><B>Simple Network Management Protocol (SNMP)</LI></I></H2>
+
+</B><P>Simple Network Management Protocol is the protocol governing network management and the monitoring of network devices and their functions. It is not necessarily limited to TCP/IP networks. The details of SNMP are in these Internet Engineering Task Force (IETF) Requests for Comments (RFCs):</P>
+<P>There are two versions of SNMP, SNMPv1 and SNMPv2. SNMPv1 is the older of the two SNMP versions, of course, and offers very rudimentary security features. The only security feature offered by SNMPv1 is that of access control. In an SNMPv1 environment there are a number of agents that are monitored or controlled by an manager. Thus a manager contains a set of agents.</P>
+<P>At this stage two concepts can be introduced firstly, an MIB should be viewed as a database with tables and relationship between the tables. Secondly the concept of community. An SNMP community is a relationship between an SNMP agent and a set of SNMP managers that defines authentication, access control, and proxy characteristics. The community is established locally at an agent and is given a name. The community is addressed by its name. Thus a community is a relationship between an agent and a manager for certain privileges of the agent MIB. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>What is a MIB? A Management Information Base (MIB) is a formal description of a set of network objects that can be managed using the Simple Network Management Protocol (SNMP). The format of the MIB is defined as part of the SNMP. All other MIBs are extensions of this basic MIB. MIB-I refers to the initial MIB definition. MIB-II is the current definition. SNMPv2 includes MIB-II and adds some new objects. </P>
+<P>There are MIB extensions for each set of related network entities that can be managed. For example, there are MIB definitions in the form of Requests for Comments (RFCs) for Appletalk, DNS server, FDDI, and RS-232C network objects. Product developers can create and register new MIB extensions. </P>
+<P>Companies that have created MIB extensions for their sets of products include Cisco, Fore, IBM, Novell, QMS, and Onramp. New MIB extension numbers can be requested by contacting the Internet Assigned Numbers Authority (IANA) at 310-822-1511 x239.</P>
+</TD></TABLE>
+<P>The SNMPv2 Working Group recently completed work on a set of documents which makes up version 2 of the Internet Standard Management Framework. Unfortunately, this work ended without reaching consensus on several important areas -- the administrative and security framework and remote configuration being two of the most important.</P>
+<P>The IETF has charted a Working Group to define SNMPv3, which, if successful, will replace the SNMPv2. The SNMPv3 effort has been underway since April 1997.</P>
+
+<H2><I><B>traceroute</LI></I></H2>
+
+</B><P>Van Jacobson is the author of traceroute, which is a tool to trace the route IP packets take from the current system to some destination system. What it does is, by using the IP protocol &quot;time_to_live&quot; field it attempts to elicit an ICMP TIME_EXCEEDED response from each gateway the packet goes through on its way.</P>
+<P>The danger here is that this utility can be used to identify the location of a machine. Worse, you don’t even need to run Unix to have access to traceroute.  There are several gateways on the Net, such as the one at the URL http://www.beach.net/traceroute.html. Figure 8.01 is a traceroute to my server at Process Software Corp.</P>
+
+<!--<B><P>Figure 8.01</P>-->
+<!--</B><I><P>Using traceroute to track a server’s location</P></I>-->
+<H2><I><B>Network File System (NFS)</LI></I></H2>
+
+</B><P>Network File System (NFS), was popularized by Sun to provide a shared file system for UNIX machines. NFS, like its relative NIS, is based on a trust model of network machines that exchange information based on account information. NFS only allows certain machines to access shared file systems, but determining which machines are allowed to access the file systems is accomplished by a simple lookup of the address of the accessing machine, which can be done by anyone with access to the system running NFS. </P>
+<P>A system can be impersonated by another system to obtain its rights to a file system. This was one of the strategies used by Kevin Mitnick to break into systems, and how NFS systems are commonly attacked.</P>
+<P>If you are to use NFS, employ NFS version 3, which can handle encryption and much stronger authentication of connecting machines. Distributed file systems are historically vulnerable, but as a UNIX standard and as widely deployed as it is in educational and research arenas, NFS tends to gain more than its fair share of examination and dissection.</P>
+<P>NFS is one of the most important and vulnerable network service in Sun’s system, as it provides full access to files and directories. The major security hole is that NFS’s access control mechanisms are very hard to maintain, and are hardly adequate. Another hole is that it doesn’t have user authentication, even when using the so-called secure NFS implementation.</P>
+<P>Every user can write his own NFS client, specify any identity and read or write files. An NFS client that provides this basic functionality can easily be written in about 300 lines of C code. The secure NFS tries to fix this security hole but it doesn’t totally succeeds.  The problem is that the underlying cryptosystem doesn’t work, and can be broken very easily.</P>
+<P>File handles also used to (it has been fixed!) represents a major vulnerability. They can be constructed without the help of the mount daemon, which allows a client to directly go to the NFS daemon, and bypass the access control mechanisms which are enforced by the mount daemon. </P>
+<P>Nowadays, hackers are very aware of the typical security models utilized by MIS and deployed all over the Internet. Hackers can write simple applets to act as NFS clients and bypass all the access control system normally used, gaining total access to internal networks or users files.  But this is not merely a security hole of NFS, it extends to almost every network service available.</P>
+
+<H2> Confidentiality and Integrity</H2>
+</B><P>The  Internet itself will not protect your confidential or sensitive information. If you don’t take care of it, nobody will! The fact that neither users or Internet providers are regulated makes security even more difficult, because the Internet is  open to everyone. It is like trying to protect your home, but without any locks on the doors.</P>
+<P>Authentication mechanisms are very important to safeguard the integrity, confidentiality and security of your users, specially if you are involved with electronic commerce, which becomes a requirement.  Therefore, clients must authenticate themselves to Web servers, and Web server must also authenticate themselves to clients, and that both authenticate to each other. When applying authentication methods, it is important to take into consideration the spoofing risks.  Cryptography methods, as discussed on chapter 3, &quot;Cryptography: Is It Enough?,&quot; will help you to implement a security policy not so easy to be spoofed by hacker. </P>
+<P>Confidentiality, is also very important for users dealing with sensitive data.  Again, the credit card example comes to mind, your account number would be the last thing you want publicized!  In the corporate world, this requirement will be amplified as financial data, marketing and sales forecasts are exchanged over the Web.  The data traversing the Web needs to be protected.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Enterprise Integration Technologies, Inc. (EIT) is designing a Secure HTTP, a set of protocol changes to address confidentiality, integrity, and authentication issues. For more information you can check their Web page at URL: http://www.eit.com</P>
+</TD></TABLE>
+<P>As for integrity, just keep in mind that certain transactions not only require confidentiality, but also that contents will not be modified.  The banking industry, for example, relies on confidentiality, but the integrity of the data is as important as the privacy of the information being exchanged.</P>
+<P>There are tools to help you preserve the confidentiality and integrity of your connections.  Firewalls and encryption are definitely necessary, but you can also increment security by using tool such as swIPe, developed by John Ioannidis. This tool is actually a a network-layer security protocol for the IP protocol suite. swIPe provides confidentiality, integrity, and authentication of network traffic and can be used to provide both end-to-end and intermediate-hop security. swIPe is concerned only with security mechanisms; policy and key management are handled outside the protocol.</P>
+<P>SwIPe is a network level encryptor of datagrams, not a simple application level process. Be advised that the secure use of swIPe also requires other problems to be solved, such as key management, which are far beyond what many firewalls are instructed to do. You could be a little bit creative and try to splice in user level encryption into the firewall, but this would not be swIPe. It would also increase their complexity somewhat, decreasing confidence in the security of the modules themselves.</P>
+<P>If you want to use swPIe with a firewall, I know for a fact that Gauntlet Internet Firewall runs on BSD/OS and uses swIPe.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap07.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap09.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>

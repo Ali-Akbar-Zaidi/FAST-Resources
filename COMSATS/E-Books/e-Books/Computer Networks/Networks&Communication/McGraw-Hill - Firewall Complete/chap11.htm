@@ -1,0 +1,262 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap10.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap12.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 11</H1>
+<H1><I> Proxy Servers</I></H1>
+</B></I><P>Application gateways, or proxy server, define a whole different concept in terms of firewalls. In order to balance out some of the weaknesses presented by packet-filtering routers, you can use certain software applications in your firewall to forward and filter connections for services, such as telnet and FTP. These applications are referred to as a proxy service, and the host running the proxy service is often called an application gateway.</P>
+<P>Many IS&amp;T (information systems and technology) professionals consider application gateways to be a true firewall because the other types lack user authentication. Accessibility is much more restricted than with packet-filtering and circuit-level gateways because it requires a gateway program for every application such as telnet, FTP, and so on.</P>
+<P>As a matter of fact, there are many companies that only use a proxy service as they firewall, while others just rely on the firewall itself.  Depending of your environment, size of your company and the level of protection you want to accomplish, one or the other may be all you need.  However, as a rule of thumb, you should always consider the implementation of a proxy service combined with your package-filtering routers (firewalls), so that you can achieve a more robust level of defense and flexible access control. Also you will find that many firewall products will bring you the best of both worlds, combining both filtering and proxing features in a single package. </P>
+<P>The combination of application gateways and packet-filtering routers to increase the level of security and flexibility of your firewall is therefore the ideal solution for addressing Internet security. These are often called hybrid gateways. They are somewhat common, as they provide internal hosts unobstructed access to untrusted networks while enforcing strong security on connections coming from outside the protected network.</P>
+<P>Consider figure 11.1 as an example of a site that uses a packet-filtering router and blocks all incoming telnet and FTP connections. The router allows telnet and FTP packets to go only to the telnet/FTP application gateway. A user connecting to a site system would have to connect first to the application gateway, and then to the destination host, as follows:</P>
+<OL>
+
+<LI>A user telnets to the application gateway and enters the name of an internal host</LI>
+<LI>The gateway checks the user’s source IP address and accepts or rejects it according to any access criteria in place</LI>
+<LI>The user might need to be authenticated</LI>
+<LI>The proxy service creates a telnet connection between the gateway and the internal server</LI>
+<LI>The proxy service passes bytes between the two connections</LI>
+<LI>The application gateway logs the connection</LI></OL>
+
+
+<!--<B><P>Figure 11.1</P>-->
+<!--</B><I><P>Virtual connection implemented by an application gateway and proxy services.</P></I>-->
+<P>If you look at figure 11.2, it shows the details of the virtual connection happening on figure 11.1 and emphasizes the many benefits to using proxy services. Lets stop for a moment and try to identify some of these benefits:</P>
+
+<!--<B><P>Figure 11.2</P>-->
+<!--</B><I><P>Details of the virtual connection happening on figure 11.1</P></I>-->
+<P>Proxy services allow through only those services for which there is a proxy. If an application gateway contains proxies for FTP and telnet, only FTP and telnet are allowed into the protected subnet. All other services are completely blocked. This degree of security is important. Proxy makes sure that only trustable services are allowed through the firewall and prevents untrusted services from being implemented on the firewall without your knowledge.</P>
+<P>Let’s take a look at some advantages and disadvantages of application gateways.</P>
+<P>There are several advantages to using application gateways over the default mode of permitting application traffic directly to internal hosts. Here it is the five main ones:</P>
+<OL>
+
+<LI>Hiding information. The names of internal systems (through DNS) are hidden to outside systems. Only the application gateway host name needs to be known to outside systems. </LI>
+<LI>Robust authentication and logging. The traffic can be pre-authenticated before it reaches internal hosts. It can also be logged more efficiently than if logged with standard host logging.</LI>
+<LI>Cost-effectiveness. Authentication/logging software and hardware are located at the application gateway only.</LI>
+<LI>More comprehensive filtering rules. The rules at the packet-filtering router are more comprehensive than they would be with the routers filtering and directing traffic to several specific systems. With application gateways, the router needs only to allow application traffic destined for the application gateway and block the rest.</LI>
+<LI>E-mail. It can centralize e-mail collection and distribution to internal hosts and users. All internal users would have e-mail addresses of the form user@mailbag, where mailbag is the name of the e-mail gateway. The gateway would receive mail from outside users and then forward it to internal systems.</LI></OL>
+
+
+<P>However, nothing is perfect! Application gateways have disadvantages too. To connect to client-server protocols such as telnet requires two steps, inbound or outbound. Some even require client modification, which is not necessarily the case of a telnet application gateway, but it would still require a modification in user behavior. The user would have to connect to the firewall as opposed to connecting directly to the host. Of course, you could modify a telnet client to make the firewall transparent by allowing a user to specify the destination system (as opposed to the firewall) in the telnet command. The firewall would still serve as the route to the destination system, intercepting the connection and running authentication procedures such as querying for a one-time password.</P>
+<P>You can also use application gateways for FTP, e-mail, X Window, and other services.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Some FTP application gateways have the capability to block put and get commands to specific hosts. They can filter the FTP protocol and block all put commands to the anonymous FTP server. This guarantees that nothing can be uploaded to the server.</P>
+</TD></TABLE>
+<P>So, what are proxies after all? Simply put, proxy are gateway applications basically used to route Internet and web access from within a firewall.</P>
+<P>If you have used TIA (The Internet Adapter) or TERM, you probably are familiar with the concept of redirecting a connection. Using these programs, you can redirect a port. Proxy servers work in a similar way, by opening a socket on the server and allowing the connection to pass through.</P>
+<P>A proxy is a special HTTP server that typically is run on a firewall. A proxy basically does the following:</P>
+
+<UL>
+<LI>Receives a request from a client inside the firewall</LI>
+<LI>Sends this request to the remote server outside of the firewall</LI>
+<LI>Reads the response</LI>
+<LI>Sends it back to the client</LI></UL>
+
+<P>Usually, the same proxy is used by all of the clients in a subnet. This enables the proxy to efficiently cache documents that are requested by several clients.  Figure 11.3 demonstrates these basic functions.</P>
+
+<!--<B><P>Figure 11.3 </P></B><I><P>Proxy, an HTTP server.</P></I>-->
+<P>The fact that a proxy service is not transparent to the user means that either the user or the client will have to be proxified. Either the user is instructed on how to manage the client in order to access certain services (telnet, FTP), or the client, such as Web clients, should be made proxy-aware.</P>
+<P>The caching of documents makes proxies very attractive to those outside the firewall. Setting up a proxy server is not difficult. Today, most web client programs already have proxy support built in. It is very simple to configure an entire workgroup to use a caching proxy server, which helps to cut down on network traffic costs because many of the documents are retrieved from a local cache after the initial request has been made.</P>
+<P>Proxy has a mechanism that makes a firewall safely permeable for users in an organization without creating a potential security hole through which hackers can get into the organization’s protected network.</P>
+<P>This application-level proxying is easily supported with minor modifications for the Web client. Most standard out-of-the-box Web clients can be configured to be a proxy client without any need for compilations or special versions. In a way, you should begin to see proxying as a standard method for getting through firewalls, rather than having clients getting customized to support a special firewall method. This is especially important for your Web clients because the source code will probably not be available for modification. </P>
+<P>As an example of this procedure, check the Anonymizer site, at URL http://www.anonymizer.com.  All connections passing through the Anonymizer are proxified.  The output connection was totally redirected and had its address changed, only that here it is done to protect the identity of the client, rather then access control (another benefit of using proxies!). Clients without DNS (Domain Name Service) can still use the Web because the only thing they need is proxy IP addresses.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You can build a proxy-type firewall by using TIS toolkit if you have experience with UNIX and programming. It contains proxies for telnet, FTP, Gopher, Rlogin and a few other programs. Also, as an alternative, you can use Purveyor 1.1 (http://www.process.com), which offers all of that without a need for UNIX and programming knowledge. Best of all, you won’t need an expensive UNIX box, it runs on Windows NT and Windows 95.</P>
+</TD></TABLE>
+<P>Organizations using private network address spaces can still use your Web site as long as the proxy is visible to both the private internal net and the Internet, most likely using two separate network interfaces.</P>
+<P>Proxying permits high-level logging of client transactions, which includes the client IP address, date and time, URL, byte count, and success code. Another characteristic of proxying is its capability to filter client transactions at the application-protocol level. It can control access to services for individual methods, server and domain, and so on.</P>
+<P>As far as caching, the application-level proxy facilitates it by enabling it to be more effective on the proxy server than on each client. This helps to save disk space because only a single copy is cached. It also enables more efficient caching of documents. Cache can use predictive algorithms such as look ahead and others more effectively because it has many more clients with a much larger sample size on which to base its statistics.</P>
+<P>Have you ever thought about browsing a Web site when the server is down? It is possible, if you are caching. As long as you connect to the cache server, you can still browse the site even if the server is down.</P>
+<P>Usually, Web clients’ developers have no reason to use firewall versions of their code. But in the case of the application-level proxy, the developers might have an incentive: caching! I believe developers should always use their own products, but they usually don’t with firewall solutions such as SOCKS. Moreover, you will see that a proxy is simpler to configure than SOCKS, and it works across all platforms, not only UNIX.</P>
+<P>Technically speaking, as shown in figure 11.4, when a client requests a normal HTTP document, the HTTP server gets only the path and keyword portion of the requested URL. It knows its hostname and that its protocol specifier is http:.</P>
+
+<!--<B><P>Figure 11.4</P>-->
+<!--</B><I><P>Proxy technical details.</P></I>-->
+<P>When a proxy server receives a request from a client, HTTP is always used for transactions with the proxy server, even when accessing a resource served by a remote server using another protocol such as Gopher or FTP.</P>
+<P>A proxy server always has the information necessary to make an actual request to remote hosts specified in the request URL. Instead of specifying only the pathname and possibly search keywords to the proxy server, as figure 11.5 shows, the full URL is specified.</P>
+
+<!--<B><P>Figure 11.5</P>-->
+<!--</B><I><P>The proxy’s full URL specified.</P></I>-->
+<P>This way, a proxy server behaves like a client to retrieve a document, calling the same protocol module of Libwww that the client would call to perform the retrieval. However, it is necessary to create an HTTP containing the requested document to the client. A Gopher or FTP directory listing is returned to the client as an HTML document.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>Netscape does not use libwww so if you are using Netscape, you would not be calling a protocol module of libwww from the client.</P>
+</TD></TABLE>
+<P>Therefore, by nature a proxy server has a hybrid function: It must act as both client and server. A server when accepting HTTP requests from clients connecting to it, and a client (to the remote) to actually retrieve the documents for its own client.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>In order for you to have a complete proxy server, it must speak all of the Web protocols, especially HTTP, FTP, Gopher, WAIS, and NNTP.</P>
+</TD></TABLE>
+<P>One of the HTTP server programs, CERN’s httpd, has a unique architecture. It is built on top of the WWW Common Library. The CERN httpd speaks all of the Web protocols just like Web clients, unlike other HTTP servers built on the WWW Common Library. It has been able to run as a protocol gateway since version 2.00, but not enough to act as a full proxy. With version 2.15, it began to accept full URLs, enabling a proxy to understand which protocol to use when interacting with the target host.</P>
+<P>Another important feature with a proxy involving FTP is that if you want to deny incoming connections above port 1023, you can do so by using passive mode (PASV), which is supported.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>Not all FTP servers support PASV, causing a fallback to normal (PORT) mode. It will fail if incoming connections are refused, but this is what would happen in any case, even if a separate FTP tool were used.</P>
+</TD></TABLE>
+<P>However, before considering caching, you should be aware of at least couple problems that can occur and need to be resolved:</P>
+
+<UL>
+<LI>Can you keep a document in the cache and still be sure that it is up-to-date?</LI>
+<LI>Can you decide which documents are worth caching, and for how long?</LI></UL>
+
+<P>The caching mechanism is disk-based and persistent. It survives restarts of the proxy process as well as restarts of the server machine itself. When the caching proxy server and a Web client are on the same machine, new possibilities are available. You can configure a proxy to use a local cache, making it possible to give demos without an Internet connection. </P>
+<P>A great feature of the HTTP protocol is that it contains a HEAD method for retrieving document header information without having to retrieve the document itself. This is useful to tell you if the document has been modified since your last access. But in cases where the document has changed, you have to make a second connection to the remote server to do the actual GET command request to retrieve the document. Therefore the HTTP protocol needs to be extended to contain an If-modified-Since request header, allowing it to do a conditional GET request.</P>
+<P>In case the document has not been modified since the date and time specified, a 304 (Not modified) response will be returned along with a special result code. If the document has been modified, the reply will be as if the request was just a normal GET request.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>All major HTTP servers already support the conditional GET header.</P>
+</TD></TABLE>
+<P>Just for your information, there is a function called no-cache pragma, which is typically used by a client’s reload operation. This function provides users with the opportunity to do a cache refresh with no visible modifications in the user interface. A no-cache pragma function is forwarded by the proxy server, thus ensuring that if another proxy is also used, the cache on that server is ignored.</P>
+<P>In summary, taken from the internal network perspective, a proxy server tends to allow much more outbound access than inbound. Generally, it will not allow Archie connections or direct mailing to the internal network, you will have to configure it.</P>
+<P>Also, depending on which proxy server you are using, you should anticipate problems with FTP when doing a GET or an ls because FTP will open a socket on the client and send the information through it. Some proxy server will not allow it, so if you will be using FTP, make sure the proxy server supports it.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>With Purveyor, a client who does not implement Domain Name Services (DNS) will still be able to access your Web site through Purveyor’s proxy server. The proxy IP address is the only information required.</P>
+</TD></TABLE>
+<P>As the applications for proxies rise, there are many features that are still in their early stages, but the basic features are already there! You should plan on having a proxy server on your firewall. Although caching is a wide and complicated area, it is also one of the parts of the proxy server that needs to be improved.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You can provide Internet access for companies using one or more private network address spaces, such as a class A IP address 10.*.*.* by installing a proxy server that is visible to the Internet and to the private network.</P>
+</TD></TABLE>
+<P>I believe the HTTP protocol will be further enhanced as Internet growth continues to explode. In the near future you should see multipart requests and responses becoming a standard, enabling both caching and mirroring software to refresh large amounts of files in a single connection. They are already much needed by Web clients to retrieve all of the inlined images with one connection.</P>
+<P>Moreover, proxy architecture needs to be standardized. Proxy servers should have a port number assigned by Internet Assigned Numbers Authority (IANA). On the client side, there is a need for a fallback mechanism for proxies so that a client can connect to a second or third proxy server if the primary proxy failed (like DNS). But these are just items on a wish list that will certainly improve netsurfing but are not yet available.</P>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you need to request parameter assignments (protocols, ports, etc) to IANA, they request you to send it by mail to iana@isi.edu.   For SNMP network management private enterprise number assignments, please send e-mail to iana-mib@isi.edu.</P>
+</TD></TABLE>
+<P>Taking into consideration the fast growth of the Web, (by the time I finish this chapter, the Web will have surpassed FTP, and gopher all together!), , I believe proxy caching represents a potential (and needed).&quot; Bits and bytes will need to get returned from a nearby cache rather than from a faraway server in a geographically distant place.</P>
+
+<H2> SOCKS</H2>
+</B></I><P>SOCKS is a packet that enables servers behind the firewall to gain full access to the Internet. It redirects requests aimed at Internet sites to a server, which in turn authorizes the connections and transfers data back and forth.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you need more information about SOCKS, you can find it at http://www.socks.nec.com. To join the SOCKS mailing list, send mail to majordomo@syl.dl.nec.com with subscribe SOCKS your@e-mail.address in the body of the mail.</P>
+</TD></TABLE>
+<P>SOCKS was designed to allow servers behind a firewall to gain full access to the Internet without requiring direct IP reachability . The application client establishes communication with the application server through SOCKS. Usually the application client makes a request to SOCKS, which typically includes the address of the application server, the type of connection, and the user’s identity.</P>
+<P>After SOCKS receives the request, it sets up a proper communication channel to the application server. A proxy circuit is then established and SOCKS, representing the application client, relays the application data between the application client and the application server.</P>
+<P>It is SOCKS that performs several functions such as authentication, message security-level negotiation, authorizations, and so on while a proxy circuit is being set up.</P>
+<P>SOCKS performs four basic operations (the fourth being a feature of SOCKS V5):</P>
+
+<UL>
+<LI>Connection request</LI>
+<LI>Proxy circuit setup</LI>
+<LI>Application data relay</LI>
+<LI>Authentication (V5)</LI></UL>
+
+
+<P>Figure 11.6 shows a control flow model of SOCKS.</P>
+
+<!--<B><P>Figure 11.6</P>-->
+<!--</B><I><P>A control flow model of SOCKS.</P></I>-->
+<P>Authentication methods are decided by SOCKS based on the security policy clauses that it defines. If none of the methods declared by the client meets the security requirement, SOCKS drops the communication.</P>
+<P>As depicted on figure 11.7, after the authentication method is decided upon, the client and SOCKS begin the authentication process using the chosen method. In this case, SOCKS functions as a firewall.</P>
+
+<!--<B><P>Figure 11.7</P>-->
+<!--</B><I><P>SOCKS as a firewall.</P></I>-->
+<P>Through an authentication procedure called GSS-API (Generic Security Service Application Program Interface), clients negotiate with SOCKS about the security of messages. Integrity and privacy are the options that can be applied to the rest of messages, including the proxy requests coming from the application client as well as Socks’ replies to the requests and its application data.</P>
+<P>As far as UDP-based applications, SOCKS V5 has a connection request: the UDP association. It provides a virtual proxy circuit for seamlessly traversing UDP-based application data. However, be careful here! The proxy circuit for TCP-based applications and UDP-based ones are not the same. They mainly differ in two ways:</P>
+
+<UL>
+<LI>UDP’s proxy circuit, a pair of address information of the communication end-points, necessary for sending and receiving datagrams.</LI>
+<LI>Application data, which is encapsulated by UDP proxy headers that include, along with other information, the destination address of a given datagram.</LI></UL>
+
+
+<P>You can use SOCKS in different network environments. Figure 11.8 shows an example of one of the most popular setups.</P>
+
+<!--<B><P>Figure 11.8</P>-->
+<!--</B><I><P>Building virtual private networks with SOCKS.</P></I>-->
+<P>A single SOCKS can be utilized as a firewall. SOCKS V5 supports authenticated traversal of multiple firewalls, extending it to build a virtual private network as shown in the figure.</P>
+<P>The great advantage of the existing authentication scheme integrated into SOCKS is that the centralized network access of SOCKS enables the enforcement of security policy and the control of network access much easier than without centralized access. You need to watch for the fact that these access points unfortunately can become the bottleneck of internetworking. You must try to balance it out with the hierarchical distribution of SOCKS, shadow SOCKS (multiple parallel SOCKS), and other mechanisms for keeping the consistency of your security policy.  Also, beware  of potential security holes and attacks among multiple SOCKS, and so on, as a factor of acceptability of SOCKS as a secure mechanism for insecure network.</P>
+<P>The integration of SOCKS and the Web has substantially increased the area of security on the web. Whereas secure web-related technologies such as S-HTTP (Security-enhanced HyperText Transport Protocol) and SSL (Secure Socket Layer) provide message and server authentications, SOCKS can be successfully integrated to provide user authentication and authorization. Furthermore, the security technologies employed on the Web can also be integrated into SOCKS to enhance the security of proxy connections.</P>
+
+<H2> Tcpd, the TCP Wrapper</H2>
+</B></I><P>You should be aware that the TCP Wrapper is not really a firewall utility but provides many of the same effects. By using TCP Wrapper, you can control who has access to your machine and to what services they have access toIt also keeps logs of the connections and does basic forgery detection.</P>
+<P>TCP Wrapper was written by Wietse Venema of The Netherlands’ Eindhoven University of Technology. The key source of it is tcpd, a simple wrapper that in action envelopes every network daemon run by inetd. The tcpd wrapper is a simple, great tool to write rules based on acceptance or denial of connections. It also enables you to finger a host that attempts to illegally request an rlogin, for example.</P>
+<P>You can use tcpd as an auditing tool. It has the capability to log attempted network connections to the wrapper service, which can greatly improve security. Although it has great features, in order for you to use it, you have to be connected to the Internet thus requiring an IP address.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you want to take a look at the source code for TCP Wrapper, you can download it from ftp://ftp.win.tue.nl/pub/security.</P>
+</TD></TABLE>
+<P>Another feature of TCP Wrapper is its support library, libwrap.a. It can be used by many other programs to provide the same wrapper-like defenses of other services. </P>
+<P>Also, it only controls the machine it is installed on, making it a poor choice for network use. Firewalls are much more broad and therefore can protect every machine of every architecture.</P>
+<P>However, the major drawback of TCP Wrapper is that it does not work on Apple Macintoshes or Microsoft Windows machines. It’s basically a UNIX security tool.</P>
+
+<H2><I> Setting Up and Configuring the Proxy Server</I></H2>
+</B></I><P>In order to set up my proxy server I need additional software. For this situation, I need SOCKS.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>You can download SOCKS from</P>
+<P>ftp://sunsite.unc.edu/pub/Linux/system/Network/misc/socks-linux-src.tgz</P>
+<P>If you care to, you can also download a configuration example, found in the same directory, called socks-config.</P>
+</TD></TABLE>
+<P>By the time I start configuring SOCKS, I should be aware that SOCKS needs two separate configuration files: one to notify the allowed access and the other to route the requests to the appropriate proxy server. I have to make sure the access file is loaded on the server and that the routing file is loaded on every UNIX computer. </P>
+<P>I will be using SOCKS version 4.2 beta, but as discussed earlier in this chapter, version 5 is already available. If you’re also using version 4.2 beta, the access file is called sockd.conf. Simply put, it should contain two lines: a permit line and a deny line. For each line I will have three entries:</P>
+
+<UL>
+<LI>The identifier (permit/deny). It will be either permit or deny, but I must have both a &quot;permit&quot; and a &quot;deny&quot; line.</LI>
+<LI>The IP address. It holds up to four byte address in typical IP dot notation.</LI>
+<LI>The address modifier. A typical IP address four byte number, acting like an netmask, such as 255.255.255.255.</LI></UL>
+
+<P>For example, the line will look like this:</P>
+<PRE><FONT SIZE=3><P>permit 192.168.2.26 255.255.255.255</P>
+</PRE></FONT>
+<P>My goal is to permit every address I want and then deny everything else. Another issue I have to decide is about power users or special ones. I could probably allow some users to access certain services, as well as deny certain users from accessing some of the services that I have allowed in my internal network. </P>
+<P>However, this is done by using ident, an application that if on, will have httpd connect to the ident daemon of the remote host and find out the remote login name of the owner of the client socket.  Unfortunately the Trumpet Winsock I am using does not support it, nor do some other systems. Keep in mind that if your system supports ident, this is a good feature to use, even though it’s no trustworthy, you should use it for informational purpose only, as it does not add any security to your system.</P>
+
+<P>One thing I need to watch out for, and I am sure you will have to as well, is not to confuse the name of the routing file in SOCKS, socks-conf, with the name of the access file. They are so similar that I find it easy to confuse the two. However, their functions are very different.</P>
+<P>The routing file is there to tell SOCKS clients when to use it and when not to use it. Every time an address has a direct connection to another (through Ethernet, for example), SOCKS is not used because its loopback is defined automatically. Therefore, I have three options here:</P>
+
+<UL>
+<LI>To deny, which tells SOCKS to reject a request.</LI>
+<LI>To direct, which tells us what address should not use SOCKS (addresses that can be reached without SOCKS).</LI>
+<LI>To sockd, which tells the computer what host has the SOCKS server daemon on it (the syntax is sockd @=&lt;serverlist&gt; &lt;IP address&gt; &lt;modifier&gt;). The @= entry enables me to enter a list of proxy servers IP addresses.</LI></UL>
+
+<P>Now, to have my applications working with the proxy server, they need to be &quot;sockified.&quot; I need a telnet address for direct communication and another for communications using the proxy server. The instructions to sockify a program are included with SOCKS. Because the programs will be sockified, I will need to change their names. For example, finger will become finger.orig, ftp will become ftp.orig, and so on. The include/socks.h file will hold all of this information.</P>
+<P>A nice feature of using Netscape Navigator is that it handles routing and sockifying itself. However, there is another product I plan to use called Purveyor Web Server 1.2. that not only  also works as a proxy for FTP, Gopher, and HTTP but also</P>
+<P>But one of the reasons I will be using Trumpet Winsock (for Microsoft Windows) is that it comes with built-in proxy server capabilities. I just need to enter the IP address of the server and addresses of all the computers I can reach directly in the setup menu. Trumpet Winsock will then handle all of the outgoing packets.</P>
+
+<P>At this point, I should be done. However, I know I’ll have a problem (and you will too!). SOCKS does not work with UDP, only with TCP. Programs such as Archie use UDP, which means that because SOCKS is my proxy server, it will not be able to work with Archie. Tom Fitzgerald (fitz@wang.com) designed a package called UDPrelay to be used with UDP, but it’s not compatible with Linux yet.</P></BODY>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap10.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap12.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>
+

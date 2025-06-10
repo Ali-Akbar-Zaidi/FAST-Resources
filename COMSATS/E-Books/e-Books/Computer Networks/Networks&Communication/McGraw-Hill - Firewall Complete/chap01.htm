@@ -1,0 +1,740 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="preface.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap02.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 1</H1>
+<H1><I>Internetworking Protocols and Standards: An Overview</LI></I></H1>
+
+</B></I><P>It has being said that the Internet is a very dynamic place. From it’s efforts to emerge since earlier researching programs dated back in 1968, to its predecessor ARPANET, which much contributed for the platform of experimentation that would characterize the Internet, it all actually first came to place in 1973.</P>
+<P>Since then, endlessly, the internetworking efforts and researching were much evolved around attending the needs for standards of the new Cyberspace communities joining the now so called the Net. Of course, you must understand that the significance of &quot;efforts&quot; on the Internet environment goes beyond the nature and significance of the word, it can not only be based on what the Webster would define it! Being the Internet so dynamic, so aggressive and outspoken, not only these efforts for problem resolution and standard transcends the problems and barriers coming its way, but as David Croker simply put on Lynch’s and Rose’s book, &quot;Internet System Handbook&quot; (1993), &quot;the Internet standards process combines the components of a pragmatic engineering style with a social insistence upon wide-ranging input and review.&quot; Thus, &quot;efforts&quot; becomes more often the result of individual champions than of organizational planning or directives.</P>
+<P>Unlike any other structure in the world, the Internet protocols and standards are always proposed by individual initiatives of organizations or professionals.  In order to understand how new protocols emerge and eventually become standards (do they?) you will need to start getting use to the acronym RFC, or Request for Comments. This dynamics, or process, was initiated back in 1969, as a result of they dispersion of the Internet community members. These documents, as the acronym suggests, were (and are still being!) working documents, ideals, testing results, models and even complete specifications.  The various members of the Internet community would read and respond, with comments, to the RFC submitted. If the idea (and grounds!) were accepted by the community, it might then become an standard.</P>
+<P>Not much has changed in the MO (modus operandi) of the Internet community with regards to the RFCs and how they operate.  However, back there in 69, there was only one network, and the community did  not exceed 100 professionals. With its fast growth, the Internet began to require not only a body that would centralize and coordinate the efforts, but also &quot;regulate&quot; a minimum standard so that they could at least understand and efficiently communicate among themselves.</P>
+<P>It was around 1974 that it become clear to ARPANET that communication needed to be expanded, that not only it was necessary to accommodate multiple communications media, but also make some sense of the many domains already existent within the group.  There was a need to administer this domain. It was around then that the famous TCP/IP suite begins to gain momentum, with many experiments taking place, as part of what was called Internet Experiment Notes (IEN), around 1977.</P>
+<P>It didn’t take long (1986) for the demanding discussions of the RFCs to generate a task force, composed of engineers, with the responsibility to develop standards that could effectively guide the growth of the Internet.  The Internet Engineering (INENG) was created.</P>
+<P>Today, the now called Internet Engineering Task Force (IETF) and the Internet Research Task Force (IRTF) became the two main groups responsible for a heavy load of Internet’s near-term engineering requirements and long-term researching goals, both of them under the direction of the Internet Activities Board (IAB), now under a new organization called Internet Society (1992), which is the ultimately responsible for the development of Internet technologies. But if you’re a veteran to the Internet, you’re probably struggling with the acronym I gave for IAB, and righteously so! During its development and maturation, the IAB changed its name to Internet Architecture Board (from Activities to Architecture), as IAB did not really had much to do with the operating part of the Internet development.</P>
+<P>In terms of relying of RFCs as a standard, the first one to be considered so was the RFC 733.  If you have an idea for a standard, or a new technology that can benefit the Internet, you will need to submit it as an RFC to the community.  As a member of the IAB, the RFCEditor is the one that &quot;moderates&quot; the release of RFCs.  As any official document, the RFCs have a style and format.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you want to get the RFC style guide, you should refer to RFC 1111. For more information about submitting an RFC, send an e-mail message to rfc-editor@isi.edu. For a list of RFCs, retrieve the file rfc/rfc-index.txt.</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more detailed information about the IAB, the IETF and the IRTF, I suggest you to get Lynch and Rose’s book, &quot;Internet System Handbook,&quot; as it’s not the scope of this book to discuss the specifics of it.</P>
+</TD></TABLE>
+<P>It’s not the scope of this book to discuss every protocol used on the Internet. I have for that at least couple reasons:</P>
+<OL>
+
+<LI>These protocols are too many and in constant change (and will continue to change), so this book wouldn’t be of service to you, and</LI>
+<LI>Our goal here is to concentrate on the security flaws specific to each of these protocols.  By assessing their security issues not only you will be able to make a more informed decision when choosing a protocol but also understand why all these efforts and fuzz on security alternatives such as cryptography, firewalls and proxy servers becomes necessary.</LI></OL>
+
+<P>Therefore, this chapter focus on discussing the major Internet protocols, their characteristics, weaknesses and strength, and how they affects your connectivity and data exchange on the Internet. Table 1.1 provides you a list of the major protocols in used on the Internet.</P>
+
+<B><P>Table 1.1</P>
+<P>RFCs sent to IETF on IP Support</P></B>
+<TABLE BORDER CELLSPACING=2 BORDERCOLOR="#000000" CELLPADDING=7 WIDTH=590>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<B><P>RFC #</B></TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<B><P>Description of the Document</B></TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>768</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>User Datagram Protocol (UDP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>783</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Trivial File Transfer Protocol (TFTP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>791</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Protocol (IP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>792</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Control Message Protocol (ICMP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>793/1323</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Transmission Control Protocol (TCP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>826</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Address Resolution Protocol (ARP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>854</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Virtual Terminal Protocol (Telnet)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>877/1356</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>IP over X.25 Networks</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>903</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Reverse Address Resolution Protocol (RARP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>904</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Exterior Gateway Protocol (EGP) Version 2</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>950</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Subnetting Procedures</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>951</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Bootstrap Protocol (BootP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1001</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Protocol Standard for a NetBIOS Service on a TCP/UDP Transport: Concept and Methods</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1002</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Protocol Standard for a NetBIOS Service on a TCP/UDP Transport: Detailed Specifications</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1009</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Gateway Requirements</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1042</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>IP over IEEE 802 Networks</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1058</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Routing Information Protocol (RIP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1063</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Maximum Transmission Unit Discovery Option</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1075</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Distance Vector Multicast Routing Protocol (DVMRP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1084</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>BootP Vendor Extensions</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1108</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Revised Internet Protocol Security Option (RIPSO)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1112</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Group Management Protocol</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1155</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Structure and Identification of Management Information</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1156</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Internet Management Information Base</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1157</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Simple Network Management Protocol (SNMP)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1188</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>IP over FDDI</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1247</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Open Shortest Path First (OSPF) Version 2</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1256</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Router Discovery</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1267</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Border Gateway Protocol (BGP) Version 3</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1519</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Classless Inter-Domain Routing (CIDR)</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1532</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Clarification’s and Extension to BootP for the Bootstrap Protocol</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1533</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>DHCP Options and BootP Vendor Extensions</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1542</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>Clarification's and Extension to BootP for DHCP</TD>
+</TR>
+<TR><TD WIDTH="17%" VALIGN="TOP">
+<P>1654</TD>
+<TD WIDTH="83%" VALIGN="TOP">
+<P>BGP Version 4</TD>
+</TR>
+</TABLE>
+
+
+<P>&nbsp;</P>
+<H2> Internet Protocol (IP)</H2>
+</B></I><P>The Internet Protocol (IP) is considered the network protocol mostly used by corporations, governments, and the Internet.  It supports many personal, technical, and business applications, from e-mail and data processing to image and sound transferring. </P>
+<P>IP features a connectionless datagram (a packet) delivery protocol that performs addressing, routing, and control functions for transmitting and receiving datagrams over a network. Each datagram includes its source and destination addresses, control information, and any actual data passed from or to the host layer. This IP datagram is the unit of transfer of a network (Internet included!). Being a connectionless protocol, IP does not require a predefined path associated with a logical network connection. As packets are received by the router, IP addressing information is used to determine the best route that a packet can take to reach its final destination. Thus, even though IP does not have any control of data path usage, it is able to re-route a datagram if a resource becomes unavailable.</P>
+
+<H2><I> How IP Addressing Works</I></H2>
+</B></I><P>There is a mechanism within IP that enables hosts and gateways to route datagrams across the network. This IP routing is based on the destination address of each datagram. When IP receives a datagram, it checks a header, which is present in every datagram, searching for the destination network number and a routing table. All IP datagrams begin with this packet header, illustrated on figure 1.1., which lists:</P>
+
+<UL>
+<LI>The version of IP protocol used to create the datagram,</LI>
+<LI>The header length,</LI>
+<LI>The type of service required for the datagram,</LI>
+<LI>The length of the datagram,</LI>
+<LI>The datagram’s identification number, </LI>
+<LI>The fragmentation control information,</LI>
+<LI>The maximum number of hops the datagram can be transported over the Internet/Intranet,</LI>
+<LI>The protocol format of the data field,</LI>
+<LI>The source and destination addresses, and even</LI>
+<LI>IP options.</LI></UL>
+
+
+<!--<B><P>Figure 1.1</P>-->
+<!--<P>IP Packet Header Contents</P></B>-->
+<P>All the datagrams with local addresses are delivered directly by the IP, and the external ones are forwarded to their next destination based on the routing table information.</P>
+<P>IP also monitors the size of a datagram it receives from the host layer. If the datagram size exceeds the maximum length the physical network is capable of sending, then IP will break up the datagram into smaller fragments according to the capacity or the underlying network hardware.  These datagrams are then reassembled at its destination before it is finally delivered.</P>
+<P>IP connections are controlled by IP addresses. Every IP address is a unique network address that identifies a node on the network, which includes protected (LANs, WANs and Intranets) as well as unprotected ones such as the Internet. IP addresses are used to route packets across the network just like the U.S. Postal Office uses ZIP codes to route letters and parcels throughout the country (internal network, which it has more control) and  internationally (external network, which it has minimum control, if any!).</P>
+<P>In a protected network environment such as a LAN, a node can be a PC using a simple LAN Workplace for DOS (LWPD), in which case the IP address is set by modifying a configuration file during installation of the LWPD software.  </P>
+<P>The Internet Protocol is the foundation of the Transmission Control Protocol/Internet Protocol (TCP/IP), a suite of protocols created especially to connect dissimilar computer systems, which is discussed in more details later on this chapter.</P>
+
+<H2><I> IP Security Risks</I></H2>
+</B></I><P>If there were no security risk concerns about connectivity on the Internet, there would not be a need for firewalls and other defense mechanisms either, and I probably would be already in God’s ministry somewhere in the world, rather than writing a book about it. Thus, the solutions to the security concerns of IP-based protocols are widely available in both commercial and freely available utilities, but as you will realize throughout this book, most of the times a system requires administrative effort to properly keep the hackers at bay.  </P>
+<P>Of course, as computer security becomes more of a public matter, it is nearly impossible to list all of the tools and utilities available to address IP-based protocols security concerns.  Throughout this book you are introduced to many mechanisms, hardware technologies and application software to help you audit the security of your network, but for now, lets concentrate on the security weaknesses of the protocols used for connections over the Internet by identifying the flaws and possible workarounds and solutions.</P>
+
+<H3> IP Watcher: Hijacking the IP Protocol</H3>
+</B></I><P>There is a commercial product called IP Watcher, as showing on figure 1.2, that is capable of hijacking IP connections by watching Internet sessions and terminating or taking control over them whenever and administrator (or a hacker!) needs it.  A quick click on the list of open connections shows the current conversation and everything that is being typed.  Another click and the user is permanently put on hold while IP Watcher takes over the conversation.  Needless to say, the evil use for this software are nearly limitless.</P>
+
+<!--<B><P>Figure 1.2</P>-->
+<!--</B><I><P>IP Watcher, a hijacking engine</P></I>-->
+<P>But IP Watcher is not the only product you should be concerned about when thinking of the security of your IP connections. There are many other crude tools for hijacking connections among the hacker community. To me, the beauty of IP Watcher (and threat!) is that it makes it point-and-click easy.  </P>
+<P>The symptoms of being &quot;IP Watched&quot; are minimum and misleading, but yet noticeable. If you are experiencing extreme delays on the delivery of datagrams to the point of your server eventually timing-out can be a strong indication that your IP connections are being hijacked. Also, if you are a network administrator, familiar with sniffers and have on handy, watch what is usually referred to as an &quot;ACK storm.&quot;  When someone hijacks an IP connection it generates a storming attempt on the server (or workstation!) trying to reconnect the session, which causes a heavy spamming on the network.</P>
+<P>There are many other advanced tools out there to intercept an IP connection, but they are not easily available.  Some even have the ability to insert data into a connection while you are reading your e-mail, for example, whereas suddenly all your personal files could start being transmitted across the wires to a remote site.  The only sign you would notice would be a small delay on the delivery of the packets, but you wouldn’t notice it while reading your e-mail or watching a disguising porno video on the Web!  But don’t go &quot;bazuka&quot; about it! Hijacking an IP connection is not as easy as it sounds when reading this paragraphs! It requires the attacker to be directly in the stream of the connection, which in most cases forces the him/her to be at your site.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>If you want to learn more about similar tools for monitoring or hijacking IP connections on the Internet and protected networks, check the following sites below:</P>
+
+<UL>
+<B><LI>http://cws.iworld.com</B> - This site provides several 16 and 32-bits Windows (NT and Windows 95) Internet tools.</LI>
+<B><LI>http://www.uhsq.uh.edu</B> - You will find several UNIX security tools in this site, with short and comprehensive descriptions for every tool.</LI>
+<B><LI>ftp://ftp.bellcore.com/pub/nmh, ftp://primal.iems.nwu.edu/pub/skey</B> - This site maintains the core S/Key software.</LI>
+<B><LI>ftp://ftp.funet.fi</B> - Here you will find general security/cracking utilities such as npasswd, passwd+, traceroute (as showing on figure 1.3), whois, tcpdump, SATAN, and Crack. For faster searching of utilities, once in the site use ‘quote site find &lt;find&gt;’, where &lt;find&gt; is the phrase to look for on the file-system.  Using a web client, use ‘http://ftp.funet.fi/search:&lt;find&gt;’.</LI></UL>
+
+</TD></TABLE>
+<!--<B><P>Figure 1.3</P>-->
+<!--</B><I><P>Screenshot of the Traceroute tool in action.</P></I>-->
+<P>One more thing. Be careful with the information you provide the InterNIC! If you need a site on the Internet you must apply for a domain name with InterNIC.  When you do that, you must provide information about the administrative and technical contact at your organization, with their phone numbers, e-mail addresses, and a physical address for the site.  Although this is a good safe measure, if someone issues the UNIX command ‘whois &lt;domainname&gt;,’ as showing on figure 1.4, the utility will list all of that information you provided InterNIC with.</P>
+
+<!--<B><P>Figure 1.4</P>-->
+<!--</B><I><P>The UNIX Whois command usage</P></I>-->
+<P>Not that you should refuse to provide the information to InterNIC.  This is a requirement and also used for your protection as well, but when completing this information keep in mind that hackers often use it to find out basic information about a site.  Therefore, be conservative, be wise. For the contact names, for example, use an abbreviation or a nick name. Consulting the information at InterNIC is usually the starting point for many attacks to your network.</P>
+<P>During the spring of 1997, while coordinating a conversion from MS Mail to MS Exchange my mailer went South (mea culpa!) and few listservers where spammed as a result.  Within hours one of our systems manager was getting a complaining phone call, at his home phone number, and the complainer knew exactly who to ask for! By using ‘whois’ the sysop of the spammed listserver was able to identify the name and address of the company I work for.  Since it was a weekend, he could not talk to anyone about the problem, but with the systems manager’s name and the city location of our company, the sysop only had to do a quick search at query engines such as Four11 (http://www.four11.com) to learn the home address and phone number of our systems manager!</P>
+
+<H2> User Datagram Protocol (UDP)</H2>
+</B></I><P>User Datagram Protocol (UDP), as documented on RFC 768,  provides an unreliable, connectionless datagram transport service for IP. Therefore, this protocol is usually used for transaction-oriented utilities such as the IP standard Simple Network Management Protocol (SNMP) and Trivial File Transfer Protocol (TFTP). </P>
+<P>Like TCP, which is discussed in the next section, UDP works with IP to transport messages to a destination and provides protocol ports to distinguish between software applications executing on a single host. However, UDP avoids the overhead of reliable data transfer mechanism by not protecting against datagram loss or duplication, unlike TCP. Therefore, if your data transferring requires reliability of its delivery you should definitely avoid UDP and use TCP. Figure 1.5 shows the format of an UDP header.</P>
+
+<!--<B><P>Figure 1.5</P>-->
+<!--<P>User Datagram Header Format</P></B>-->
+<H2><I> Attacking UDP services: SATAN at easy</I></H2>
+</B></I><P>SATAN, a popular tool for auditing networks, is freely available for UNIX systems.  SATAN is an Internet-based tool that has the ability of scanning open UDP services (as well as TCP) running on systems and provides a low level of vulnerability checking on the services it finds.  </P>
+<P>Although most of the vulnerabilities it detects have been corrected in recent operating systems, SATAN is still widely used for checking (or if you’re a hacker, learning!) the configuration of systems.  The tool is easy to use, but it is a bit slow and can be inaccurate when dealing with unstable networks.</P>
+<P>SATAN runs under X-windows on UNIX and a version can be found for most flavors, with a patch required for Linux.  Be careful when using the tool on its heaviest scan setting, as it usually ends up setting off alarms for vulnerabilities that have been out of date for years.</P>
+
+<H2><I> ISS for UNIX and Windows NT</I></H2>
+</B></I><P>The Internet Security System (ISS), as showing on figure 1.6, is a scanning suite of products are commercially available for scanning Web servers, firewalls, and internal hosts.  The suite includes a great deal of the latest Internet attacks and system vulnerabilities for probing UDP services (as well as TCP).  It can be configured for periodic scanning and has several options for report generation, including export to a database. </P>
+
+<!--<B><P>Figure 1.6</P>-->
+<!--</B><I><P>Screenshot of ISS scanning a local host.</P></I>-->
+<P>The level of the attacks included and the highly customizable nature of ISS far surpass SATAN as an auditing tool.  Figure 1.7 shows a screenshot of ISS Web site, where an evaluation copy of the product can be downloaded. In its evaluation version, the program will only scan the machine its installed on, but a cryptographic key can be purchased from ISS that will allow a further machines to be scanned.</P>
+
+<!--<B><P>Figure 1.7</P>-->
+<!--</B><I><P>ISS’s Web Site provides free evals of its scanning product</P></I>-->
+<P>Several large companies use the product internally to check the configuration of their systems and to certify firewalls for sale or for use within their organization.  The product is currently available for several flavors of UNIX and Windows NT and is currently priced based on the size of a site’s network.</P>
+
+<H2> Transmission Control Protocol (TCP)</H2>
+</B></I><P>Transmission Control Protocol (TCP) provides a reliable, connection-oriented, transport layer service for IP. Due to its high capability of providing interoperability to dissimilar computer systems and networks, TCP/IP has rapidly extended its reach beyond the academic and technical community into the commercial market. </P>
+<P>Using a handshaking scheme, this protocol provides the mechanism for establishing, maintaining, and terminating logical connections between hosts. Additionally, TCP provides protocol ports to distinguish multiple programs executing on a single device by including the destination and source port number with each message. TCP also provides reliable transmission of byte streams, data flow definitions, data acknowledgments, data retransmission, and multiplexing multiple connections through a single network connection.</P>
+<P>Of course, this section is not aimed to provide you with all the ins and outs of TCP/IP networking.  For that I suggest you to read the RFC 1323 (Van Jacobson TCP), and other bibliographic references listed at the end of this book.  However, in order for you to understand the security weaknesses of this protocol, it is important for us to review the general TCP/IP concepts and terminology as well as the extensive flexibility and capability that not only contributes to its widely acceptance as an Internet protocol but also its security flaws.</P>
+
+<H2><I> IP Addresses</I></H2>
+</B></I><P>All the IP-based networks (Internet and LANs and WANs) use a consistent, global addressing scheme. Each host, or server, must have a unique IP address. Some of the main characteristics of this address scheme are:</P>
+
+<UL>
+<LI>Addresses cannot be duplicated, so they won’t conflict with other networks on the Internet,</LI>
+<LI>IP addressing allows an unlimited number of hosts or networks to connect to the Internet and other networks,</LI>
+<LI>IP addresses allow networks using different hardware addressing schemes to become part of dissimilar networks</LI></UL>
+
+
+<H3> Rules</H3>
+</B></I><P>IP addresses are composed of four one-byte fields of binary values separated by a decimal point. For example,</P>
+<PRE><FONT SIZE=3><P>1.3.0.2   192.89.5.2   142.44.72.8</P>
+</PRE></FONT>
+<P>An IP address must conform to the following rules: </P>
+
+<UL>
+<LI>The address consists of 32 bits divided into four fields of one byte (eight bits) each.</LI>
+<LI>It has two parts: a network number and a host or machine number.</LI>
+<LI>All hosts on the same network must have the same network number.</LI>
+<LI>No two hosts on the same network can have the same host number.</LI>
+<LI>No two networks can have the same network number if they are connected in any way.</LI></UL>
+
+<P>But to remember all this numbers can be hard and confusing. Therefore, in IP addressing, a series of alpha characters, known as the host name address, are also associated with each IP address. Another advantage for using the host name address is that IP addresses can change as the network grows. The full host name is composed of the host name and the domain name.  </P>
+<P>For example, the full host name for Process Software’s Web server CHEETAH.PROCESS.COM is composed of the host name CHEETAH and the domain PROCESS.COM, or the IP address 198.115.138.3, as shown on figure 1.8. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You can always find the IP address of a host or node on the Internet by using the PING command, as shown on figure 1.9.</P>
+</TD></TABLE>
+<!--<B><P>Figure 1.8</P>-->
+<!--</B><P>PINGing a host to find its IP address.</P>-->
+
+<P>The host names will be determined usually by LAN Administrator, as he/she adds a new node to the network and enters with its address on the DNS (Domain Name Service) database. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Never assign a host name to a specific user or location of a computer as these characteristics tend to change frequently. Also, keep your host names short, easy to spell, free of numbers and punctuation.</P>
+</TD></TABLE>
+<H3> Classes and Masks</H3>
+</B></I><P>There are three primary IP categories or address classes. An IP address class is determined by the number of networks in proportion to the number of hosts at an internet site. Thus, a large network like the Internet can use all three internet address classes. The address classes are as follows:</P>
+
+<UL>
+<B><LI>Class A</B> — Uses the first byte for the network number and the remaining three bytes for the host number. The first byte ranges in decimal value from 1 to 127, which allows up to 128 networks and up to 16,777,216 hosts per network.</LI>
+<B><LI>Class B</B> — Uses the first two bytes for the network number and the last two bytes for the host number. The first byte ranges in decimal value from 128 to 191, which allows up to 16,384 networks and up to 65,536 hosts per network.</LI>
+<B><LI>Class C</B> — Uses the first three bytes for the network number and the last byte for the host number. The first byte ranges in decimal value from 192 to 223, which allows up to 2,097,152 networks, and less than 256 hosts per network.</LI></UL>
+
+<P>The address class determines the network mask of the address. Hosts and gateways use the network mask to route internet packets by:</P>
+<OL>
+
+<LI>Extracting the network number of an internet address.</LI>
+<LI>Comparing the network number with their own routing information to determine if the packet is bound for a local address</LI></OL>
+
+<P>The network mask is a 32-bit internet address where the bits in the network number are all set to one and the bits in the host number are all set to zero.</P>
+<P>Table 1.2 lists the decimal value of each address class with its corresponding network mask. The first byte of the address determines the address class. Figure 1.9 shows the decimal notation of internet addresses for address classes A, B, and C.</P>
+
+<B><P>Table 1.2 - Internet Address Classes</P></B>
+<TABLE BORDER CELLSPACING=2 BORDERCOLOR="#000000" CELLPADDING=7 WIDTH=590>
+<TR><TD WIDTH="33%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P ALIGN="CENTER">Address Class Mask</B></TD>
+<TD WIDTH="33%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P ALIGN="CENTER">First Byte</B></TD>
+<TD WIDTH="33%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P ALIGN="CENTER">Network Mask</B></TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>A</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>1. to 127.</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>255.0.0.0</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>B</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>128. to 191.</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>255.255.0.0</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>C</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>192. to 233.</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>255.255.255.0</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>D</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>224. to 239</TD>
+<TD WIDTH="33%" VALIGN="TOP">
+<P>None</TD>
+</TR>
+</TABLE>
+
+
+<!--<B><P>Figure 1.9</P>-->
+<!--</B><I><P>Decimal Notation of Internet Addresses for Address Classes A, B, and C</P></I>-->
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Class D addresses are used for multicasting. Values 240 to 255 are reserved for Class E, which are experimental and not currently in use. </P>
+</TD></TABLE>
+<H2> Extending IP Addresses Through CIDR</H2>
+</B></I><P>In 1992, the Internet Engineering Steering Group (IESG) determined that Class B addresses assigned to hosts were quickly becoming exhausted and inefficiently used. This problem demanded a quick solution, which resulted in the development of an Internet standard track protocol, called the Classless Inter-Domain Routing (CIDR) protocol (RFCs 1517-19).</P>
+<P>CIDR replaces address classes with address prefixes, the network mask must accompany the address. This strategy conserves address space and slows the increasing growth of routing tables. For example, CIDR can aggregate an IP address, which is called a supernet address, in the form of 192.62.0.0/16, where 192.62.0.0 represents the address prefix, and 16 is the prefix length in bits. Such an address represents destinations from 192.62.0.0 to 192.62.255.255. CIDR is supported by OSPF and BGP-4, which are discussed in more details later on this chapter.</P>
+
+<H2><I> TCP/IP Security Risks and Countermeasure</I></H2>
+</B></I><P>As you probably already figured out, security is not a strong point of TCP/IP, at least with the current version IPv4 (Internet Protocol version 4). Although it is not possible to have a 100% secure network, the information within these networks must be accessible to be useful. Thus, it’s the balancing of accessibility and security that will define the tradeoffs management must consider an in turn decides on a security policy that supports the risks and needs of the company in accessing the Internet.</P>
+<P>Many of the global Internet’s security vulnerabilities are inherent in the original protocol design. There are no security features built into IPv4 itself, and the few security features that do exist in other TCP/IP protocols are weak. A sound internetworking security involves and requires a careful planning and development of a security policy so that unauthorized access can be prevented and difficult to achieve, as well as easy to detect. </P>
+<P>There have been many devices developed to add security to TCP/IP networks. Also internal policies normally allow users in the protected network to free communicate with all other users on this same network, but access to remote systems and external networks (Internet) are usually controlled through different levels of access security. </P>
+<P>Access strategies can range from quite simple to complex.  A password could be required to gain access to a system, or complex encryption schemes might be required instead, as discussed in chapter 3, &quot;Cryptography: Is it Enough?&quot;</P>
+<P>The most common adopted Internet security mechanism is the so called firewall, which is briefly discussed at the end of this section and extensively covered from chapter 4 on, where various environment and products are covered. But most security features that do exist in the TCP/IP protocols are based on authentication mechanisms. Unfortunately the form of authentication most often used is based on insecure IP addresses or domain names, which are very easy to be broken. </P>
+
+<H3> IP Spoofing</H3>
+</B></I><P>A common method of attack, called IP spoofing involves imitating the IP address of a "trusted" host or router in order to gain access to protected information resources. One avenue for a spoofing attack is to exploit a feature in IPv4 known as source routing, which allows the originator of a datagram to specify certain, or even all intermediate routers that the datagram must pass through on its way to the destination address. The destination router must send reply datagrams back through the same intermediate routers. By carefully constructing the source route, an attacker can imitate any combination of hosts or routers in the network, thus defeating an address-based or domain-name-based authentication scheme.</P>
+<P>Therefore, you can say that you have been &quot;spoofed&quot; when someone, by-passing source routing, trespass it by creating packets with spoofed IP addresses. Yeah, but what is this &quot;IP spoofing&quot; anyway?</P>
+<P>Basically, spoofing is a technique actually used to reduce network overhead, especially in wide area networks (WAN). By spoofing you can reduce the amount of bandwidth necessary by having devices, such as bridges and routers, answer for the remote devices. This technique fools (spoofs) the LAN device into thinking the remote LAN is still connected, even though it is not. However, hackers use this same technique as a form of attack on your site.  </P>
+<P>Figure 1.10 explains how spoofing works.  Hackers can use of IP spoofing to gain root access, by creating packets with spoofed source IP addresses. This tricks applications that use authentication based on IP addresses and leads to unauthorized user and very possibly root access on the targeted system. Spoofing can be successful even through firewalls if they are not configured to filter income packets whose source address are in the local domain.</P>
+<!--<P>&nbsp;</P>-->
+<!--<B><I><P>Figure 1.10</P></B><P>Example of IP Spoofing</P></I>-->
+<P>You should also be aware of routers to external networks that are supporting internal interfaces. If you have routers with two interfaces supporting subnets in your internal network, be on alert, as they are also vulnerable to IP spoofing.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For additional information on IP spoofing, please check Robert Morris paper "A Weakness in the 4.2BSD UNIX TCP/IP Software," at URL ftp.research.att.com:/dist/internet_security/117.ps.Z</P>
+</TD></TABLE>
+<P>When spoofing an IP to crack into a protected network hackers (or crackers, for that matter!) are able to bypass one-time passwords and authentication schemes by waiting until a legitimate user connects and login to a remote site.  Once the user’s authentication is complete, the hacker seize the connection, which will compromise the security of the site there after. This is more common among the SunOS 4.1.x systems, but it is also possible in other systems.</P>
+<P>You can detect an IP spoofing by monitoring the packets.  You can use netlog, or similar network-monitoring software to look for packet on the external interface that has both addresses, the source and destination, in your local domain.  If you find one, this means that someone is tempering onto your system.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Netlog can be downloaded through anonymous FTP from URL: ftp://net.tamu.edu:/pub/security/TAMU/netlog-1.2.tar.gz</P>
+</TD></TABLE>
+</B><P>Another way for you to detect IP spoofing is by comparing the process accounting logs between systems on your internal network.  If there has been an IP spoofing, you might be able to see a log entry showing a remote access on the target machine without any corresponding entry for initiating that remote access.</P>
+<P>As mentioned before, the best way to prevent and protect your site from IP spoofing is by installing a filtering router that restricts the input to your external interface by not allowing a packet through if it has a source address from your internal network. Following CERT’s recommendations, you should also filter outgoing packets that have a source address different from your internal network in order to prevent a source IP spoofing attack originating from your site, as shown on figure 1.11, but much more will be discussed about it on the chapters to come.</P>
+<!--<P>&nbsp;</P>-->
+<!--<B><I><P>Figure 1.11</P></B></I><P>CERT’s recommendation on preventing IP spoofing</P>-->
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>If you believe that your system has been spoofed, you should contact the CERT Coordination Center or your representative in Forum of Incident Response and Security Teams (FIRST).</P>
+<P>CERT staff strongly advise that e-mail be encrypted.  The CERT Coordination Center can support a shared DES key, PGP (public key available via anonymous FTP on info.cert.org), or PEM (contact CERT staff for details).</P>
+<P>Internet E-mail: cert@cert.org or Telephone: +1 412-268-7090 (24-hour hotline)</P>
+</TD></TABLE>
+<H3> Risk of Losing Confidentiality</H3>
+</B></I><P>The IP layer does provide some sort of support for confidentiality. One of the most common used one is the Network Encryption System (NES), by Motorola, which provides datagram encryption. The problem is that NIS encryption totally seals off the protected network from the rest of the Internet. </P>
+<P>Although NES is used to some extend among the military services to provide IP network security for the different levels of classified data, this strategy is near to unacceptable for corporate use. Besides, NES have a very elaborated configuration scheme, low bandwidth, and does not support IP Multicast. </P>
+
+<H3> Risk of Losing Integrity</H3>
+</B></I><P>The TCP/IP protocol also has some schemes to protect data integrity at the transport layer by performing error detection using checksums. But again, in the sophisticated Internet environment of today, much different from the early 80’s, simple checksums are inadequate. Thus, integrity assurance is being obtained through the use of electronically signatures, which as a matter of fact, are not currently part of IPv4. </P>
+<P>Nevertheless, there are prototype integrity mechanisms among the security features for IPv4, which also are being incorporated into IPv6, that have been produced by the IETF IPSEC Working Group.</P>
+
+<H3> tcpdump - A Text-based Countermeasure</H3>
+</B></I><P>Sometimes network problems require a sniffer to find out which packets are hitting a system.  The program ‘tcpdump,’ as showing at works on figure 1.12 produces a very unintelligible output that usually requires a good networking manual to decode.  But for those that brave the output, it can help solve network problems, especially if a source or destination address is already known.  As for just perusing the information on the wire, it can be less than hospitable.</P>
+
+<!--<B><P>Figure 1.12</P>-->
+<!--</B><I><P>TCPDUMP at works, very unintelligible output but resourceful</P></I>-->
+<P>The sniffer ‘tcpdump’ can be found on most UNIX security archives and requires the ‘libpcap’ distribution to compile.  It compiles on a wide variety of systems, but for certain machines, such as Suns, special modifications have to be made to capture information sent from the machine its installed on.</P>
+
+<H2><I> Strobe: a Countermeasure for UNIX</I></H2>
+</B></I><P>The utility ‘strobe,’ as showing on figure 1.13, is available from most UNIX repositories and is used to check just TCP services on a system.  Sometimes, this is sufficient to check the configuration of systems.  It works only as a text tool for UNIX and misses UDP, which is primarily DNS and a small selection of other services.  The utility prints line by line what is available on a system and is useful for systems that enjoy scripting management tools.</P>
+
+<!--<B><P>Figure 1.13</P>-->
+<!--</B><I><P>Strobe, checking TCP services on a system</P></I>-->
+<P>Strobe is easy to run and will compile on most flavors of UNIX. It can be obtained from most popular UNIX security archives.</P>
+
+<H2><I> IPSEC - an IETF IP Security Countermeasure</I></H2>
+</B></I><P>The Internet Protocol Security Architecture (IPSEC) is a result of the works of the Security Working Group of the IETF, which realized that IP needed stronger security then it had. In 1995 IPSEC was proposed as an option to be implemented with IPv4 and as an extension header in IPv6 (the IPv6 suite discussed later on this chapter).</P>
+<P>IPSEC supports authentication, integrity and confidentiality at the datagram level. Authentication and integrity are provided by appending an authentication header option to the datagram, which in turn makes use of public-key cryptography methods and openly available algorithms. Thus, confidentiality is also provided by the IP encapsulating security payload (ESP). ESP encrypts the datagram payload and header and attaches another cleartext header to the encrypted datagram, which can also be used to set up private virtual networks within the Internet. </P>
+
+<H2><I> IPSO - a DoD IP Security Countermeasure</I></H2>
+</B></I><P>The IP Security Option (IPSO) was proposed by the Department of Defense (DoD) in 1991 as a set of security features for the IPv4 suite. IPSO consists of IPSO consists of two protocols for use with the Internet protocol: </P>
+
+<UL>
+<B><LI>The DoD Basic Security Option (BSO)</B> - The BSO protocol defines the content of the access control sensitivity labels to be attached to IP datagrams coming into and leaving the system, </LI>
+<B><LI>The DoD Extended Security Option (ESO)</B> - The ESO protocol describes the requirements and mechanism to increase the number of hierarchical security classifications and protection authorities.</LI></UL>
+
+<P>The scheme consists in labeling datagrams with their level of sensitivity in much the same way that government agencies label and control classified documents (Top Secret, Secret, Confidential, and Unclassified), but without any encryption scheme. Maybe because of it, IPSO never made it as an Internet Standard and no implementations exists. </P>
+
+<H2> Routing Information Protocol (RIP)</H2>
+</B></I><P>Routing Information Protocol (RIP) is a distance-vector, interior gateway protocol (IGP) used by routers to exchange routing information, as shown on figure 1.14. Through RIP, endstations and routers are provided with the information required to dynamically choose the best paths to different networks. </P>
+
+<!--<B><P>Figure 1.14</P>-->
+<!--</B><I><P>RIP - Defining the best route between different networks</P></I>-->
+<P>RIP uses the total number of hops between a source and destination network as the cost variable in making best path routing decisions. The network path providing the fewest number of hops between the source and destination network is considered the path with the lowest overall cost.</P>
+<P>The maximum allowable number of hops a packet can traverse in an IP network implementing RIP is 15 hops. By specifying a maximum number of hops, RIP avoids routing loops. A datagram is routed through the internetwork via an algorithm that uses a routing table in each router. A router’s routing table contains information on all known networks in the autonomous system, the total number of hops to a destination network, and the address of the "next hop" router in the direction of the destination network.</P>
+<P>In a RIP network, each router broadcasts its entire RIP table to its neighboring router every 30 seconds. When a router receives a neighbor’s RIP table, it uses the information provided to update its own routing table and then sends the updated table to its neighbors.</P>
+<P>This procedure is repeated until all router’s have a consistent view of the network topology. Once this occurs, the network has achieved convergence, as shown on figure 1.15.</P>
+
+<!--<B><P>Figure 1.15</P>-->
+<!--</B><P>Achieving network convergence with RIP</P>-->
+
+<B><I><P>The Multicast Backbone</P></B></I><P>The Multicast backbone (MBONE) is a very important component when transmitting audio and video over the Internet.  It was originated from the first two IETF "audiocast" experiments with live audio and video multicasted from the IETF meeting site to destinations around the world. The whole concept is to construct a semi-permanent IP multicast testbed to carry the IETF transmissions and support continued experimentation between meetings, which by the way, is a cooperative, volunteer effort. </P>
+<P>As a virtual network, MBONE is layered on top of portions of the physical Internet to support routing of IP multicast packets.  Topologically, the network is composed of islands linked by virtual point-to-point links called &quot;tunnels.&quot; These tunnels usually lead to workstation machines with operating systems supporting IP multicast and running the &quot;mrouted&quot; multicast routing daemon. </P>
+<P>You might want to enroll your Web site in this effort.  It will allow your Web users to participate in IETF audiocasts and other experiments in packet audio/video, as well as help you and your users to gain experience with IP multicasting for a relatively low cost. </P>
+<P>To join the MBONE is not complicated.  You will need to provide one more IP multicast routers to connect with tunnels to your users and other participants.  This multicast router will usually be separate from your main production router, as most of these routers do not support multicast.  Also, you will need to have workstations running the mrouted program.</P>
+<P>You should allocate a dedicated workstations to the multicast routing function.  This will prevent from other activities interfering with the multicast transmission, and you will not have to worry about installing kernel patches or new code releases on short notice that could affect that functionality of other applications.  Figure 1.16 is a typical layout of an MBONE configuration: </P>
+<P>&nbsp;</P>
+<B><I><P>Figure 1.16</P></B></I><P>MBONE Configuration screen</P>
+
+<P>The configuration show on figure 5.20 allows mrouted machine to connect with tunnels to other regional networks over the external DMZ and the physical backbone network, and connect with tunnels to the lower-level mrouted machines over the internal DMZ, thereby splitting the load of the replicated packets. </P>
+<P>The only problem in promoting MBONE is that the most convenient platform for it is a Sun SPARCstation. You can use a VAX or MicroVAX, or even a DecStation 3100 or 5000, running Ultrix 3.1c, 4.1, 4.2a. But our typical Web server OS won’t do it.  In this case, you must rely on Internet Service Providers (ISP).</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>The following is a partial list of ISP who are participating in the MBONE: </P>
+<P>AlterNet - ops@uunet.uu.net</P>
+<P>CERFnet  - mbone@cerf.net</P>
+<P>CICNet - mbone@cic.net</P>
+<P>CONCERT - mbone@concert.net</P>
+<P>Cornell - swb@nr-tech.cit.cornell.edu</P>
+<P>JANET - mbone-admin@noc.ulcc.ac.uk</P>
+<P>JvNCnet - multicast@jvnc.net</P>
+<P>Los Nettos - prue@isi.edu</P>
+<P>NCAR - mbone@ncar.ucar.edu</P>
+<P>NCSAnet  - mbone@cic.net</P>
+<P>NEARnet - nearnet-eng@nic.near.net</P>
+<P>OARnet - oarnet-mbone@oar.net</P>
+<P>PSCnet - pscnet-admin@psc.edu</P>
+<P>PSInet - mbone@nisc.psi.net</P>
+<P>SESQUINET - sesqui-tech@sesqui.net</P>
+<P>SDSCnet - mbone@sdsc.edu</P>
+<P>SURAnet - multicast@sura.net</P>
+<P>UNINETT - mbone-no@uninett.no</P>
+</TD></TABLE>
+<P>One of the limitations of Mbone is with regards to audio capabilities, which is still troublesome, specially with Windows NT system, as it requires you to download the entire audio program before it can be heard. Fortunately, there are now systems available which avoid this problem by playing the audio as it is downloaded.  The following is a list of some of them that I have tested with Windows 95 and Windows NT 3.51 and 4.0 Beta 2:</P>
+
+<UL>
+<B><LI>RealAudio</B> -  Developed by Progressive Networks.  You can download an evaluation copy from their URL at: http://www.realaudio.com.  This player communicates with a specialized RealAudio server in order to play back audio as it is downloaded, which eliminates the  delays during download, especially with slow modems. It also supports a variety of quality levels and non-audio features such as HTML pages displayed in synchronization with the audio. RealAudio players are available for Microsoft Windows, the Macintosh, and several UNIX platforms.</LI>
+<B><LI>Winplay</B> -  Winplay offers a very high quality audio using MPEG Level 3 compression.  To the best of my knowledge, this feature is not available in any other similar product out there.  Unfortunately, it is available for Windows 3.x only. You can download it form URL: ftp://ftp.uoknor.edu, or from the Institute for Integrated Circuits home page, in Germany at URL: http://www.iis.fhg.de/departs/amm/layer3/winplay3.</LI>
+<B><LI>VocalTec</B> -  This is a well known player, which offers streaming audio technology for the Web, but it is available for Microsoft Windows only.  You can check their URL at http://www.vocaltec.com</LI></UL>
+
+
+<P>Multicast packets are designated with a special range of IP addresses: 224.0.0.0 to 239.255.255.255. This range, as discussed above, is specifically known as "Class D Internet Addresses". The Internet Address Number Authority (IANA) has given the MBONE (which is largely used for teleconferencing) the Class D subset of 224.2.*.* . Hosts choosing to communicate with each other over MBONE set up a session using one IP address from this range. Thus, multicast IP addresses are used to designate a group of hosts attached by a communication link rather than a group connected by a physical LAN. Also, each host temporarily adopts the same IP address. After the session is terminated, the IP address is restored to the "pool" for re-use by other sessions involving different hosts. </P>
+<P>There are still some problems to be resolved before MBONE can be fully implemented on the Internet. Since multicasts between multiple hosts on different subnets must be physically transmitted over the Internet and not all routers are capable of multicasting, the multicast IP packets must be tunneled (which makes MBONE a virtual network) to look like unicast packets to ordinary routers. Thus, these multicast IP datagrams must be first encapsulated by the sources-end mrouter in a unicast IP header that has the destination and source address fields set to the IP addresses of tunnel-end-point mrouters respectively and the protocol field set to &quot;IP&quot; which indicates that the next protocol in the packet is also IP. The destination mrouter then strips of this header and reads the &quot;inner&quot; multicast session IP address and forwards the packet to its own network hosts or re-encapsulates the datagram and forwards it to other mrouters that serve or can forward to session group members. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more information about MBONE, check Vinay Kumar book &quot;MBONE: Interactive Multimedia on the Internet,&quot; by New Riders, 1996. </P>
+</TD></TABLE>
+<H2> Internet Control Message Protocol (ICMP)</H2>
+</B></I><P>The Internet Control Message Protocol, as defined on RFC 792, is a part of IP that handles error and system level messages and sends them to the offending gateway or host. It uses the basic support of IP as if it were a higher level protocol, however, ICMP is actually an integral part of IP, and must be implemented by every IP module.</P>
+<P>Messages are sent in several situations. It could be sent when a datagram does not reach its destination or when a gateway fails to forward a datagram (usually due to not enough buffering capacity), for example.</P>
+
+<H2> Internet Group Management Protocol (IGMP)</H2>
+</B></I><P>Internet Group Management Protocol (IGMP), as defined in RFC 1112, was developed for hosts on multi-access networks to instruct local routers of their group membership information, which is performed by hosts multicasting IGMP Host Membership Reports. These multicast routers listen for these messages and then can exchange group membership information with other multicast routers, which allows distribution trees to be formed to deliver multicast datagrams. </P>
+<P>There have been few extensions, known as IGMP version 2, that were developed and released in later releases of the IP Multicast distribution to include explicit leave messages for faster pruning and multicast traceroute messages. Figure 1.17 shows the header information of an IGMP message.</P>
+<P>&nbsp;</P>
+<!--<B><I><P>Figure 1.17</P></B><P>8-byte IGMP message showing header information</P></I>-->
+<P>A typical IGMP statement looks like this,</P>
+<PRE><FONT SIZE=3><P>igmp  yes |  no |  on |  off [  {  </P>
+<P>      queryinterval  sec  ;  </P>
+<P>      timeoutinterval  sec  ;  </P>
+<P>      interface  interface_list  enable |  disable;  </P>
+<P>      traceoptions  trace_options  ;  </P>
+<P> } ]  ;</P>
+</PRE></FONT>
+<P>The igmp statement on the first line enables or disables the IGMP protocol. If the igmp statement is not specified the default is igmp off; If enabled, IGMP will default to enabling all interfaces that are both broadcast and multicast capable. These interfaces are identified by the IFF_BROADCAST and IFF_MULTICAST interface flags. IGMP must be enabled before one of the IP Multicast routing protocols are enabled.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For complete information about IGMP functionality and options, please check RFC 1112 or Intergate’s URL at http://intergate.ipinc.com/support/gated/new/node29.html</P>
+</TD></TABLE>
+<H2> Open Shortest-Path First (OSPF)</H2>
+</B></I><P>Open Shortest-Path First (OSPF) is a second-generation standards-based IGP (Interior Gateway Protocol) that enables routers in an autonomous system to exchange routing information. By autonomous system I mean those systems that consists of a group of routers under the administrative control of one authority. OSPF minimizes network convergence times across large IP internetworks.</P>
+<P>OSPF should not be confuse with RIP as it is not a distance vector routing protocol.  Rather, OSPF is a link state routing protocol, permitting routers to exchange information with one another about the reachability of other networks and the cost or metric to reach the other networks. OSPF is defined as one of the IGP standard defined in RFC 1247.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>What is IGP anyway?</P></B><P>Interior Gateway Protocol (IGP) is an Internet protocol designed to distribute routing information to the routers within an autonomous system. To better understand the nature of this IP protocol just substitute the term &quot;gateway&quot; in the name, which is more of a historical definition, with the term &quot;router,&quot; which is much more accurate and preferred term.</P>
+</TD></TABLE>
+<P>All routers supporting OSPF exchange routing information within an autonomous system using a link-state algorithm by issuing routing update messages only when a change in topology occurs. In this case, the affected router immediately notifies its neighboring router about the topology change only, instead of the entire routing table. By the same token, the neighbor router pass the updated information to their neighboring routers, and so on, reducing the amount of traffic on the internetwork. The major advantage of this is that since topology change information is propagated immediately, all network convergence is achieved more quickly than if relying on the timer-based mechanism used with RIP.</P>
+<P>Hence, OSPF is increasingly being adopted within existing autonomous systems that previously relied on RIP’s routing services, especially because OSPF routers simultaneously support RIP for router-to-endstation communications, and OSPF for router-to-router communications. This is great because it ensures communications within an internetwork and provides a smooth migration path for introducing OSPF into existing networks.</P>
+
+<H2> Border Gateway Protocol Version 4 (BGP-4)</H2>
+</B></I><P>Border Gateway Protocol Version 4 (BGP-4) is an exterior gateway protocol that enables routers in different autonomous systems to exchange routing information. BGP-4 also provides a set of mechanisms for facilitating CIDR by providing the capability of advertising an arbitrary length IP prefix and thus eliminating the concept of network &quot;class&quot; within BGP. </P>
+<P>BGP uses TCP to ensure delivery of interautonomous system information. Update messages are generated only if a topology change occurs and contain information only about the change. This reduces network traffic and bandwidth consumption used in maintaining consistent routing tables between routers.</P>
+
+<H2> Address Resolution Protocol </H2>
+</B></I><P>Address Resolution Protocol (ARP) is a method for finding a host’s Ethernet address from its Internet address. The sender broadcasts an ARP packet containing the Internet address of another host and waits for it to send back its Ethernet address. Each host maintains a cache of address translations to reduce delay and loading. ARP allows the Internet address to be independent of the Ethernet address but it only works if all hosts support it.</P>
+<P>As it is defined on RFC 826, a router and host must be attached to the same network segment to accomplish ARP, and the broadcasts cannot be forwarded by another router to a different network segment. </P>
+
+<H2><I>Reverse Address Resolution Protocol (RARP) </I></H2>
+</B></I><P>Reverse Address Resolution Protocol (RARP), as defined on RFC 903, provides the reverse function of ARP discussed above. RARP maps a hardware address, also called MAC address, to an IP address. RARP is primarily used by diskless nodes, when they first initialize, to find their Internet address. Its function is very similar to BOOTP.</P>
+
+<H2><I> Security Risks of Passing IP Datagram Through Routers</I></H2>
+</B></I><P>Routers are often overlooked when dealing with network security.  They are the lifeblood of an Internet connection.  They provide all the data on a network a path to the outside world.  This also makes them a wonderful target for attacks.  Since most sites have one router to connect to the outside world, all it takes is one attack to cripple that connection.</P>
+<P>Always keep up with the latest version of the router’s software.  The newer releases can fix a great deal of recently emerged denial-of-service attacks.  These attacks are often trivial to execute and require only a few packets across the connection to trigger.  A router upgrade will sometimes mean further expense in memory or firmware upgrades, but as a critical piece of equipment, it should not be neglected.</P>
+<P>Other than updating the software, disabling remote management is often key to preventing both denial-of-service attacks and remote attacks to try to gain control of the router.  With a remote management port open, attackers have a way into the router.  Some routers fall victim to brute-force attempts against their administrative passwords.  Quick scripts can be written to try all possible password combinations, accessing the router only once per try to avoid being detected.  If there are so many routers that manual administration is a problem, then perhaps investigating network switch technology would be wise.  Today’s switches are replacing yesterday’s routers in network backbones to help simplify such things.</P>
+
+<H2> Simple Network Management Protocol (SNMP) </H2>
+</B></I><P>Simple Network Management Protocol (SNMP), as defined in STD 15, RFC 1157, was developed to manage nodes on an IP network.</P>
+<P>One element of IP security that has been somewhat neglected is protection of the network devices themselves. With the Simple Network Management Protocol version 2 (SNMPv2) the authentication measures for management of network devices were strengthen. But based on few controversies, there is an indication that successful incorporation of strong security features on SNMP will take some time.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Many of the original proposed security aspects of SNMPv2 were made optional or removed from the Internet Standards track SNMPv2 specification in March 1996. There is now a new experimental security protocol for SNMPv2 that has been proposed.</P>
+</TD></TABLE>
+<P>Nevertheless, SNMP is the standard protocol used to monitor and control IP routers and attached networks. This transaction-oriented protocol specifies the transfer of structured management information between SNMP managers and agents. An SNMP manager, residing on a workstation, issues queries to gather information about the status, configuration, and performance of the router.</P>
+
+<H2> Watch Your ISP Connection.</H2>
+</B></I><P>When shopping for an Internet Service Provider, most people glaze over the security measures that are offered to people that subscribe to their service.  Their level of security can quickly decide a customer’s level of security.  If the upstream feed is compromised, then all of the data bound for the Internet can be sniffed by the attacker.  It is actually very surprising to see what information is sent back and forth from a customer.  Private e-mail can be read.  Web form submissions can be read.  Downloaded files can be intercepted.  Anything that heads for the Internet can be stolen.</P>
+<P>There has even been a nasty trend of not just stealing information, but of hijacking connections.  A user logs into their remote account and suddenly their files start changing.  Hijacking has become quite advanced.  A session can be transparently hijacked and the user will simply think that the network is lagging.  Such hijacking does, however, require that the attacker be in the stream somewhere and an ISP is a wonderful place to perch.</P>
+
+<H2> The Internet Protocol Next Generation or IPv6</H2>
+</B></I><P>Since the introduction of TCP/IP to the ARPANET in 1973, which, at that time connected about 250 sites and 750 computers, the Internet has grown tremendously, connecting today more than 60 million users worldwide. Current estimates project the Internet as connecting hundreds of thousands of sites and tens of millions of computers. This phenomenal growth is placing an ever-growing strain on the Internet’s infrastructure and underlying technology. </P>
+<P>Due to this exponential growth of the Internet, underlying inadequacies in the network’s current technology has become more and more evident. The current Internet Protocol version 4 (IPv4) was last revised in 1981 (RFC791), and since then the Engineering Task Force (IETF) has been developing solutions for inadequacies that emerged as the protocol grows old. These sets of solutions, which have been given the name IPv6, will become the backbone for the next generation of communication applications. </P>
+<P>It is anticipated that in the early XXI century, just around the corner, the Internet will be routinely used in ways just as unfathomable to us, today.  Its usage is expected to extend to multimedia notebook computers, cellular modems, and even appliances at home, such as your TV, your toaster and coffee maker (remember that IBM’s latest desktop PC model already comes with some of these remote functionality to control your appliances at home!). </P>
+<P>Virtually all the devices with which we interact, at home, at work, and at play, will be connected to the Internet – the possibilities are endless, and the implications staggering, especially as far as security and privacy goes. </P>
+<P>To function within this new paradigm TCP/IP must evolve and expand its capabilities, and the first significant step in that evolution is the development of the next generation of the &quot;Internet Protocol,&quot; Internet Protocol version 6, or IPv6. </P>
+<P>The advent of the Ipv6 initiative doesn’t mean that the technologies will exhaust the capabilities of Ipv4, our Internet technology.  However, as you might expect, there are still compelling reasons to begin adopting IPv6 as soon as possible.  However, this process has its challenges, and as essential to any evolution of Internet technology, there are requirements for seamless compatibility with IPv4, especially with regards to a manageable migration, which would allow us to take advantage of the power of IPv6, without forcing the entire Internet to upgrade simultaneously. </P>
+
+<H2><I> Address Expansion</I></H2>
+</B></I><P>One of the main needs for IPv6 is the rapid exhaustion of the available IPv4 network addresses. To assign a network address to every car, machine tool, furnace, television, traffic light, EKG monitor, and telephone, we will need hundreds of millions of new network addresses. IPv6 is designed to address this problem globally, providing for billions of billions of addresses with its 128bit architecture. </P>
+
+<H2><I> Automatic Configuration of Network Devices</I></H2>
+</B></I><P>It is not an easy task to manually configure and manage the huge number of hosts connected to many networks, public or private.  Managers of major corporate networks, as well as Internet Providers are going crazy with it. IPv6’s Auto-configuration capability will dramatically reduce this burden by recognizing when a new device has been connected to the network and automatically configuring it to communicate. For mobile and wireless computer users the power of IPv6 will mean much smoother operation and enhanced capabilities. </P>
+
+<H2><I> Security</I></H2>
+</B></I><P>At this point on the book, needless to say there is a major security concern shared by senior IT professionals and CEOs when connecting their organization with Intranets and to the Internet.  Nevertheless, for everyone connected to the Internet, invasion of privacy is also a concern as IP connections are beginning to invade even coffee makers.  Fortunately, IPv6 will have a whole host of new security features built in, including system to system authentication and encryption based data privacy. These capabilities will be critical to the use of the Internet for secure computing. </P>
+
+<H2><I> Real-Time Performance</I></H2>
+</B></I><P>One barrier to adoption of TCP/IP for real-time, and near real-time, applications has been the problem of response time and Quality of Service. By taking advantage of IPv6's packet prioritization feature TCP/IP now becomes the protocol of choice for these applications. </P>
+
+<H2><I> Multicasting</I></H2>
+</B></I><P>The designs of current network technologies were based on the premise of one-to-one or one-to-all communications. This means that applications that are distributing information to a large number of users must build a separate network connection from the server to each client. IPv6 provides the opportunity to build applications that make much better use of server and network resources through its &quot;multicasting&quot; option. This allows an application to &quot;broadcast&quot; data over the network, where it is received only by those clients that were properly authorized to do so. Multicast technology opens up a whole new range of potential applications, from efficient news and financial data distribution, to video and audio distribution, etc.</P>
+<P>There are many features and implementations to be discussed about IPv6, but for our purpose here, lets concentrate on the IPv6’s promises, specifically with regards to security.</P>
+
+<H2><I> IPv6 Security</I></H2>
+</B></I><P>Users want to know that their transactions and access to their own sites are secure. Users also want to increase security across protocol layers. Up until IPv6, as discussed throughout this whole book, security has been available only by added applications or services.</P>
+<P>IPv6 provides security measures in two functional areas:</P>
+
+<UL>
+<B><LI>Authentication</B> – It requires that a sender log into the receiver. If the sender is not recognized, then access is not allowed. If access is allowed, this ensures that the packets were actually sent by the approved sender and that the content was not changed in transit. </LI>
+<B><LI>Privacy</B> - Privacy takes the form of encryption and protects data from unintended users. Packets that leave a site can be encrypted and packets that enter a site can be authenticated. </LI></UL>
+
+<P>Both privacy and authentication can be applied in a &quot;security association.&quot; For a one-way exchange between a sender and a receiver, one association is needed; for a two-way exchange, two associations are needed. When combining authentication and privacy, either can be applied first. If encryption is applied first, the entire packet is authenticated, including encrypted and unencrypted parts. If authentication is applied first, authentication applies to the entire packet.</P>
+<P>IPv6 is being tested over and over by IETF and its participating partners. With its core specifications finalized, IPv6 implementations should occur within a year and Internet Service Providers should begin to offer IPv6 links during the next three to four years. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For more up to date information, check the IPv6 Resource Center of Process Software Corporation, one of the leaders in TCP/IP solutions, at URL <B>Error! Reference source not found.</B>.</P>
+</TD></TABLE>
+<H2> Network Time Protocol (NTP)</H2>
+</B></I><P>Network Time Protocol (NTP) is a protocol built on top of TCP/IP that assures accurate local timekeeping with reference to radio, atomic or other clocks located on the Internet. This protocol is capable of synchronizing distributed clocks within milliseconds over long time periods. It is defined in STD 12, RFC 1119.</P>
+
+<H2> Dynamic Host Configuration Protocol (DHCP)</H2>
+</B></I><P>Dynamic Host Configuration Protocol (DHCP) was actually a protocol introduced by Microsoft on their NT server with version 3.5 in late 1994. This protocol provides a means to dynamically allocate IP addresses to IBM PCs running on a Microsoft Windows local area network. </P>
+<P>The system administrator assigns a range of IP addresses to DHCP and each client PC on the LAN has its TCP/IP software configured to request an IP address from the DHCP server. The request and grant process uses a lease concept with a controllable time period. More information can be found in the Microsoft documentation on NT Server.</P>
+
+<H2> Windows Sockets (WINS)</H2>
+</B></I><P>WINS, or Winsock, is a specification for Microsoft Windows network software, describing how applications can access network services, especially TCP/IP. Winsock is intended to provide a single API to which application developers should program and to which multiple network software vendors should conform. For any particular version of Microsoft Windows, it defines a binary interface (ABI) such that an application written to the Windows Sockets API can work with a conferment protocol implementation from any network software vendor. </P>
+<P>Windows Sockets is supported by Microsoft Windows, Windows for Workgroups, Win32s, Windows 95 and Windows NT. It also supports protocols other than TCP/IP.</P>
+
+<H2> Domain Name System (DNS)</H2>
+</B></I><P>Domain Name System (DNS), is defined on RFCs 1034 and 1035,  is a general-purpose distributed, replicated, data query service chiefly used on Internet for translating hostnames (or site name) such as &quot;process.com&quot; into its IP address such as 192.42.95.1. DNS can be configured to use a sequence of name servers, based on the domains in the name being looked for, until a match is found. </P>
+<P>DNS is usually installed as a replacement for the hostname translation offered by Sun Microsystem’s Network Information System (NIS). However, while NIS relies on a single server, DNS is a distributed database. It can be queried interactively using the command nslookup. </P>
+<P>The Domain Name System refers to both the way of naming hosts and the servers and clients that administer that information across the Internet.</P>
+
+<H2><I> Limiting DNS Information</I></H2>
+</B></I><P>InterNIC holds information about a site’s primary and secondary DNS.  It is typical to foreign users to refer to InterNIC to learn which system to access to translate addresses into machine names.  Be careful which addresses are supplied in the external primary and secondary DNS.  Listing vital internal resources in the DNS records, that foreign users can access, can be pointers to determine which systems should be attacked.  Externally naming a system &quot;main-server&quot; or &quot;modem-dialout&quot; can be tragic.  </P>
+<P>Therefore, I suggest you to setup a third DNS server to host internal addresses.  Only allow systems from the local site to access this information.  This will prevent internal names from being leaked to the Internet.  Two different names can be given to hosts that are accessible by the Internet.  Internally naming a vital system &quot;main-server&quot; is acceptable if the external name for the system is something less obvious or a limited version of what it hosts, like &quot;ftp&quot; or &quot;www&quot;.  If there are a lot of machines, it could easily be that only a few systems should be listed externally.</P>
+
+<H2> Firewalls Concepts</H2>
+</B></I><P>By now, only with an overview of internetworking protocols and standards, you should assume that every piece of data sent over the Internet can be stolen or modified.  The way the Internet is organized, every site takes responsibility for their own security.  If a hacker can take a site that is at a critical point to the communications that are being sent from the user, then all of the data that the user is sending through that site is completely at the whim of the hacker.  Hackers can intercept unencrypted credit cards, telnet sessions, ftp sessions, letters to Grandma, and just about anything else that comes across the wire.  </P>
+<P>Just like not trusting your upstream feed, be careful with the information that is sent to remote sites.  Who controls the destination system should always be in question.</P>
+<P>Firewalls are designed to keep unwanted and unauthorized traffic from an unprotected network like the Internet out of a private network like your LAN or WAN, yet still allowing you and other users of your local network to access Internet services. Figure 1.18 shows the basic purpose of a firewall.</P>
+<P>&nbsp;</P>
+<B><I><P>Figure 1.18</P></B><P>Basic function of a firewall</P></I>
+<P>Most firewalls are merely routers, as showing on figure 1.19, filtering incoming datagrams based upon the datagrams source address, destination address, higher level protocol, or other criteria specified by the private network’s security manager, or security policy. </P>
+<P>&nbsp;</P>
+<B><I><P>Figure 1.19</P></B><P>Packet filtering at a router level</P></I>
+<P>More sophisticated firewalls employ a proxy server, also called a bastion host, as shown on figure 1.20. The bastion host prevents direct access to Internet services by the your internal users, acting as their proxy, while filtering out unauthorized incoming Internet traffic.</P>
+<P>&nbsp;</P>
+<B><I><P>Figure 1.20</P></B><P>Proxy server prevent the direct access to and from the Internet.</P></I>
+<P>The purpose of a firewall, as a security gate, is to provide security to those components inside the gate, as well as control of who (or what) is allowed to get into this protected environment, as well as those allowed to go out.  It works like a security guard at a front door, controlling and authenticating who can or cannot have access to the site.</P>
+<P>It is setup to provide controllable filtering of network traffic, allowing restricted access to certain Internet port numbers and blocked access to almost everything else.  In order to do that, they must function as a single point of entry.  That is why many times you will find firewalls integrated with routers. </P>
+<P>Therefore, you should choose your firewall system based on the hardware you already have installed at your site, the expertise you have available in your department and the vendors you can trust.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>Such is the need for firewalls that according to the journal CommunicationsWeek (April 8, 1996), the Computer Security Institute, from San Francisco-CA, did a survey last year, and found that almost half of the organizations surveyed already deploy firewall, and of those that did not, 70 percent were planning on installing them.</P>
+</TD></TABLE>
+<P>Usually, firewalls are configured to protect against unauthenticated interactive login from the "outside" world.  Protecting your site with firewalls can be the easiest way to promote a "gate&quot; where security and audit can be imposed.  </P>
+<P>With firewalls you can protect your site from arbitrary connections and can even set up tracing tools, which can help you with summary logs about origin of connections coming through, the amount of traffic your server is serving and even if there were any attempts to break in to it.</P>
+<P>One of the basic purposes of a firewall should be to protect your site against hackers.  As discussed earlier, your site is exposed to numerous threats, and a firewalls can help you.  However, it cannot protect you against connections by-passing it.  Therefore, be careful with backdoors such as modem connections, to your LAN, specially if your Remote Access Server (RAS) is inside the protected LAN, as typically they are.</P>
+<P>Nevertheless, a firewall is not infallible, its purpose is to enhance security, not guarantee it!  If you have very valuable information in your LAN, your Web server should not be connected to it in the first place.  You must be careful with groupware applications that allows you access to your Web server from within the organization or vice versa.  </P>
+<P>Also, if you have a Web server inside your internal LAN, watch for internal attacks as well as to your corporate servers.  There is nothing a firewall can do about threats coming from inside the organization.  An upset employee, for example, could pull the plug of your corporate server, shutting it down, and there is nothing a firewall will be able to do!</P>
+<P>Packet filtering was always a simple and efficient way of filtering inbound unwanted packets of information by intercepting data packets, reading them, and rejecting those not matching the criteria programmed at the router.</P>
+<P>Unfortunately, packet filtering are no longer sufficient to guarantee the security of a site.  Many are the threats, and many are the new protocol innovations, with the ability to by-pass those filters with very little efforts.  </P>
+<P>For instance, packet filtering is not effective with the FTP protocol as FTP allows the external server being contacted to make connections back on port 20 in order to complete a data transfers. Even if a rule were to be added on the router, port 20 on the internal network machines is still available to probes from the outside.  Besides, as seen earlier, hackers can easily "spoof" these routers.  Firewalls make these strategies a bit harder, if not near to impossible.</P>
+<P>When deciding to implement a firewall, however, first you will need to decide on the type of firewall to be used (yes, there are many!) and its design.  I’m sure this book will greatly help you in doing so!</P>
+<P>You should also know that there are some kind of commercial firewall products, often called OS Shields, that are installed over the operating system. Although they became some what popular, combining packet filtering with proxy applications capable to monitor data and command streams of any protocol to secure the sites, OS shield was not so successful due to specifics of its configurations:  not only its configurations were not visible to administrators as they were configured at the kernel level, but also forced administrators to introduce additional products to help the management of the server’s security.</P>
+<P>The firewall technology has gone a long way.  Besides the so called traditional, or static, firewalls, today we have what is called &quot;dynamic firewall technology.&quot;  </P>
+<P>The main difference is that, unlike static firewalls, where the main purpose is to </P>
+<B><P ALIGN="CENTER">&quot;permit any service unless it is expressly denied&quot;</B> or to  </P>
+<B><P ALIGN="CENTER">&quot;deny any service unless it is expressly permitted,&quot;</B> </P>
+<P>a dynamic firewall will </P>
+<B><P ALIGN="CENTER">&quot;permit/deny any service for when and as long as you want.&quot;</P></B><P>This ability to adapt to network traffic and design offers a distinctive advantage over the static packet filtering models.</P>
+
+<H2><I> The Flaws in Firewalls</I></H2>
+</B></I><P>As you can tell by the number of pages of this book (and we’re still on chapter 1!), there is a lot to be said about firewalls, especially because virtually all of the latest generation of firewalls exhibit the same fundamental problems: they can control which site can talk to which services at a certain time and only if a certain authorization is given, but services that are offered to the Internet as a whole can be shockingly open!</P>
+<P>The one things firewalls cannot currently do is understand the data that goes through to a valid service.  To the firewall, an e-mail message is an e-mail message.  Data filtering is a recent invention in some firewalls, for more information check chapter 10 &quot;Putting it Together: Firewall Design and Implementation,&quot; under the section &quot;Types and Models of Firewalls.&quot; </P>
+<P>To have a firewall filter and remove every message with the word &quot;hacker,&quot; for example, is already possible, but not all of them have the ability to filter applets, which is nowadays a major threat to any protected corporate network.</P>
+<P>Also, if a hacker connects to a valid service or port on a system inside a firewall, such as the SMTP port, then the hacker can use a valid data attack, or shell commands, to exploit that service.  </P>
+<P>Take a Web server as an example.  One of the most recent attacks against NCSA Web servers is the ‘phf’ attack.  A default utility ‘phf’ comes with the server and allows an attacker to use the utility to execute commands on the systems.  The attack looks like a normal Web query.  Today’s firewalls will not stop this attack, unless an administrator mail-filters on ’phf’, which places a high demand on the firewall.</P>
+<P>The key to dealing with this limitation is in treating a firewall as a way of understanding the configuration of internal services.  The firewall will only allow certain services to be accessed by users on the Internet.  These known services can then be given special attention to make sure that they are the latest, most secure versions available.  In this way, the focus can shift from hardening an entire network, to just hardening a few internal machines and services.</P>
+<P>More will be seen about it on chapters 4 &quot;Firewalling Challenges: the Basic Web,&quot; chapter 5 &quot;Firewalling Challenges: the Advanced Web,&quot; and chapter 8 &quot;How Vulnerable are Internet Services.&quot;</P>
+
+<H2><I> Fun With DMZs</I></H2>
+</B></I><P>Demilitarized Zones (DMZs) are used in situations where few machines service the Intranet and the rest of the machines are isolated behind some device, usually a firewall.  These machines either sit out in the open or have another firewall to protect the DMZ.  This can be a very nice arrangement, from a security perspective, as the only machines that accept inbound connections are &quot;sacrificial lambs.&quot;</P>
+<P>If the machines can be spared for the effort, organizations that are high risks targets can benefit from this design.  It has proven to be extremely effective in keeping internal resources secure.  One suggestion is to vary the types of machines and publishers of the security software that guards the outside and the inside of the DMZ.  For example, if two of the same firewalls are used, then they can both be breached by one exploit.  In a homogenous-leaning community, this is one case that being heterogeneous can help.</P>
+<P>The only drawback to setting up a DMZ is in the maintenance of the machines.  Most administrators enjoy local access to a file-system for easy Web server and FTP server updates.  Adding a firewall between the two makes it slightly harder to accomplish this, especially if more than one person is maintaining the servers.  All in all, external information stays somewhat stable and the administrative annoyance can be really infrequent.</P>
+
+<H2><I> Authentication Issues</I></H2>
+</B></I><P>Firewalls and filtering routers tend to behave rather binary.  Either a connection is or is not allowed into a system.  Authentication allows service connections to be based on the authentication of the user, rather than their source or destination address.  With some software, a user’s authentication can allow certain services and machines to be reached while others can only access rudimentary systems.  Firewalls often play a large role in user-based service authentication, but some servers can be configured to understand this information as well.  Current Web servers can be configured to understand which users are allowed to access which sub-trees and restrict users to their proper security level.  </P>
+<P>Authentication comes in many varieties and it can be in the form of cryptographic tokens, one-time passwords, and the most commonly used and least secure simple text password.  It is up to the administrators of a site to determine which form of authentication for which users, but it is commonly admitted that it should be used.  Proper authentication can allow administrator from foreign sites to come into a network and correct problems.  This sort of connection would be a prime candidate for a strong method of authentication like a cryptographic token.</P>
+
+<H2><I> Trust at the Perimeter</I></H2>
+</B></I><P>Today’s corporate security focus is on the perimeter.  It is a very common approach to see a hard coated outside and a soft middle.  The hard outside is accomplished with firewalls, authentication devices, strong dial-up banks, virtual private tunnels, virtual networks, and a slew of other ways to isolate a network.  The inside, however, is left up for grabs.  Internal security is not properly managed and a common looming fear exists that if someone gets past the borders, then the castle will fall.  It is often a problem that everyone knows about and is eternally scheduled to be fixed tomorrow.</P>
+<P>There really is not a lot to be said for a solution to this problem.  The internal politics of security is usually a quagmire of sensitive issues and reluctance to properly fund a solution.  The only way that this issue can get solved is through good old fashioned soap-boxing and a fervent interest to help the effort along.  Political issues are infrequently solved quickly or permanently, but the truth in trusting a perimeter is one of eventual disappointment.  </P>
+<P>The issue of breaching firewalls has already been discussed and authentication methods are far from idiot-proof.  Trusting the physical security of a site can be just as disastrous.  The level of identification required from outsiders is usually horribly inadequate.  How often is the telephone repair person checked up on?  Would the repair person be given access to the most sensitive parts of an organization?  The bottom line is that the perimeter is not the only place for security.</P>
+
+<H2><I> Intranets</I></H2>
+</B></I><P>Resources provided by Intranets are rapidly becoming a staple good within information systems groups.  They promise to provide a single resource that everyone can access and enrich their lives.  Switching to a paperless information distribution system is not always as grand as it looks.  Placing all of an organizations internal documentation into one place is akin to waving a giant red flag and expecting people not to notice.</P>
+<P>Perhaps I’m creating a new word, but Intra-Intranets are often a wise solution to this issue.  Keeping critical data within Workgroup and non-critical data in a separate Intranet is a viable alternative.  Use different systems to store subgroups on and one main system for the whole organization.  Policies should be developed for what is allowable on the main system to help keep proprietary material away from public or near-public access.</P>
+
+<H2> From Here…</H2>
+</B></I><P>This chapter provided a comprehensive overview on many of the most used internetworking protocols and standards, some of the security concerns associated with it and the basic whole of firewalls in enhancing the security of the connections you make across the Internet and receive within your protected network.</P>
+<P>The issue of basic connectivity becomes then very important for many organizations. There are indeed many ways to get connected on the Internet, some more effective then others due to their ability to interact with a variety of environments and computers.</P>
+<P>Chapter 2, &quot;Basic Connectivity,&quot; discuss about the characteristics a basic connectivity can assume on the Internet through UUCP, SLIP, PPP, Rlogin and TELNET.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="preface.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap02.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCG

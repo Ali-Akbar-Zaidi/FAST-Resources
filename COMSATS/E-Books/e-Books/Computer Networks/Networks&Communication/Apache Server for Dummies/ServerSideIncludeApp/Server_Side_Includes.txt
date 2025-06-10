@@ -1,0 +1,1126 @@
+Appendix
+
+Details of Server-Side Includes
+
+* Understanding what server-side includes are
+
+* What SSI directives are available
+
+* How to turn on server-side includes
+
+* Using variables in server-side include directives
+
+* Recognizing SSI problems when they occur
+
+* Using server-side includes to customize documents when they're sent
+
+One of the most powerful things your Apache Web server can do for you is to tailor the contents of 
+documents before sending them along to the requesting client. One of the ways you can do this, the one 
+that's described in this Appendix, is through the use of Server-Side Includes (SSIs).
+
+Server-side includes are described to some extent in Chapter 12, but it doesn't go into much detail about 
+how to use them or what you could do with them. This appendix attempts to fill in the gaps - so get out 
+your pick and shovel!
+
+SSIs - Before You Start
+
+SSIs are a really cool feature, but like most cool things there's a cost to using them. The more you use 
+them, the greater the cost you're going to incur - there ain't no such thing as a free lunch.
+
+Remember: The server handles server-side includes by carefully scrutinizing the HTML in file question 
+and performing additional processing when it finds SSI instructions (called "parsing" the file).
+
+Whether you're willing to pay the cost or not is up to you:
+
+  * Since the server is not just throwing the files "over the wall" to the client, but is 
+examining them first, there's a cost in terms of response time and CPU time.
+  
+  * Because of the flexibility of SSIs, using them incautiously can open up potential 
+security liabilities on your Web server system - the cost here involves the integrity 
+and security of your Web host (and potentially any others to which it has access)
+  
+If you have a moderately big machine, the actual impact may be negligible, and you may want to extend the 
+functionality of SSI parsing to all of your HTML documents. On a less powerful system, however, you 
+might prefer to either not use them at all, or to tell the server it should only spend time parsing files with 
+a particular extension. See the next section for details.
+
+When SSIs Go Bad
+
+While you're becoming familiar with using server-side includes, you should also become familiar with the 
+following error message:
+
+[an error occurred processing this directive]
+
+
+Ordinarily, the Apache Web server replaces the SSI directive either with nothing (essentially removing it 
+from the file before sending it to the client) or with any output it generates. If the server has a problem of 
+any sort dealing with a directive, though, it replaces it with this text.
+
+When you see this message, generic as it is, you should treat it as a signal to go look at the error log - 
+because that's where the server puts the real error message describing what it couldn't do.
+
+Enabling Server-Side Includes
+
+In order for the Apache Web server to actually parse any files looking for server-side include directives 
+to process, you have to tell it how to proceed.
+
+  * Your server must have the mod_include module built into it - without that, no 
+parsing is going to happen at all under any circumstances.
+  
+  * You need to tell the server how to recognize that a file should be parsed by 
+explicitly naming a file suffix or extension as meaning "parse any file with this 
+ending."
+  
+  * You must enable the appropriate overrides (see Chapter 4) and options for the 
+scope in which the documents are found.
+  
+The first part is easy - mod_include is usually part of your average Apache server image. If it isn't, 
+you'll need to obtain another server image, though, or else rebuild it yourself and include the module in 
+the Configuration file (see Chapter 9).
+
+The second part is relatively simple, too - just pick one or more file extensions, such as ".shtml" or 
+".htp", and include sections like the following in your server configuration files:
+
+AddType text/html .shtml
+AddHandler server-parsed .shtml
+
+
+The first line tells the server that any time it processes a file ending in ".shtml", it should tell the client 
+that it contains HTML. The second line lets it know that any file with that ending needs to be run through 
+the "server-parsed" content handler (which is provided by mod_include).
+
+The third part, making sure the scope is covered by the appropriate overrides and options, is the trickiest 
+portion of all (though it's still not rocket science). The override that affect server-side include processing 
+is the FileInfo override. It doesn't really affect SSIs directly; rather, it needs to be enabled in order to 
+use the AddType and AddHandler directives. So you need to have that override in place in the scope 
+where these directives appear (or at a higher scope, of course) in order for them to work.
+
+For example, if you wanted to enable SSIs for all HTML files in a particular directory, there are a couple 
+of ways you could do it. One is to declare all the relevant stuff in the server config files as shown in 
+Figure B-1.
+
+
+
+<Directory /usr/local/web/htdocs/ssi-enabled>
+   AddHandler server-parsed .html
+   Options Includes
+</Directory>
+
+
+Figure B-1
+
+Tip: Did you notice anything unusual about that container? Like the fact that it didn't include an AddType 
+declaration? That's because the server already knows that files that end in .html have the media (MIME) 
+type "text/html", so you don't need to tell it again.
+
+Alternatively, you can put the directives into a .htaccess file in the directory where the documents live 
+(or in some ancestor directory), as shown in Figure B-2.
+
+
+
+
+
+AddHandler server-parsed .html
+Options Includes
+
+
+Figure B-2
+
+
+
+If you use this second method, the directory in which the documents (and the .htaccess file, of 
+course) must be within the scope of an enabled FileInfo override for the AddHandler directive, and 
+an Options override for the Options directive (funny how that works out, isn't it?). To show how these 
+work together, take a look at Figure B-3.
+
+
+
+
+
+In the server configuration files (e.g., srm.conf):
+
+<Directory /usr/local/web/htdocs/ssi-enabled> 
+    AllowOverride FileInfo Options
+</Directory>
+
+
+In the /usr/local/web/htdocs/ssi-enabled/.htaccess file:
+
+AddHandler server-parsed .html
+Options Includes
+
+
+Figure B-3
+
+In this particular arrangement, the server configuration files just enable the use of the AddHandler and 
+Options directives in the .htaccess file. One advantage to doing things this way is that you can 
+change the contents of the .htaccess file and have the altered settings take effect immediately; if 
+they're in the server config files, they only take effect when you tell the server to reload itself.
+
+SSI with all the options
+
+There are three different levels of functionality that server-side includes are allowed to perform. These 
+are specified with the Options directive, and they're primarily concerned with security.
+
+Remember: Remember that I said (well, wrote) that security concerns are one of the potential 
+disadvantages of using server-side includes?
+
+Like lots of the Apache configuration directives, options and overrides are scope-oriented. That is, they 
+apply in the scope where you declare them and all subordinate scopes as well (such as subdirectories) 
+unless explicitly changed. So if you include an "Options All" directive at the top of your document 
+tree, all subdirectories and sublocations will inherit the setting.
+
+You can also selectively turn options on or off by preceding them with plus or minus symbols. For 
+example:
+
+Options +Includes -Indexes
+
+turns on the Includes option for the current scope, and turns off the Indexes option. This will allow 
+SSI parsing to occur, but no directory listings, within the current scope (unless overridden at a lower 
+level, of course).
+
+Technical Stuff: This ability to selectively enable and disable settings currently only applies to the 
+Options directive. No others, such as AllowOverride, permit this syntax.
+
+The Options keywords that relate to server-side includes are:
+
+  * Includes
+  
+This is the basic option that must be enabled for SSI parsing to occur at all. If it 
+isn't enabled, even documents that are marked as eligible for server@nbhparsed 
+processing will be passed right through without being examined, and any 
+server-side include directives in them will be passed to the client as normal 
+comments.
+
+  * IncludesNoExec
+  
+If this option is enabled, then documents cannot use the "#exec" directive to invoke 
+external system commands or shell scripts. If they try to, the directive will be 
+replaced in the output sent to the client with the canonical "SSI oopsie" message:
+
+[an error occurred processing this directive]
+
+  * ExecCGI
+  
+The ExecCGI option explicitly allows the server to process directives that invoke 
+CGI scripts, even if IncludesNoExec is turned on. There are rules that apply to 
+CGI script inclusion that don't apply to "#exec" invocations, so CGIs are 
+considered somewhat safer.
+
+Warning: Be very cautious about enabling external script invocation, for obvious 
+reasons. I highly recommend that you include either an "Options None" or "Options 
+IncludesNoExec" at the top of your document tree, perhaps as shown in Figure B-4, 
+and only turn the feature on for subdirectories containing documents over which you 
+have total control. Even then be aware that perfectly-secure scripts are rare; many 
+have non-obvious shortcomings that can be taken advantage of.
+
+
+
+
+
+
+<Location />
+    Options None
+</Location>
+
+Figure B-4
+
+
+
+SSI Directive Format
+
+The basic SSI format looks like this:
+
+<!--#directive [attributes] -->
+
+
+That format looks a lot like a regular standalone HTML tag, doesn't it? That's really not surprising, since it 
+is - it's a special case of the HTML comment tag. As such, the usual rules concerning HTML tags apply, 
+including:
+
+  * The tag name ("!--" in this case) must not contain any spaces, and there must be 
+no spaces between the opening broket (Hackish for "broken bracket," meaning "<") 
+and the tag name.
+  
+  * Within the tag (between the "<!--" and "-->", that is), line-breaks, spaces, and 
+TAB characters are legal between the tag attributes.
+  
+Since this is a special case of the comment tag, however, there are some additional rules you need to 
+follow:
+
+  * Consider the "#directive" portion to be part of the tag name - in other words, 
+the tag name would be "<!--#include" rather than just "<!--". To look at it 
+another way, you can't insert any spaces between the "<!--" and the "#directive" 
+parts.
+  
+  * You should always include a space before the final "-->"! This is important; if 
+you don't include that space, the server may have difficulty figuring out where the 
+arguments end and the closing marker ("-->") begins.
+  
+  * Even if the value for a directive attribute is just a single word, it's a good idea to 
+enclose it in quotation marks.
+  
+Given these rules, which of the following are syntactically valid SSI directives?
+
+1. <!--#include virtual="foo.html" -->
+
+2. <!-- #include virtual="foo.html" -->
+
+3. <!--#printenv-->
+
+4. <!--#if expr="$A = 1" -->
+
+5. <!--#set var="ZED" value="wanna-cookie" -->
+
+You should have answered "1, 4, and 5." The second one has illegal space between the "<!--" and the 
+"#include", and the third one is missing the space before the "-->".
+
+Tip: Generally speaking, you can not insert line-breaks in the middle of quoted strings - only between 
+elements outside of quoted SSI arguments:
+
+1. Valid placement for a line-break:
+
+<!--#exec
+    cmd="cat a-really-long-file-name" -->
+
+
+2. Wrong-o:
+
+<!--#exec cmd="cat
+    a-really-long-file-name" -->
+
+
+SSI Variables
+
+Since server-side includes involve active evaluation of the document source by the server, it makes a set 
+of variables available so the directives can use them to make decisions. All of the variables that are 
+available for CGI scripts are defined in the SSI processing environment. In addition, the server defines the 
+following variables which pertain specifically to the SSI environment itself:
+
+* DATE_GMT
+
+The current date in Greenwich Mean Time. This is subject to the current time display format (see the 
+description of the "#config" SSI directive in the next section).
+
+* DATE_LOCAL
+
+The current date in the local time zone. (Local to the server, that is, not to the client.) This is also 
+converted according to the current time format in effect.
+
+* DOCUMENT_NAME
+
+The filename (excluding any parent directories) of the document requested by the client.
+
+* DOCUMENT_URI
+
+The URL path of the document requested by the client, after any URL encoding has been decoded (e.g., 
+"%2F" replaced with "/", "%20" replaced with a space, et cetera). Note that in the case of nested include 
+files, this is not the URL for the current document.
+
+* LAST_MODIFIED
+
+The last modification date of the document requested by the user. Like other dates, this one is converted 
+according to the current time format string.
+
+All of these variables are set when the server begins parsing the main document requested by the client. 
+They are not altered if and when the server has to handle a nested document, although the display format 
+for dates and files sizes may change according to the most recent #config directive the server has run 
+into.
+
+Tip: Variables are always regarded as having text values rather than numeric ones. If you compare a 
+variable that contains 12 to one that contains 2, the second one will be considered larger - because the 
+string "2" gets listed later than the string "12".
+
+For a description of the other variables provided by the Apache Web server, see Chapter 12. In addition, 
+you can change these or set or modify your own variables using the #set SSI directive, which is 
+described in the next section.
+
+Substitution of SSI variables
+
+You can use the variables that are available to you to help control the content and formatting of your 
+document (see the section on "Conditional Inclusion" later in this appendix). They can't appear in the 
+normal text, though - they can only be used within SSI directives. If you want their values to show up in the 
+actual text of the document, you need to use the #echo directive to make it happen.
+
+Variables can only be used under certain circumstances and with particular directives. Sometimes you 
+refer to them by name and sometimes you request that their values be substituted instead.
+
+The four SSI directives that can deal with variables are #echo, #set, #if, and #elif. #echo always 
+refers to variables by name, #set sometimes by name and sometimes by substitution, and the #if and 
+#elif only by substitution.
+
+What do I mean by "substitution?" Well, any time you want to use a variable's value, you need to indicate 
+that it be substituted for the name. You indicate that the value should be used instead of the name by 
+putting a dollar-sign ($) in front of the name.
+
+That's incredibly clear, isn't it? Not. Okay, let me try an example. . .
+
+The #set directive takes two attributes, the name of a variable to set and the value to set it to. Here's what 
+it looks like:
+
+<!--#set var="V1" value="23" -->
+
+This unconditionally stores the value "23" in the variable named V1 (creating the variable if it has to). The 
+"var" attribute of the #set directive always refers to variables by name.
+
+Now, if we want to set the variable V2 to "23" too, either of the following will work:
+
+<!--#set var="V2" value="23" -->
+<!--#set var="V2" value="$V1" -->
+
+
+The second line works by substituting the value of the V1 variable in place of its name.
+
+When I said that #set's "var" attribute always took a name, it meant that
+
+<!--#set var="NAME" value="V1" -->
+<!--#set var="$NAME" value="23" -->
+
+
+creates two variable named "NAME" and "$NAME", and is not the same as
+
+<!--#set var="NAME" value="V1" -->
+<!--#set var="V1" value="23" -->
+
+
+Warning: While dollar-signs are allowed in variable names, it's tricky to use them, and I highly 
+recommend that you avoid it.
+
+So much for #set - one of its attributes (var) uses variables by name, and the other (value) can use 
+substitutions. Let's take a quick look at the other directives I mentioned before getting into the fancy 
+stuff.
+
+The "var" attribute to the #echo directive is just like the one for the #set directive - it always treats 
+what you give it as a variable name. So the following would cause the server to replace the entire directive 
+with the text "23" before sending it to the client:
+
+<!--#echo var="V1" -->
+
+
+On the other hand, the following would each get replaced with the text "(none)" because the variables 
+OOPS and $OOPS don't exist:
+
+<!--#echo var="OOPS" -->
+<!--#echo var="$OOPS" -->
+
+
+On the other hand, the #if and #elif directives always allow substitution. In fact, if you don't put a 
+dollar-sign in front of a variable name, they don't even know it is one - they think it's just a normal string! 
+So the first #if below would be considered true, but the second one would be false:
+
+<!--#if expr="$V1 = 23" -->
+<!--#if expr="V1 = 23" -->
+
+
+Variable concatenation
+
+"Concatenation" is just an expensive word that means to put things together in sequence, like pearls on a 
+string. In the case of variables and server-side includes, it means using substitution to put together strings 
+using substitution.
+
+To concatenate strings, it's simple: you just do it. For example, if you want to set variable V1 to the value 
+of V2 with an "x" in front of it, you'd do it like this:
+
+<!--#set var="V1" value="x$V2" -->
+
+
+See how the "x" and the value (through substitution) are just smooshed together? That's all there is to it? If 
+you want to set V3 to the values of V1 and V2 put together, here's how:
+
+<!--#set var="V3" value="$V1$V2" -->
+
+
+You can obviously expand this to expressions as complex as you like.
+
+If you want to include quotation marks (") in your values, you need to escape them by preceding them 
+with a slosh (Hackish nickname for the backslash character, "\"), like this:
+
+<!--#set var="V3" value="$V1\"$V2\"$V1" -->
+
+
+That would cause V3's value to include the quotation marks around the value of V2.
+
+Finally, if you need to include a bunch of spaces in an expression, you can put quotation marks or 
+tick-marks (another nick-name, this time for the apostrophe or single-quote character) around it like so:
+
+<!--#if expr="$V1 = '$V2    $V3  xyz'" -->
+
+
+Without the ticks, the server would get confused about what it was supposed to compare, because it would 
+collapse those extra spaces down to just one apiece.
+
+Disambiguation
+
+"Disambiguation" is another hundred-thousand-credit word that simply means "making sure you know 
+what's what." For instance, what if you want to set variable V1 to the value of V2 with an "x" in front and a 
+"y" after it? You might try something like this:
+
+<!--#set var="V1" value="x$V2y" -->
+
+
+But wait! Would that work? How is the server supposed to know that you want to use the value of the 
+variable "V2", and not the (possibly nonexistent) variable "V2y"? It can't - which is why you need to 
+disambiguate the expression.
+
+You make it clear to the Apache Web server where your variable names begin and end during substitution 
+by putting braces ("{" and "}") around them, like this:
+
+<!--#set var="V1" value="x${V2}y" -->
+
+
+This will have the desired effect of making V1 equal to "x23y" (assuming V2 was set to "23", that is).
+
+There! Now you should be able to disambiguate at need. Give yourself 10 Apache Guru Points for sticking 
+with it.
+
+SSI Directive Dictionary
+
+The Apache Web server supports an even dozen server-side include directives. They fall into three basic 
+functional categories:
+
+  * Directives that affect the environment,
+  
+  * Directives that substitute ("include") content in the document before it's sent to the 
+client, and
+  
+  * Directives that allow you to choose what content is processed or sent 
+("conditional processing").
+  
+The "environmental" directives allow you to change how certain "included" values are displayed (such as 
+the format of dates), or modify settings that can be checked by the conditional directives.
+
+The "include" directives can actually pull in other documents into the middle of the current one, or drag in 
+the output from a script, or display information about various things (such as the current settings or the 
+size of a file).
+
+The "conditional" directives do exactly that - they let you do things like instruct the server to "send this 
+paragraph is the client is X, or send that paragraph otherwise." This allows a single document to have a 
+different look depending upon the situation - for instance, you can use this to format the page according 
+to whether the client supports window frames, or maybe tables.
+
+Technical Stuff: "Frames" are an enhancement to the basic HTML language that allow you to instruct the 
+browser to divide its window up into multiple sub-windows or panes - basically telling it where to add 
+additional "windows" within the actual display. Hence the name, from "window frames." Each frame can be 
+managed separated by the browser and the end user, including scrolling them independently, which can be 
+neat for things like displaying footnotes at the bottom of the screen regardless of what part of the main 
+text is displayed, or keeping an index or table of contents visible in a sidebar. Figure B-5 illustrates 
+frames.
+
+
+
+ 
+
+
+
+Figure B-5
+
+All of the server-side include directives are described, in alphabetical order, in the following sections.
+
+config - Environmental directive
+
+The config SSI directive allows to change the format of various things the server can substitute, such as 
+dates or numbers. Settings only apply to the current request; each new request starts with them at their 
+default values. Within a single request they apply until changed or overridden.
+
+The valid attributes are:
+
+* errmsg="alternate message text"
+
+The value is a message that is sent back to the client if an error occurs whilst 
+parsing the document. You can use this to change the default error text, which can 
+be really useful if the rest of the page is in some language other than English. Here's 
+an example of how you can tailor the message to give more of a hint about the 
+problem if something fails:
+
+   <!--#config errmsg="[#include failed]" -->
+   <!--#include virtual="foo.html" -->
+   <!--#config errmsg="[an error occurred processing this directive]" -->
+
+* sizefmt="bytes-or-abbrev"
+
+The value sets the format to be used which displaying the size of a file. Valid 
+values are bytes for a count in bytes, or abbrev for a count in kilobytes (KB) or 
+megabytes (MB) as appropriate. Consider the following for the file foo.html if it 
+were 1200 bytes long:
+
+    <!--#config sizefmt="bytes" -->
+    foo.html contains 
+        <!--#fsize virtual="foo.html" --> bytes
+    <BR>
+    <!--#config sizefmt=abbrev -->
+    The abbreviated size of foo.html is
+        <!--#fsize virtual="foo.html" -->
+
+The output displayed by the client would look like this:
+
+    foo.html contains 1200 bytes
+    The abbreviated size of foo.html is 1Kb
+
+
+* timefmt="format-string"
+
+This attribute allows you to control the format in which the server will display 
+dates when they're substituted. The "format-string" value is a string defining the 
+format in terms understandable by the strftime() library routine. For instance, 
+assume foo.html was last changed on the 7th of November, 1997, at 5:30 in the 
+afternoon - what happens if we push that through the SSI parser with the HTML 
+fragment below?
+
+      foo.html last changed:
+         <!--#flastmod virtual="foo.html" -->
+      <BR>
+      <!--#config timefmt="%Y-%m-%d %H:%S %Z" -->
+      foo.html last changed:
+         <!--#flastmod virtual="foo.html" -->
+
+When actually sent to the client, here's what would be displayed:
+
+   foo.html last changed: Fri, 7 Nov 1997 17:30 GMT
+   foo.html last changed: 1997-11-07 17:30 GMT
+
+
+The actual conversion specifiers available depend upon the platform you're using 
+for your Apache Web server, but here are some common ones:
+
+* %a
+
+Causes the abbreviated weekday name (e.g., "Mon" instead of "Monday") to be 
+inserted.
+
+* %A
+
+Inserts the full name of the day of the week.
+
+* %b
+
+The server will insert the abbreviated name of the month (e.g., "Jan" instead of 
+"January").
+
+* %B
+
+Causes the full month-name to be inserted.
+
+* %c
+
+Inserts the date & time in the system's preferred default format.
+
+Warning: This "preferred" format is almost certainly not going to be the same as 
+the default format used by the Apache Web server, so you shouldn't use this to 
+return the format to it's original state. Use the format listed at the end of this section 
+for that.
+
+* %d
+
+The Apache Web server will insert the day of the month as a two-digit value (i.e., 
+"01" through "31") for this conversion.
+
+* %H
+
+Inserts the hour of the day as a two-digit value, based upon a 24-hour clock. (That 
+is, the value inserted will be in the range of "01" through "23".)
+
+* %I
+
+Inserts the hour of the day, using two digits based upon a 12-hour clock (e.g., "01" 
+through "12).
+
+Tip: If you use this conversion specifier, you really should follow it with "%p" so 
+that the AM- or PM-ness of the hour is clear.
+
+* %j
+
+Causes the server to insert the day of the year as a three-digit value in the range 
+"001" through "366".
+
+* %m
+
+Inserts the month of the year as a two-digit number in the range "01" through "12".
+
+* %M
+
+Causes the minute to be inserted as a two-digit number.
+
+* %p
+
+Inserts one of the strings "am" or "pm", according to the time of day being displayed.
+
+* %S
+
+Inserts the number of seconds as a two-digit number.
+
+* %U
+
+This will cause the server to insert the week of the year as a number, counting the 
+first Sunday of the year as the first day of the first week. (This can be misleading if 
+January 1st happens to fall on a Monday for the year in question!)
+
+* %w
+
+Causes the day of the week to be inserted as a single digit, with Sunday represented 
+as "0" and Saturday as "6".
+
+* %W
+
+Similar to "%U" except that weeks are treated as starting on Monday rather than 
+Sunday, and the first Monday of the year is considered to be the first day of the first 
+week.
+
+* %x
+
+Inserts the date in the system's preferred default format - which is probably not the 
+same as Apache's preferred default! Use this with care. The time is not included.
+
+* %X
+
+Causes the server to insert the time (but not the date) in the system's preferred 
+default format.
+
+* %y
+
+Inserts the year as a two-digit number ("00" through "99").
+
+Warning: As you might expect, this format is not Year 2000-safe. You should use 
+the "%Y" conversion specifier instead if at all possible.
+
+* %Y
+
+Inserts the year as a four-digit number.
+
+* %Z
+
+Causes the timezone information to be inserted (e.g., "GMT", "EDT", "MST", and 
+so on).
+
+* %%
+
+Since the conversion specifiers all start with a percent symbol (%), there needs to 
+be a way to actually include the percent symbol itself if you want it to show up in 
+the output. You do this by including "%%" in the format string.
+
+The default format the Apache Web server will use (until you override it) is:
+
+%A, %d-%b-%y %H:%M:%S %Z
+
+
+If you want to return the time format string to its original setting, you should include 
+a #config SSI directive that sets it to this value.
+
+You can specify more than one attribute in a single config directive:
+
+<!--#config sizefmt="bytes" errmsg="[SSI parse failure]" -->
+
+echo - Include directive
+
+The Apache Web server will replace occurrences of the #echo SSI directive with the value of the variable 
+named in the directive. If the variable isn't defined, the server will substitute "(none)" instead. If the 
+server recognizes the variable as containing a date, it will be substituted according to the timefmt 
+format string currently in effect (see the previous section for more information about time formats).
+
+The #echo directive takes a single attribute:
+
+* var="variable-name"
+
+The value is the name of the variable to print, and can be any of the predefined SSI 
+variables (described in the section by that name earlier in this chapter), CGI 
+variables (described in Appendix C), or variables you have set using the #set SSI 
+directive (described later in this section).
+
+Technical Stuff: Variable names are not case-sensitive; that is, "ZED" and "Zed" 
+refer to the same variable. All of the predefined CGI and SSI variable names are 
+specified in all-uppercase by the server, but you can refer to them in either upper- 
+or lower-case. Be careful when creating or modifying variables with the #set SSI 
+directive that you aren't wiping out the wrong one.
+
+elif - Conditional directive
+
+"Elif" is an abbreviation for "else if." The #elif SSI directive can only appear after an #if SSI directive 
+or another #elif. It allows you to do conditional processing of the sort "If x then do A, else if y then do 
+B, otherwise do C."
+
+The syntax for the #elif SSI directive is:
+
+<!--#elif expr="conditional-expression" -->
+
+For more information about using it, see the section on "Conditional Inclusion" later in this appendix.
+
+else - Conditional directive
+
+The #else SSI directive is used to declare an alternative when the server is performing conditional 
+inclusion. It handles the "otherwise" case in a decision like "If x then do A, otherwise do C." The format of 
+the directive is:
+
+<!--#else -->
+
+Simple, no? For more information about its use, please see the section later in this appendix entitled 
+"Conditional Inclusion."
+
+endif - Conditional directive
+
+This SSI directive is used to mark the end of a conditional inclusion block. The format is:
+
+<!--#endif -->
+
+Conditional inclusion is described in detail later in this appendix, and that's where you'll find more 
+information about this directive.
+
+exec - Include directive
+
+The #exec SSI directive executes a given shell command or CGI script, and replaces the directive with 
+the output. If the current scope includes the keyword IncludesNoExec on an Option directive, this 
+functionality is completely disabled within that scope.
+
+The valid attributes are:
+
+* cgi="CGI-script-name"
+
+The value specifies an encoded URL path to the CGI script. (That is, any special 
+characters in the URL must have been encoded; spaces replaced with "+" or "%20", 
+and so on.) If the path does not begin with a slash (/), then it is taken to be relative 
+to the current document. The document referenced by this path is invoked as a CGI 
+script, even if the server would not normally recognize it as such. However, the 
+directory containing the script must be enabled for CGI scripts (with the 
+ScriptAlias directive or the ExecCGI keyword on an Option directive).
+
+The CGI script is given the PATH_INFO and argument (QUERY_STRING) of the 
+original request from the client; these cannot be specified in the URL path. The SSI 
+environment variables will be available to the script in addition to the standard 
+CGI environment.
+
+If the script returns a Location: header instead of output, then this will be 
+translated into an HTML anchor in the including document before it is sent to the 
+client.
+
+Tip: The "#include virtual" SSI directive should be used in preference to 
+"#exec cgi".
+
+* cmd="shell-command-string"
+
+The server will execute the given string using /bin/sh. The SSI variables are 
+available to the command as normal shell environment variables.
+
+You may only specify one of these attributes in a single #exec directive. Naturally, 
+the script or command you specify must be executable by the server user.
+
+flastmod - Include directive
+
+This SSI directive is replaced by the last modification date of the specified file, 
+subject to the timefmt format specification currently in force (see the description 
+of the "#config" SSI directive earlier in this appendix). Attributes for this 
+directive are:
+
+* file="file-path"
+
+The value is a path relative to the directory containing the current file being parsed. 
+For instance,
+
+<!--#flastmod file="zinc/foo.txt" -->
+
+refers to the file foo.txt in the zinc subdirectory below the current document's 
+directory.
+
+Tip: The file specification used in this syntax may not begin with a slash, nor may it 
+contain upward references that would point to a file outside the current directory's 
+scope. That is, it can't start with "/" or contain the string "/../".
+
+* virtual="document-path"
+
+The value is a URL-path (not a filesystem path) relative to the current document 
+being parsed. Any special characters must be URL-encoded (i.e., spaces replaced 
+with "+" or "%20", quotation marks with "%22", and so forth). If the specified path 
+does not begin with a slash (/) then it is taken to be relative to the current 
+document. If it starts with a slash, it's interpreted relative to the server's 
+DocumentRoot.
+
+<!--#flastmod virtual="/zinc/foo.txt" -->
+
+This will cause the server to insert the modification date of the file foo.txt from 
+the location that maps to ${DocumentRoot}/zinc/, including any appropriate 
+alias processing.
+
+Tip: Note that "file" refers to the included document's location in the filesystem's 
+directory structure, while "virtual" refers to its location in the Web namespace.
+
+You may only specify one of these attributes in a single #flastmod directive.
+
+fsize - Include directive
+
+This SSI directive causes the Apace Web server to substitute the size of the specified file in the document 
+being parsed, subject to the current setting of the sizefmt format specification (see the description of 
+the "#config" SSI directive earlier in this appendix). Attributes for this directive are:
+
+* file="file-path"
+
+The value is a path relative to the directory containing the current file being parsed.
+
+Tip: The file specification used in this syntax may not begin with a slash, nor may it contain upward 
+references that would point to a file outside the current directory's scope. That is, it can't start with "/" or 
+contain the string "/../".
+
+* virtual="document-path"
+
+The value is a URL-path (not a filesystem path) relative to the current document being parsed. Any special 
+characters must be URL-encoded (i.e., spaces replaced with "+" or "%20", quotation marks with "%22", and 
+so forth). If the specified path does not begin with a slash (/) then it's regarded as relative to the current 
+document. If it does start with a slash, it's treated as being relative to the server's DocumentRoot.
+
+Remember: Note that "file" refers to the included document's location in the filesystem's directory 
+structure, while "virtual" refers to its location in the Web namespace.
+
+You may only specify one of these attributes in a single #fsize directive.
+
+if - Conditional directive
+
+The #if SSI directive introduces a conditional processing section. The syntax for this directive is:
+
+<!--#if expr="conditional-expression" -->
+
+It's used in conjunction with the #else, #elif, and #endif SSI directives to control what portions of 
+the document the server will include (or exclude) when it sends the parsed result to the client.
+
+See the "Conditional Inclusion" section later in this appendix for more information.
+
+include - Include directive
+
+This SSI directive inserts the text of another document or file into the one currently being parsed. Any 
+included file is subject to the usual access control. If the document being included would cause the server 
+to execute an external script or command, the directory of the file being parsed (not the one being 
+included) must be within the scope of an "Options ExecCGI" directive or the inclusion will not be 
+performed.
+
+CGI scripts are invoked as normal using the complete URL given in the directive, including any query 
+string or path information. Note that this differs from the way they get invoked by the "#exec cgi=" SSI 
+directive (described a few sections ago).
+
+The valid attributes are: 
+
+* file="file-path"
+
+The value is a path relative to the directory containing the current document being 
+parsed. The path cannot start with a slash (/), nor may it contain the string "/../"
+
+Tip: The "#include virtual=" syntax should always be used in preference to 
+"#include file=". The latter is primarily maintained for backward compatibility.
+
+* virtual="document-path"
+
+The value is a URL that points to the document to be included. The URL cannot 
+contain a scheme or hostname, only a path, an optional path information string, and 
+an optional query string. If it does not begin with a slash (/) then it is taken to be 
+relative to the document into which it is being included. If it does begin with a 
+slash, it's treated as being relative to the server's DocumentRoot.
+
+A URL is constructed from the specified value, and the output the server would 
+return if the URL were accessed by the client is included in the parsed output. Thus 
+included files can be nested.
+
+The document or file being included must be accessible to the server user. You may 
+combine multiple file or virtual attributes in a single #include SSI directive.
+
+Tip: Unlike the "#exec" SSI directive, the IncludesNoExec option has no effect 
+on CGI scripts executed and included with the "#include virtual" directive. 
+Only the ExecCGI option affects this operation.
+
+printenv - Include directive
+
+When the Apache Web server encounters this SSI directive in a document it is parsing, it will replace it 
+with a display of all of the current variables and their settings. The directive takes no attributes, and has the 
+following syntax: 
+
+<!--#printenv -->
+
+Tip: Because of the way browsers handle HTML, it's a good idea to enclose this directive within a 
+"preformatted text" (<PRE>) container, like this:
+
+<PRE>
+<!--#printenv -->
+</PRE>
+
+Otherwise the display you get is likely to be barely readable.
+
+set - Environmental directive
+
+If you've been reading along with me, you should remember that I've mentioned a number of times that you 
+can use SSI directives to create new variables or modify existing ones. (If you haven't been reading along, 
+that's all right - just take my word for it that you can do this.) This is the directive that lets you do that. It 
+takes two attributes and has a syntax like this:
+
+<!--#set var="variable-name" value="string" -->
+
+* var
+
+The name of the variable to set.
+
+Remember: Remember that variable names are not case-sensitive; "ZED" and "Zed" refer to the same 
+variable!
+
+* value
+
+The value to give to the variable. Unlike the variable name, the value is case-sensitive. Whatever value you 
+specify is assigned explicitly to the variable without any case-conversion.
+
+Both the var and value attributes are required.
+
+Here's an example:
+
+<!--#set var="category" value="help" -->
+
+Conditional Inclusion
+
+Ah, here's the section on the really neat things you can do with server-side includes. Using conditional 
+inclusion, you can tailor the actual contents of what gets sent to the client.
+
+To do conditional inclusion, you surround portions of your text with "#if" and "#endif" SSI directives. 
+(Think of them as a container if you like.) If you want to handle alternatives, you can break the portion into 
+sub-pieces with "#else" and "#elif" directives.
+
+The #if and #elif directives work the same way. They take a look at the expression you give them, 
+figure out if it's true or not, and if it's true then the server will include the enclosed bit of text in what it 
+sends to the client. If it's false, then the enclosed bit is ignored and not sent.
+
+Tip: Like other server-side include directives, these are removed after they've been processed, so they 
+shouldn't show up in what gets transmitted to the client.
+
+The syntax of an expression for #if and #elif can get pretty complicated, but the basic format looks 
+like this:
+
+<!--#if expr="expression" -->
+
+"What's an expression," you ask? It's simply a thing that can be tested to see if turns into an empty string 
+(is false) or not (is true). Based upon that, the first directive below would be considered "true," the second 
+one would be treated as "false," and the third one would be "true" if the variable "CONDITION" had a 
+non-empty value and "false" if it didn't exist or was set to an empty string:
+
+<!--#if expr="string" -->
+<!--#if expr="" -->
+<!--#if expr="$CONDITION" -->
+
+That's the simplest case. "Expression" can be more complicated, such as:
+
+<!--#if expr="(expression)" -->
+<!--#if expr="!expression" -->
+<!--#if expr="expression && expression" -->
+<!--#if expr="expression || expression" -->
+<!--#if expr="string relop string" -->
+
+
+"What does "!expression" mean," you say? The bang (a nickname for the exclamation mark) means 
+"not," so it turns the meaning around. "!($V = 23)" is true if the value of variable "V" is anything except 
+"23" - even if it doesn't exist at all.
+
+"What's a relop?" you may ask. It's a relational operator, such as "=" for "is equal to," "!=" for "is not 
+equal to," ">" for "is greater than," and so on. Here's a complete list:
+
+* string1 = string2
+string1 = /pattern/
+
+The expression is true if the two strings are the same. If the second string is enclosed in slashes, it's 
+treated as a (case-sensitive) regular expression rather than a simple string. ("Regular expressions" are a 
+very powerful pattern-matching mechanism - see the documentation for the operating system command 
+grep for more information about them.) The expression is considered to be true if the string matches the 
+pattern.
+
+Tip: Comparisons in #if and #elif directives are case-sensitive! An expression such as "A = a" will 
+be false because the strings aren't identical.
+
+* string1 != string2
+string1 != /pattern/
+
+This is basically the same as the "=" relop, except that the expression is true if the strings are not the same 
+or the string doesn't match the pattern.
+
+* string1 < string2
+string1 <= string2
+string1 > string2
+string1 >= string2
+
+These are true if the relationship between the two strings is as indicated (e.g., "'1' < '2'" is true).
+
+Remember: Don't forget that these comparisons are done as strings, not as numbers. So "2" is greater 
+than "12" because the strings are compared character-by-character, and "2" is greater than "1".
+
+You can build up even more complicated expressions by joining them with "&&" (which means both must 
+be true) and "||" which means either one, the other, or both must be true). So if you want the word 
+"Eureka!" to be included in the response to the client if V1 is equal to "23" and either V2 equals "17" or 
+V2 equals "19", here's what it would look like:
+
+<!--#if expr="($V1 = 23) && (($V2 = 17) || ($V2 = 19))" -->
+   Eureka!
+<!--#endif -->
+
+When the server has to evaluate a bunch of these operators, "!" is done first, then "=" and "!=", then the 
+other relops, and finally "&&" and "||" are checked last. So the following two expressions are equivalent:
+
+<!--#if expr="$a = test1 && $b = test2" -->
+<!--#if expr="($a = test1) && ($b = test2)" -->
+
+A simple conditional block is built like this:
+<!--#if expr="condition" --> 
+   stuff to include or directives to process
+<!--#endif -->
+
+One with a single alternative would look like this:
+
+<!--#if expr="condition" --> 
+  stuff to include or directives to process
+<!--#else --> 
+  more stuff
+<!--#endif -->
+
+And one with multiple alternatives can be constructed like so:
+
+<!--#if expr="condition" --> 
+  stuff to include or directives to process
+<!--#elif expre="another-condition" --> 
+  other stuff
+<!--#else -->
+  more stuff
+<!--#endif -->
+
+You can have as many #elif directives as you like inside the #if-#endif container, but only zero or 
+one #else (for the last alternative, if any). And you can nest #if-#endif containers within each other 
+for truly frightening control over your documents.
+
+Great! Now you have all the theory, but what you can actually do with all this stuff? Well, Figure B-6 gives 
+you an example; going further is left as an exercise. Give yourself 20 Apache Guru Points for getting this 
+far, and go forth and enjoy!
+
+
+
+
+
+
+
+<HTML> 
+ <HEAD> 
+  <!--#if expr="$HTTP_USER_AGENT = /[Ll]ynx/" --> 
+   <!--#set var="SIMPLETEXT" value="true" --> 
+  <!--#endif --> 
+  <TITLE>Just a page with a 
+  <!--#if expr="$SIMPLETEXT" --> 
+   sentence 
+  <!--#else --> 
+   picture 
+  <!--#endif --> 
+ </TITLE> 
+</HEAD> 
+ <BODY> 
+  <H1>A Browser-Sensitive Page</H1> 
+  <!--#if expr="$SIMPLETEXT" --> 
+  Your browser, "<!--#echo var="HTTP_USER_AGENT" -->", does 
+  not appear to be able to display images - so you get to 
+  see this sentence instead. Sorry! 
+  <!--#else --> 
+  <IMG SRC="absolutely-breathtaking.gif"> 
+  <!--#endif --> 
+ </BODY>
+</HTML>
+
+
+
+Figure B-6
+
+
+
+
+
+

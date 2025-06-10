@@ -1,0 +1,822 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap03.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap05.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 4</H1>
+<H1><I> Firewalling Challenges: The Basic Web</I></H1>
+</B></I><P>This chapter discuss the challenges firewall implementations face in light of the HyperText Transmission Protocol (HTTP) and some of its security issues.  It also discusses the proxing characteristics of HTTP and its security concerns.  It explores the secure HTTP (S-HTTP) as well as the use of SSL for enhanced security and reviews the security implications of Common Gateways Interface (CGI</P>
+
+<H2> HTTP</H2>
+</B></I><P>Being an application-level protocol developed for distributed, collaborative, hypermedia information systems, the Hypertext Transfer Protocol (HTTP) is a very generic and stateless protocol, enabling systems to be built independently of the data being transmitted.  It is also an object-oriented protocol with capabilities to be used for a variety of tasks, which includes but is not limited to name servers, distributed object management systems and extension of its request methods, or commands. </P>
+<P>One of the great features of HTTP is the typing and negotiation of data representation.  This protocol has been in use since 1990, with the W3 global information initiative.</P>
+<P>The most current version of HTTP is version 1.0, which is supported by all Web servers in the market.  But there is also another version of the protocol, HTTP-NG (Next Generation), which promises to use the bandwidth available more efficiently and enhance the HTTP protocol.  </P>
+<P>Further, HTTP is a protocol that can be generically used for communication between user agents and proxies or gateways to other Internet protocols, such as SMTP, NNTP, FTP, Gopher and WAIS.</P>
+<P>Nevertheless, all this flexibility offered by HTTP comes at a price:  it makes Web server, and clients, very difficult to secure.  The openness and stateless, characteristics of the Web, accounts for its quick success, but makes it very difficult to control and protect.  </P>
+<P>On the Internet, HTTP communication generally takes place over TCP/IP connections. It uses as default port 80, but other ports can be used, which does not prevent HTTP from being implemented on top of any other protocol.  In fact, HTTP can use any reliable transport.</P>
+<P>When a browser receives a data type it does not understand, it relies on additional applications to translate it to a form it can understand.  These applications are usually called viewers, and should be the one of the first concerns you should have when preserving security.  You must be careful when installing one, because, again, the underlying HTTP protocol running on your server will not stop the viewer from executing dangerous commands.  </P>
+<P>You should be especially careful with proxy and gateway applications.  You must be cautions when forwarding requests that are received in a format different than the one HTTP understands.  It must take into consideration the HTTP version in use, as the protocol version indicates the protocol capability of the sender.  A proxy or gateway should never send a message with a version indicator greater than its native version.  Otherwise, if a higher version request is received, both the proxy or the gateway must either downgrade the request version, respond with an error, or switch to a tunnel behavior.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you need more information on HTTP, check the URL: http://www.w3.org/hypertext/WWW/Protocols/ </P>
+<P>There is a series of utilities intended for Web server administrators available at the URL: ftp://src.brunel.ac.uk/WWW/managers/ </P>
+</TD></TABLE>
+<P>The majority of HTTP clients, such as Purveyor (http://www.process.com) and Netscape Navigator, support a variety of proxying schemes, SOCKS and transparent proxying. </P>
+<P>Purveyor, for instance, provides proxy support for not only HTTP, but also FTP and GOPHER protocols, creating a secure LAN environment by restricting internet activities of LAN users. The proxy server offers improved performance by allowing internal proxy caching. Purveyor also provides proxy-to-proxy support for corporations with multiple proxy servers.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For more information on Purveyor Webserver, check Process Software’s URL: http://www.process.com.</P>
+</TD></TABLE>
+<P>If you are running your Web server on Windows NT, Windows 95 or NetWare, you can use Purveyor Webserver’s proxy features to enhance security.  In addition, you can increase the performance of your server as Purveyor can locally cache Web pages obtained from the Internet.  </P>
+<P>Installing a firewall at your site should be a must. Regardless if you are placing your server outside or inside your protected network, a firewall will be able to stop most of the attacks, but not all!  The openness of HTTP is too great for you to risk.  Besides, you still have all the viewers and applets to worry about.  </P>
+<P>When selecting a firewall, make sure to choose one that includes HTTP proxy server, check Appendix A &quot;Types of Firewalls and Products on the Market&quot; for a complete review of all the major firewalls vendors and specifications of their products.  Also, check the CD that accompanies this book, as many of the vendors listed on Appendix A provided demos and evaluation copies of their products, which are worth testing.  </P>
+<P>Firewalls will tremendously help you protecting your browsers.  Some firewalls, such as TIS FWTK provide HTTP proxing totally transparent to the user.  More will be seeing about firewall in chapter 7, &quot;What is an Internet/Intranet Firewall After All.&quot;  For now, you must be aware of the firewalling challenges when dealing with Web security requirements and the HTTP protocol.</P>
+
+<H2><I> The Basic Web</A></A></A></I></H2>
+</B></I><P>Do you know what happens when a user connects to your site?  If you don’t know how they come in, you will not know how to lock the door.</P>
+<P>If you have a Web server on your site, every time a user establishes a connection to it, his client passes to your Web server the numeric IP address of the machine. In some wise situations, the IP address your Web server will receive is not even the client’s address, but the address of the proxy server his requests goes through.  What your server will see then is the address of the proxy requesting the document on behalf of the client.  But the client, thanks to the HTTP protocol, can also disclose to the Web server the username logged at the client, making the request.  </P>
+<P>Unless you have set your server to capture such information, what it will do first is to reverse the numeric IP address in an attempt to get the domain name of the client (e.g. www.vibes.com). But in order for the server to get this domain name, it must first contact a domain name server and present it with the IP address to be converted.</P>
+<P>Many times, IP addresses cannot get reversed as they were not correctly configured.  Consequently, the server cannot reverse the address.  What happens next?  The serve goes ahead and forges the address! </P>
+<P>Once the Web server has the IP address and the possible domain name for the client, it start to apply a set of authentication rules, trying to determine if the client has access permission to the document requested.  </P>
+<P>Did you notice the security hole?  There are few security holes here, as a result of this transaction: </P>
+
+<UL>
+<LI>The client requesting the information may never get it as the server had forged  the domain name.  The client now may not be authorized to retrieve the information requested, </LI>
+<LI>The server may send the information to a different client as the domain name was forged.  </LI>
+<LI>Worse, the server may allow access to an intruder under the impression it is a legitimate user! </LI>
+<LI>The risks here goes both ways:</LI>
+<LI>You should be concerned with the HTTP server and what risks, or harm it can bring to your clients, but also</LI>
+<LI>You should be concerned with the HTTP clients and what risks, or harm it can bring to your server.</LI></UL>
+
+<P>As discussed above, as far as client’s threats to your server, you should be careful with the security of your server.  You should make sure clients will access only what they are supposed to and if there is a hostile attack, that your server has some way to protect the access to it.</P>
+<P>However, not all is loss, as there are few basic steps you can follow in order to enhance the security of your server:</P>
+
+<UL>
+<LI>Make sure to configure your server carefully, and to use its access and security features.</LI>
+<LI>You can also run your Web server as an unprivileged user.</LI>
+<LI>If you are running your server on a Windows NT system, make sure to check the permissions for the drives and shares and to set the system and restricted areas read-only.  Or you can use chroot to restrict access to the systems section.</LI>
+<LI>You can mirror you server and put sensitive files on the primary system but have a secondary system, without any sensitive data open for the Internet.</LI>
+<LI>Remember Murphy’s Law, whatever can go wrong, WILL go wrong.  Expect the worse and configure your Web server in a way that even if a hacker is to take total control over it, there is going to be a huge wall (if not a firewall!) to be crossed.</LI>
+<LI>Most important, review the applets and script your HTTP server uses, especially those CGI scripts interacting with your clients over the Internet.  Watch for possibilities of external users triggering execution of inside commands.</LI>
+<LI>Run your Web server on a Windows NT server.  It is much more secure, although it may not have as much features as the UNIX and Suns counterparts.  </LI>
+<LI>Macintosh Web server are even more secure, but lack on implementation features when compared with Windows NT and 95 platforms.</LI></UL>
+
+<P>To illustrate what a misconfigured domain name can do to a reversal IP address process, take in consideration the entries you enter in your access.conf file.  Keep in mind that this file is responsible for the access control of the documents in your server. </P>
+<P>When setting up this file, you will need to put a &lt;directory&gt; tag, for each directory being controlled, into the access.conf file. Within the &lt;directory&gt; tag you will also need to use a &lt;limit&gt; tag with the parameters (allow, deny, and order) needed to control access to the directory. </P>
+<P>The following is an example where the whole Cyberspace can access the files in you top-level document directory:</P>
+<PRE><FONT SIZE=3><P>     &lt;directory /usr/local/http/docs&gt;</P>
+<P>        &lt;limit&gt; </P>
+<P>           order allow,deny</P>
+<P>           allow from all</P>
+<P>        &lt;/limit&gt;</P>
+<P>     &lt;/directory&gt;</P></I></PRE></FONT>
+<P>One of the key lines here is the &quot;order&quot; directive, telling the server to process &quot;allow&quot; directives (from ALL clients) before any &quot;deny&quot; directives. Have you noticed we don’t have any &quot;deny&quot; directive? </P>
+<P>Now lets assume you need to restrict an area on your server only for internal users to access it.  Unlike the above example, you will need a &quot;deny&quot; directive: </P>
+<PRE><FONT SIZE=3><P>     &lt;directory /usr/local/http/docscorp&gt;</P>
+<P>        &lt;limit&gt; </P>
+<P>           order deny,allow</P>
+<P>           deny from all</P>
+<P>           allow from .greatplace.com</P>
+<P>        &lt;/limit&gt;</P>
+<P>     &lt;/directory&gt;</P></I></PRE></FONT>
+<P>In this case, the &quot;deny&quot; directive came before the &quot;allow&quot; directive, so that the whole Cyberspace can have its access restricted access to the company.  The &quot;allow&quot; directive permit access from anyone coming from greatplace.com domain. </P>
+<P>If the server can’t reverse the IP address of a client, then you have a problem, as the domain name is critical to this process.  Simply put, the user will not be able to access the Web page.</P>
+<P>But, there it is a &quot;Band-Aid&quot; solution.  You can add raw IP numbers to the access list. </P>
+<PRE><FONT SIZE=3><P>     &lt;directory /usr/local/http/docscorp&gt;</P>
+<P>        &lt;limit&gt; </P>
+<P>           order deny,allow</P>
+<P>           deny from all</P>
+<P>           allow from .greatplace.com 198.155.25</P>
+<P>        &lt;/limit&gt;</P>
+<P>     &lt;/directory&gt;</P></I></PRE></FONT>
+<P>This way, the directive &quot;allow&quot; will permit any access coming from &quot;greatplace&quot; but also from any machine where the IP address starts with 198.155.25.</P>
+
+<H2><I> What to Watch for on the HTTP </A></A>Protocol</A></I></H2>
+</B></I><P>The HTTP protocol has some more security holes to justify a firewall.  One of them is that it allows remote users to request communication to a remote server machine, and to execute commands remotely.  This security hole compromises the Web server and the client in many ways, including but not being limited to:</P>
+
+<UL>
+<LI>Arbitrary authentication of remote requests.</LI>
+<LI>Arbitrary authentication of Web servers.</LI>
+<LI>Breach of privacy of request and responses.</LI>
+<LI>Abuse of server features and resources.</LI>
+<LI>Abuse of servers by exploiting its bugs and security holes.</LI>
+<LI>Abuse of log information (extraction of IP addresses, domain names, file names, etc.)</LI></UL>
+
+<P>Most of these security holes are well known.  Some applications like Netscape’s SSL and NCSA’s S-HTTP try to address the issue, but only partially.</P>
+<P>The problem is that Web servers are very vulnerable to client’s behavior over the Internet.  I recommend you to force Web clients to prompt a user before allowing HTTP access to reserved ports other than the port reserved for it. Otherwise, these could cause the user to unadvertedly cause a transaction to occur in a different and danger protocol.</P>
+<P>Watch the GET and HEAD methods!  The so trivial link to click an anchor to subscribe or reply to a service can trigger an applet to run without the user’s knowledge, which enables the abuse by malicious users.</P>
+<P>Another security hole of HTTP has to do with server logs.  Usually, a Web server logs a large amount of personal data about information requested by different users. Evidently, this information should remain confidential.  HTTP allows the information to be retrieved without any access permission scheme.</P>
+<P>There is a feature, the &quot;Referer:&quot; field, that increases the amount of personal data transferred. This field allows reading patters to be analyzed and even reverse links to be drawn.  If in wrong hands, it could become a very useful and powerful tool that can lead to abuse and breach of confidentiality. To this day, there are cases where the suppression of the Referer information is not know.  Developers are still working on a solution.</P>
+<P>Many other HTTP limitations and security holes exist if we were to break down the ramifications of the above security issues presented by the protocol.  Secure HTTP technologies and schemes are an attempt to address and resolve these security holes.</P>
+
+<H2><I> Taking Advantage of S-HTTP</A></A></A></I></H2>
+</B></I><P>Secure HyperText Transfer Protocol (S-HTTP) was developed to fill the gap of security in protecting sensitive information as it is transmitted over the Internet.  As the need for authentication among Internet and Web grows, users need to be authenticated before sending encrypted files to each other.  </P>
+<P>S-HTTP will promote the growth of the electronic commerce as its transaction security features will promote a spontaneous commercial transactions. As S-HTTP allows Web clients and servers to be secured, the information exchanged among them will also be secured. </P>
+<P>With S-HTTP, a secure server can reply to a request with a encrypted and signed message. By the same token, secure clients can verify a signature of a message and authenticate it.  This authentication is done through the server’s private key, which is used to generate the server’s digital signatures. When the message was sent to the client, the server had delivered its public key certificate along with the signed message so that the client could verify the digital signature. The server can verify the integrity of a digitally-signed message send by a client through the same process of decrypting inbound messages from the client as well as encrypting outbound messages to the client.</P>
+<P>You can encrypt data with shared, private or public keys.  If data is encrypted with public keys, messages can be exchanged both ways and decrypted without the need for the client’s public key as the server implement a single server private key that is stored in a key database file, which is encrypted using the Webmaster’s password.</P>
+<P>The encryption and signature is controlled through a CGI script.  It is the local security configuration files and the CGI scripts S-HTTP message headers that will determine if the server will sign, encrypt, both or none.</P>
+<P>Unfortunately, S-HTTP only works with SunOS 4.1.3, Solaris 2.4, Irix 5.2, HP-UX 9.03, DEC OSF/1, and AIX 3.2.4.</P>
+
+<H2><I> Using SSL</A></A> to Enhance Security</A></I></H2>
+</B></I><P>The Secure Sockets Layer (SSL) protocol was designed and specified by Netscape Communications with the objective of improving data security layered between application protocols such as HTTP, TELNET, NNTP, FTP, and of course, TCP/IP. </P>
+<P>SSL features data encryption, server authentication, message integrity, and optional client authentication for a TCP/IP connection.</P>
+<P>This is an open, nonproprietary protocol, which was submitted by Netscape to the W3 Consortium for consideration as a standard security approach for Web browsers and servers.  It has also been sent to the Internet Engineers Task Force (IETF) as an Internet Draft in the pursuit of having SSL standardized within the framework of the IETF.</P>
+<P>SSL’s main goal is to promote privacy and reliability between two communicating applications. The latest version, Version 3.0 of March 1996, supersedes the earlier version from December 1995.  </P>
+<P>Still, the bases of the protocol didn’t change.  It is a two layers protocol, relying, at the lowest level, on some reliable transport protocol, just like the HTTP protocol.  This lower layer is called the SSL Record Protocol, which is used for encapsulation of various higher level protocols.  One example is the SSL Handshake Protocol, which allows the server and the client to authenticate each other, as well as negotiate an encryption algorithm and cryptographic keys before any transmission.</P>
+<P>The connection is private, the peer’s identity can be authenticated using asymmetric or public key, and the connection is reliable:  this are the three basic properties of SSL.</P>
+<P>The main difference between SSL and S-HTTP is that the later is a superset of the Web’s HTTP, very specific to the Web usage.  The SSL protocol, however, sends messages though a socket. The whole concept of SSL can be summarized in a protocol that can secure transactions between any client and server that use the sockets layer, which involves about all the TCP/IP application.</P>
+<P>As far as encryption goes, both SSL and S-HTTP can negotiate different types of encryption algorithms and key authentication schemes, but Netscape and Enterprise Integration Technology (EIT) both have licensed RSA Data Security’s toolkits to provide end-to-end encryption of messages, as well as key creation and certification. </P>
+<P>Unfortunately, the future of electronic commerce and secure Web transaction can not rely in a multi-protocol security system.  S-HTTP and SSL are not the same, nor work the same way.  Fortunately, the Web Consortium is working hard to develop a unified security scheme that would include SSL and S-HTTP. </P>
+<P>Moreover, these are not the only schemes been proposed. EINet’s Secure Server, which uses Kerberos and other mechanisms, and the Shen proposal, suggest more comprehensive security than SSL or S-HTTP can offer, such as extensive use of Privacy-Enhanced Mail.</P>
+
+<H2><I> Be Careful When Caching</A></A> the Web!</A></I></H2>
+</B></I><P>Caching can tremendously improve the performance of your Web service by ensuring that frequently requested files will tend to be stored in the local cache. However, if the file on the remote server is updated, an out-dated file will be retrieved from the cache by the user.  </P>
+<P>Also, those files can be retrieved by a remote user, revealing information that may not be for public or external users to read.  </P>
+<P>An HTTPD server can resolved this problem by looking at the date of the file on the remote server and comparing it with the one cached. The following is a typical cache log file recorded. It provides the domain name as well as the name of the machines:</P>
+<PRE><FONT SIZE=3><P>xyz_pc77.leeds.ac.uk - - [21/Nov/1994:00:43:35 +0000] &quot;GET</P>
+<P>http://white.nosc.mil/gif_images/NM_Sunrise_s.gif HTTP/1.0&quot; 200 18673</P>
+<P>xyz_pc77.leeds.ac.uk - - [21/Nov/1994:00:43:38 +0000] &quot;GET</P>
+<P>http://white.nosc.mil/gif_images/glacier_s.gif HTTP/1.0&quot; 200 6474</P>
+<P>xyz_pc77.leeds.ac.uk - - [21/Nov/1994:00:43:40 +0000] &quot;GET</P>
+<P>http://white.nosc.mil/gif_images/rainier_s.gif HTTP/1.0&quot; 200 18749</P></I></PRE></FONT>
+<P>In the future it may be possible to chain caches. The possibility in the long term of having institutional, metropolitan, national and continental caches are beginning to be considered.</P>
+
+<H2><I> Plugging the Holes: a Configuration Checklist</A></A></A></I></H2>
+</B></I><P>Here are few configuration checklist to help you out:</P>
+
+<UL>
+<LI>When configuring your HTTP server, never use raw IP addresses to allow access to your pages. Otherwise, you will end up with a bunch of them in your access list, which only will make maintenance harder. </LI>
+<LI>If you ever have problems with misconfigured clinet’s domain server, have them contacting the LAN or systems administrator to fix it so you can reverse their names correctly. If you are the one to fix the problem, take the time and do it!  In a the long run you will be thankful for it as otherwise, you may end up with a huge list of raw IP addresses on your list.</LI>
+<LI>You have to deal with access.conf files, make sure to put only one name per directive, which will ease the file editing, as you can comment out any directive by simply placing the &quot;#&quot; character at the start of the line. </LI>
+<LI>Remember to reboot your server after any changes made on your access.conf, as the changes you made will not take effect until you re-start the system.</LI>
+<LI>Always have an access control list of the top-level document directory.  It will be useful when updating the file later.</LI></UL>
+
+
+<H2><I> A Security Checklist</A></A></A></I></H2>
+</B></I><P>First of all, the best security checklist you can have is knowing what to check and when.  The following is a list of resources on the Internet to help you keeping abreast with security issues arising everyday in Cyberspace.  It can also get some free resources to help you enhance security at your site:</P>
+
+<UL>
+<LI>Subscribe to security mailing lists:</LI>
+<LI>Send an e-mail to the Computer Emergency Response Team (CERT) advisory mailing list, requesting your inclusion to their mailing list at cert@cert.org.</LI>
+<LI>Try Phrack newsletter, an underground hacker’s newsletter.  Send an e-mail message to phrack@well.sf.ca.us.</LI>
+<LI>Also try the Computer Underground Digest.  Send e-mail to tk0jut2@mvs.cso.niu.edu.</LI></UL>
+
+
+<H2><I><B><I>Novell’s HTTP</A></A>: Better be Careful</A></LI></I></H2>
+
+</B></I><P>Novell’s HTTP is known to have a very unsecured CGI script.  If you are running a Novell Web server, you should disable the &quot;convert.bas&quot; CGI script it comes with.  </P>
+<P>Unfortunately, that script (the out of the box one!) allows any remote user to read any file on the remote server.  How?  Her it is the harmful code:</P>
+<PRE><FONT SIZE=3><P>http://victim.com/scripts/convert.bas?../../anything/you/want/to/view</P></I></PRE></FONT>
+<P>Novell will probably come up with a fix for this script, but as I write this chapter, to the best of my knowledge, no fixes have been provided.  So make sure to disable the script when setting up you Novell HTTP! </P>
+
+<H2><I> Watch for UNIX-based Web Server Security Problems</A></A></A></I></H2>
+</B></I><P>History shows (see CERT’s reports and Bulletin Advisories) that UNIX-based Web server have tendencies to breach security at:</P>
+
+<UL>
+<B><LI>Password Weakness</B> -  Educate your user to pick passwords not found in dictionaries.  Hackers often use finger or ruser to discover account names and then try to crack the password.  A good heuristic for picking a password is to create a easy to remember phrase such as &quot;Where is Carmen Sandiego&quot; and then use the first letters of the words for password (&quot;WICS&quot;).  Yet, try to choose passwords with at least 8 characters.</LI>
+<B><LI>Unchanged Passwords</B> -  Make sure to change default passwords when installing servers for the first time.  Always remove unused accounts from the password file. Disable these account by changing the password field in the /etc/passwd file to an asterisk ‘*' and change the login shell to /bin/false to ensure that an intruder cannot login to the account from a trusted system on the network.</LI>
+<B><LI>Passwords Re-used</B> -  Use passwords only once.  Be aware that passwords can be captured over the Internet by sniffer programs.</LI>
+<B><LI>Password Theft</B> -  Hackers use Trivial File Transfer Protocol (TFTP) to steal password files. If you are not sure about this vulnerability at your system, connect to it using the TFTP protocol and try to get /etc/motd.  If you can access it, then everyone on the Internet can get to your password file.  To avoid it, either disable tftpd or restrict its access.</LI></UL>
+
+
+<H2> URI/URL</H2>
+</B></I><P>Uniform Resource Identifiers (URI), are a group of extensive technologies for naming and addressing resources such as pages, services and documents on the web. There are a number of existing addressing schemes, and more may be incorporated over time.</P>
+<P>Figure 4.1 shows the basic structure of URI which includes:</P>
+
+<UL>
+<B><LI>URI</B> - The Uniform Resource Identifier, a generic set of all names/addresses referring to resources.</LI>
+<B><LI>URL</B> - The Uniform Resource Locator is a set of URI schemes with explicit instructions on how to access a resource on the Internet.</LI>
+<B><LI>URN</B> - The Uniform Resource Name is composed of:</LI>
+<LI>An URI that has an institutional commitment to persistence and availability, and a</LI>
+<LI>A particular scheme, under development in the IETF to provide for the resolution using internet protocols of names which have a greater persistence than that currently associated with internet host names or organizations. When defined, a URN will be an example of a URI. </LI>
+<B><LI>URC</B> - The Uniform Resource Citation, also known as Uniform Resource Characteristics, which is a set of attribute/value pairs describing a resource. These values could be URIs of various kinds, but it can also include, for example, authorship, publisher, data type, date, copyright status and so forth.</LI></UL>
+
+
+<!--<B><P>Figure 4.01</P>-->
+<!--</B><I><P>Breakdown of URI terms</P></I>-->
+<P>An Uniform Resource Locator (URL) is a sort of networked extension of the standard filename concept. An URL enables you to point to a specific file on a specific directory at any giving machine attached to the Internet or Intranet. Also, this file can be served though several different methods, such as HTTP, TELNET, FTP and so forth. </P>
+<P>The following is an overview of some of the most common URL types, as described at the National Computer Security Associations’ site at University of Illinois (http://www.ncsa.uiuc.edu/demoweb/url-primer.html).</P>
+
+<H2><I> File URLs</I></H2>
+</B></I><P>Suppose there is a document called &quot;foobar.txt&quot;; it sits on an anonymous ftp server called &quot;ftp.yoyodyne.com&quot; in directory &quot;/pub/files&quot;. The URL for this file is then: </P>
+<PRE><FONT SIZE=3><P>    file://ftp.yoyodyne.com/pub/files/foobar.txt</P>
+</PRE></FONT>
+<P>The top-level directory of this FTP server is simply: </P>
+<PRE><FONT SIZE=3><P>    file://ftp.yoyodyne.com/</P>
+</PRE></FONT>
+<P>The &quot;pub&quot; directory of this FTP server is then: </P>
+<PRE><FONT SIZE=3><P>    file://ftp.yoyodyne.com/pub</P>
+</PRE></FONT>
+<H2><I> Gopher URLs</I></H2>
+</B></I><P>Gopher URLs are a little more complicated than file URLs, since Gopher servers are a little trickier to deal with than FTP servers. To visit a particular gopher server (say, the gopher server on gopher.yoyodyne.com), use this URL: </P>
+<PRE><FONT SIZE=3><P>    gopher://gopher.yoyodyne.com/</P>
+</PRE></FONT>
+<P>Some gopher servers may reside on unusual network ports on their host machines. (The default gopher port number is 70.) If you know that the gopher server on the machine &quot;gopher.banzai.edu&quot; is on port 1234 instead of port 70, then the corresponding URL would be: </P>
+<PRE><FONT SIZE=3><P>    gopher://gopher.banzai.edu:1234/</P>
+</PRE></FONT>
+<H2><I> News URLs</I></H2>
+</B></I><P>To point to a Usenet newsgroup (say, &quot;rec.gardening&quot;), the URL is simply: </P>
+<PRE><FONT SIZE=3><P>    news:rec.gardening</P>
+</PRE></FONT>
+<H2><I> Partial URLs</I></H2>
+</B></I><P>Once you are viewing a document located somewhere on the network (say, the document http://www.yoyodyne.com/pub/afile.html), you can use a partial, or relative, URL to point to another file in the same directory, on the same machine, being served by the same server software. For example, if another file exists in that same directory called &quot;anotherfile.html&quot;, then anotherfile.html is a valid partial URL at that point. </P>
+<P>This provides an easy way to build sets of hypertext documents. If a set of hypertext documents are sitting in a common directory, they can refer to one another (i.e., be hyperlinked) by just their filenames -- however a reader got to one of the documents, a jump can be made to any other document in the same directory by merely using the other document's filename as the partial URL at that point. The additional information (access method, hostname, port number, directory name, etc.) will be assumed based on the URL used to reach the first document. </P>
+
+<H2> CGI</H2>
+</B></I><P>Another form of threat that makes harder for a firewall to protect a Web site involves Common Gateway Interface (CGI) scripts.  Many Web pages display documents and hyperlink them to other pages or sites.  However, some have search engines that will allow you to search the site (or sites) for particular information.  This is done through forms that are execute by CGI scripts. </P>
+<P>Hackers can modify these CGI script to do things it really ought not to do.  Normally, these CGI scripts will only search into the Web server area, but if you modify it, it can search outside the Web server. To prevent it from happening you will need to set these scripts with low user privileges, and if you are running a UNIX-based server, make sure you search for those semicolons again.</P>
+<P>There are many known forms of threats and many more of unknown ones.  In the next sections you learn about some of the most common and threatening ones.</P>
+<P>Further, the open architecture of Web servers allows for arbitrary Common Gateway Interface (CGI) scripts to be executed on the server’s side of the connection in response to remote requests.  Any CGI script installed at your site may contain bugs, and every such bug is a potential security hole.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>Beware of CGI scripts, as they are the major source of security holes. The protocol itself is not insecure, but the scripts must be written with security in mind.  If you are installing these scripts at your site, beware of the problem!</P>
+</TD></TABLE>
+<P>The same goes for Web server software, as more features they have greater is the potential for security holes.  Servers that offer a variety of features such as CGI script execution, directory listing in real-time and script error handling, are more likely to be vulnerable to security holes.  Even security tools widely used are not guaranteed to always work.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>There is a Web server comparison table available at http://www.webcompare.com/.  It includes freeware as well as commercial products for UNIX, Novell, Windows NT, Windows 95, VMS, and many other operating system.</P>
+</TD></TABLE>
+<P>For instance, right before I started writing this book, two present events come to mind.  First, is about the well known Kerberos system,  widely adopted for security in distributed systems, developed at MIT in the mid-1980s. The people from COAST, at Purdue University, found a vulnerability in current versions of the Kerberos. Couple students, Steve Lodin and Bryn Dole, and the professor Eugene Spafford, discovered a method where someone without privileged access to most implementations of a Kerberos 4 server could break secret session keys issued to users, allowing unauthorized access to distributed services available to a user without even knowing that user’s password. They were able to demonstrate it in a record time of less than 1 minute, on average, using a typical workstation, and sometimes as quickly as 1/5 second!</P>
+<P>Another example is Netscape, where versions 2.0 and 2.01 were vulnerable to a &quot;malicious&quot; Java applet being spread over the Internet, according to a story on the New York Times of May 18.  This applet, although a bit annoying, could cause denial-of-service, which potentially could cause also loss of unsaved edits in a word processor, or erratic behavior of application if you, in a verge of panic decided to reboot your machine instead of just killing your browser.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>What about Java?  </P>
+<P>Java is a language developed by Sun Microsystems which allows Web pages to contain codes to be executed by browsers.  The exciting thing about Java is that, by being based on a single &quot;virtual machine&quot; that all implementations of Java emulates, it is capable to run on any system with a version of it.  There is a web browser, HotJava, totally written in the Java language. If want to learn about it, try the URL: http://java.sun.com.</P>
+</TD></TABLE>
+<P>However, keep in mind that denial-of-service applets are not viruses, which are created with malicious intentions.  True, this Java bug had the capability to execute instruction over the Web server, remotely, with the ability even to upload information from within the remote Web server, but the security breaches that have gotten so much press were fixed in JDK 1.0.2, their current release, and in NN3.0b4. </P>
+<P>In the interim, Netscape users were instructed to disable &quot;Java&quot; and &quot;Java script&quot; dialog box to prevent the browser from receiving such applets, or upgrade to version 2.02, which supposedly resolved the problem.</P>
+<P>Another example you should be aware of is the existing vulnerability in the httpd servers provided by NCSA and the Apache organization.  According to the Computer Incident Advisory Capability (CIAC), an user can potentially gain the same access privileges as the httpd server.  This security hole not only applies to UNIX servers but to all server’s platform capable of running httpd.  If you are running an NCSA httpd, you should upgrade it to version 1.5.1, its latest version.  </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You can download the NCSA httpd version 1.5 from the URL ftp://ftp.ncsa.uiuc.edu/Web/httpd/UNIX/ncsa_httpd/current/httpd_1.5.1-export_source.tar.Z</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>If you want to download patch 1.3 for NCSA’s version 1.3 for UNIX, it is available at http://hoohoo.ncsa.uiuc.edu/. </P>
+<P>The Apache plug-in replacement for NCSA can be found at http://www.hyperreal.com/apache/info.html).</P>
+</TD></TABLE>
+<P>The problem with the Apache httpd CGI is no different:  a hacker could easily enter arbitrary commands on the server host using the same user-id as the user running the httpd server.  If httpd is being run as root, the unauthorized commands are also run as root!  Since he is using the same user-id, he can also access any file on the system that is accessible to the user-id that is running the httpd server, including but not limited to destroying file contents on the server host.  </P>
+<P>Further, if he is using an X11-based terminal emulator attached to the httpd server host, he can gain full interactive access to the server host just as if he were logging in locally.</P>
+<P>If you are using Apache httpd, this is what you will need to do:</P>
+<OL>
+
+<LI>Locate the escape_shell_command() function in the file &quot;src/util.c&quot; (approximately line 430).  In    that function, the line should read if(ind(&quot;&amp;;`'\&quot;|*?~&lt;&gt;^()[]{}$\\&quot;,cmd[x]) != -1){</LI>
+<LI>You will need to change that line to read     if(ind(&quot;&amp;;`'\&quot;|*?~&lt;&gt;^()[]{}$\\\n&quot;,cmd[x]) != -1){</LI>
+<LI>Then, you will need to recompile, reinstall, and restart the server.</LI></OL>
+</OL>
+
+<P>It is very important that you run the upgrade as if let alone, this security hole can lead to a compromise of your Web server.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For additional information you should visit CIAC’s Web page at URL: http://ciac.llnl.gov/</P>
+</TD></TABLE>
+<P>The same goes for CGI scripts with Novell platforms. The challenge involved with the implementation of CGI gateways on Novell-based platforms is due to the overhead involved in spawning NLMs and implementing language compilers or interpreters that reside and launch on the NetWare server.  In order to resolve this problem, Great Lakes will allow data from the Web client to be either stored in a file on the NetWare server or transmitted as an MHS or SMTP E-mail message.</P>
+<P>The NT version of both Netscape Communications Server version 1.12 and the Netscape Commerce Server, also are affected by CGI scripts handling. The following are two known problems:</P>
+
+<UL>
+<B><LI>Perl CGI Scripts are Insecure</B> - Since the Netscape server does not use the NT File Manager’s associations between file extensions and applications, Perl scripts are not recognized as such when placed in to the cgi-bin directory.  To associate the extension .pl with the Perl interpreter will not work. You are using any of these versions, Netscape technical note recommends to place Perl.exe into the cgi-bin and refer to your scripts as <I>/cgi-bin/Perl.exe?&amp;my_script.pl</I>.</LI></UL>
+<DIR>
+
+<P>Unfortunately this technique opens a major security hole on the system as it allows a remote user to execute an arbitrary set of Perl commands on the server by invoking such scripts <I>as /cgi-bin/Perl.exe?&amp;-e+unlink+%3C*%3E</I>, which will cause every file in the server’s current directory to be removed. </P>
+<P>There is another suggestion on Netscape’s technical note to encapsulate the Perl scripts in a batch (.bat) file.  However, be aware that there is also a related problem with batch scripts, which makes this solution unsafe.</P>
+<P>Both Purveyor and WebSite NT servers, because of EMWACS, use NT’s File Manager extension associations, allowing you to execute Perl scripts without having to place Perl.exe into cgi-bin. This bug does not affect these products.</P></DIR>
+
+
+<UL>
+<B><LI>DOS batch files are Insecure</B> -  According to Ian Redfern (redferni@logica.com), a similar hole exists in the processing of CGI scripts implemented as batch files. Here it is how he describes the problem:</LI></UL>
+<DIR>
+
+<P>&quot;Consider test.bat:</P></DIR>
+
+<PRE><FONT SIZE=3><P>    @echo off</P>
+<P>    echo Content-type: text/plain</P>
+<P>    echo</P>
+<P>    echo Hello World!</P></I></PRE></FONT><DIR>
+
+<P>&#9;&#9;If you try to call it as <I>/cgi-bin/test.bat?&amp;dir </I>you will get the output of the CGI program, followed by a directory listing!  It is like the server is executing two functions here, running the batch file test.bat and running a directory (‘DIR’ DOS Command) list, which the command interpreter is handling in the same way ‘/bin/sh’ would (run it, then, if okay, run dir command).</P>
+<P>&#9;&#9;A possible solution for this problem would be to wrap the batch file in to a compiled executable (.exe) file.  The executable file would first checks the command line parameters for things that could be misinterpreted by DOS, then invoke a command.com subshell, and run the batch file.</P>
+<P>&#9;&#9;This would require some extra work.  You probably would be better off to do everything in compiled code. Again, if you are using this version, you definitely should upgrade it.  You can easily do so by accessing Netscape’s Web page at URL: http://www.netscape.com.  </P>
+</DIR>
+
+<P>Also, keep in mind that there are several CGI script that allow users to change their passwords online.  However, none of them have been tested enough to recommend.  If you want to allow your users to change their passwords on-line, some sites have set up a second HTTP server for that sole purpose.  This second server sort of replicate the password file.</P>
+<P>Further, if you have an FTP daemon, even though generally you would not be compromising data security by sharing directories between this daemon and your Web daemon, no remote user should ever be able to upload files that can later be read or executed by your Web daemon.  Otherwise, a hacker could, for example, upload a CGI script to your ftp site and then use his browser to request the newly uploaded file from your Web server, which could execute the script, totally by-passing security!  Therefore, limit ftp uploads to a directory that cannot be read by any user. More about this is discussed on chapter 8, &quot;How Vulnerable are Internet Services.&quot;</P>
+<P>Evidently, your Web servers should support the development of application gateways, as it is essential for communicating data between an information server--in this case a Web server--and another application.</P>
+<P>Wherever the Web server needs to communicate with another application, you will need CGI scripts to negotiate the transactions between the server and an outside application.  For instance, CGIs are used to transfer data, filled in by a user in an HTML form, from the Web server to a database. </P>
+<P>But if you want to preserve the security of your site, and you must, be alert about allowing your users to run their own CGI scripts.  These scripts are very powerful, which could represent some risks for your site.  As discussed earlier, CGI scripts, if poorly written could open security roles in your system.  Thus, never run your Web server as root; make sure it is configured to change to another user ID at startup time.  Also, consider using a CGI wrapper to ensure the scripts run with the permissions and user id of the author.  You can easily download one from URL: http//www.umr.edu/~cgiwrap </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You should check the URL: URL: http://www.primus.com/staff/paulp/cgi-security/ for security related scripts.</P>
+</TD></TABLE>
+<P>CGI are not all bad! A good security tool to control who is accessing your Web server is to actually use CGI scripts to identify them.  There are five very important environment variables available to help you do that:</P>
+<OL>
+
+<B><LI>HTTP_FROM</B> - This variable is usually set to the email address of the user. You should use it as a default for the reply email address in an email form.</LI>
+<B><LI>REMOTE_USER</B> - It is only set if secure authentication was used to access the script. You can use the AUTH_TYPE variable to check what form of secure authentication was used.  REMOTE_USER will display the name of the user authenticated under.</LI>
+<B><LI>REMOTE_IDENT</B> - It is set if the server has contacted an IDENTD server on the browser machine. However, there is no way to ensure a honest reply from the browser</LI>
+<B><LI>REMOTE_HOST</B> -  Provides information about the site the user is connecting from if the hostname was retrieved by the server.</LI>
+<B><LI>REMOTE_ADDR</B> -  This also provides information about the site the user is connecting from.  It will provide the dotted-decimal IP address of the user. </LI></OL>
+
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Caution:</B><P>If you ever suspect your site have been broken-in you should contact the Computer Emergency Response Team (CERT).  CERT was formed by the Defense Advanced Research Projects Agency (DARPA) in 1988 to serve as a focal point for the computer security concerns of Internet users.  The Software Engineering at Carnegie Mellon University, in Pittsburgh, PA runs the Coordination Center for the CERT.  You can visit their Web page at URL: http://www.cert.org or send an e-mail to cert@cert.org.</P>
+</TD></TABLE>
+<P>Also, CGI can be used to create e-mail forms on the Web.  There is a CGI e-mail form, developed in Perl by Doug Stevenson (doug+@osu.edu), of Ohio State University, that is fairly secure. The script, called &quot;Web Mailto Gateway,&quot; enables you to hide the real e-mail addresses from user, which helps to enhance security.   The following source code can be found at URL: http://www.mps.ohio-state.edu/mailto/mailto_info.html.</P>
+<PRE><FONT SIZE=3><P>#!/usr/local/bin/perl</P>
+<P>#</P>
+<P># Doug's WWW Mail Gateway 2.2</P>
+<P># 5/95</P>
+<P># All material here is Copyright 1995 Doug Stevenson.</P>
+<P>#</P>
+<P># Use this script as a front end to mail in your HTML.  Not every browser</P>
+<P># supports the mailto: URLs, so this is the next best thing.  If you</P>
+<P># use this script, please leave credits to myself intact!  :)  You can</P>
+<P># modify it all you want, though.</P>
+<P>#</P>
+<P># Documentation at:</P>
+<P>#    http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html</P>
+<P>#</P>
+<P># Configurable items are just below.  Also pay special attention to</P>
+<P># GET method arguments that this script accepts to specify defaults</P>
+<P># for some fields.</P>
+<P>#</P>
+<P># I didn't exactly follow the RFCs on mail headers when I wrote this,</P>
+<P># so please send all flames my way if it breaks your mail client!!</P>
+<P># Also, you'll need cgi-lib.pl for the GET and POST parsing.  I use</P>
+<P># version 1.7.</P>
+<P>#</P>
+<P># Requires cgi-lib.pl which can be found at</P>
+<P>#    http://www.bio.cam.ac.uk/web/form.html</P>
+<P>#</P>
+<P># PLEASE: Use this script freely, but leave credits to myself!!  It's</P>
+<P>#         common decency!</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.1 to 1.2:</P>
+<P>#</P>
+<P># A common modification to the script for others to make was to allow</P>
+<P># only a certain few mail addresses to be sent to.  I changed the WWW</P>
+<P># Mail Gateway to allow only those mail addresses in the list @addrs</P>
+<P># to be mailed to - they are placed in a HTML &lt;SELECT&gt; list, with either</P>
+<P># the selected option being either the first one or the one that matches</P>
+<P># the &quot;to&quot; CGI variable.  Thanks to Mathias Koerber</P>
+<P># &lt;Mathias.Koerber@swi.com.sg&gt; for this suggestion.</P>
+<P>#</P>
+<P># Also made one minor fix.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.2 to 1.3:</P>
+<P>#</P>
+<P># Enhancing the enhancements from 1.2.  You can now specify a real name</P>
+<P># or some kind of identifier to go with the real mail address.  This</P>
+<P># infomation gets put in the %addrs associative array, either explicitly</P>
+<P># defined, or read from a file.  Read the information HTML for instructions</P>
+<P># on how to set this up.  Also, real mail addresses may hidden from the</P>
+<P># user.  Undefine or set to zero the variable $expose_address below.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 1.3 to 1.4</P>
+<P>#</P>
+<P># The next URL to be fetched after the mail is sent can be specified with</P>
+<P># the cgi varaible 'nexturl'.</P>
+<P>#</P>
+<P># Fixed some stupid HTML mistake.</P>
+<P>#</P>
+<P># Force user to enter something for the username on 'Your Email:' tag,</P>
+<P># if identd didn't get a username.</P>
+<P>#</P>
+<P># Added Cc: field, only when %addrs is not being used.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Quickie patch to 1.41</P>
+<P>#</P>
+<P># Added &lt;PRE&gt;formatted part to header entry to make it look nice and fixed a</P>
+<P># typo.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Version 2.0 changes</P>
+<P>#</P>
+<P># ALL cgi varaibles (except those reserved for mail info) are logged</P>
+<P># at then end of the mail received.  You can put forms, hidden data,</P>
+<P># or whatever you want, and the info for each variable will get logged.</P>
+<P>#</P>
+<P># Cleaned up a lot of spare code.</P>
+<P>#</P>
+<P># IP addresses are now correctly logged instead of just hostnames.</P>
+<P>#</P>
+<P># Made source retrieval optional.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 2.0 to 2.1</P>
+<P>#</P>
+<P># Fixed stupid HTML error for an obscure case.  Probably never noticed.</P>
+<P>#</P>
+<P># Reported keys are no longer reported in an apparently random order; they</P>
+<P># are listed in the order they were received.  That was a function of perl</P>
+<P># hashes...changed to a list operation instead.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Changes from 2.1 to 2.2</P>
+<P>#</P>
+<P># Added all kinds of robust error checking and reporting.  Should be</P>
+<P># easier to diagnose problems from the user end.</P>
+<P>#</P>
+<P># New suggested sendmail flag -oi to keep sendmail from ending mail</P>
+<P># input on line containing . only.</P>
+<P>#</P>
+<P># Added support for setting the &quot;real&quot; From address in the first line</P>
+<P># of the mail header using the -f sendmail switch.  This may or may not</P>
+<P># be what you want, depending on the application of the script.  This is</P>
+<P># useful for listservers that use that information for identification</P>
+<P># purposes or whatever.  This is NOT useful if you're concerned about</P>
+<P># the security of your script for public usage.  Your mileage will vary,</P>
+<P># please read the sendmail manual about the -f switch.</P>
+<P>#    Thanks to Jeff Lawrence (jlaw@irus.rri.uwo.ca) for figuring this</P>
+<P>#    one out.</P>
+<P>#</P>
+<P>########</P>
+<P>#</P>
+<P># Doug Stevenson</P>
+<P># doug+@osu.edu</P>
+<P>######################</P>
+<P># Configurable options</P>
+<P>######################</P>
+<P># whether or not to actually allow mail to be sent -- for testing purposes</P>
+<P>$active = 1;</P>
+<P># Logging flag.  Logs on POST method when mail is sent.</P>
+<P>$logging = 1;</P>
+<P>$logfile = '/usr/local/WWW/etc/mailto_log';</P>
+<P># Physical script location.  Define ONLY if you wish to make your version</P>
+<P># of this source code available with GET method and the suffix '?source'</P>
+<P># on the url.</P>
+<P>$script_loc = '/usr/local/WWW/cgi-bin/mailto.pl';</P>
+<P># physical location of your cgi-lib.pl</P>
+<P>$cgi_lib = '/usr/local/WWW/cgi-bin/cgi-lib.pl';</P>
+<P># http script location</P>
+<P>$script_http = 'http://www-bprc.mps.ohio-state.edu/cgi-bin/mailto.pl';</P>
+<P># Path to sendmail and its flags.  Use the first commented version and</P>
+<P># define $listserver = 1if you want the gateway to be used for listserver</P>
+<P># subscriptions -- the -f switch might be neccesary to get this to work</P>
+<P># correctly.</P>
+<P>#</P>
+<P># sendmail options:</P>
+<P>#    -n  no aliasing</P>
+<P>#    -t  read message for &quot;To:&quot;</P>
+<P>#    -oi don't terminate message on line containing '.' alone</P>
+<P>#$sendmail = &quot;/usr/lib/sendmail -t -n -oi -f&quot;;  $listserver = 1;</P>
+<P>$sendmail = &quot;/usr/lib/sendmail -t -n -oi&quot;;</P>
+<P># set to 1 if you want the real addresses to be exposed from %addrs</P>
+<P>#$expose_address = 1;</P>
+<P># Uncomment one of the below chunks of code to implement restricted mail</P>
+<P># List of address to allow ONLY - gets put in a HTML SELECT type menu.</P>
+<P>#</P>
+<P>#%addrs = (&quot;Doug - main address&quot;, &quot;doug+@osu.edu&quot;,</P>
+<P>#         &quot;Doug at BPRC&quot;, &quot;doug@polarmet1.mps.ohio-state.edu&quot;,</P>
+<P>#         &quot;Doug at CIS&quot;, &quot;stevenso@cis.ohio-state.edu&quot;,</P>
+<P>#         &quot;Doug at the calc lab&quot;, &quot;dstevens@mathserver.mps.ohio-state.edu&quot;,</P>
+<P>#         &quot;Doug at Magnus&quot;, &quot;dmsteven@magnus.acs.ohio-state.edu&quot;);</P>
+<P># If you don't want the actual mail addresses to be visible by people</P>
+<P># who view source, or you don't want to mess with the source, read them</P>
+<P># from $mailto_addrs:</P>
+<P>#</P>
+<P>#$mailto_addrs = '/usr/local/WWW/etc/mailto_addrs';</P>
+<P>#open(ADDRS,$mailto_addrs);</P>
+<P>#while(&lt;ADDRS&gt;) {</P>
+<P>#    ($name,$address) = /^(.+)[ \t]+([^ ]+)\n$/;</P>
+<P>#    $name =~ s/[ \t]*$//;</P>
+<P>#    $addrs{$name} = $address;</P>
+<P>#}</P>
+<P># version</P>
+<P>$version = '2.2';</P>
+<P>#############################</P>
+<P># end of configurable options</P>
+<P>#############################</P>
+<P>##########################</P>
+<P># source is self-contained</P>
+<P>##########################</P>
+<P>if ($ENV{'QUERY_STRING'} eq 'source' &amp;&amp; defined($script_loc)) {</P>
+<P>    print &quot;Content-Type: text/plain\n\n&quot;;</P>
+<P>    open(SOURCE, $script_loc) ||</P>
+<P>        &amp;InternalError('Could not open file containing source code');</P>
+<P>    print &lt;SOURCE&gt;;</P>
+<P>    close(SOURCE);</P>
+<P>    exit(0);</P>
+<P>}</P>
+<P>require $cgi_lib;</P>
+<P>&amp;ReadParse();</P>
+<P>#########################################################################</P>
+<P># method GET implies that we want to be given a FORM to fill out for mail</P>
+<P>#########################################################################</P>
+<P>if ($ENV{'REQUEST_METHOD'} eq 'GET') {</P>
+<P>    # try to get as much info as possible for fields</P>
+<P>    # To:     comes from $in{'to'}</P>
+<P>    # Cc:     comes from $in{'cc'}</P>
+<P>    # From:   comes from REMOTE_IDENT@REMOTE_HOST || $in{'from'} || REMOTE_USER</P>
+<P>    # Subject: comes from $in{'sub'}</P>
+<P>    # body comes from $in{'body'}</P>
+<P>    $destaddr = $in{'to'};</P>
+<P>    $cc = $in{'cc'};</P>
+<P>    $subject = $in{'sub'};</P>
+<P>    $body = $in{'body'};</P>
+<P>    $nexturl = $in{'nexturl'};</P>
+<P>    if ($in{'from'}) {</P>
+<P>        $fromaddr = $in{'from'};</P>
+<P>    }</P>
+<P>    # this is for NetScape pre-1.0 beta users - probably obsolete code</P>
+<P>    elsif ($ENV{'REMOTE_USER'}) {</P>
+<P>        $fromaddr = $ENV{'REMOTE_USER'};</P>
+<P>    }</P>
+<P>    # this is for Lynx users, or any HTTP/1.0 client giving From header info</P>
+<P>    elsif ($ENV{'HTTP_FROM'}) {</P>
+<P>        $fromaddr = $ENV{'HTTP_FROM'};</P>
+<P>    }</P>
+<P>    # if all else fails, make a guess</P>
+<P>    else {</P>
+<P>        $fromaddr = &quot;$ENV{'REMOTE_IDENT'}\@$ENV{'REMOTE_HOST'}&quot;;</P>
+<P>    }</P>
+<P>    # Convert multiple bodies (separated by \0 according to CGI spec)</P>
+<P>    # into one big body</P>
+<P>    $body =~ s/\0//;</P>
+<P>    # Make a list of authorized addresses if %addrs exists.</P>
+<P>    if (%addrs) {</P>
+<P>        $selections = '&lt;SELECT NAME=&quot;to&quot;&gt;';</P>
+<P>        foreach (sort keys %addrs) {</P>
+<P>            if ($in{'to'} eq $addrs{$_}) {</P>
+<P>                $selections .= &quot;&lt;OPTION SELECTED&gt;$_&quot;;</P>
+<P>            }</P>
+<P>            else {</P>
+<P>                $selections .= &quot;&lt;OPTION&gt;$_&quot;;</P>
+<P>            }</P>
+<P>            if ($expose_address) {</P>
+<P>                $selections .= &quot; &amp;lt;$addrs{$_}&gt;&quot;;</P>
+<P>            }</P>
+<P>        }</P>
+<P>        $selections .= &quot;&lt;/SELECT&gt;\n&quot;;</P>
+<P>    }</P>
+<P>    # give them the form</P>
+<P>    print &amp;PrintHeader();</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Doug\'s WWW Mail Gateway $version&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;&lt;IMG SRC=&quot;http://www-bprc.mps.ohio-state.edu/pics/mail2.gif&quot; ALT=&quot;&quot;&gt;</P>
+<P>The WWW Mail Gateway $version&lt;/H1&gt;</P>
+<P>&lt;P&gt;The &lt;B&gt;To&lt;/B&gt;: field should contain the &lt;B&gt;full&lt;/B&gt; Email address</P>
+<P>that you want to mail to.  The &lt;B&gt;Your Email&lt;/B&gt;: field needs to</P>
+<P>contain your mail address so replies go to the right place.  Type your</P>
+<P>message into the text area below. If the &lt;B&gt;To&lt;/B&gt;: field is invalid,</P>
+<P>or the mail bounces for some reason, you will receive notification</P>
+<P>if &lt;B&gt;Your Email&lt;/B&gt;: is set correctly.  &lt;I&gt;If &lt;B&gt;Your Email&lt;/B&gt;:</P>
+<P>is set incorrectly, all bounced mail will be sent to the bit bucket.&lt;/I&gt;&lt;/P&gt;</P>
+<P>&lt;FORM ACTION=&quot;$script_http&quot; METHOD=POST&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>    print &quot;&lt;P&gt;&lt;PRE&gt;        &lt;B&gt;To&lt;/B&gt;: &quot;;</P>
+<P>    # give the selections if set, or INPUT if not</P>
+<P>    if ($selections) {</P>
+<P>        print $selections;</P>
+<P>    }</P>
+<P>    else {</P>
+<P>        print &quot;&lt;INPUT VALUE=\&quot;$destaddr\&quot; SIZE=40 NAME=\&quot;to\&quot;&gt;\n&quot;;</P>
+<P>        print &quot;        &lt;B&gt;Cc&lt;/B&gt;: &lt;INPUT VALUE=\&quot;$cc\&quot; SIZE=40 NAME=\&quot;cc\&quot;&gt;\n&quot;;</P>
+<P>    }</P>
+<P>    print &lt;&lt;EOH;</P>
+<P> &lt;B&gt;Your Name&lt;/B&gt;: &lt;INPUT VALUE=&quot;$fromname&quot; SIZE=40 NAME=&quot;name&quot;&gt;</P>
+<P>&lt;B&gt;Your Email&lt;/B&gt;: &lt;INPUT VALUE=&quot;$fromaddr&quot; SIZE=40 NAME=&quot;from&quot;&gt;</P>
+<P>   &lt;B&gt;Subject&lt;/B&gt;: &lt;INPUT VALUE=&quot;$subject&quot; SIZE=40 NAME=&quot;sub&quot;&gt;&lt;/PRE&gt;</P>
+<P>&lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Send the mail&quot;&gt;</P>
+<P>&lt;INPUT TYPE=&quot;reset&quot; VALUE=&quot;Start over&quot;&gt;&lt;BR&gt;</P>
+<P>&lt;TEXTAREA ROWS=20 COLS=60 NAME=&quot;body&quot;&gt;$body&lt;/TEXTAREA&gt;&lt;BR&gt;</P>
+<P>&lt;INPUT TYPE=&quot;submit&quot; VALUE=&quot;Send the mail&quot;&gt;</P>
+<P>&lt;INPUT TYPE=&quot;reset&quot; VALUE=&quot;Start over&quot;&gt;&lt;BR&gt;</P>
+<P>&lt;INPUT TYPE=&quot;hidden&quot; NAME=&quot;nexturl&quot; VALUE=&quot;$nexturl&quot;&gt;&lt;/P&gt;</P>
+<P>&lt;/FORM&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;H2&gt;Information about the WWW Mail Gateway&lt;/H2&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF=&quot;http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#about&quot;&gt;</P>
+<P>About the WWW Mail Gateway&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF=&quot;http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#new&quot;&gt;</P>
+<P>New in version $version&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;H3&gt;&lt;A HREF=&quot;http://www-bprc.mps.ohio-state.edu/mailto/mailto_info.html#misuse&quot;&gt;</P>
+<P>Please report misuse!&lt;/A&gt;&lt;/H3&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;ADDRESS&gt;&lt;P&gt;&lt;A HREF=&quot;/~doug/&quot;&gt;Doug Stevenson: doug+\@osu.edu&lt;/A&gt;</P>
+<P>&lt;/P&gt;&lt;/ADDRESS&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>}</P>
+<P>#########################################################################</P>
+<P># Method POST implies that they already filled out the form and submitted</P>
+<P># it, and now it is to be processed.</P>
+<P>#########################################################################</P>
+<P>elsif ($ENV{'REQUEST_METHOD'} eq 'POST') {</P>
+<P>    # get all the variables in their respective places</P>
+<P>    $destaddr = $in{'to'};</P>
+<P>    $cc       = $in{'cc'};</P>
+<P>    $fromaddr = $in{'from'};</P>
+<P>    $fromname = $in{'name'};</P>
+<P>    $replyto  = $in{'from'};</P>
+<P>    $sender   = $in{'from'};</P>
+<P>    $errorsto = $in{'from'};</P>
+<P>    $subject  = $in{'sub'};</P>
+<P>    $body     = $in{'body'};</P>
+<P>    $nexturl  = $in{'nexturl'};</P>
+<P>    $realfrom = $ENV{'REMOTE_HOST'} ? $ENV{'REMOTE_HOST'}: $ENV{'REMOTE_ADDR'};</P>
+<P>    # check to see if required inputs were filled - error if not</P>
+<P>    unless ($destaddr &amp;&amp; $fromaddr &amp;&amp; $body &amp;&amp; ($fromaddr =~ /^.+\@.+/)) {</P>
+<P>        print &lt;&lt;EOH;</P>
+<P>Content-type: text/html</P>
+<P>Status: 400 Bad Request</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto error&lt;/H1&gt;</P>
+<P>&lt;P&gt;One or more of the following necessary pieces of information was missing</P>
+<P>from your mail submission:</P>
+<P>&lt;UL&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;To&lt;/B&gt;:, the full mail address you wish to send mail to&lt;/LI&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;Your Email&lt;/B&gt;: your full email address&lt;/LI&gt;</P>
+<P>&lt;LI&gt;&lt;B&gt;Body&lt;/B&gt;: the text you wish to send&lt;/LI&gt;</P>
+<P>&lt;/UL&gt;</P>
+<P>Please go back and fill in the missing information.&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    exit(0);</P>
+<P>    }</P>
+<P>    # do some quick logging - you may opt to have more/different info written</P>
+<P>    if ($logging) {</P>
+<P>        open(MAILLOG,&quot;&gt;&gt;$logfile&quot;);</P>
+<P>        print MAILLOG &quot;$realfrom\n&quot;;</P>
+<P>        close(MAILLOG);</P>
+<P>    }</P>
+<P>    # Log every CGI variable except for the ones reserved for mail info.</P>
+<P>    # Valid vars go into @data.  Text output goes into $data and gets.</P>
+<P>    # appended to the end of the mail.</P>
+<P>    # First, get an ORDERED list of all cgi vars from @in to @keys</P>
+<P>    for (0 .. $#in) {</P>
+<P>        local($key) = split(/=/,$in[$_],2);</P>
+<P>        $key =~ s/\+/ /g;</P>
+<P>        $key =~ s/%(..)/pack(&quot;c&quot;,hex($1))/ge;</P>
+<P>        push(@keys,$key);</P>
+<P>    }</P>
+<P>    # Now weed out the ones we want</P>
+<P>    @reserved = ('to', 'cc', 'from', 'name', 'sub', 'body', 'nexturl');</P>
+<P>    local(%mark);</P>
+<P>    foreach (@reserved) { $mark{$_} = 1; }</P>
+<P>    @data = grep(!$mark{$_}, @keys);</P>
+<P>    foreach (@data) {</P>
+<P>        $data .= &quot;$_ -&gt; $in{$_}\n&quot;;</P>
+<P>    }</P>
+<P>    # Convert multiple bodies (separated by \0 according to CGI spec)</P>
+<P>    # into one big body</P>
+<P>    $body =~ s/\0//;</P>
+<P>    # now check to see if some joker changed the HTML to allow other</P>
+<P>    # mail addresses besides the ones in %addrs, if applicable</P>
+<P>    if (%addrs) {</P>
+<P>        if (!scalar(grep($_.&quot; &lt;$addrs{$_}&gt;&quot; eq $destaddr ||</P>
+<P>                         $destaddr eq $_, keys(%addrs)))) {</P>
+<P>            print &amp;PrintHeader();</P>
+<P>            print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;WWW Mail Gateway: Mail address not allowed&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;</P>
+<P>&lt;H1&gt;Mail address not allowed&lt;/H1&gt;</P>
+<P>&lt;P&gt;The mail address you managed to submit, &lt;B&gt;$destaddr&lt;/B&gt;, to this script is</P>
+<P>not one of the pre-defined set of addresses that are allowed.  Go back and</P>
+<P>try again.&lt;/P&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>            exit(0);</P>
+<P>        }</P>
+<P>    }</P>
+<P>    # if we just received an alias, then convert that to an address</P>
+<P>    $realaddr = $destaddr;</P>
+<P>    if ($addrs{$destaddr}) {</P>
+<P>        $realaddr = &quot;$destaddr &lt;$addrs{$destaddr}&gt;&quot;;</P>
+<P>    }</P>
+<P>    # fork over the mail to sendmail and be done with it</P>
+<P>    if ($active) {</P>
+<P>        if ($listserver) {</P>
+<P>            open(MAIL,&quot;| $sendmail$fromaddr&quot;) ||</P>
+<P>                &amp;InternalError('Could not fork sendmail with -f switch');</P>
+<P>        }</P>
+<P>        else {</P>
+<P>            open(MAIL,&quot;| $sendmail&quot;) ||</P>
+<P>                &amp;InternalError('Could not fork sendmail with -f switch');</P>
+<P>        }</P>
+<P>        # only print Cc if we got one</P>
+<P>        print MAIL &quot;Cc: $cc\n&quot; if $cc;</P>
+<P>        print MAIL &lt;&lt;EOM;</P>
+<P>From: $fromname &lt;$fromaddr&gt;</P>
+<P>To: $realaddr</P>
+<P>Reply-To: $replyto</P>
+<P>Errors-To: $errorsto</P>
+<P>Sender: $sender</P>
+<P>Subject: $subject</P>
+<P>X-Mail-Gateway: Doug\'s WWW Mail Gateway $version</P>
+<P>X-Real-Host-From: $realfrom</P>
+<P>$body</P>
+<P>$data</P>
+<P>EOM</P>
+<P>    close(MAIL);</P>
+<P>    }</P>
+<P>    # give some short confirmation results</P>
+<P>    #</P>
+<P>    # if the cgi var 'nexturl' is given, give out the location, and let</P>
+<P>    # the browser do the work.</P>
+<P>    if ($nexturl) {</P>
+<P>        print &quot;Location: $nexturl\n\n&quot;;</P>
+<P>    }</P>
+<P>    # otherwise, give them the standard form.</P>
+<P>    else {</P>
+<P>        print &amp;PrintHeader();</P>
+<P>        print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto results&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto results&lt;/H1&gt;</P>
+<P>&lt;P&gt;Mail sent to &lt;B&gt;$destaddr&lt;/B&gt;:&lt;BR&gt;&lt;BR&gt;&lt;/P&gt;</P>
+<P>&lt;PRE&gt;</P>
+<P>&lt;B&gt;Subject&lt;/B&gt;: $subject</P>
+<P>&lt;B&gt;From&lt;/B&gt;: $fromname &amp;lt;$fromaddr&gt;</P>
+<P>$body&lt;/PRE&gt;</P>
+<P>&lt;HR&gt;</P>
+<P>&lt;A HREF=&quot;$script_http&quot;&gt;Back to the WWW Mailto Gateway&lt;/A&gt;</P>
+<P>&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    ;</P>
+<P>    }</P>
+<P>}                               # end if METHOD=POST</P>
+<P>#####################################</P>
+<P># What the heck are we doing here????</P>
+<P>#####################################</P>
+<P>else {</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto Gateway error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto Gateway error&lt;/H1&gt;</P>
+<P>&lt;P&gt;Somehow your browser generated a non POST/GET request method and it</P>
+<P>got here.  You should get this fixed!!&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>}</P>
+<P>exit(0);</P>
+<P>#</P>
+<P># Deal out error messages to the user.  Gets passed a string containing</P>
+<P># a description of the error</P>
+<P>#</P>
+<P>sub InternalError {</P>
+<P>    local($errmsg) = @_;</P>
+<P>    print &amp;PrintHeader();</P>
+<P>    print &lt;&lt;EOH;</P>
+<P>Content-type: text/html</P>
+<P>Status: 502 Bad Gateway</P>
+<P>&lt;HTML&gt;&lt;HEAD&gt;&lt;TITLE&gt;Mailto Gateway Internal Error&lt;/TITLE&gt;&lt;/HEAD&gt;</P>
+<P>&lt;BODY&gt;&lt;H1&gt;Mailto Gateway Internal Error&lt;/H1&gt;</P>
+<P>&lt;P&gt;Your mail failed to send for the following reason:&lt;BR&gt;&lt;BR&gt;</P>
+<P>&lt;B&gt;$errmesg&lt;/B&gt;&lt;/P&gt;&lt;/BODY&gt;&lt;/HTML&gt;</P>
+<P>EOH</P>
+<P>    exit(0);</P>
+<P>}</P>
+<P>##</P>
+<P>## end of mailto.pl</P>
+<P>##</P></I></PRE></FONT>
+<P>If your server can run CGI scripts and is configured with sendmail, this is the right, and secure, mail gateway script to have in your HTML, you will need to be able to run CGI scripts on your server though.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap03.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap05.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>

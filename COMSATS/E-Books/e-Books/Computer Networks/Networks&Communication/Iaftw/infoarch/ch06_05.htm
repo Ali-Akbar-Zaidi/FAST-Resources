@@ -1,0 +1,489 @@
+<html><head><title>Indexing the Right Stuff (Information Architecture for the World Wide Web)</title><link href="../style/style1.css" type="text/css" rel="stylesheet" />
+
+<meta name="DC.Creator" content="Peter Morville and " /><meta scheme="MIME" content="text/xml" name="DC.Format" /><meta content="en-US" name="DC.Language" /><meta content="O'Reilly &amp; Associates, Inc." name="DC.Publisher" /><meta scheme="ISBN" name="DC.Source" content="1565922824L" /><meta name="DC.Subject.Keyword" content="stuff" /><meta name="DC.Title" content="Information Architecture for the World Wide Web" /><meta content="Text.Monograph" name="DC.Type" />
+
+</head><body bgcolor="#ffffff">
+
+<img alt="Book Home" src="gifs/smbanner.gif" border="0" usemap="#banner-map" /><map name="banner-map"><area alt="Information Architecture for the World Wide Web" href="index.htm" coords="1,-2,616,66" shape="rect" /><area alt="Search this book" href="jobjects/fsearch.htm" coords="629,-11,726,25" shape="rect" /></map>
+
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch06_04.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm">Information Architecture for the World Wide Web</a></td><td width="228" valign="top" align="right"><a href="ch06_06.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr></table></div>
+<hr align="left" width="684" />
+
+
+<h2 class="sect1">6.5. Indexing the Right Stuff</h2>
+
+
+<p>
+<a name="INDEX-457" /> <a name="INDEX-458" /> <a name="INDEX-459" />So,
+let's get back to whether you need a search engine. Let's
+assume that you do intend to slap a search engine on top of your web
+site. Shouldn't be a problem right? Just point the indexer at
+the directory where all the pages live, and, voil&agrave;! Searchable
+site!</p>
+
+
+<p>Of course, you knew it wasn't that simple. Searching only works
+well when the stuff that's being searched is the same as the
+stuff that users want. This means you may not want to index the
+entire site. We'll explain.</p>
+
+
+<a name="ch06-23-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.5.1. Indexing the Entire Site</h3>
+
+
+<p>
+<a name="INDEX-460" />
+<a name="INDEX-461" />Search engines are frequently used to
+index an entire site without regard for the content and how it might
+vary -- every word of every page, whether it contains real content
+or help information, advertising, navigation menus, and so on.</p>
+
+
+<p>However, searching works much better when the information space is
+defined narrowly and contains homogeneous content. In other words,
+the more you search through indices that combine <em class="emphasis">apples and
+oranges</em>, the worse your retrieval results will be. After
+all, when you search a site, you're probably looking for
+<em class="emphasis">apples</em> only, not <em class="emphasis">oranges</em>.
+As already discussed, a site's content is usually a mix of
+apples, oranges, kumquats, bell peppers, chainsaws, and Barbie dolls
+to begin with. So, when you tell your search engine to index your
+entire site, the site's users will be performing searches
+against all kinds of stuff -- navigation, destination, and other
+kinds of pages -- all at once. What they retrieve can often be
+ugly.</p>
+
+
+<p>Let's try an example to see what happens. Searching
+Netscape's site for <em class="emphasis">plug-ins</em>, what do we
+find? Exactly 100 documents.<a href="#FOOTNOTE-16">[16]</a> Of these:</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-16" /><p>[16] Search done on February
+2, 1997.</p>
+
+</blockquote>
+
+
+<ul><li><p>58 documents are Welcome to Netscape Navigator version X.X pages for
+just about every version of Netscape Navigator and include
+information about plug-ins.</p></li><li><p>16 documents are in German (a language I don't read).</p></li><li><p>6 documents contain the potentially relevant term
+<em class="emphasis">application</em> in their titles, but 5 of these 6
+have exactly the same title (<em class="emphasis">Netscape Handbook: Application
+Features</em>).</p></li><li><p>2 documents actually contain <em class="emphasis">plug-in</em> in their
+titles.</p></li><li><p>18 other assorted documents may be relevant, but are not labeled in a
+way that indicates whether this is the case.</p></li></ul>
+<p>Analyzing these search results, we find two common problems. First,
+we are presented with documents that clearly don't belong. If
+the site had been selectively indexed with audience differences in
+mind, 16% of the results would not have been displayed at all.
+Second, regarding relevant documents, it's not clear why we
+need 58 versions of the same type of document. It would have been
+useful to index pages more selectively, such as files relevant to
+Windows or Macintosh users, or recent versions versus older versions
+of the software. Are very many people still interested in old
+Netscape Beta versions? So, our search is less successful than it
+could have been; it gave us a lot of irrelevant documents, and too
+many that <em class="emphasis">could</em> be relevant.</p>
+
+
+<p>Our search performed poorly because all the content in the site was
+indexed together. By doing so, the site's architects chose to
+ignore two very important things: that the information in their site
+isn't all the same, and that it makes good sense to respect the
+lines already drawn between different types of content. For example,
+it's clear that German and English content are vastly different
+and that their audiences overlap very little (if at all), so why not
+create separately searchable indices along those divisions?</p>
+
+
+<p>The site designers at Netscape are already doing this, in a limited
+way. They have put a lot of effort into helping you download the
+right version of the software from the nearest location. To download
+the software, you get asked several questions (not unlike those in a
+reference interview). Shown in <a href="ch06_05.htm#ch06-31881">Figure 6-15</a>, the site
+asks the user:</p>
+
+
+<ul><li><p>What operating system does your computer use?</p></li><li><p>What language do you speak?</p></li><li><p>Which of our products do you need?</p></li></ul>
+<a name="ch06-31881" /><div class="figure"><img height="407" alt="Figure 6-15" src="figs/info_0615.gif" width="464" /></div><h4 class="objtitle">Figure 6-15. Three pull-down menus perform a brief reference interview sufficient to help users download the appropriate software product.</h4>
+<p>The result is a list of links to download sites that provide the user
+the right information (i.e., software appropriate to the user's
+platform), taking into account his or her geographic location and
+language. Why not apply this same careful approach to matching users
+with the right information to the entire site, instead of just to
+this specific situation?<a name="INDEX-462" /> <a name="INDEX-463" /></p>
+</div>
+
+
+
+
+<a name="ch06-25-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.5.2. Search Zones: Selectively Indexing the Right Content</h3>
+
+
+<p>
+<a name="INDEX-464" /> <a name="INDEX-465" /> <a name="INDEX-466" />
+<a name="INDEX-467" />
+<a name="INDEX-468" /> <a name="INDEX-469" />Search
+zones are subsets of a web site that have been indexed separately
+from the rest of the site's content. When you search a search
+zone, you have, through interaction with the site, already identified
+yourself as a member of a particular audience or as someone searching
+for a particular type of information. The search zones in a site
+match those specific needs, and the result is improved retrieval
+performance. The user is simply less likely to retrieve irrelevant
+information.</p>
+
+
+<p>The Microsoft site has a good example of search zone use. Although
+this site suffers from other searching problems, it compares
+favorably to the Netscape site when searching for our old stand-by,
+<em class="emphasis">plug-ins</em>. On the search page you're asked
+where you want to search in the Microsoft site, and are provided with
+the options on a pull-down menu (<a href="ch06_05.htm#ch06-10582">Figure 6-16</a>).</p>
+
+
+<a name="ch06-10582" /><div class="figure"><img height="459" alt="Figure 6-16" src="figs/info_0616.gif" width="500" /></div><h4 class="objtitle">Figure 6-16. Microsoft's site employs search zones to help focus the user's search before submitting a query to the search engine.</h4>
+
+<p>You've got many options to review, but you can quickly find the
+<em class="emphasis">Internet Explorer</em> area of the site where
+you'd want to look for plug-ins. Consider how well the effort
+the user expends in reviewing and selecting from this menu compares
+to the much greater effort of searching the entire site and then
+sifting through a tremendously larger retrieval set. Also note the
+<em class="emphasis">Full Site Search</em> option; sometimes it does make
+sense to maintain an index of the entire site, especially for users
+who are unsure where to look, who are doing a comprehensive
+leave-no-stones-unturned search, or who just haven't had any
+luck searching the more narrowly defined indices.</p>
+
+
+<p>How is search zone indexing set up? It depends on the search engine
+software used. Most support the creation of search zones, but some
+provide interfaces that make this process easier, while others
+require you to manually provide a list of pages to index. In either
+case, search zone indexing requires more work on your part than
+simply pointing the search engine at the entire site: you'll
+need to review and mark each page that should be indexed. To make
+this easier, you might design your site so that pages that should be
+indexed together are located in the same directory; that way, you
+would mark for indexing a directory (and, implicitly, its contents)
+instead of its individual pages. You may also be working with pages
+that are generated from a database. In this case, you could design
+the database to include a field for each record denoting which index
+the generated page should belong to.</p>
+
+
+<p>You can create search zones in many ways. Examples of four common
+approaches are:</p>
+
+
+<ul><li><p>by content type</p></li><li><p>by audience</p></li><li><p>by subject</p></li><li><p>by date</p></li></ul>
+<p>Note that these approaches are similar to the organization schemes
+discussed in <a href="ch03_01.htm">Chapter 3, "Organizing Information"</a>. The decisions you made in
+selecting your site's organization scheme will often work for
+determining search zones as well. You could also try other ways; the
+most important consideration is to choose an approach appropriate to
+your site's audiences and their information needs.</p>
+
+
+<a name="ch06-26-fm2xml" /><div class="sect3">
+<h3 class="sect3">6.5.2.1. Apples and apples: indexing similar content types</h3>
+
+
+<p>
+<a name="INDEX-470" />
+<a name="INDEX-471" />
+<a name="INDEX-472" /> <a name="INDEX-473" />Most web sites contain, at minimum,
+two major and dissimilar types of pages:
+<em class="emphasis">navigation</em> and <em class="emphasis">destination.</em>
+Destination pages contain the actual information you want from a web
+site: sport scores, book reviews, software documentation, and so on.
+The primary purpose of a site's navigation pages is to
+<em class="emphasis">get you to</em> <em class="emphasis">the destination
+pages</em>. Navigation pages may include main pages, search
+pages, and pages that help you browse a site.</p>
+
+
+<p>When a user searches a site, he or she is generally looking for
+destination pages. If navigation pages are part of the retrieval,
+they will just clutter up the retrieval results. In fact, the reason
+that the user is searching rather than browsing some other way could
+be because the navigation system is performing poorly in the first
+place. So why keep showing the user navigation pages that don't
+work and aren't relevant to the search?</p>
+
+
+<p>Let's take a simple example: your company sells computer
+products via its web site. The destination pages consist of
+descriptions, pricing, and ordering information, one page for each
+product. Also, a number of navigation pages help users find products,
+such as listings of products for different platforms (e.g., Macintosh
+versus Windows), listings of products for different applications
+(e.g., word processing, bookkeeping), listings of business versus
+home products, and listings of hardware versus software products. If
+the user is searching for Intuit's Quicken, what's likely
+to happen? Instead of simply retrieving Quicken's product page,
+they might get all these pages:</p>
+
+
+<blockquote class="simplelist">
+
+<p>Financial Products Index Page</p>
+
+<p>Home Products Index Page</p>
+
+<p>Macintosh Products Index Page</p>
+
+<p>Quicken Product Page</p>
+
+<p>Software Products Index Page</p>
+
+<p>Windows Products Index Page</p>
+
+</blockquote>
+
+
+<p>The user retrieves the right destination page (i.e., the Quicken
+Product Page), but also five more that are purely navigation pages.
+In other words, 83% of the retrieval is in the way. And keep in mind
+that this example is simple; what if the user had to ignore 83% of a
+much larger retrieval set, say, 200 documents?</p>
+
+
+<p>Of course, indexing similar content isn't always easy, because
+"similar" is a highly relative term. It's not
+always clear where to draw the line between navigation and
+destination pages. In some cases, a page can be considered both. For
+example, we tried the approach described here for the SIGGRAPH 96
+Conference web site.<a href="#FOOTNOTE-17">[17]</a> We found that some pages didn't really fit the
+navigation/destination breakdown. For example, the Exhibition Hall
+Map page appears to be navigation. It links to pages for each of the
+five sections of the hall. These five pages appear to be destination,
+presenting detailed maps of their respective sections, including
+booth numbers and the names of exhibitors. But their parent page also
+provides important information, such as where the hall entrances are,
+and where the five sections are in relation to one another. So
+isn't the main Exhibition Hall Map page destination as well as
+navigation? The best solution, in this particular case, was to index
+these hybrid pages, but it wasn't ideal.</p><blockquote class="footnote">
+
+<a name="FOOTNOTE-17" /><p>[17]This site evolved greatly during
+the year leading up to SIGGRAPH 96, and then some after the
+conference was complete. The fullest version of this site is archived
+at<em class="emphasis">
+http://siggraph.anecdote.com/conferences/siggraph96</em>.</p>
+
+</blockquote>
+
+
+<p>The more important lesson from this experience was to test out the
+navigation/destination distinctions before actually applying them.
+The weakness of the navigation/destination approach is that it is
+essentially an exact organization scheme (discussed in <a href="ch03_01.htm">Chapter 3, "Organizing Information"</a>)
+which requires the pages to be either one thing (in this case
+destination) or another (navigation). In the following three
+approaches, the organization approaches are ambiguous, and therefore
+more forgiving of pages that fit into multiple categories. <a name="INDEX-474" /> <a name="INDEX-475" /> <a name="INDEX-476" /> <a name="INDEX-477" /></p>
+</div>
+
+
+
+<a name="ch06-27-fm2xml" /><div class="sect3">
+<h3 class="sect3">6.5.2.2. Who's going to care? Indexing for specific audiences</h3>
+
+
+<p>
+<a name="INDEX-478" />
+<a name="INDEX-479" />
+<a name="INDEX-480" />
+<a name="INDEX-481" />If
+you've already decided to create an architecture for your site
+that uses an audience-oriented organization scheme, it may make sense
+to create search zones by audience breakdown as well. We found this a
+useful approach for the original Library of Michigan web site.</p>
+
+
+<p>The Library of Michigan has three primary audiences: members of the
+Michigan state legislature and their staffs, Michigan libraries and
+their librarians, and the citizens of Michigan. The information
+needed from this site is different for each of these audiences; for
+example, each has a very different circulation policy. Why would a
+state legislator care how long a citizen can check a book out for?</p>
+
+
+<p>So we created four indices: one for the content relevant to each
+audience, and one unified index of the entire site in case the
+audience-specific indices didn't do the trick for a particular
+search. Here are the results from running a query on the word
+<em class="emphasis">circulation</em> against each of the four indices:</p>
+
+
+<a name="ch06-28-fm2xml" /><table border="1">
+
+
+
+
+<tr>
+<th>
+<p>Index</p></th>
+<th>
+<p>Number of Documents Retrieved</p></th>
+<th>
+<p>Retrieval Reduced By</p></th>
+</tr>
+
+
+
+
+<tr>
+<td>
+<p>Unified</p></td>
+<td>
+<p>40</p></td>
+<td>
+<p>-</p></td>
+</tr>
+
+<tr>
+<td>
+<p>Legislature Area</p></td>
+<td>
+<p>18</p></td>
+<td>
+<p>55%</p></td>
+</tr>
+
+<tr>
+<td>
+<p>Libraries Area</p></td>
+<td>
+<p>24</p></td>
+<td>
+<p>40%</p></td>
+</tr>
+
+<tr>
+<td>
+<p>Citizens Area</p></td>
+<td>
+<p>9</p></td>
+<td>
+<p>78%</p></td>
+</tr>
+
+
+</table>
+
+<p>As with any search zone, less overlap between indices improves
+performance. If the sizes of retrieval results were reduced by a very
+small figure, let's say, 10% or 20%, it may not be worth the
+overhead of creating separate audience-oriented indices. But in this
+case, much of the site's content is specific to one of the
+audiences.</p>
+</div>
+
+
+
+<a name="ch06-29-fm2xml" /><div class="sect3">
+<h3 class="sect3">6.5.2.3. Drilling down: Indexing by subject</h3>
+
+
+<p>
+<a name="INDEX-482" />
+<a name="INDEX-483" /> <a name="INDEX-484" /> <a name="INDEX-485" />
+<a name="INDEX-486" />If your site uses a strong
+subject-oriented or topical organization scheme, you've already
+distinguished many of the site's search zones. Yahoo! is
+perhaps the most popular site to employ subject-oriented search
+zones. Every subject category and subcategory in Yahoo! can be
+searched individually. For example, let's say you're
+looking for sites that deal with science fiction movies. If you
+search for <em class="emphasis">science</em> <em class="emphasis">fiction</em>
+against the whole Yahoo! search index, you'll retrieve a lot of
+stuff: 35 category and subcategory matches and 816 site matches. But
+you're not looking for science fiction in general; you're
+looking for science fiction movies. So, instead you can run the same
+<em class="emphasis">science fiction</em> search against the index for the
+Yahoo! subcategory <em class="emphasis">Movies and Films</em>. This time
+you'll be happier with your retrieval: 2 category and
+subcategory matches and 19 site matches. This is another excellent
+example of how hierarchical search zones allow for increased
+specificity, and therefore improved retrieval results.</p>
+</div>
+
+
+
+<a name="ch06-30-fm2xml" /><div class="sect3">
+<h3 class="sect3">6.5.2.4. Yesterday's news: Indexing recent content</h3>
+
+
+<p>
+<a name="INDEX-487" />
+<a name="INDEX-488" />
+<a name="INDEX-489" />Chronologically
+organized content allows for perhaps the easiest implementation of
+search zones. (Not surprisingly, it's probably the most common
+example of search zones.) Because dated materials are generally not
+ambiguous, indexing them by date is staightforward.</p>
+
+
+<p><em class="emphasis">News.Com</em> is a great example (<a href="ch06_05.htm#ch06-19451">Figure 6-17</a>); it supports highly flexible chronological
+searching by:</p>
+
+
+<blockquote class="simplelist">
+
+<p>Date Range (e.g., from 5/20/97 to 6/26/97)</p>
+
+<p>3 Days Back</p>
+
+<p>7 Days Back</p>
+
+<p>14 Days Back</p>
+
+<p>21 Days Back</p>
+
+<p>30 Days Back</p>
+
+<p>60 Days Back</p>
+
+<p>90 Days Back</p>
+
+</blockquote>
+
+
+<a name="ch06-19451" /><div class="figure"><img height="459" alt="Figure 6-17" src="figs/info_0617.gif" width="500" /></div><h4 class="objtitle">Figure 6-17. News.com's search interface uses two components (Date range and Number of days back) to allow for powerful chronological searching.</h4>
+
+<p>Regular users can return to the site and check up on the news
+depending on how regularly they use the site (e.g., every week, two
+weeks, three weeks). Users who are looking for news during a
+particular date range can essentially generate a custom search zone
+on the fly. The only negative in
+<em class="emphasis">News.Com</em>'s implementation is that they
+don't seem to support a search against all news articles,
+regardless of <a name="INDEX-490" /> <a name="INDEX-491" /> <a name="INDEX-492" /> <a name="INDEX-493" /> <a name="INDEX-494" />age.<a href="#FOOTNOTE-18">[18]</a>
+<a name="INDEX-495" />
+<a name="INDEX-496" /></p><blockquote class="footnote">
+
+<a name="FOOTNOTE-18" /><p>[18]There does seem to
+be a work-around to this problem: leave the pull-down menu on the
+default setting of Days back, and the resulting retrieval seems
+larger than 90 days. But this is simply a guess...</p>
+
+</blockquote>
+</div>
+</div>
+
+
+<hr align="left" width="684" />
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch06_04.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm"><img alt="Home" src="../gifs/txthome.gif" border="0" /></a></td><td width="228" valign="top" align="right"><a href="ch06_06.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr><tr><td width="228" valign="top" align="left">6.4. In an Ideal World: The Reference Interview</td><td width="228" valign="top" align="center"><a href="index/index.htm"><img alt="Book Index" src="../gifs/index.gif" border="0" /></a></td><td width="228" valign="top" align="right">6.6. To Search or Not To Search?</td></tr></table></div>
+<hr align="left" width="684" />
+
+<img alt="Library Navigation Links" src="../gifs/navbar.gif" border="0" usemap="#library-map" />
+<p><font size="-1"><a href="copyrght.htm">Copyright &copy; 2002</a> O'Reilly &amp; Associates. All rights reserved.</font></p>
+
+<map name="library-map"><area href="../index.htm" coords="0,1,78,93"" shape="rect" /><area href="../wdesign/index.htm" coords="89,1,164,98" shape="rect" /><area href="../xhtml/index.htm" coords="172,2,252,105" shape="rect" /><area href="../audio/index.htm" coords="257,1,359,100" shape="rect" /><area href="../css/index.htm" coords="364,2,444,132" shape="rect" /><area href="../action/index.htm" coords="452,1,547,126" shape="rect" /><area href="../infoarch/index.htm" coords="553,4,658,100" shape="rect" /></map>
+
+</body></html>

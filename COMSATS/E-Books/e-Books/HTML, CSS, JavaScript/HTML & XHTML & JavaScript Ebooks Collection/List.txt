@@ -1,0 +1,11 @@
+Install Notes: Extract the daa file with PowerISO.
+
+List:
+
+ Building a Web Site for Dummies.pdf
+ Building Small Business Websites.pdf
+ HTML & XHTML The Definitive Guide.pdf
+ HTML 3.2 and CGI Professional Reference Edition UNLEASHED
+ JavaScript Bible Gold Edition.pdf
+ Javascript Weekend crash course.pdf
+ Wrox - JavaScript Programmer's Reference.pdf

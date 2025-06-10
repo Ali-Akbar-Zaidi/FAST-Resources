@@ -1,0 +1,244 @@
+<html><head><title>Searching Systems (Information Architecture for the World Wide Web)</title><link href="../style/style1.css" type="text/css" rel="stylesheet" />
+
+<meta name="DC.Creator" content="Peter Morville and " /><meta scheme="MIME" content="text/xml" name="DC.Format" /><meta content="en-US" name="DC.Language" /><meta content="O'Reilly &amp; Associates, Inc." name="DC.Publisher" /><meta scheme="ISBN" name="DC.Source" content="1565922824L" /><meta name="DC.Subject.Keyword" content="stuff" /><meta name="DC.Title" content="Information Architecture for the World Wide Web" /><meta content="Text.Monograph" name="DC.Type" />
+
+</head><body bgcolor="#ffffff">
+
+<img alt="Book Home" src="gifs/smbanner.gif" border="0" usemap="#banner-map" /><map name="banner-map"><area alt="Information Architecture for the World Wide Web" href="index.htm" coords="1,-2,616,66" shape="rect" /><area alt="Search this book" href="jobjects/fsearch.htm" coords="629,-11,726,25" shape="rect" /></map>
+
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch05_07.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm">Information Architecture for the World Wide Web</a></td><td width="228" valign="top" align="right"><a href="ch06_02.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr></table></div>
+<hr align="left" width="684" />
+
+
+
+<h1 class="chapter">Chapter 6. Searching Systems</h1>
+<div class="htmltoc"><h4 class="tochead">Contents:</h4><p>
+<a href="ch06_01.htm">Searching and Your Web Site</a><br />
+<a href="ch06_02.htm">Understanding How Users Search</a><br />
+<a href="ch06_03.htm">Designing the Search Interface</a><br />
+<a href="ch06_04.htm">In an Ideal World: The Reference Interview</a><br />
+<a href="ch06_05.htm">Indexing the Right Stuff</a><br />
+<a href="ch06_06.htm">To Search or Not To Search?</a><br /></p></div>
+
+
+<div class="sect1"><a name="ch06-17167" />
+<h2 class="sect1">6.1. Searching and Your Web Site</h2>
+
+
+<p>
+<a name="INDEX-379" />The
+preceding three chapters were intended to help you create the best
+browsing system possible for your web site. This chapter describes
+when to use a search engine with your site and demonstrates
+techniques that will make searching work best for it.</p>
+
+
+<p>Throughout this chapter, we use examples of searching systems from
+major sites which allow you to search the entire Web, as well as
+site-specific search engines. Although these Web-wide tools are
+different in that they index a much broader collection of content
+than your search system will, it is nonetheless very useful to study
+them. Of all searching systems, none has undergone the testing,
+usage, and investment that Web-wide search tools have, so why not
+benefit from their research?</p>
+
+
+<a name="ch06-3-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.1.1. When Not To Make Your Site Searchable</h3>
+
+
+<p>
+<a name="INDEX-380" />Before we delve into
+searching systems, we need to make a point: think twice before you
+make your site searchable.</p>
+
+
+<p><em class="emphasis">What? What's the point of having a web site if people
+can't find information in it?</em></p>
+
+
+<p>
+<a name="INDEX-381" /> <a name="INDEX-382" />
+<a name="INDEX-383" />
+<a name="INDEX-384" />
+<a name="INDEX-385" />Your
+site should of course support the <em class="emphasis">finding</em> of its
+information. But don't assume a search engine alone will
+satisfy <em class="emphasis">all</em> users' information needs.
+While many users want to search a site, some just want to browse it.</p>
+
+
+<p>Also, does your site have enough content to merit the use of a search
+engine? How much is enough? It's hard to say. It could be five
+resources or fifty; no specific number serves as a threshold. Perhaps
+a site with five long, dense documents deserves a search engine more
+than one with a collection of twenty brief, well-labeled documents.
+In any case, you'll want to balance the time necessary to set
+up and maintain a searching system with the payoff it brings to your
+site's users.</p>
+
+
+<p>Because many site developers see search engines as
+<em class="emphasis">the</em> solution to the problems that users are
+experiencing when trying to find information in their sites, search
+engines become bandages for sites with poorly designed
+<em class="emphasis">browsing</em> systems. If you see yourself falling
+into this trap, you should probably suspend implementing your
+searching system until you fix your browsing system's problems.</p>
+
+
+<p>Search engines are fairly easy to get up and running, but like much
+of the Web, they are difficult to set up effectively. As a user of
+the Web, you've certainly seen incomprehensible search
+interfaces, and we're sure that your queries have retrieved
+some pretty strange results. This often is the result of a lack of
+planning by the site developer, who probably installed the search
+engine with its default settings, pointed it at his or her site, and
+forgot about it. So, if you don't plan on putting some
+significant time into configuring your search engine properly,
+reconsider your decision to implement it.</p>
+
+
+<p>Now that we've got our warnings and threats out of the way,
+we'll discuss when to implement searching systems, and how you
+can make them work better.<a name="INDEX-386" /> <a name="INDEX-387" /></p>
+</div>
+
+
+
+
+<a name="ch06-4-fm2xml" /><div class="sect2">
+<h3 class="sect2">6.1.2. When To Make Your Site Searchable</h3>
+
+
+<p>
+<a name="INDEX-388" />Most web sites, as we know,
+aren't planned out in much detail before they're built.
+Instead, they grow organically. This may be all right for smaller web
+sites that aren't likely to expand much, but for ones that
+become popular, more and more content and functional features get
+added haphazardly, leading to a navigation nightmare.</p>
+
+
+<p>There's a good analogy of physical architecture. Powell's
+Books (<a href="http://www.powells.com">http://www.powells.com</a>), which claims to
+be the largest bookstore in the world, covers an entire city block
+(43,000 square feet) in Portland, Oregon. We guess that it originally
+started as a single small storefront on that block, but as their
+business grew, they knocked a doorway through the wall into the next
+storefront, and so on, until they occupied the whole block. The
+result is a hodgepodge of chambers, halls with odd turns, and
+unexpected stairways. This chaotic labyrinth is a charming place to
+wander and browse, but if you're searching for a particular
+title, good luck. It will be difficult to find what you're
+looking for, although you might serendipitously stumble onto
+something better.</p>
+
+
+<p>Yahoo! once was a Web version of Powell's. Everything was
+there, but fairly easy to find. Why? Because Yahoo!, like the Web,
+was relatively small. At its inception, Yahoo! pointed to a few
+hundred Internet resources, made accessible through an easily
+browsable subject hierarchy. No search option was available,
+something unimaginable to Yahoo! users today. But things soon
+changed. Yahoo! had an excellent technical architecture that allowed
+site owners to easily self-register their sites, but Yahoo!'s
+information architecture wasn't very well-planned, and
+couldn't keep up with the increasing volume of resources that
+were added daily. Eventually, the subject hierarchy became too
+cumbersome to navigate, and the Yahoo! people installed a search
+engine as an alternative way of finding information in the site.
+Nowadays it's a decent bet that more people use Yahoo!'s
+search engine instead of browsing through all those hierarchical
+subject categories, although the browsable categories remain useful
+as a supplement to the searching process (and, in fact, are included
+in search results).</p>
+
+
+<p>Your site probably doesn't contain as much content as Yahoo!
+does, but if it's a substantial site, it probably merits a
+search engine. There are good reasons for this: users won't be
+willing to browse through your site's structure. Their time is
+limited, and their cognitive overload threshold is lower than you
+think. Interestingly, sometimes users won't browse for the
+<em class="emphasis">wrong</em> reasons; that is, they search when they
+don't necessarily know what to search for. Even though they
+would be better served by browsing, they search anyway.</p>
+
+
+<p>You should also consider creating a searching system for your site if
+it contains highly <a name="INDEX-389" />dynamic content. For example, if your site
+is a Web-based newspaper, you could be adding dozens of story files
+daily. For this reason, you probably wouldn't have the time
+each day to maintain elaborate tables of contents, browsable indices,
+and other browsing systems. A search engine can help you by
+automatically indexing the contents of the site once or many times
+per day. Automating this process ensures that users have quality
+access to your site's content, and you can spend time doing
+things other than manually indexing and linking the story
+files.<a name="INDEX-390" />
+<a name="INDEX-391" /></p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr align="left" width="684" />
+<div class="navbar"><table border="0" width="684"><tr><td width="228" valign="top" align="left"><a href="ch05_07.htm"><img alt="Previous" src="../gifs/txtpreva.gif" border="0" /></a></td><td width="228" valign="top" align="center"><a href="index.htm"><img alt="Home" src="../gifs/txthome.gif" border="0" /></a></td><td width="228" valign="top" align="right"><a href="ch06_02.htm"><img alt="Next" src="../gifs/txtnexta.gif" border="0" /></a></td></tr><tr><td width="228" valign="top" align="left">5.7. A Double Challenge</td><td width="228" valign="top" align="center"><a href="index/index.htm"><img alt="Book Index" src="../gifs/index.gif" border="0" /></a></td><td width="228" valign="top" align="right">6.2. Understanding How Users Search</td></tr></table></div>
+<hr align="left" width="684" />
+
+<img alt="Library Navigation Links" src="../gifs/navbar.gif" border="0" usemap="#library-map" />
+<p><font size="-1"><a href="copyrght.htm">Copyright &copy; 2002</a> O'Reilly &amp; Associates. All rights reserved.</font></p>
+
+<map name="library-map"><area href="../index.htm" coords="0,1,78,93"" shape="rect" /><area href="../wdesign/index.htm" coords="89,1,164,98" shape="rect" /><area href="../xhtml/index.htm" coords="172,2,252,105" shape="rect" /><area href="../audio/index.htm" coords="257,1,359,100" shape="rect" /><area href="../css/index.htm" coords="364,2,444,132" shape="rect" /><area href="../action/index.htm" coords="452,1,547,126" shape="rect" /><area href="../infoarch/index.htm" coords="553,4,658,100" shape="rect" /></map>
+
+</body></html>

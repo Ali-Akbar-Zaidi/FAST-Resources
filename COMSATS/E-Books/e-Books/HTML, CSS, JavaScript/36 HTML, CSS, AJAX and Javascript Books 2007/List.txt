@@ -1,0 +1,43 @@
+36 HTML, CSS, AJAX and Javascript Books
+ 
+
+ AJAX - Creating Web Pages With Asynchronous JavaScript And XML (2006).chm
+ AJAX And PHP - Building Responsive Web Applications (2006).pdf
+ Ajax Design Patterns (2006).chm
+ Ajax For Dummies (2006).pdf
+ Ajax For Web Application Developers (2006).chm
+ Ajax Hacks - Tips & Tools For Creating Responsive Websites (2006).chm
+ Ajax In Action (2006).pdf
+ Ajax On Rails (2006).chm
+ Ajax Patterns And Best Practices (2006).pdf
+ Beginning Ajax With ASP.NET (2006).pdf
+ Beginning Ajax With PHP - From Novice To Professional (2006).pdf
+ Beginning Google Maps Applications With PHP And Ajax - From Novice To Professional (2006).pdf
+ Beginning JavaScript With DOM Scripting And Ajax - From Novice To Professional (2006).pdf
+ Beginning XML With DOM And Ajax - From Novice To Professional (2006).pdf
+ CSS - The Definitive Guide, 3rd Edition (2006).chm
+ CSS - The Missing Manual (2006).chm
+ CSS Cookbook, 2nd Edition (2006).chm
+ CSS Hacks & Filters - Making Cascading Stylesheets Work (2005).pdf
+ CSS Instant Results (2006).chm
+ CSS Web Design for Dummies (2005).pdf
+ Creating Cool Web Sites With HTML, XHTML, And CSS (2004).pdf
+ Foundations Of Ajax (2006).pdf
+ Foundations Of Atlas - Rapid Ajax Development With ASP.NET 2.0 (2006).pdf
+ HTML & XHTML - The Definitive Guide, 6th Edition (2006).chm
+ HTML 4 For Dummies, 5th Edition (2005).pdf
+ HTML In 10 Simple Steps Or Less (2004).pdf
+ HTML Mastery - Semantics, Standards, And Styling (2006).pdf
+ HTML, XHTML, & CSS - Visual QuickStart Guide, 6th Edition (2006).chm
+ HTML, XHTML, & CSS Bible, 3rd Edition (2004).pdf
+ JavaScript & AJAX For The Web - Visual QuickStart Guide, 6th Edition (2006).chm
+ JavaScript Bible - Gold Edition (2001).pdf
+ JavaScript Bible, 5th Edition (2004).pdf
+ JavaScript In 10 Simple Steps Or Less (2004).pdf
+ JavaScript Phrasebook - Essential Code And Commands (2006).chm
+ JavaScript Programmer's Reference (2001).pdf
+ Learning JavaScript (2006).chm
+
+
+Install Notes:
+Extract or mount the file with PowerISO.

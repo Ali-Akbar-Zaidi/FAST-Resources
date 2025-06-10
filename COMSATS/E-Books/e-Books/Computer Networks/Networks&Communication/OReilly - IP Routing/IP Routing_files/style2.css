@@ -1,0 +1,141 @@
+.tiny {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, sans-serif, serif
+}
+.tinywhite {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px; COLOR: white; FONT-FAMILY: Verdana, sans-serif, serif; TEXT-DECORATION: none
+}
+A.nav {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: white; FONT-FAMILY: Verdana, Helvetica,          sans-serif; TEXT-DECORATION: none
+}
+A.nav2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: white; FONT-FAMILY: Verdana, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.nav:link {
+	COLOR: white
+}
+A.nav:visited {
+	COLOR: white
+}
+A.nav2:link {
+	COLOR: white
+}
+A.nav2:visited {
+	COLOR: white
+}
+FONT.xsm {
+	FONT-SIZE: 60%; FONT-FAMILY: Arial, Verdana, Helvetica,
+            sans-serif
+}
+FONT.nav3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: Verdana, Helvetica, sans-serif
+}
+FONT.code {
+	FONT-SIZE: 90%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, san-serif
+}
+FONT.code2 {
+	FONT-SIZE: 90%; COLOR: #000000; FONT-FAMILY: Courier, Arial, Helvetica, san-serif
+}
+FONT.code3 {
+	FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, san-serif
+}
+TT {
+	FONT-SIZE: 90%; COLOR: #000000; FONT-FAMILY: Arial, Helvetica, san-serif
+}
+FONT.body {
+	FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.body2 {
+	FONT-SIZE: 85%; COLOR: #000000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.bbody {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #000000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.bbody2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 85%; COLOR: #000000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.white2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 90%; COLOR: #ffffff; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.lgheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 140%; COLOR: black; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.xlgheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 140%; COLOR: black; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.header {
+	FONT-WEIGHT: bold; FONT-SIZE: 130%; COLOR: black; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.medheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 120%; COLOR: black; FONT-FAMILY: Times, serif
+}
+FONT.medheader2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 120%; COLOR: black; FONT-FAMILY: Times, serif
+}
+FONT.smheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 90%; COLOR: black; FONT-FAMILY: Times, serif
+}
+FONT.footer {
+	FONT-WEIGHT: bold; FONT-SIZE: 60%; FONT-FAMILY: Verdana, Arial, 
+               Helvetica, sans-serif
+}
+FONT.copy {
+	FONT-WEIGHT: lighter; FONT-SIZE: 60%; FONT-STYLE: italic; FONT-FAMILY: Verdana, Arial, 
+            Helvetica, sans-serif
+}
+FONT.whtheader {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: white; FONT-FAMILY: Times, serif
+}
+FONT.osconred {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #cc0000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.red {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #990000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.darkred {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #660000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.green {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #006600; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.win {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #0000cc; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.perl {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #006699; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.apache {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #009999; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.web {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #006666; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.sendmail {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #666666; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.php {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #660066; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.business {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #336600; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.linux {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #660000; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.mozilla {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #000099; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.tcl {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #0066cc; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.python {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #cc0099; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FONT.bsd {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #339933; FONT-FAMILY: "Times New Roman", Times, serif
+}
+FORM {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+INPUT {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}

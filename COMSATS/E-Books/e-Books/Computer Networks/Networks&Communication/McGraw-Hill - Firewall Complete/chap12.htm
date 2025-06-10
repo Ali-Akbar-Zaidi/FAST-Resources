@@ -1,0 +1,212 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap11.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap13.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 12</H1>
+<H1><I> Firewall Maintenance</I></H1>
+</B></I><P>The level of security you have implemented at your company is directly related to the amount of money you invested on it and the risks you’re willing to take. So you install a firewall!</P>
+<P>Firewall maintenance begins with its management, and as part of management you must not consider the installation of a firewall as the solution to all of your security problems. Always keep in mind, as stressed throughout this book, that firewalls provide a wide variety of controls, but in the end they are only a tool. A firewall is part of a diversified defense strategy that identifies what must be protected and identifies the potential threats. </P>
+<P>It seems obvious, but there is more to protecting a network than hardware and software. Security comes from the integration of reliable technology, active and alert systems administrators, and management decisions regarding user access to the Internet and other computer resources. Prudence demands the development of a comprehensive plan to deal with system security. You, as the administrator, along with your security staff, will have to define at least: </P>
+<OL>
+
+<LI>Which assets to be protected, and </LI>
+<LI>What it the level of risks those assets are exposed to.</LI></OL>
+
+
+<P>Therefore, your security policy must includes multiple strategies. Increasingly this is overlooked as administrators turn toward technology and firewalls in particular (and rely on them!), as a cure-all for their installation's security. This is a dangerous path to follow. Firewalls should not be called upon to perform increasingly complex and unreasonable tasks such as scanning packets for viruses, encrypted data and even foreign languages.</P>
+<P>Now, the firewall should not be forgotten either.  It’s not because it’s doing its job that you just we’ll let it alone.  Just like a car, in order for it to run well and efficiently it will require continuous care and attention.  Some times, an occasional drill will be necessary, as well as few checkups.  Never neglect a firewall!  The Internet is a wild thing!  If today your firewall is set up to protect your corporation from the know threats out there, tomorrow there might be a new one you’re not aware of and it will come to bite you. </P>
+<P>How much time you will have to allocate to care for your firewall will vary.  It will depend upon the type of firewall you have installed, the assets you’re protecting and the kind of Internet services and access you’re providing.</P>
+<P>Some company’s rely on routers to filter unwanted traffic connection.  If that is your case, what you have is a set of rules not so complicated to maintain.  As discussed before, with this kind of firewall, you’re either allowing or denying connections.  In this case, I have a good and a bad news for you: the good, the amount of time you will need to spend in caring for your firewall is almost none.  Except for allowing new connections or denying some more, there’s nothing more you can do, other then make sure that firewall is on and the NIC cards are still alive, which in case of failure you will notice right away anyway. The bad news is that you may be preventing desired traffic to come in, such as potential new customers, and not taking advantage of lots of Internet services and resources at Cyberspace. Make sure not to develop a bad rep for MIS! </P>
+<P>If you are one of the Fortune 500 company, you better have a complete and detailed security policy.  Otherwise you may be in for a ride! At the very least, you should be probing the network traffic coming to the firewall from the Internet, as well as leaving your protected network daily.  Don’t be surprise if your traffic measuring hits the gigabytes! Thus, to perform these probing manually is literally impossible. Your firewall must offer traffic probing, security alerts and report generation features. </P>
+<P>Since firewalls are usually in an ideal position to gather usage statistics, as all traffic must pass through them, you will be able to track usage of the network link on regular intervals and analyze them.  These analysis can greatly help you assess network usage and performance, as well as any security threat and countermeasure.  </P>
+<P>For instance, you can analyze which protocols are delivering the best performance, which subnets are the most accessed, and even, based on the information you collect, schedule service upgrades, bug fixes or if necessary, discover a security hole and plug it. </P>
+<P>If you have a packet filter firewall, you should have at least a basic understanding of the transport protocols that they see crossing the wires so you can care for it. In doing so, the filter rules that you will likely use, Alec Muffett well outlines in his paper (Alec.Muffett@UK.Sun.COM) are typically to control traffic on the basis of: </P>
+
+<UL>
+<B><LI>Transport endpoints</B>, or a notion of what's inside and what's outside the network. In the TCP/IP world, this is usually implemented by masking off portions of the source and destination addresses, and checking whether or not the remaining parts of the addresses refer to hosts inside the secured network. </LI>
+<B><LI>Transport protocol, </B>such as TCP, UDP, or raw IP. Other protocols may or may not be directly supported, or it may be assumed that they are to be tunneled through the firewall.</LI>
+<B><LI>Protocol options, </B>should be featured in any good firewall, which also should have the ability to "drop" traffic on the basis of protocol-dependent options which might compromise security if misused - for instance, the IP "source routing" option which can be utilized in traffic forgery. </LI></UL>
+
+<P>Muffett indicates that similar issues arise when trying to ensure proper handling of ICMP packets, for example, in trying to control messages necessary for the proper operation of IP.  Further, he alerts that the most critical facility in a packet filter is the ability to match network traffic against a table of permitted source and destination hosts (or networks), but it is also vitally important to note that the firewall's checking must be done against both ends of a connection, and must take into account the service port numbers at each end of the connection, otherwise the firewall may be trivially subverted. </P>
+
+<H2> Keeping Your Firewall in Tune</H2>
+</B></I><P>Tuning a firewall is just like bring your car for a tune up.  As with your car, a tune up of a firewall is necessary because you will,</P>
+
+<UL>
+<LI>Extend its life,</LI>
+<LI>Certify that it is running properly,</LI>
+<LI>Ensure the firewall is still promoting the secure environment to your corporation, as it was designed and implemented for,</LI>
+<LI>Optimize is operation and services,</LI>
+<LI>Perform any necessary upgrades, and</LI>
+<LI>Make sure all the firewall components are still functioning and interacting with each other.</LI></UL>
+
+
+<P>By periodically performing a tune-up in your firewall you will be able to fairly evaluate the load your firewall is taking and/or is capable of bearing and anticipate future problems or issues. By modeling its performance against a scaled number of measured loads you will be able to have a good picture of your firewall vital signs. </P>
+
+<P>The following section was based on a great paper written by Marcus J. Ranum (mjr@nfr.net), CEO of Network Flight Recorder, Inc.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more information of firewall, check Marcus Ranum’s personal Web site at http://www.clark.net/pub/mjr or http://www.nfr.net</PRE></FONT>.</P>
+</TD></TABLE>
+<P>The following is a firewall tune-up procedure a recommend you to do so you can have a &quot;health chart&quot; of your system:</P>
+<OL>
+
+<LI>Monitor your firewall for a month and store all the lof results.  AS many logs you have more accurate and complete will be results of your firewall &quot;physical&quot; exam!</LI>
+<P>By doing this you will have a first hand idea of the load going through your firewall, regardless if it is a packet or application level firewall. If the firewall is an application level firewall, this should be a breeze, as these firewall already provide you a lot of reports about the system by default. Now, if it is a packet-level firewall, like a router for example, then you will have to develop some kind of log-reduction, by using tools such as tcpdump, see figure 12.2 or NNstat. </P>
+<LI>Sort the logs by the time of day, per hour. </LI>
+<P>Notice that some hours of the day have higher peaks than others and exhibit different load characteristics. Sorting the logs at an hour interval evidences it.</P>
+<LI>Tabulate the batch of logs by services, yielding values like: </LI></OL>
+
+
+<UL>
+<LI>Number of email messages during that interval</LI>
+<LI>Average size of email messages during that interval</LI>
+<LI>Average time between arrival of email during that interval</LI>
+<LI>Number of web hits during that interval</LI>
+<LI>Average size of retrieved web objects during that interval</LI>
+<LI>Average time between web accesses during that interval </LI>
+<LI>Number of FTP retrieves during that interval </LI>
+<LI>Average size of FTP objects retrieved during that interval</LI>
+<LI>Average time between FTP retrievals during that interval </LI>
+<LI>Number of TELNET sessions during that interval </LI>
+<LI>Maximum concurrent TELNET sessions during that interval</LI>
+<LI>Amount of NNTP traffic in during that interval</LI>
+<LI>Amount of NNTP traffic out during that interval</LI>
+<LI>Average time between NNTP sessions during that interval </LI></UL>
+
+<OL>
+
+<LI>Note the peak load in any one interval for each service wherever it occurs.</LI>
+<P>If you were to put all that load through the firewall in one interval's worth of time, you would have a clear picture of the worst-case load you have yet observed.</P>
+<LI>Implementation tools to generate these loads from existing logs would be pretty straightforward and could be run at any site wishing to perform this test. Presumably the values would be different for each site but maybe not very. A number of expect scripts or PERL scripts, using static file data could simulate the load through the firewall without having to actually do the work. </LI>
+<LI>After this procedure you should have a basic "workload by interval" paradigm for your firewall in your company’s environment, including peaks and a worst case scenario.  With this data on hand you will be able to tune up your firewall based on the assumption of &quot;whatif&quot; the rate of load increase, by watching what happens to the rate of service requests between busy hours and non-busy hours. </LI>
+<P>Notice that you can could on the "workload by interval" result as sustainable by your firewall because you measured it, right? The goal here is to find out how far your firewall can go, from the doable load level and the load level at which the firewall topples. </P>
+<LI>Now you can write a test harness that invokes the emulators in a way that will develop the same load model. Values that you should control are: </LI></OL>
+
+
+<UL>
+<LI>Number of concurrent loads for service X</LI>
+<LI>Size of accesses for service X</LI>
+<LI>Interval between accesses for service X </LI></UL>
+
+<OL>
+
+<LI>Run the test harness with the load configured to match the loadout at a given time that is not peak but someplace near it. </LI>
+<LI>Compare the run times for the near peak load with the actual measured near peak load. </LI>
+<P>Notice that hey should be about the same!! </P>
+<LI>Run the test harness to emulate the peak load</LI>
+<LI>Now compare the run times for the peak load with the run times for the actual measured peak load. </LI>
+<P>Again, notice that they should be about the same!! </P>
+<LI>Now, you have a template to fine tune your firewall, based on what happens to it when the traffic load increases above real measured values!! </LI></OL>
+
+
+<H2> Monitoring Your System</H2>
+</B></I><P>A firewall configuration must have a management module, pay close attention to this when selecting your firewall product. Chapter 14, &quot;Types of Firewalls,&quot; provides information about the management features of the main firewalls available on the market. Management features are key for monitoring your firewall and inspecting its functioning. </P>
+<P>When monitoring your system, you should be concern about protecting the confidentiality of your users, the sensitivity of your devices and the security of your network in general. Most firewall do feature inspection mechanisms, many provide authentication and encryption. </P>
+<P>A good precaution when preventing attacks and unnecessary risks on your firewall is to strip your bastion host down to the barest minimum of required functionality. I recommend you to remove all unnecessary software. Why would you risk running possibly dangerous software on the most critical host on your network? Why have the software installed on that machine at all? </P>
+<P>Change the shells that are associated with passive systems accounts to something harmless like /bin/false - or better still, install a custom "shell" of some sort that triggers an alarm when invoked, and use that. </P>
+<P>You should monitor password usage.  There are several tools out there to check the security of passwords used by your users, just stop by at URL http://www.simtel.net/nt (if you have an Windows NT-based system) and check the security section. Consider using those digital token authentication devices.</P>
+
+<H2><I> Monitoring the Unmonitored Threats</I></H2>
+</B></I><P>A firewall is not a final solution.  You will need more then just a firewall to really secure your site. Thus, a firewall may not be able to tell you everything that’s going on in your gateway, who’s leaving, who’s coming, especially &quot;what’s&quot; coming! For instance, most firewalls could not protect against an E-Mail message destined for delivery to a valid user. So what for e-mail messages with attachments!  These attachments could turn out to be a Trojan horse, a malicious applet, that could turn off your firewall from inside or bomb your protected network! So never consider the installation of a firewall a complete solution to all of your security woes.</P>
+<P>Firewalls can screen traffic, and do so very effectively, but they do not give total protection from the contents of the data therein. A complete solution requires you to undertake security measures at all levels of network usage, from application access (access control and encryption) through the network layer (preventing spoofing, etc.) to the physical layer (restricting unauthorized connections to your network). That’s why I started this book talking about the main security issues with the Internet services, on chapter 1, &quot;Internetworking Protocols and Standards: An Overview,&quot; and 3, &quot;Cryptography: Is it Enough?&quot; I suggest you to read those chapters so that you can better understand the weaknesses of these services and help your firewall to promote security by plugging the holes of the services you must need to use and making sure the information assets of your company (e-mail messages and documents, including financial data) are protected. By doing this, soon you will conclude that network security is not just a job for a firewall. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>You should subscribe to GreatCircles firewall maillist archive at URL ftp://ftp.greatcircle.com/pub/firewalls/. This list has plenty reference material, and past issues of the digested "Firewalls" maillist. To subscribe send message to majordomo@greatcircle.com and write in the body of the message: subscribe firewalls you@your.email.addro. </P>
+<P>Also, check the TIS Firewall Toolkit at URL ftp://ftp.tis.com/pub/firewalls/. You will find here a free set of proxy clients and associated firewalling tools, as well as many technical papers upon the subject. </P>
+</TD></TABLE>
+<H2> Preventive and Curative Maintenance</H2>
+</B></I><P>In order to keep your firewall in a good shape, you most provide some maintenance to it, and in doing so, it is very important that you keep talking to your vendors. Watch for reports of security patches; ask your vendors about it. Participate on firewall lists, such as the one hosted by Brent Chapman, of GreatCircles, which I strongly recommend (http://www.greatcircles.com). What for new patch releases for your firewall of operating system, and when they come out, apply them.  But wait! Make sure to confirm with your vendor that this new patch is secure and stable, as some to more bad then good! Also, be careful with false patches, as every now and then you will find someone creating a Trojan horse patch and trying to pass it off as the real thing. </P>
+<P>Therefore, you must maintain your firewall system regularly. Doing so you will be conducting two types of maintenance: a preventive and a curative one. The preventive maintenance is the one you do to play safe, the one ruled by Murphy’s law (&quot;whatever bad can happen to the system WILL happen&quot;). The curative one will be done to resolve a problem, to cure a security hole or a flaw in the system’s code and so forth.  Usually this is done when the vendor releases a new patch, when you have a system’s corruption, due to nature disaster, etc., or if the firewall is compromised, as a result of an attack.</P>
+<P>The following is a list of good habits, steps and procedures you should follow in order to keep your firewall working properly, which includes both preventive and curative measures:</P>
+<OL>
+
+<B><LI>Back up all firewall components</B>, not only the bastion host(s), loaded with firewall software, but also the routers. </LI>
+<B><LI>Make sure when adding new management accounts on a firewall</B>, as it’s very important to maintain your firewall system secure at all times. New accounts must be added correctly, as well as old accounts removed, and make sure to change passwords after deleting an user account.  My recommendation is that you should limit the number of user accounts on the firewall, only allowing administrators to access it. </LI>
+<B><LI>Watch the log reports of traffic passing through the firewall</B>. Data always expands to fill all available space, even on machines that have almost no users. Unfortunately, there is no automatic way to find junk on the disk. Auditing programs, like Tripwire, will alert on new files that appear in supposedly static areas. The main disk space problem will be firewall logs. These can and should be rotated automatically with old logs being stored for a minimum of one year. </LI>
+<B><LI>Monitors your system</B>. By creating a habit of monitoring your system you will be able to determine several things: </LI></OL>
+
+
+<UL>
+<LI>Has the firewall been under any form of attack?</LI>
+<LI>If so, what kinds of attacks are being tried against the firewall?</LI>
+<LI>Is the firewall holding up to this attacks, in working correctly?</LI>
+<LI>Is the firewall able to provide the service users need? </LI>
+<LI>Monitor attempts to use the services you disable. </LI>
+<LI>Configure your system so that any activities related to security is recorded on a log report. </LI>
+<LI>If your firewall doesn’t provide an auditing software, install one, such as Tripwire or L5, run it regularly to spot unexpected changes to your system. </LI>
+<LI>Log your most critical events to hardcopy if at all possible, and check your logs frequently! Your logs are critical. Most of the time you won’t find nothing fun in there, but maybe one of these days you may find an evidence that something is wrong, and you will be thankful to yourself for having coped with this ordeal of checking boring logs.</LI></UL>
+
+
+<OL>
+
+<B><LI>Be on alert for abnormal conditions of your firewall.</B> Develop a security checklist, watching for:</LI></OL>
+
+
+<UL>
+<LI>All packets that were dropped</LI>
+<LI>Denied connections, as well as rejected attempts.</LI>
+<LI>Data such as time, protocol, and user name of all successful connection to or through the firewall.</LI>
+<LI>All error messages from your routers, firewalls and any proxying programs.</LI>
+<LI>Exceptions based on your normal firewall activity. Figure 12.01 outlines a basic access policy.</LI></UL>
+
+
+<!--<B><P>Figure 12.01</P>-->
+<!--</B><I><P>Basic access policy based on the level of protection you want to implement</P></I>-->
+<H2><I> Preventing Security Breaches on Your Firewall</I></H2>
+</B></I><P>Many application level firewalls are already built on the premise that preventing network security problems from occurring in the first place is the best way to resolve them. That should be also your philosophy when implementing and maintaining one.</P>
+<P>Several firewall vendors sees prevention as such an important aspect that many are including a security scanning system.  Technologic’s Interceptor (http://www.tlogic.com), for instance, is one of them. Rather than investing in expensive outside security audits, or performing time-consuming internal verifications, with Interceptor, you can confirm that the firewall is doing its job through an Internet Scanner from Internet Security Systems, Inc., which barrages the firewall with simulated break-in attempts. The Internet Scanner is a fast, effective way to verify that Interceptor is configured correctly, and that no security weaknesses have been overlooked.</P>
+<P>As outlined above, another preventive maintenance you should periodically perform is to create security-checking reports. This reports can further assist you in identifying potential security problems with your system. Most of the firewall listed on chapter 14, &quot;Types of Firewalls,&quot; produces detailed audit logs of all network traffic activity, as well as other easy-to-read management reports on network access and usage. By regularly reviewing these reports, you will become familiar with network usage patterns, and will be able to recognize aberrations that even hint at trouble. </P>
+
+<H2><I> Identifying Security Holes</I></H2>
+</B></I><P>An important first step you should take during the implementation of a firewall is to establish a security policy that defines acceptable use. As discussed on chapter 10, &quot;Putting It Together: Firewall Design and Implementation,&quot; very frequently, enforcing your security policy and measuring its effectiveness is usually next to impossible. When new machines or applications are configured, the security related issues are often overlooked. Therefore, the gap between central policy and decentralized practice can be immense. This is what I refer to as the security holes, which can also be generated by bugs in the OS or application. </P>
+<P>Remember: If you can measure your security risks, you can control them. Effective control of security risks can only be implemented by assessing the network’s security profile. The process of auditing security, correcting vulnerabilities and continuously monitoring activities can close at least most of the security holes not related to the OS or depending on patches.</P>
+
+<H2> Recycling Your Firewall</H2>
+</B></I><P>Just like every other component or device in your network, firewalls also need to be updated so that they can continue to perform and respond to new threads.</P>
+<P>Not that you should be pessimist, but if you consider your firewall solution out of date the day you install it, you will be more able to cope with the constant need to update and cover new services under your firewall, some times, especially if you have a packet filtering firewall, you may even need to recycle it. </P>
+<P>Of course, you need access to Internet mail and newsgroups, vendors, and other users to be a part of the dialog about changes in network security practices. You also need executive support to be able to avoid having to jump on the bandwagon for every new system that comes along. Just as with application upgrades, it is not necessary to add a new service to your network the day it is issued from the vendors. It is safer to wait and watch a bit while the market "shakes out" the bugs and new security strategies develop. But without a doubt, your firewall is not forever, and eventually you will need to recycle it, update it to say the least.</P>
+<P>In the case of system failure other than due to intentional human actions, the main goal in bring the firewall back should be a threefold:  1) to ensure the persistence, and 2) to secure all information; and 3) to facilitate restart. In your organization, accomplishing these goals is achieved by maintaining backup files of all information on a replicate server, located inside the firewall.</P></BODY>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap11.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap13.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>
+

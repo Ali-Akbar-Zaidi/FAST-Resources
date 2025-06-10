@@ -1,0 +1,1105 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Firewalls Complete - Beta Version</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap02.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap04.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+
+<TR><TD COLSPAN=2><FONT FACE="ARIEL,HELVETICA" SIZE=-1><I>&copy; 1997 The McGraw-Hill Companies, Inc.  All rights reserved.  <BR>Any use of this Beta Book is subject to the rules stated in the <A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" target="_top">Terms of Use</A>.</I></FONT></TD></TR>
+
+</TABLE>
+<HR>
+<P>
+<H1> Chapter 3</H1>
+<H1><I>Cryptography: Is it Enough?</LI></I></H1>
+
+</B></I><P>Never mind personal use! Encryption will be widely adopted to protect transactions over the electronic commerce industry, despite what the government concerns are with regards to national security.</P>
+<P>The increasing growth of the electronic commerce are pushing the issue of data encryption to the main courts, as more and more there is a need for companies and netizens to protect their privacy on the Internet, as well as their commercial and financial transactions.  But the government is a bit nervous about it as, for the first time, encryption can block the watchful eyes of the law enforcement agencies over individuals, which in fact, is a double-edged sword, as if powerful encryption schemes is to fall into the wrong hands it can represent freedom for crimes to be committed and go undetected.</P>
+<P>Cryptography’s main tool, the computer, is now available everywhere! Since the World War II (WWII) governments worldwide have been trying to control the use of data encryption (ask Phil Zimmermann about it!!). No longer we need Colossus, the computer built during WWII to crack the German military’s secret code!  My 14 years old son already uses a Pentium at home, access the Internet and encrypts his files with CodeDrag!</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>What about Phil Zimmermann?</P>
+<P>He was the developer of Pretty Good Privacy, an encryption tool he placed on the Internet after he finished developing it, in which he was persecuted by the U.S. government for it. For more information and details about the whole case, check the URL http://web.its.smu.edu/~dmcnickl/miscell/warnzimm.html</P>
+</TD></TABLE>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>What is CodeDrag?</P>
+<P>CodeDrag, as shown on figure 3.1, is very fast encryption tool that uses a fast C-implementation of the DES-algorithm to increased speed. It was developed at the University of Linz, Austria, as an example tool to demonstrate the new possibilities of the Windows 95 shell, as CodeDrag is fully embedded into the Windows desktop. For more information you can contact the developing team at dragon@fim.uni-linz.ac.at or visit their site (and download a copy of CodeDrag) from URL http://www.fim.uni-linz.ac.at/codeddrag/codedrag.htm.</P>
+</TD></TABLE>
+<!--<B><P>Figure 3.1</P>-->
+<!--</B><I><P>CodeDrag, encryption tool, developed at University of Linz, Austria.</P></I>-->
+
+<P>Since 1979, the National Security Agency (NSA) had classified any form of encryption as weapons, compared to fighter jets and nuclear missiles.  However, people like Zimmermann, concerned with privacy and civil rights, have been fighting against exclusive government control of encryption. During the 70, Whitfield Diffie, of Stanford Research Institute, developed what is today known as public key cryptography, which is discussed in more details later on this chapter.</P>
+<P>Diffie’s innovation actually created a revolution in the encryption world back there, especially among the government.  The problems was that, while the government’s secret agencies were still using single key schemes, which would rely upon both the sender and the receiver of an encoded message having access to the key, he proposed a dual-key approach which made it much simpler to encrypt data.</P>
+<P>Not long time later, in 1977, a company found by three scientists from the Massachusetts Institute of Technology (MIT), RSA Data Security, introduced the first public key cryptography software and obtained US patents for the scheme.</P>
+<P>It was in 1991 that Zimmermann, then a computer programmer, launched his &quot;Pretty Good Privacy&quot; (PGP) encryption software and distributed it freely on the Internet, making it internationally available. Not only his action got the governments attention to him, which lead to his persecution, but even RSA Data Security also condemn PGP, classifying it as a threat to its commercial interests.</P>
+<P>Nowadays, even commercial software companies are developing their own encryption products. Take Netscape, for example, which developed and freely distributed their security scheme all over the Internet as well. Netscape’s Secure Sockets Layer (SSL) encryption scheme uses 56 character key to increase data security. Microsoft also come up with an encryption tool, know as Private Communications Technology (PCT) protocol.</P>
+<P>As discussed in the past two chapters, computer network security is becoming increasingly important as the number of networks increase and network size expands.  Besides, the Internet has also become an extension of the protected networks of a corporation.  Until last year, Intranets were something new, but only a little more than an year later we are already talking and investing into Extranets. As the sharing of resources and information worldwide (Cyberspace included!) becomes easier, the ability to protect information and resources against unauthorized use becomes critical.</P>
+<P>By now you already realized that it is not possible to have a 100% secure network. At the same time, information needs to be accessible to be useful.  Balancing accessibility and security is always a tradeoff and is a policy decision made by management. </P>
+<P>Good security involves careful planning of a security policy, which should include access control and authentication mechanisms. These security strategies and procedures can range from a very simple password policy to complex encryption schemes. Assuming that you have already implemented at least a password policy at your organization (you did it right?!), this chapter will be discussing about the many levels and types of encryption schemes and when it is enough. Is it?</P>
+
+<H2><B><I>Introduction</LI></H2>
+
+</B></I><P>Encrypting the information of your company can be an important security method and provides one of the most basic security services in a network: authentication exchange. Other methods, such as Digital Signatures and data confidentiality, also use encryption.</P>
+
+<H2><B><I>Symmetric Key Encryption (Private Keys)</LI></H2>
+
+</B></I><P>There are several encryption techniques available on the market, using several kinds of algorithms, but the two main ones are the ones using keys and those not relying on keys at all.</P>
+<P>Encryption techniques not using any keys are very simple and they work by transforming, scrambling, the information being encrypted. For instance, you could encrypt a message written in English text by just adding a number to the ASCII value of each letter, which could give a result as shown on figure 3.2. Although apparently secure, this sort of algorithm is not so secure. Actually, they are very easy to decipher. Once you learn the algorithm you will be able to decipher the encrypted information.</P>
+
+<!--<B><P>Figure 3.2</P>-->
+<!--</B><I><P>Example of an encrypted message</P></I>-->
+<P>There are more secure algorithms that use a sort of key along with the data. Two major types of encryption algorithms are private key encryption and public key encryption, to be discussed in more details later. A private key is also called a single key, secrete key, or symmetric key. A public key is also called an asymmetric key.</P>
+<P>With private key encryption algorithms, only one key exists. The same key value is used for both encryption and decryption. In order to ensure security, you must protect this key and only you should know it. Kerberos, for example, which is discussed in more details later on this chapter, is an authentication protocol that uses private key algorithms.</P>
+<P>Another characteristic of private key encryption is that the keys used are usually small, making its algorithms computation relatively fast and easier then asynchronous ones.</P>
+<P>One of the main limitations of using private key encryption is when distributing it to everyone who needs it, especially because the distribution itself must be secure. Otherwise you could expose and compromise the key and therefore, all the information encrypted with it. Thus, it becomes necessary for you to change your private key encryption every so often.</P>
+<P>If you only have private key schemes available to you, I recommend you to use it with digital signatures, as they are much more versatile and secure.</P>
+
+<H2><I><B><I>Data Encryption Standard (DES)</LI></I></H2>
+
+</B></I><P>The Data Encryption Standard (DES) is one of the most commonly used private key algorithm. DES was developed by IBM and became a U.S. Government standard in 1976. This is a well known algorithm, with a large implementation base in commercial and government applications. As mentioned earlier, Kerberos uses the DES algorithm to encrypt messages and create the private keys used during various transactions.</P>
+<P>DES is very fast.  According to RSA Labs, when DES is implemented entirely in software, it is at least 100 times faster than the RSA algorithm. But if implemented in hardware, DES can outperform the RSA algorithm by 1000 or even 10000 times since DES uses S-boxes, which have very simple table-lookup functions, while RSA depends on very-large-integer arithmetic.</P>
+<P>DES uses the same algorithm for encryption and decryption. The key can be just about any 64-bit number. Because of the way the algorithm works, the effective length is 56 bits. NIST certified DES for use as an official US Government encryption standard but only for &quot;less-than-top-secret secret material.&quot; Although DES is considered very secure, there are actually two known ways to break it:</P>
+
+<UL>
+<LI>Through an exhaustive search of the keyspace, providing a total of 2^56 (about 7.2*10^16) possible keys, which would take about 2,000 years if you were to test one million keys every second, and</LI>
+<LI>Good luck!</LI></UL>
+
+<P>Until recently, DES was never been broken and was believed to be secure. But a group of Internet users, working together in a coordinated effort to solve the RSA DES challenge, see figure 3.3, for over four months finally broke the algorithm. The group checked nearly 18 quadrillion keys, finding the one correct key to reveal the encrypted message: </P>
+<B><P ALIGN="CENTER">&quot;Strong cryptography makes the world a safer place.&quot;</P>
+</B>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>The U.S. Government forbids export of hardware and software products that contain certain DES implementations. American exporters must adhere to this policy even though implementations of DES are widely available outside of the United States.</P>
+</TD></TABLE>
+<!--<B><P>Figure 3.3</P>-->
+<!--</B><I><P>The $10,000 DES Challenge site</P></I>-->
+<P>The group used a technique called &quot;brute-force&quot;, where the computers participating in the challenge began trying every possible decryption key.  There are over 72 quadrillion keys (72,057,594,037,927,936). At the time the winning key was reported to RSA Data Security, Inc, in June of 97, the group, known as DESCHALL (DES Challenge), had already searched almost 25% of the total possibilities. During the pick time of the group’s efforts 7 billion keys were being tested per second. Figure 3.4. is a screenshot of the DESCHALL site, located at URL http://www.frii.com/~rcv/deschall.htm</P>
+
+<!--<B><P>Figure 3.4</P>-->
+<!--</B><I><P>The DESCHALL Web site: Cracking the DES algorithm</P></I>-->
+<P>Although DES was cracked, it has remained a secure algorithm for over 20 years.  The brute-force attack used against DES is very common when trying to decipher an algorithm.  Although you must try all the possible 2^56 keys of DES on a plaintext and match the result against the known corresponding ciphertext, by using differential cryptanalysis you could reduce the amount of tryouts to 2^47, which is still a big project to undertake. If DES were to use a key longer than 56-bit key, the possibilities of cracking it would be nearly to impossible.</P>
+
+<H2><I><B><I>International Data Encryption Algorithm (IDEA)</LI></I></H2>
+
+</B></I><P>International Data Encryption Algorithm (IDEA) is one of the best and most secure algorithms available. Developed by Xuejia Lai and James Massey of the Swiss Federal Institute of Technology, IDEA uses a block size of 64 bits, sufficiently strong against cryptanalysis. IDEA also uses a cipher feedback operation that strengthens the algorithm even further. In this mode, ciphertext is used as input into the encryption algorithm. </P>
+<P>Another important feature of IDEA is its key length of 128 bits. As you saw with DES, the longer the key, the better. Also, IDEA gives no clues to the contents of the plain-text when you try to decipher it, it spreads out a single plain-text bit over many ciphertext bits, hiding the statistical structure of the plain-text completely. </P>
+<P>Nevertheless, IDEA does have minimum requirements, and it will need a 64 bits of message text in a single coding block in order to ensure a strong ciphertext. If you’re encrypting large amount of data, it shouldn’t be a problem, but not indicated for situations where 1 byte keystrokes are exchanged. Clearly, IDEA is ideal for FTP, when large amount of data are transmitted. However, as you might guess, it would work very poorly with Telnet. </P>
+<P>Fauzan Mirza developed a secure file encryption program called Tiny IDEA (http://www.dcs.rhbnc.ac.uk/~fauzan/tinyidea.html). Figure 3.5 shows a screenshot of Tiny IDEA’s site, where the program can be downloaded and instructions and additional information about the program is available.</P>
+
+<!--<B><P>Figure 3.5</P>-->
+<!--</B><I><P>The Tiny IDEA encryption site.</P></I>-->
+<H2><I><B><I>CAST</LI></I></H2>
+
+</B></I><P>Developed by Carlisle Adams and Stafford Tavares, CAST algorithm uses a 64-bit block size and a 64-bit key. The algorithm uses a six S-boxes with an 8-bit input and a 32-bit output. Don’t even ask me about the constitution of these S-boxes, as it is very complicated and out of the scope of this book.  For that I strongly recommend Bruce Schneier’s book &quot;Applied Cryptography,&quot; by John Wiley (ISBN 0-471-11709-9), which is a great book for those wanting to dig into cryptography.</P>
+<P>CAST encryption is done by dividing the plaintext block into two smaller blocks, left and right blocks. The algorithm has eight rounds and in each round one half of the plaintext block is combined with some key material using a function &quot;f&quot; and then XORed with the other block, the left one to form a new right block.  The old right hand becomes the new left hand.  After doing this eight times the two halves now will be concatenated as a ciphertext. Table 3.1 shows the &quot;f&quot; function, according to the example of Schneier in the above mentioned book, page 335, which is very simple.</P>
+
+<B><P>Table 3.1 - The Function used by CAST for encryption of plaintext blocks into a ciphertext.</P></B>
+<TABLE BORDER CELLSPACING=1 BORDERCOLOR="#000000" CELLPADDING=7 WIDTH=590>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>1</TD>
+<TD WIDTH="94%" VALIGN="TOP">
+<P>Divide the 32-bit input into four 8-bit quarters: a, b, c, d.</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>2</TD>
+<TD WIDTH="94%" VALIGN="TOP">
+<P>Divide the 16-bit subkey into two 8-bit halves: e, f.</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>3</TD>
+<TD WIDTH="94%" VALIGN="TOP">
+<P>Process a through S-box 1, b through S-box 2, c through S-box 3, d through S-box 4, e through S-box 5, and f through S-box 6.</TD>
+</TR>
+<TR><TD WIDTH="6%" VALIGN="TOP">
+<P>4</TD>
+<TD WIDTH="94%" VALIGN="TOP">
+<P>XOR the six S-box outputs together to get the final 32-bit output.</TD>
+</TR>
+</TABLE>
+
+
+<P>&nbsp;</P>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>What are S-boxes?</P>
+<P>S-boxes, or selection boxes, are a set of highly non-linear functions, which are implemented in DES as a set of lookup tables. They are the functions that actually carry out the encryption and decryption processes under DES. </P>
+</TD></TABLE>
+<P>Figure 3.6 is a screenshot of a DES S-boxes site at the College of William and Mary, courtesy of Serge Hallyn at URL  http://www.cs.wm.edu/~hallyn/des/sbox.html, which is worthwhile for you to check. Also, for your convenience, figures 3.7 through 3.14 are screenshots of DES S-box 1 through 8 respectively.</P>
+
+<!--<B><P>Figure 3.6</P>-->
+<!--</B><I><P>DES S-boxes site at College of William and Mary</P></I>-->
+<!--<B><P>Figure 3.7</P>-->
+<!--</B><I><P>DES S-box 1</P></I>-->
+<!--<B><P>Figure 3.8</P>-->
+<!--</B><I><P>DES S-box 2</P></I>-->
+<!--<B><P>Figure 3.9</P>-->
+<!--</B><I><P>DES S-box 3</P></I>-->
+<!--<B><P>Figure 3.10</P>-->
+<!--</B><I><P>DES S-box 4</P></I>-->
+<!--<B><P>Figure 3.11</P>-->
+<!--</B><I><P>DES S-box 5</P></I>-->
+<!--<B><P>Figure 3.12</P>-->
+<!--</B><I><P>DES S-box 6</P></I>-->
+<!--<B><P>Figure 3.13</P>-->
+<!--</B><I><P>DES S-box 7</P></I>-->
+<!--<B><P>Figure 3.14</P>-->
+<!--</B><I><P>DES S-box 8</P></I>-->
+<H2><I><B><I>Skipjack</LI></I></H2>
+
+</B></I><P>Skipjack is an encryption algorithm developed by the National Security Agency (NSA) for the Clipper chips. Unfortunately, not much is known about the algorithm, as it is classified as secret by the US government. It is known that this is a symmetric algorithm, which uses a 80-bit key and has 32 rounds of processing per each encrypt or decrypt operation.</P>
+<P>The Clipper-chip is a commercial chip made by NSA for encryption, using the Skipjack algorithm. AT&amp;T does have plans to be using the Clipper for encrypted voice phone lines.</P>
+
+<H3> But is Skipjack Secure?</H3>
+</B><P>As far as I know, NSA has been using Skipjack to encrypt it’s own messaging system, so that leads to think the algorithm itself is secure. Skipjack uses 80-bit keys, which means there are 2^80 (approximately 10^24) or more than 1 trillion trillion possible keys to be used!! This means that (ready for this?!) it would take more than 400 billion years for every key of the algorithm to tried!</P>
+<P>To give you a better perspective, if we were to assume the use of 100,000 RISC computers, each with the capability of cranking about 100,000 encryptions per second, it would still take about 4 million years for a code to be broken.  </P>
+<P>The developers of Skipjack estimated that the cost of processing power to break the algorithm is halved every eighteen months, and based on that that it would take at least 36 years before the cost of breaking Skipjack by brute-force to be equal to the cost of breaking DES today.  Thus, they believe that there is no risk for Skipjack to be broken within the next 30-40 years. Besides, it is also known that the strength of Skipjack against a cryptanalytic attack does not depend on the secrecy of the algorithm, so even if the algorithm were to be known, Skipjack would still believed to be very secure.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For detailed information on Skipjack, check the URL http://www.cpsr.org/cpsr/privacy/crypto/clipper/skipjack_interim_review.txt, which provides a complete overview about it.</P>
+</TD></TABLE>
+<P>Clipper uses Skipjack with two keys, and whoever knows the chip’s &quot;master key&quot; should be able to decrypt all messages encrypted with it. Thus, NSA could, at least in thesis, decrypt Clipper-encrypted messages with this &quot;master-key&quot; if necessary. This method of tampering with the algorithms is what is so called and know as the key escrow.</P>
+<P>There are many resistance from concerned citizens and the business sector against the Clipper-chip as they perceive it as an invasion of their privacy. If you check the URL http://www.austinlinks.com/Crypto/non-tech.html you will find detailed information about the Clipper wiretap chip. </P>
+
+<H2><I><B><I>RC2/RC4</LI></I></H2>
+
+</B></I><P>RC4, which used to be a trade secret until the source code was posted in the USENET, is a very fast algorithm, designed by RSA Data Security, Inc. RC4 is considered a strong cipher, but the exportable version of Netscape’s Secure Socket Layer (SSL), which uses RC4-40, was recently broken by at least two independent groups which took them about eight days.</P>
+<P>Table 3.2 gives you an idea of how the different symmetric cryptosystems compare to each other.</P>
+
+<B><P>Table 3.2 - A Symmetric Cryptosystems Comparison Table</P></B>
+<TABLE BORDER CELLSPACING=1 BORDERCOLOR="#000000" CELLPADDING=7 WIDTH=520>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>Cipher</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<B><P>Security</B></TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<B><P>Speed (486 pc)</B></TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<B><P>Key length</B></TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>DES</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>low</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>400 kb/s</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>56 bits</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>3DES</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>good</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>150 kb/s</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>112 bits</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>IDEA</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>good*</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>200 kb/s</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>128 bits</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>3IDEA</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>very good*</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>~100 kb/s</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>256 bits</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>Skipjack</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>good*</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>~400 kb/s</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>80 bits</TD>
+</TR>
+<TR><TD WIDTH="27%" VALIGN="TOP">
+<B><P>CLIPPER chip</B></TD>
+<TD WIDTH="23%" VALIGN="TOP">
+<P>good**</TD>
+<TD WIDTH="30%" VALIGN="TOP">
+<P>-</TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>80 bits</TD>
+</TR>
+</TABLE>
+
+<DIR>
+
+<P>* the algorithm is believed to be strong </P>
+<P>** the algorithm itself is good, but it has a built-in weakness</P>
+</DIR>
+
+<H2><B><I>Asymmetric Key Encryption/Public Key Encryption:</LI></H2>
+
+</B></I><P>In this cryptosystem model, two keys, used together, are needed. One of the keys always remains secret while the other one becomes public. You can use each key for both encryption and decryption. Public key encryption helps solve the problem of distributing the key to users.</P>
+<P>Some examples of public key encryption usage includes:</P>
+
+<UL>
+<B><LI>Certificates</B> to ensure that the correct public and private keys are being used in the transaction.</LI>
+<B><LI>Digital Signatures</B> to provide a way for the receiver to confirm that the message came from the stated sender. In this case, only the user knows the private key and keeps it secret. The user’s public key is then publicly exposed so that anyone communicating with the user can use it.</LI>
+<B><LI>Plaintext</B> encrypted with a private key can be deciphered with the corresponding public key or even the same private key.</LI></UL>
+
+
+<P>One of the main public key encryption algorithm is RSA, which was named after its inventors, Rivest, Shamir, and Adleman. These public key algorithms always have advantages and disadvantages. Usually, the encryption and decryption of the algorithms use large keys, often with 100 or more digits. That’s why the industry has the tendency to resolve key management and computing overhead problems by using smart cards such as SecureID and so on.</P>
+<P>Zimmermann’s Pretty Good Privacy (PGP), is an example of a public-key system, which is actually becoming very popular for transmitting information via the Internet. These keys are simple to use and offer a great level of security. The only inconvenient is to know the recipients’ public key, and as its usage increases, there are a lot of public keys out there, without a central place to be stored.  But there is a &quot;global registry of public keys&quot; effort at works, as one of the promises of the new LDAP technology.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>What about LDAP? </P>
+<P>LDAP is an acronym for <I>Lightweight Directory Access Protocol</I>, which is a set of protocols for accessing information directories. Based on the X.500 protocol, LDAP is much simpler to use and supports TCP/IP (X.500 doesn’t), necessary for any type of Internet access.</P>
+<P>With LDAP an user should be able to eventually obtain directory information from any computer attached to the Internet, regardless of the computer’s hardware and software platform, therefore allowing for an specific address or public-keys to be found without the need for clearing house sites such as Four11 (http://www.four11.com) or similar.</P>
+</TD></TABLE>
+<H2><I><B><I>RSA</LI></I></H2>
+
+</B></I><P>RSA, developed invented in 1977 by Ron Rivest, Adi Shamir, and Leonard Adleman (RSA), is a public-key cryptosystem for both encryption and authentication. RSA has become a sort of standard as it is the most widely used public-key cryptosystem.</P>
+<P>RSA works as follows: take two large primes, p and q, and find their product n = pq. Choose a number, e, less than n and relatively prime to (p-1)(q-1), and find its inverse, d, mod (p-1)(q-1), which means that ed = 1 mod (p-1)(q-1); e and d are called the public and private exponents, respectively. The public key is the pair (n,e); the private key is d. The factors p and q must be kept secret, or destroyed.</P>
+<P>It is difficult (presumably) to obtain the private key d from the public key (n,e). If one could factor n into p and q, however, then one could obtain the private key d. Thus the entire security of RSA is predicated on the assumption that factoring is difficult; an easy factoring method would break RSA.</P>
+<P>RSA is fast, but not as DES. The fastest current RSA chip has a throughput greater than 600 Kbits per second with a 512-bit modulus, implying that it performs over 1000 RSA private-key operations per second. </P>
+
+<H3> Is RSA Algorithm Secure?</H3>
+</B><P>The security of RSA will depend on the length of the keys used.  A 384 bits key can be broken much easier then a 512 bits, which is still probably insecure and breakable.  But if use a 768 bits key, then the amount of possible combinations grow substantially.  According to RSA’s FAQ (http://www.rsa.com/rsalabs/newfaq/secprserv.htm), as seen on figure 3.15, a 1024 bits key should be secure for decades.</P>
+
+<!--<B><P>Figure 3.15</P>-->
+<!--</B><I><P>RSA’s FAQ Web Site The Tiny IDEA encryption site.</P></I>-->
+<P>But this doesn’t mean that RSA is unbreakable.  You you can compute e-th roots mod n you can break the code. Since c = m^e, the e-th root of c is the message m. This attack would allow someone to recover encrypted messages and forge signatures even without knowing the private key. </P>
+<P>Also, according to RSA’s FAQ at the URL above, the cryptosystem is very vulnerable to chosen-plaintext attacks, and a good guess can reveal the used key. Thus, it is advisable to include some random data (at least 64 bits) to the encrypted plaintext.</P>
+
+<H2><I><B><I>Digital Signature Standard (DSS)</LI></I></H2>
+
+</B></I><P>Digital Signature Standard (DSS) is a US government standard for digital signaturing. DSS has some problems being the leakage of secret data one of them.  Also, if you use the same random number twice when generating the signature, the secret key will be revealed. Further, with Diffie-Hellman and RSA cryptosystem methods being available, which are much better then DSS, I see no reason for using DSS.</P>
+<P>Table 3.3 shows a comparison table of the asymmetric cryptosystems available.</P>
+
+<B><P>Table 3.3 - Asymmetric Cryptosystems Comparison Table</P></B>
+<TABLE BORDER CELLSPACING=2 BORDERCOLOR="#000000" CELLPADDING=7 WIDTH=523>
+<TR><TD WIDTH="30%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#ffffff"><P>Cipher</B></FONT></TD>
+<TD WIDTH="20%" VALIGN="TOP" BGCOLOR="#000000">
+<FONT COLOR="#ffffff"><P>Security</FONT></TD>
+<TD WIDTH="14%" VALIGN="TOP" BGCOLOR="#000000">
+<FONT COLOR="#ffffff"><P>Speed</FONT></TD>
+<TD WIDTH="36%" VALIGN="TOP" BGCOLOR="#000000">
+<FONT COLOR="#ffffff"><P>Key length</FONT></TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P>RSA</B></TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>good</TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<P>fast</TD>
+<TD WIDTH="36%" VALIGN="TOP">
+<P>varies(1024 safe)</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P>Diffie-Hellman</B></TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>good</TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<P>&lt; RSA</TD>
+<TD WIDTH="36%" VALIGN="TOP">
+<P>varies(1028 safe)</TD>
+</TR>
+<TR><TD WIDTH="30%" VALIGN="TOP" BGCOLOR="#ffffff">
+<B><P>DSS</B></TD>
+<TD WIDTH="20%" VALIGN="TOP">
+<P>low</TD>
+<TD WIDTH="14%" VALIGN="TOP">
+<P>-</TD>
+<TD WIDTH="36%" VALIGN="TOP">
+<P>512 bits</TD>
+</TR>
+</TABLE>
+
+
+<P>Figure 3.16 shows a summary overview of how public/private keys are generated.</P>
+
+<!--<B><P>Figure 3.16</P>-->
+<!--</B><I><P>Public/private key generation</P></I>-->
+<H2><B><I>Message Digest Algorithms</LI></H2>
+
+</B></I><P>Message Digest (MD) algorithm are developed to take any message as input and produce an output of 128-bit &quot;message digest,&quot; also called &quot;fingerprint.&quot; Two messages can never have the same message digest.  There are three versions of message digest available, the MD2, MD4 and MD5, which is discussed in more details next.</P>
+
+<H2><I><B><I>MD2, MD4 and MD5</LI></I></H2>
+
+</B></I><P>The Message Digest Algorithm 5 (MD5) is the latest version of the MDs, a secure hash algorithm, which was developed by RSA Data Security, Inc. MD5 can be used to hash an arbitrary length byte string into a 128 bit value, as its earlier versions. However, MD5 is considered a more secure hash algorithm and it is widely in use.</P>
+<P>MD5 processes the input text in 512-bit blocks, divided into 16 32-bit sub-blocks. The output is a set of 4 32-bit blocks, which are concatenated to a single 128-bit hash value.</P>
+<P>Although very secure, MD5 was recently reported having some potential weaknesses in it, which are breakable in some cases. It is also said that one could build a special-purpose machine costing a few million dollars to find a plaintext matching a given hash value in a few weeks, but it can be easier than that.</P>
+<P>For instance, Microsoft Windows NT uses MD4, which is discussed on the next section, to encrypt the password entries that are stored in its Security Account Manager (SAM) database. Earlier this year, around the Spring of 1997, a weakness on the security of Windows NT was exploited, which involved the security of the MD4 as well.</P>
+<P>Couple utilities widely available on the Internet, called PWDUMP (you can download it from http://www.masteringcomputers.com/util/nt/pwdump.htm) and NTCRACK (also downloadable from http://www.masteringcomputers.com/util/nt/ntcrack.htm), were used to crack users passwords on NT. The SAM database, target of PWDUMP, is the one responsible for storing the passwords on NT.  But SAM doesn’t really store the passwords in plaintext, but a hash value of it, as shown on figure 3.17.</P>
+
+<!--<B><P>Figure 3.17</P>-->
+<!--</B><I><P>Hash value of a password stored on NT SAM database</P></I>-->
+<P>If you carefully check figure 3.17 you will find out that the hash of my password on my computer is exposed, but the password is still UNKOWN.  When a password is entered for the first time on NT, the system uses MD4 to generate a hash of that password, which is exposed by PWDUMP, as shown in the fourth line, in front of the field &quot;NTHASH.&quot; This hash is then encrypted before it is stored in the SAM database.</P>
+<P>The problem here is that PWDUMP is capable of finding out the function used to encrypt the values of this hash created by MD4.  Since the encrypting process of MD4 is know (remember that earlier in this chapter we mentioned that the source code of MD4 was posted on the USENET?), the password can be found by a reverse engineering process.  You can then use NTCRACK, as well as many other tools derived from it, to feed MD4’s encryption system with a list of words (from a dictionary, for example) and compare the value of the hashes of each word until you find the one that matches the password, which is easier on NT since it doesn’t use a randomic elements (SALT) during the encryption process—this doesn’t mean that UNIX systems are more secure, as they use SALT, it just would delay the decryption process a little longer!</P>
+<P>In order to exploit NT’s password encryption system and MD4 is not a big deal here.  The major challenge is that you will need to connect to the machine you want to exploit as an administrator.  Once done that, here it is what you’ll need to do:</P>
+<OL>
+
+<LI>Create a temporary directory where you will run the tools and make sure both, PWDUMP and NTCRACK reside there.</LI>
+<LI>Type PWDUMP &gt; LIST.TXT (or any other suggestive name you want. This file will store all the password hashes PWDUMP will find).</LI>
+<LI>Now it is time to use NTCRACK! Type NTCRACK PASSWORDS LIST.TXT &gt; CRACKED.TXT. (PASSWORDS is the name of the file containing words, preferably a whole dictionary, in ASCII format. NTCRACK comes with a basic dictionary file, you should add more words to it.  Ask your secretary to enter the whole Webster there!  Once the process is finished you just need to open the file named CRACKED.TXT with any text editor and check which passwords were cracked.  </LI></OL>
+
+
+<P>The NTCRACK version listed earlier is one of the most updated one at the time this chapter is written, mid-June of 1997. This version not only checks the passwords against its basic dictionary, but also checks for passwords that are identical to the username, which I used as an example for a cracked password on figure 3.18. Note that only passwords part of the dictionary file are cracked. That’s why it’s so important to use long passwords, eight characters or more and not found in any dictionary.</P>
+<P>If you want to try this cracking tool on yourself, you can try it out on the Web.  All you will need is to be running Internet Explorer, which also exposes its security flaws, and access the URL http://www.efsl.com/security/ntie/. </PRE></FONT>There, click on the hyperlink &quot;TRY IT.&quot; The system should provide an output with your password exposed, as shown on figure 3.18, if your password was part of its dictionary file!</P>
+<P>As you can see on figure 3.8, whereas on the previous figure the password was unknown, now it lists my last name, GONCALVES, as it checked for passwords identical to account name.</P>
+
+<!--<B><P>Figure 3.18</P>-->
+<!--</B><I><P>Password was cracked by NTCRACK, as it was identical to user’s account name.</P></I>-->
+<P>You should know that MD5 is considered to be relatively more secure then MD4 and good enough for most purposes.</P>
+
+<H2><I><B><I>Secure Hash Standard/Secure Hash Algorithm (SHS/SHA) </LI></I></H2>
+
+</B></I><P>Secure Hash Algorithm (SHA), also known as Secure Hash Standard (SHS) was developed by the US Government and has the ability to produces an 160-bit hash value from an arbitrary length string.</P>
+<P>SHS is structurally similar to MD4 and MD5, only about 25% slower than MD5 but as a trade-off much more secure, because it produces message digests that are 25% longer than those produced by the MD functions, which makes it much more secure to brute force attacks than MD5.</P>
+
+<H2> Certificates</H2>
+</B></I><P>To guarantee the authenticity of users and their keys, the Public key system requires a third party who is trusted by, and independent of, all the other parties communicating with each other. </P>
+<P>This third party is called the Certification Authority (CA), because it is their job to certify that the owner of a Public key really is who they claim to be. To certify a Public key, the CA (such as VeriSign) creates a certificate that consists of some of the user’s identification details and the user’s Public key. The CA then digitally signs this certificate with their own Private key to create a Public Key Certificate.</P>
+<P>Users can check the authenticity of another user’s Public key by verifying the CA signature on the certificate using the CA’s Public key, which is made widely available to the public.</P>
+<P>After decrypting the message, the receiver verifies the sender’s digital signature. To do this, a digest of the document is created using the same hash algorithm that created the original signature. At the same time, the digital signature that was attached to the document is decrypted using the sender’s Public key. This creates a digest of the digital signature.</P>
+<P>The digests of the document and the digital signature are then compared. If there is even the slightest difference between the two, the signature is rejected. If the digests match exactly, the receiver knows that the document was not changed in transit, and can be sure of the identity of the sender. </P>
+<P>Since the sender is the only person who has access to the Private key used to sign the message, they can’t deny having sent it. Figure 3.19 shows a process where a digital signature is verified.</P>
+
+<!--<B><P>Figure 3.19</P>-->
+<!--</B><I><P>Verifying a digital signature</P>-->
+
+<H2><I> Certificate Servers</I></H2>
+</B></I><P>Certificate Servers are applications developed for creating, signing, and managing standard-based, public-key certificates. Organizations use Certificate Servers, such as Netscape’s certificate server (http://home.netscape.com/comprod/server_central/support/faq/certificate_faq.html#1) to manage their own public-key certificate infrastructure rather than relying on an external Certificate Authority service such as VeriSign, as discussed in the previous section.</P>
+<P>Another vendor, OpenSoft (http://www.opensoft.com/products/expressmail/overview/certserver/) also provides Certificate Server technology for Windows NT and Windows 95 platforms. OpenSoft, uses an architecture based on the new Distributed Certificate System (DCS), which makes it a reliable public key distribution system. Figure 3.20 is a screenshot of OpenSoft’s Certificate Server page.</P>
+
+<!--<B><P>Figure 3.20</P>-->
+<!--</B><I><P>OpenSoft’s Certificate Server Web page</P>-->
+
+</I><TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>What about DCS?</P>
+<P>The DCS server is a speed-optimized certificate server, based upon the DNS model. The server initially only supports four resource record types: certificate records (CRT), certificate revocation lists (CRL), certificate server records by distinguished name (CS), and certificate server records by mail domain (CSM). </P>
+<P>As the Distributed Certificate System is intentionally extensible, new data types and experimental behavior should always be expected in parts of the system beyond the official protocol. As in DNS, the DCS server uses a delimited, text-based file format named the DCS master files. The DCS server allows multiple master-files to be used in conjunction, as well as a ‘root’ file, where authoritative root server information is stored.</P>
+<P>For more information on DCS, check OpenSoft’s Web Site at URL http://www.opensoft.com/dcs/. The following section, &quot;DCS: What is Under the Hood?,&quot; is an edited (stripped) version of the full document available at OpenSoft’s URL listed above, which holds the copyrights of this document.</P>
+</TD></TABLE>
+<H3> DCS: What is Under the Hood?</H3>
+</B><P>As briefly discussed in the previous section, the Distributed Certificate System (DCS) server is a speed-optimized certificate server, based upon the DNS model. The server initially only supports four resource record types: </P>
+
+<UL>
+<LI>certificate records (CRT), </LI>
+<LI>certificate revocation lists (CRL), </LI>
+<LI>certificate server records by distinguished name (CS), and</LI>
+<LI>certificate server records by mail domain (CSM). </LI></UL>
+
+
+<P>As the DCS is intentionally extensible, new data types and experimental behavior should always be expected in parts of the system beyond the official protocol. As in DNS, the DCS server uses a delimited, text-based file format named the DCS master files. The DCS server allows multiple master-files to be used in conjunction, as well as a ‘root’ file, where authoritative root server information is stored.</P>
+
+<H3><I> The Certificate Server</I></H3>
+</B><P>A certificate server allows a user agent or other certificate servers to query for certificate information. The following is a brief overview of the characteristics of a certificate server:</P>
+<P>1. A certificate server maintains the following records:</P>
+
+<UL>
+<LI>A <I>CRT record</I> has three fields: </LI><DIR>
+<DIR>
+
+
+<UL>
+<LI>distinguished name, </LI>
+<LI>record type (CRT), </LI>
+<LI>the certificate</LI></UL>
+</DIR>
+</DIR>
+
+<LI>A <I>CRL record</I> has three fields: </LI><DIR>
+<DIR>
+
+
+<UL>
+<LI>CA’s distinguished name, </LI>
+<LI>record type (CRL),</LI>
+<LI>the signed CRL</LI></UL>
+</DIR>
+</DIR>
+
+<LI>A CS record has three fields:</LI><DIR>
+<DIR>
+
+
+<UL>
+<LI>distinguished name segment, </LI>
+<LI>record type (CS),</LI>
+<LI>server address</LI></UL>
+</DIR>
+</DIR>
+
+<LI>A CSM record has three fields:</LI><DIR>
+<DIR>
+
+
+<UL>
+<LI>domain name, </LI>
+<LI>record type (CSM), </LI>
+<LI>server address</LI></UL>
+</DIR>
+</DIR>
+</UL>
+<DIR>
+
+<P>2.&#9;In a CRT or CRL query, a user agent sends a request for a certificate or CRL to a certificate server, given a distinguished name:</P></DIR>
+
+
+<UL>
+<LI>if a CRT or CRL record is not present, the server searches for a CS record to see where the certificate may be found, otherwise the server asks a DCS root server where to look for this certificate or CRL</LI>
+<LI>if the CRT or CRL record is present, the certificate or CRL is returned</LI></UL>
+<DIR>
+
+<P>3.&#9;In a CS(M) query, a distinguished name segment may be an       attribute, or set of attributes:</P></DIR>
+
+
+<UL>
+<LI>Refer to RFC 1779 (&quot;A String Representation of Distinguished Names&quot;) to obtain the necessary format for distinguished names in CS(M) queries.</LI>
+<LI>At the user agent, marking an attribute or set of attributes in the distinguished name allows the server to decide how to look for the corresponding certificate on another server via a CS query</LI>
+<LI>Only the marked attribute or set of attributes is used in a CS query, this marked set is the common element in distinguished names of certificates located at the server with the correct key, but not all certificates at this location have this common element</LI>
+<LI>This query method is similar to how DNS uses the NS record to find the address of servers with a common domain</LI>
+<LI>By default, a user agent uses the e-mail attribute as the marked attribute, if no other attribute or set of attributes is marked. From the e-mail address, the domain name is extracted and then used in a CSM query. If there is no email attribute and no other marked attribute, then the first attribute in the first set is used as the marked attribute.</LI>
+<LI>A user agent may also request CRLs from the DCS in the above manner.</LI></UL>
+<DIR>
+
+<P>4.&#9;CRT, CRL, and CS(M) records are stored in a DCS master file which is similar to the DNS master file format.</P>
+</DIR>
+
+<H3><I> DCS Topology</I></H3>
+</B><P>A common topology of multiple DCS hosts and their role in the Internet is represented on figure 3.21.</P>
+
+<!--<B><P>Figure 3.21</P>-->
+<!--</B><I><P>Common topology of multiple DCS hosts and their role in the Internet</P>-->
+
+</I><P>On figure 3.21, note that:</P>
+<OL>
+
+<LI>Edit DCS master files . Records used: CRT, CRL, CS, CSM</LI>
+<LI>Request to the Certificate Authority for CRL(s). Records used: CRL</LI>
+<LI>Request to the certificate server for certificates and CRLs. Record used: CRT, CRL</LI>
+<LI>DCS inter-server communication. Records used: CS, CSM</LI></OL>
+
+
+<P>The DCS topology illustrates the high-speed nature of this system. A user agent may query a local certificate server and in milliseconds receive a transmission of the desired certificate or CRL from that certificate server or perhaps another server located anywhere on the Internet.</P>
+
+<H3><I> DCS Protocol</I></H3>
+</B><P>Refer to RFCs 1032-1035 on the DNS protocol for the exact syntax on DCS queries. The DCS query protocol will have the same format as the DNS query protocol. The syntax of distinguished names within DCS queries will conform to RFC 1779 (&quot;A String Representation of Distinguished Names&quot;).</P>
+<P>All communication inside of the DCS protocols are carried in a single format called a DCS message (DCSM). The top level format of message is divided into 5 sections, just like with DNS, some of which are empty in certain cases, as shown on figure 3.22.</P>
+
+<!--<B><P>Figure 3.22</P>-->
+<!--</B><I><P>Top level format of a DCS message (DCSM)</P></I>-->
+<P>Looking at figure 3.22, the header section is always present. The header includes fields that specify which of the remaining sections are present, and also specify whether the message is a query or a response, a standard query or some other opcode, etc.</P>
+<P>The names of the sections after the header are derived from their use in standard queries. The question section contains fields that describe a question to a name server. These fields are a query type (as the QTYPE in DNS), a query class (as the QCLASS in DNS). The last three sections have the same format: a possibly empty list of concatenated DCS records. The answer section contains RRs that answer the question; the authority section contains RRs that point toward an authoritative name server; the additional records section is not used in the DCS.</P>
+
+<H3><I> Header Section Format</I></H3>
+</B><P>The header contains the following fields, as shown on figure 3.23:</P>
+
+<UL>
+<B><LI>ID</B> - A 16 bit identifier assigned by the program that generates any kind of query. This identifier is copied the corresponding reply and can be used by the requester to match up replies to outstanding queries.</LI>
+<B><LI>QR - </B>A one bit field that specifies whether this message is a query (0), or a response (1).</LI>
+<B><LI>OPCODE - </B>A four bit field that specifies kind of query in this message. This value is set by the originator of a query and copied into the response.  The values are:</LI>
+<B><LI>0</B> - a standard query (QUERY)</LI>
+<B><LI>1</B> - an inverse query (IQUERY) (the DCS does not support it)</LI>
+<B><LI>2</B> - a server status request (STATUS)</LI>
+<B><LI>3</B> - a simple query. The certificate server makes a search of an information until finds a first required DCS record (SMQUERY).</LI>
+<B><LI>4</B> - an update query. A CA sets this type when sending to a certificate server new certificates or a CRL(UQUERY).</LI>
+<B><LI>5-15</B> - reserved for future use (in DCS)</LI>
+<B><LI>AA</B> - Authoritative Answer - this bit is valid in responses, and specifies that the responding name server is an authority for the distinguished name in question section. Note that the contents of the answer section may have multiple owner names because of aliases. The AA bit corresponds to the name which matches the query name, or the first owner name in the answer section. </LI>
+<B><LI>TC - </B>Truncation - specifies that this message was truncated due to length greater than that permitted on the transmission channel.</LI>
+<B><LI>RD - </B>Recursion Desired - this bit may be set in a query and is copied into the response.  If RD is set, it directs the name server to pursue the query recursively. Recursive query support is optional.</LI>
+<B><LI>RA - </B>Recursion Available - this be is set or cleared in a response, and denotes whether recursive query support is available in the name server. </LI>
+<B><LI>Z - </B>Reserved for future use.  Must be zero in all queries and responses.</LI>
+<B><LI>RCODE - </B>Response code - this 4 bit field is set as part of responses. The values have the following  interpretation:</LI>
+<B><LI>0 - </B>No error condition</LI>
+<B><LI>1 - </B>Format error - The certificate server was  unable to interpret the query. </LI>
+<B><LI>2 - </B>Server failure - The DCS  server was unable to process this query due to a problem with the certificate server.</LI>
+<B><LI>3 - </B>Name Error - Meaningful only for responses from an authoritative name server, this code signifies that the                distinguished name referenced in the query does not exist.</LI>
+<B><LI>4 - </B>Not Implemented - The certificate server does not support the requested kind of query.</LI>
+<B><LI>5 - </B>Refused - The certificate server refuses to perform the specified operation for policy reasons. For example, a certificate server may not wish to provide the information to the particular requester,  or a certificate server may not wish to perform a particular operation, such as zone transfer, for particular data.</LI>
+<B><LI>6-15 - </B>Reserved for future use.</LI>
+<B><LI>QDCOUNT - </B>an unsigned 16 bit integer specifying the number of entries in the question section.</LI>
+<B><LI>ANCOUNT - </B>an unsigned 16 bit integer specifying the number of RRs in the answer section.</LI>
+<B><LI>NSCOUNT - </B>an unsigned 16 bit integer specifying the number of RRs in the authority records section.</LI>
+<B><LI>ARCOUNT - </B>an unsigned 16 bit integer specifying the number of resource records in the additional records section. In the DCS protocol this value must be 0.</LI></UL>
+
+
+<!--<B><P>Figure 3.23</P>-->
+<!--</B><I><P>Header section format of a DCS message</P></I>-->
+<H3><I> Question Section Format</I></H3>
+</B><P>The question section is used to carry the &quot;question&quot; in most queries, such as the parameters that define what is being asked. The section contains QDCOUNT (usually 1) entries, each of the following format, as showing on figure 3.24:</P>
+
+<!--<B><P>Figure 3.24</P>-->
+<!--</B><I><P>Header section format of a DCS message</P></I>-->
+<P>where:</P>
+
+<UL>
+<B><LI>QNAME</B> - a DER encoded distinguished name.</LI>
+<B><LI>QTYPE</B> - a two octet code which specifies the type of the query. The values for this field include all codes valid for a TYPE field.</LI>
+<B><LI>QCLASS</B> - a two octet code that specifies the class of the query. This field is used for compatibility with the DNS only. For DCS it must equal the IN (the Internet).</LI></UL>
+
+
+<H3><I> The DCS Record</I></H3>
+</B><P>The answer and authority all share the same format: a variable number of resource records, where the number of records is specified in the corresponding count field in the header.</P>
+<P>Each resource record has the following format, as shown on figure 3.25:</P>
+<P>where:</P>
+
+<UL>
+<B><LI>NAME - </B>A DER encoded distinguished name. If its first attribute is the e-mail address, the server finds an information by e-mail address. In another case it finds by whole distinguished name. Maybe in the query a distinguished name attribute may contain a star symbol (‘*’) as wildcard instead a value. Then any value of this attribute will satisfy that template. In fact, if value              equals an star symbol, then the server checks only an              existence of this attribute and ignores its value.</LI>
+<B><LI>TYPE - </B>Two octets containing one of the DCS record types. This field specifies the meaning of the data in the RDATA field. </LI></UL>
+<DIR>
+<DIR>
+
+<P>for CS record    The Type value is 1001</P>
+<P>for CSM record   The Type value is 1002</P>
+<P>for SOC record   The Type value is 1003</P>
+<P>for SOCM record  The Type value is 1004</P>
+<P>for CRT record   The Type value is 1005</P>
+<P>for CRL record   The Type value is 1006</P></DIR>
+</DIR>
+
+
+<UL>
+<B><LI>AXFR - </B>252 A request for a transfer of entry zone (it is identical to the DNS query). This value is same the DNS AFXR.</LI>
+<B><LI>CLASS</B> - two octets which specify the class of the data in the RDATA field. For the DCS this value must be equal the IN.</LI>
+<B><LI>TTL - </B>a 32 bit unsigned integer that specifies the time interval (in seconds) that the resource record may be cached before it should be discarded.  Zero values are interpreted to mean that the RR can only be used for the transaction in progress, and should not be cached. The each DCS record contains a time value. This field may not be necessary.</LI>
+<B><LI>RDLENGTH - </B>an unsigned 16 bit integer that specifies the length in octets of the RDATA field. In DCS the DATA is the DER encoded value. Thus the RDATA contains its length. Therefore this filed is not used.</LI>
+<B><LI>RDATA - </B>A DER encoded ASN.1 type. The format of this information varies according to the TYPE of the RR.</LI></UL>
+
+
+<!--<B><P>Figure 3.25</P>-->
+<!--</B><I><P>DCS record format</P></I>-->
+<P>If you would like to have more information about DCS message compression and transport, as well as server algorithm, please check OpenSoft URL at URL http://www.opensoft.com/dcs/, as I feel that this kind of information already goes beyond the scope of this book.</P>
+
+<H2> Key Management </H2>
+</B></I><P>The only reasonable ways to protect the integrity and privacy of information is to rely upon the use of secret information in the form of private keys for signing and/or encryption, as discussed earlier in this chapter. The management and handling of these pieces of secret information is generally referred to as &quot;key management.&quot; This includes the process of selection, exchange, storage, certification, expiration, revocation, changing, and transmission of keys. Thus, most of the work in managing information security systems lies in the key management.</P>
+<P>The use key management within public key cryptography, as seeing earlier, is appealing because it simplifies some of the problems involved in the distribution of secret keys. When a person sends a message, only the receiver can read it. This without having any need for the receiver to know the original key used by the sender or agree on a common key, as the key used for encryption is different from the key used for decryption. </P>
+<P>Key management not only provides convenience for encrypted message exchange, but also provides the means to implement digital signatures. The separation of public and private keys is exactly what is required to allow users to sign their data, allow others to verify their signatures with the public key, but not have to disclose their secret key in the process. </P>
+
+<H2><I> Kerberos</I></H2>
+</B></I><P>The Kerberos protocol provides network security by regulating user access to networking services. In a Kerberos environment, at least one system runs the Kerberos Server. This system must be kept secure. The Kerberos Server, referred to as a trusted server, provides authentication services to prove that the requesting user is genuine. Another name for the Kerberos Server is the Key Distribution Center (KDC). </P>
+<P>Other servers on the network, and all clients, are assumed by the system administrator to be untrustworthy. For the Kerberos protocol to work, all systems relying on the protocol must trust only the Kerberos server itself.</P>
+<P>In addition to providing authentication, Kerberos can supply other security services such as:</P>
+
+<UL>
+<LI>Data integrity</LI>
+<LI>Data confidentiality</LI></UL>
+
+
+<P>Kerberos uses private key encryption based on the Data Encryption Standard (DES). Each client and server has a private DES key. The Kerberos protocol refers to these clients and servers as principals. The client’s password maps to the client’s private key.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For a great source of information on Kerberos and its applicability in the network security environment, check Process Software Web site at http://www.process.com.  Not only they are one of the leading TCP/IP (including IPv6!) solution company, but also have a vast resource of information on IPv6, Kerberos and TCP/IP.</P>
+</TD></TABLE>
+<P>The Kerberos Server maintains a secure database list of the names and private keys of all clients and servers that are allowed to use the Kerberos Server’s services. Kerberos assumes that all users (clients and servers) keep their passwords secure.</P>
+<P>The Kerberos protocol solves the problem of how a server can be sure of a client’s identity. Kerberos does this by having both the client and server trust a third party, in this case, the Kerberos Server. The Kerberos Server verifies the client’s identity. </P>
+
+<H3> Getting to Know Kerberos Terms</H3>
+</B><P>Some of the terms commonly associated with Kerberos include:</P>
+
+<UL>
+<B><LI>Principal</B> - Kerberos refers to clients and servers as principals and assigns each one a name. An example of the general naming format is name.instance@realm.</LI></UL>
+<DIR>
+
+<P>&#9;&#9;Kerberos refers to clients and servers as principals and assigns each one a name. An example of the general naming format is name.instance@realm.</P></DIR>
+
+
+<UL>
+
+<UL>
+<B><LI>name</B> — For clients, this is the user’s login name; for servers, it is the name of the service provided, usually rcmd. </LI>
+<B><LI>instance</B> — This is usually omitted and unnecessary for clients; for Kerberos administrators, the value is admin; for servers, it identifies the machine name of the application server that has Kerberos authentication support. For example, if the rlogin server on hostX has Kerberos authentication support, the principal would have the following format: rcmd.hostX@your_realm</LI>
+<B><LI>realm</B> — Is associated with all principals in a Kerberos database and is the name of a group of machines, such as those on a LAN; it identifies the Kerberos domain.</LI></UL>
+</UL>
+<DIR>
+
+<P>&#9;&#9;You can omit the instance and realm components from some principals. For example, a possible principal for joshua (for user Joshua in the local domain) could be joshua@xuxu.com for user Jones in the xuxu.com domain. A possible principal could also be rcmd.hostX (for the rlogin server in the local domain) or rcmd.hostX@xuxu.com (for the rlogin server on hostX in the domain xuxu.com).</P></DIR>
+
+
+<UL>
+<B><LI>Ticket–granting ticket</B> - A ticket–granting ticket contains an encrypted form of the user’s Kerberos password. Use it to obtain application service tickets from the Kerberos server. You cannot use Kerberos authentication without first having this ticket–granting ticket.</LI></UL>
+<DIR>
+
+<P>&#9;&#9;The ticket–granting ticket has an associated lifetime that the Kerberos server specifies. This lifetime is generally eight hours. You can use the same ticket over and over again, until you no longer need the ticket or it expires.</P></DIR>
+
+
+<UL>
+<B><LI>Service ticket - </B>Kerberos uses service tickets to verify a client’s identity to an application server. The Kerberos server encrypts the service ticket with the application server’s private key. Only that application server can decrypt the service ticket.</LI>
+<B><LI>Authenticator</B> - The Kerberos protocol uses authenticators to prevent eavesdroppers from stealing a ticket. The client sends a new authenticator with each service request. An authenticator consists of the client’s name and IP address, and a timestamp showing the current time. </LI></UL>
+<DIR>
+
+<P>&#9;&#9;The server uses the information in the authenticator to confirm that the rightful owner presents the accompanying ticket. For this to be true, the client and server must synchronize their clocks. One way of doing this is through the Network Time Protocol (NTP).</P>
+</DIR>
+
+<H3> What is in a Kerberos Session</H3>
+</B><P>The Kerberos protocol is an authentication system for open systems and networks. Kerberos uses a set of encrypted keys and tickets for authentication, making authentication between two systems secure.</P>
+<P>Standard authentication methods, on the other hand, are not secure because the username and password are generally sent across the network in clear, readable text.</P>
+
+<H3><I> A Typical Kerberos Session</I></H3>
+</B><P>The following describes the general sequence of a Kerberos session, as shown on figure 3.2 6):</P>
+<OL>
+
+<LI>The Client submits a request to the Kerberos Server to obtain a ticket–granting ticket (TGT). The Kerberos Server consults the Kerberos database (KDB) to get the user’s Kerberos password, and then encrypts it.</LI>
+<LI>The Kerberos Server sends the encrypted password in the TGT to the Client. When the Client receives the TGT, it requests the user’s Kerberos password, then encrypts the password and compares it to the password in the TGT. A user is authenticated this way by the Kerberos Server.</LI>
+<LI>The Client uses the TGT to apply for application service tickets so that users can access specific applications. Each service ticket proves the Client’s identity to an application server.</LI>
+<LI>The Client presents the service ticket to the application server for authentication. The application server decrypts part of this ticket to check its authenticity.</LI>
+<LI>If the application server finds that the service ticket is authentic, it applies the access control it previously defined for that client. If the application server cannot decrypt the service ticket, or if the service ticket has expired or is not authentic, the client is not authenticated.</LI></OL>
+
+
+<!--<B><P>Figure 3.26</P>-->
+<!--</B><I><P>Typical Kerberos Session Sequence</P></I>-->
+<P>The following sections describe a Kerberos session in more detail.</P>
+
+<H3><I> Getting a Ticket-Granting Ticket From the Kerberos Server</I></H3>
+</B><P>The Kerberos Server has a secure database on its machine. A Client must get a ticket-granting ticket (TGT), which cannot be read by the Client, from the Kerberos Server.</P>
+<P>The TGT lets a Client submit specific requests to the Kerberos Server for application service tickets that grant access to application servers. A Client must have an application service ticket when it requests a service from an application server.</P>
+<P>The following process, as shown on figure 3.27, describes getting a TGT:</P>
+<OL>
+
+<LI>The Client user sends a request to the Kerberos Server. The request packet contains the client’s user name.</LI>
+<LI>The Kerberos Server looks for the user name in its secure database and extracts the private key for it.</LI>
+<LI>The Kerberos Server: </LI></OL>
+
+<OL TYPE="a">
+
+<LI>Creates a randomly generated key to be used between the Client and the Kerberos Server. This is called the ticket-granting ticket’s session key.</LI>
+<LI>Creates a TGT that lets the Client obtain application service tickets from the Kerberos Server. The Kerberos Server encrypts this TGT using the private key obtained from the Kerberos database. </LI></OL>
+<DIR>
+<DIR>
+
+<B><P>&#9;Ticket</B>: {user-name, Kerberos Server name, Client Internet address, session key}private key</P>
+<P>&#9;Kerberos also includes a timestamp in the TGT.</P></DIR>
+</DIR>
+
+<H2>Forms a packet containing the session key and the encrypted TGT, and encrypts the message from the Client’s private key obtained from the secure database.</LI></H2>
+<DIR>
+<DIR>
+
+<P>&#9;<B>Packet</B>: {session key, encrypted ticket–granting ticket} Client private key</P></DIR>
+</DIR>
+
+<H2><I>Sends the packet containing the user’s encrypted Kerberos password to the Client. </LI></I></H2>
+<DIR>
+
+<P>4. The Client uses its private key to decrypt the packet. When the Client receives packet, the procedure prompts the Client for its password. Using the private key, Client encrypts the user’s password and compares it to the encrypted password sent in the TGT. If the passwords match, the user has obtained a valid TGT; if not, the packet is discarded and the user cannot use Kerberos authentication to access any application servers.</P>
+</DIR>
+
+<!--<B><P>Figure 3.27</P>-->
+<!--</B><I><P>Getting a Ticket-Granting Ticket</P></I>-->
+<H3><I> Getting Application Service Tickets for Network Services from the Kerberos Server</I></H3>
+</B><P>Once a Client has a ticket-granting ticket, it can ask application servers for access to network applications.</P>
+<P>Every request of this kind requires first obtaining an application service ticket for the particular application server from the Ticket–Granting Service (TGS).</P>
+<P>Figure 3.28 and 3.29 outlined in the following process describe getting an application service ticket to use to access an application server.</P>
+<B><P>The Client:</P>
+<OL>
+
+</B><LI>Creates an authenticator to be used between the Client and the Kerberos Server. The Client encrypts the authenticator using the session key that it received previously. The authenticator contains three parts: </LI></OL>
+
+
+<UL>
+<LI>user name, </LI>
+<LI>client Internet address, </LI>
+<LI>current time</LI></UL>
+
+<OL>
+
+<LI VALUE=2>Creates the message to send to the Kerberos Server. The packet contains three parts:</LI></OL>
+
+
+<UL>
+<LI>ticket–granting ticket, </LI>
+<LI>encrypted authenticator, </LI>
+<LI>application server name</LI></UL>
+
+<OL>
+
+<LI VALUE=3>Sends the packet to the Kerberos Server. The Kerberos Server receives the packet from the Client.</LI></OL>
+
+
+<B><P>The Kerberos Server:</P>
+<OL START=4>
+
+</B><LI>Decrypts the ticket–granting ticket using its private key to obtain the session key. (The ticket–granting ticket was originally encrypted with this same key.)</LI></OL>
+
+
+<UL>
+<LI>Decrypts the authenticator using the session key, which compares the:</LI>
+
+<UL>
+<LI>User name in the ticket and authenticator</LI>
+<LI>Kerberos Server name in the ticket and its own name</LI>
+<LI>Internet address in the ticket, authenticator, and received packet</LI>
+<LI>Current time in the authenticator with its own current time to make sure the message is authentic and recent.</LI></UL>
+</UL>
+
+<P>After the Kerberos Server verifies the information in the ticket, the Server creates an application service ticket packet for the Client. The Server:</P>
+<OL START=7>
+
+<LI>Uses the application server name in the message and obtains the application server’s private key from the Kerberos database.</LI>
+<LI>Creates a new session key and then an application service ticket based on the application server name and the new session key. The Kerberos Server encrypts this ticket with the application server’s private key. This ticket is called the application ticket. This ticket has the same fields as the ticket–granting ticket: </LI></OL>
+
+
+<UL>
+
+<UL>
+<LI>user-name, </LI>
+<LI>Application server name, </LI>
+<LI>client Internet address, </LI>
+<LI>new session key</LI></UL>
+</UL>
+<DIR>
+
+<P>Application server private key</P></DIR>
+
+<OL START=2>
+
+<LI>Forms a packet containing the new session key and the encrypted application service ticket; encrypts the message with the session key, which the Client already knows:</LI></OL>
+
+
+<UL>
+
+<UL>
+<LI>new session key, </LI>
+<LI>Application ticket</LI></UL>
+</UL>
+
+<P>3. Sends the packet to the Client.</P>
+<P>The Client decrypts the packet using the session key it received previously. From this message it receives the application service ticket that it cannot decrypt and the new session key to use to communicate with the application server.</P>
+
+<!--<B><P>Figure 3.28</P>-->
+<!--</B><I><P>Getting Application Service Tickets Used to Access an Application Server</P></I>-->
+<!--<B><P>Figure 3.29 </P>-->
+<!--</B><I><P>Getting Tickets Used to Access an Application Server</P></I>-->
+<P>Once a Client receives a ticket for an application service, the Client can request that service. The Client includes the application service ticket with the request for authentication that it sends to the application server. Figure 3.30 shows the process for requesting a service from an application server.</P>
+
+<!--<B><P>Figure 3.30</P>-->
+<!--</B><I><P>Requesting Service from an Application Server</P></I>-->
+<H3><I> Summary Of Kerberos Authentication</I></H3>
+</B><P>There are three main steps in the Kerberos process. The Client: </P>
+<OL>
+
+<LI>Requests a ticket-granting ticket (TGT).</LI>
+<LI>Presents the TGT and an authenticator to the Kerberos Server when it request access to an application server. The Kerberos Server grants the Client an application service ticket to access the application server.</LI>
+<LI>Presents the application ticket and an authenticator to the application server when it requests access to the server. The server’s access control policy either grants or denies access to services.</LI></OL>
+
+
+<P>The Kerberos process uses tickets, authenticators, and messages. These elements provide specific encrypted information about clients and servers. Keys are used to encrypt and decrypt tickets, authenticators, and messages. </P>
+<P>Some things to remember about tickets and authenticators:</P>
+
+<UL>
+<LI>A Client must have a ticket–granting ticket and a service ticket to access any application server. The Client gets all tickets from the Kerberos Server.</LI>
+<LI>The Client cannot read tickets because the Kerberos Server encrypts them with the private key of the application server. Every ticket is associated with a session key.</LI>
+<LI>Every ticket–granting ticket has a lifetime (usually eight hours) and is reusable during that lifetime.</LI>
+<LI>Kerberos requires a new authenticator from the Client each time the Client starts a new connection with an application. Authenticators have a short lifetime (generally five minutes).</LI>
+<LI>The encrypted ticket and authenticator contain the Client’s network address. Another user cannot use stolen copies without first changing his system to impersonate the Client’s network address. </LI></UL>
+
+
+<P>To hack Kerberos is very hard! In case of an attack, before the authenticator expires, a hacker would need to: </P>
+
+<UL>
+<LI>steal the original ticket,</LI>
+<LI>Steal the authenticator,</LI>
+<LI>prevent the original copies of the ticket and authenticator from arriving at the destination server, and </LI>
+<LI>modify its network address to match the client’s address.</LI></UL>
+
+
+<H3> Cygnus’ KerbNet</H3>
+</B><P>KerbNet security software is Cygnus’ commercial implementation of MIT’s Kerberos v5. </P>
+<P>This is a great product to use when securing your network, as it provides the security of Kerberos, with its single trusted authentication server architecture, which provides the basis for a single sign-on interface for your users. Also, once you install and configure the KerbNet Authentication Server, client and server applications can be ‘Kerberized’ to work with KerbNet, which is very simple in a multi-user application environment.  Basically, all you do is to replace your E-mail, ftp, or telnet, with Cygnus’ off-the-shelf Kerberized versions.</P>
+<P>The KerbNet libraries allows in-house developers to add KerbNet authentication and encryption directly to their existing client-server applications. KerbNet Authentication Server is the first Kerberos server for both UNIX and Windows NT with encrypted tickets for requesting services, which keeps passwords off the network, prevents password spoofing attacks, and allows for encrypted communications between a client and server.</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For more information on KerbNet or to download a free copy, check Cygnus web site at URL http://www.cygnus.com/product/kerbnet-index.html</P>
+</PRE></FONT></TD></TABLE>
+<H2><I> Key-Exchange Algorithms (KEA)</I></H2>
+</B></I><P>Diffie-Hellman was the first one to invent a public-key algorithm in 1976. Instead of the calculating the exponentiation of a field, this public-key security scheme is very secure because it calculates the discrete logarithms in a finite field, which is very hard to do. Thus, Diffie-Hellman is ideal, and can be used, for key distribution.  You can use this algorithm to generate your secret key.  But don’t get confused!  You can’t use it for encrypting or decrypting a message!</P>
+<P>Lets take a look at how it works.</P>
+
+<H3> Diffie-Hellman Public-Key Algorithm</H3>
+</B><P>Diffie-Hellman’s system requires the dynamic exchange of keys for every sender-receiver pair. This two-way key negotiation is very good for enhancing the security of your messages.  After you encrypt a message you can then use this scheme to further complicate the decryption of your message, as the hacker would have to decrypt the key, then the message. However, as you might imagine, this will require additional communications overhead. </P>
+<P>In the RSA system, for example, communications overhead are  reduced, as the ability to have static, unchanging keys for each receiver that are ‘announced’ by a formal ‘trusted authority,’ in this case the hierarchical model, or distributed in an informal network of trust.</P>
+<P>Diffie-Hellman’s method for key agreement actually has a simple math, which is aimed to allow two hosts to create and share a secret key. Assuming that you want to generate a secret key with your significant other (SO), here it is how this process works:</P>
+<OL>
+
+<LI>First, you and your partner must follow the &quot;Diffie-Hellman parameters,&quot; which requires you to find a prime number &quot;p,&quot; which should be larger then 2 and &quot;base&quot;, &quot;g,&quot; which should be an integer that is smaller than your prime number (&quot;p&quot;). You can either hard code them or fetch them from your server. </LI>
+<LI>Both of you will have to each and secretly generate a private number that we will call &quot;x,&quot; which should be less than (p-1).</LI>
+<LI>At this point, both of you will generate the public keys, which we will call &quot;y.&quot; You guys will create them using the function: </LI></OL>
+
+<PRE><FONT SIZE=3>y = g^x % p</P>
+<OL START=4>
+
+</PRE></FONT><LI>You now will exchange the public keys (‘y’) and the exchanged numbers are converted into a secret key, &quot;z.&quot;</LI></OL>
+
+<PRE><FONT SIZE=3>z = y^x % p</P>
+</PRE></FONT><P>&quot;z&quot; now can be used as the key for whatever encryption method used to transfer information between the two of you. Mathematically speaking, you two should have generated the same value for &quot;z,&quot; whereas </P>
+<PRE><FONT SIZE=3>z = (g^x % p)^x’ % p = (g^x’ % p)^x % p</P>
+</PRE></FONT><P>All of these numbers are positive integers, whereas</P>
+<PRE><FONT SIZE=3>x^y     means: x is raised to the y power</P>
+<P>x%y     means: x is divided by y and the remainder is returned</P>
+</PRE></FONT>
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>The Diffie-Hellman Key Agreement, U.S. patent 4,200,770, is owned by Public Key Partners and will expire later this year, 1997.</P>
+</TD></TABLE>
+<H2> Cryptanalysis and Attacks</H2>
+</B></I><P>Cryptanalysis is the art of deciphering encrypted communications without knowing the proper keys, or if you prefer, it is the art of breaking the code! There are many cryptanalytic techniques, as well as cryptanalysts. Although it is true to say that every hacker trying to crack a code is a cryptanalyst, to say that cryptanalysis is threatening to security is not true. It is through cryptanalysis that one may find a weakness in the cryptosystem that could had eventually endangered the secrecy of a message being exchange. So, crypto, in its many forms and shapes is indeed a double-edged sword.</P>
+<P>An encrypted key can be compromised, if the key is exposed through a non-cryptanalytic way, such as if you were to write your public-key somewhere, so you will not forget it!  If anyone finds it out, key would had just being compromised! But a key can be also attacked, if someone tries to apply cryptanalysis to it.</P>
+<P>The next sections discusses some of the most typical cryptanalysis attacks.</P>
+<P> </P>
+<H2><I> Ciphertext-only Attack</I></H2>
+</B></I><P>In this type of attack, the hacker, or cryptanalyst, does not know anything about the contents of the message, and must work from ciphertext only. </P>
+<P>In practice it is quite often possible to make guesses about the plaintext, as many types of messages have fixed format headers. Even ordinary letters and documents begin in a very predictable way. It may also be possible to guess that some ciphertext block contains a common word. </P>
+<P>The goal of the cryptanalyst here is then to try to deduce the key used to encrypt the message, which would also allow him/her to decrypt other messages encrypted with the same key.</P>
+
+<H2><I> Known-plaintext Attack </I></H2>
+</B></I><P>In this case, the hacker knows or can guess the plaintext for some parts of the ciphertext. The task is to decrypt the rest of the ciphertext blocks using this information. One way he will probably try is to determine the key used to encrypt the data. </P>
+
+<H2><I> Chosen-plaintext Attack</I></H2>
+</B></I><P>The hacker here is able to have any text he likes encrypted with the unknown key, he is able choose the plaintext that gets encrypted, which can lead him to ones that might yield more information about the key. Therefore, his task is to determine the key used for encryption. Some encryption methods, particularly RSA, are extremely vulnerable to chosen-plaintext attacks.</P>
+
+<H2><I> Adaptive-chosen-plaintext Attack</I></H2>
+</B></I><P>This is actually a variation of the chosen-plaintext attack. But in this case the hacker is able to exercise the option of modifying his choice of the encrypted plaintext based on the results of previous encryption, which allows him to choose a smaller text block of plaintext to be encrypted.</P>
+
+<H2><I> Man-in-the-middle Attack</I></H2>
+</B></I><P>This is a relevant attack for cryptographic communication and key exchange protocols. It’s a sort of key spoofing, where a hacker would intercept the communication between two parties exchanging keys for secure communication, such as Diffie-Hellman’s, corrupting the key by performing a separate key exchange with each party and forcing each one of them to use different keys, each of which is known by the hacker. The hacker will then decrypt any communications with a now valid key, and encrypt them with the other key for sending to the other party. Worse, the parties will still think that they are communicating securely, as this whole process is totally transparent to both parties, they would never know what has happened until it is too late!</P>
+<P>One way to prevent man-in-the-middle attacks is that both sides compute a cryptographic hash function of the key exchange, use a digital signature algorithm, and send the signature to the other side. The recipient then verifies the authentication of the signature as being from the desired other party, and that the hash in the signature matches that computed locally.</P>
+
+<H2><I> Chosen-ciphertext Attack</I></H2>
+</B></I><P>In this case, the hacker, or cryptanalyst, not only is able to choose which ciphertext he will try to decrypt but also he/she has access to the decrypted plaintext.</P>
+<P>Usually this type of attack is applied to public-key algorithms, which very often works well against symmetric algorithms too.</P>
+
+<H2><I> Chosen-key Attack</I></H2>
+</B></I><P>Although the name suggests that the attacker is able to choose the key, this is not true. As a matter of fact, this is a very weird form of attack where the hacker only has some knowledge about the relationship between the two keys. Bruce Schneier brilliantly discusses this form of attack in his book Applied Cryptography, in the section &quot;Differential and Linear Cryptanalysis.&quot;</P>
+
+<H2><I> Rubber-hose Cryptanalysis</I></H2>
+</B></I><P>This is the &quot;dirty&quot; way, where the hacker will harass, threaten, bribe and torture someone until they get the key!</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>For additional information on cryptanalysis attacks, check this references:</P>
+<P>Bruce Schneier: Applied Cryptography. John Wiley &amp; Sons, 1994. </P>
+<P>Jennifer Seberry and Josed Pieprzyk: Cryptography: An Introduction to Computer Security, Prentice-Hall, 1989. </P>
+<P>Man Young Rhee: Cryptography and Secure Data Communications. McGraw-Hill, 1994. </P>
+<P>M. E. Hellman and R. C. Merkle: Public Key Cryptographic Apparatus and Method.</P>
+<P>The RSA Frequently (http://www.rsa.com/faq.htm) Asked Questions document by RSA Data Security, Inc., 1995.</P>
+</TD></TABLE>
+<H2><I> Timing Attack</I></H2>
+</B></I><P>This is somewhat a new form of attack discovered by Paul Kocher that looks at the fact that different modular exponentiation operations in RSA takes discretely different amounts of time to process. In this process, the cryptanalyst repeatedly measures the exact execution times of modular exponentiation operations, which is very relevant for RSA, Diffie-Hellman, and Elliptic Curve methods. </P>
+<P>Usually, RSA computations are done with what is called Chinese Remainder theorem (see figure 3.31). But if it doesn’t, a hacker could exploit slight timing differences in RSA computations in order to try to recover it. </P>
+<P>Figure 3.31 shows a description of the Chinese Remainder Theorem at SouthWest Texas State University Web site.</P>
+
+<!--<B><P>Figure 3.31</P>-->
+<!--</B><I><P>The Chinese Remainder Theorem</P></I>-->
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>To learn more about the Chinese Remainder Theorem, check the URL http://www.math.swt.edu/~haz/prob_sets/notes/node25.html, at SouthWest Texas State University.</P>
+</TD></TABLE>
+<P>The attacker passively observes &quot;k&quot; operations measuring the time &quot;t&quot; it takes to compute each modular exponentiation operation: m=c^d mod n. The attacker also knows &quot;c&quot; and &quot;n.&quot; The pseudo code of the attack is: </P>
+<PRE><FONT SIZE=3><P>Algorithm to compute m=c^d mod n:</P>
+
+<P>             Let m0 = 1.</P>
+<P>             Let c0 = x.</P>
+<P>             For i=0 upto (bits in d-1):</P>
+<P>                     If (bit i of d) is 1 then</P>
+<P>                             Let mi+1 = (mi * ci) mod n.</P>
+<P>                     Else</P>
+<P>                             Let mi+1 = mi.</P>
+<P>                     Let di+1 = di^2 mod n.</P>
+<P>             End.</P>
+</PRE></FONT>
+<P>According to Ron Rivest (rivest@theory.lcs.mit.edu), at MIT, the simplest way to defeat this timing attack would be to &quot;ensure that the cryptographic computations take an amount of time that does not depend on the data being operated on.  For example, for RSA it suffices to ensure that a modular multiplication always takes the same amount of time, independent of the operands.&quot;</P>
+<P>He also suggest a second alternative, using &quot;blinding techniques. According to him, you could &quot;blind the data beforehand, perform the cryptographic computation, and then unblind it afterwards.  For RSA, this is quite simple to do.  (The blinding and unblinding operations still need to take a fixed amount of time.) This doesn’t give a fixed overall computation time, but the computation time is then a random variable that is independent of the operands.&quot;</P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>This blinding process introduces a random value into the decryption process, whereas, </P>
+<PRE><FONT SIZE=3><P>     m = c^d mod n </P>
+
+<P>     becomes: </P>
+
+<P>     m = r^-1(cr^e)^d mod n </P>
+
+<P>     r is the random value, and r^-1 is it’s inverse.</P>
+</PRE></FONT>
+</TD></TABLE>
+<P>The University of British Columbia (http://www.ubc.ca/) has a Web site at URL http://axion.physics.ubc.ca/pgp-attack.html with vast documentation of symmetric and asymmetric crypto attacks, which are well worth checking out.</P>
+
+<H2> Cryptography Applications and Application Programming Interfaces (APIs)</H2>
+</B></I><P>If you really want to understand what is going on in the crypto world you will need to grasp the ever-increasing progress and development of new applications applied to the flow of information on electronic highways, the need for secure and private communication and... control.  </P>
+<P>Of course, the government shares the concern when electronic transfer of money and the transmission of commercial information is taking place on the Internet more and more often. Although the government does care, its controversial proposal to address the security of electronic transactions over the Internet, known as the &quot;Clipper chip&quot; proposal, is also a double-edged sword, as it does offer secure transactions, but in a government controlled tappable way.</P>
+<P>The result of this frenzy is the increased development of many cryptographic applications and application programming interfaces (APIs).  Data privacy and secure communication channels, which includes but are not limited to authentication mechanisms and secure standards begins to be developed and proposed.  </P>
+<P>The George Washington University (http://www.seas.gwu.edu/), through the Cyberspace Policy Institute (http://www.cpi.seas.gwu.edu/) has a great selection of information policy bibliography that offers a solid foundation for the need for data protection, secure communications and its implications in the whole information processing. This section discusses some of these efforts and their impact in the security of the Internet, the hole of cryptography and firewalls.</P>
+
+<H2><I> Data Privacy and Secure communications channel</I></H2>
+</B></I><P>Internet users, as well as protected network users should always be responsible for data privacy within the organization and data exchanges. But it is the responsibility of the Internet manager to make sure an Internet security policy, outlining the privacy of information exists so that users can be held accountable for following it.</P>
+<P>It should be also his/her responsibility to protect the personal privacy of users, as clearly stated in the policy, which should identify the elements of the company’s structure, such as the different levels of data confidentiality (some data may need to be encrypted, while other my need some sort of access control) and practice.</P>
+<P>Data security policy should be applies throughout the company, regardless of the nature of the data, the storage form or location.  Users must understand that the protection of individual privacy and information will only occur if all users are committed, by knowing and respecting the security policy in place. Thus, recipients of confidential data and files downloaded directly to their computers should preserve the confidentiality of data.</P>
+<P>Also, application developing groups must take in consideration the security policy in place, and at least, if no policy is in vogue, that the applications developed do take in consideration security aspects, both at the Intranet and the Internet level.</P>
+<P>More about security and firewall policies will be discussed later on chapter 9, &quot;Setting up a Firewall Security Policy.&quot; For now, lets look into the authentication processes and security API and how they impact the secure communication channels.</P>
+
+<H3> Some Data Privacy Prime and Tools</H3>
+</B><P>There are several applications already available on the market to work as a standalone or in association with other applications or devices, such as firewalls, proxies and routers, to protect your personal and financial private data.  Pretty Good Privacy (PGP) and Privacy Enhancement Mail(PEM) are few examples, but first things first!</P>
+<P>You first need to understand your system. A logical or physical map can be essential to understanding the vulnerable points to data security of your system. A map also will help you in planning future changes to a system. Planning these future changes will ensure a tight grip on the reigns of security and will increase your awareness of the questions that need answering. Such control becomes critical when implementing a new addition to a system, such as a new network service like anonymous FTP (if the site does not offer it already).</P>
+
+<H3><I> Have a Password Policy</I></H3>
+</B><P>The easiest and, believe me or not, most secure way to protect an user is through a good password policy, which will force everyone on a Intranet/Internet environment to be authenticated. Nevertheless, if good passwords are vital for data security, passwords are also the first target of attack! This because many users and network systems make it easier to attack a password than attack other possible security holes in the system.</P>
+<P>Anyone has the potential to obtain information that leads to the discovery of your password, as there are many tools, such as Crack, NTCrack and many others developed to help on cracking passwords. But many times, password information is giving away too casually. It easily can be one friend giving another the use of their account or someone watching over a shoulder while a password is entered. The best way to combat this is to choose a unique password containing a combination of letters and numbers, preferably not found in a dictionary, for example, and to be very conscious of who can observe it.</P>
+<P>Therefore, the following is a list of tips on creating unique and safe password:</P>
+
+<UL>
+<LI>Use numbers in the password, preferably not at the beginning or ending.</LI>
+<LI>Use non-basic words in the password. Basic words in foreign languages are just as easy to guess.</LI>
+<LI>Try keyboard tricks like shifting fingers to the left or right one key when typing the password.</LI>
+<LI>If someone is standing over your shoulder, you could always politely ask him to turn his head.</LI>
+<LI>Use non-alphanumeric characters in the password. Symbols such as $, %, ^, and &amp; are often valid characters to use in passwords.</LI>
+<LI>Administrators can use control characters, on certain systems, in the middle of the password. You can determine which control characters can be used by trial and error.</LI>
+<LI>Use a mixture of  uppercase and lowercase letters.</LI></UL>
+
+
+<H2><I> Authentication</I></H2>
+</B></I><P>As discussed above, a good password policy is very important to safeguard the integrity, confidentiality and security of your users, specially if you are involved with electronic commerce, which becomes a requirement.  Therefore, authentication must become a daily user’s process, rather than a special procedure, for users to logon at their computers, the Internet and departmental Intranets. </P>
+<P>When applying authentication methods, it is important to take into consideration the spoofing risks.  Cryptography methods, as discussed earlier will help you to implement a security policy not so easy to be spoofed by hacker, but it may not be enough to protect corporate resources and other non-individual related data or resource. </P>
+<P>Therefore, you must incorporate other strategies and technologies to enhance the level of security of your corporate network.  Firewalls are definitely a requirement and will be discussed in more details throughout this book.</P>
+<P> </P>
+<H2><I> Authenticode</I></H2>
+</B></I><P>Authenticode appeared as one of Microsoft’s earliest commercial implementations of code signing. The Authenticode signature is based on currently prevailing industry standards - X509v3 certificates and PKCS#7 signature blocks. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Tip:</B><P>Documentation on Authenticode and related infrastructure can be found at http://www.microsoft.com/intdev/security</PRE></FONT>.</P>
+</TD></TABLE>
+<P>That has being a lot of commentary in the USENET and trade magazines about ActiveX and Authenticode, but most of them focusing on how an ActiveX control operates and what Microsoft should or should not have included with the tool. So I don’t intend to reproduce the same line of thoughts here as if you want to know more about the hows, dos and don’ts of Authenticode probably a search on AltaVista would be enough.  Rather, I would like us to focus on the infrastructure of what Microsoft proposes with Authenticode and its impact as a data security cryptographic-based application.</P>
+<P>Brent Laminack (brent@ecweb.com) posted the following considerations about Authenticode on the USENET, which clearly illustrates a basic infra-structure issue with it.  You judge for yourself if you would be wiiling to base your data security tasks to it.</P>
+<P>Laminack suggests us to consider two ActiveX controls.  One providing a control similar to the Win95 &quot;Start&quot; button with all the commands on the user’s computer presented in a list to choose from.  Suppose it keeps these command names in a preferences file such as C:\windows\mycommands.  The file may contain a list such as: Word, Excel, format c:, IE3, etc.</P>
+<P>He also suggests us to consider a second ActiveX control that provides a &quot;cron&quot; facility, which would automatically wake up at a specified time and execute a list of commands for housekeeping such as backup, defrag, etc.  Suppose it keeps its list of commands in, say, for instance C:\windows\mycommands.  In his own words, &quot;you see it coming,&quot; don’t you? What could happen is that the second control could find the file written by the first one and dutifully fire up Word, Excel, and then… format the C drive.  Commands after this one are of diminishing consequence.</P>
+<P>What now?  You’re stuck!  You now have a wiped hard drive and, as Laminack puts it, you have no fingerprints for Authenticode. Even if you do get them, who are you going to sic the law enforcement people on? Both controls did exactly what they were designed to do, exactly what they advertised to do.  Who are you going to sue? </P>
+<P>Worse, neither of the codes &quot;misbehaved.&quot; What did in your disk was an unforeseen interaction between the two.  Laminack suggests that with a bit of thought work it would be possible to come up with a co-operating gang of ActiveX controls to do deliberate theft via collusion where each program is only doing what it’s &quot;supposed&quot; to, yet the total of their activity is much greater than the sum of the parts.  Yes, non-linearity is clearly at work here in the interaction of the components.  </P>
+<P>The only way to avoid this would be to strictly decouple them, by not allowing any to share information with the other, such as giving each its own private file-space to write in.  This, alas is not the case.</P>
+<P>As Microsoft puts it, the way Authenticode is implemented, both contractually and technically, at least in its present release (March of 1997), when you sign a code you are actually taking explicit responsibility as the code’s publisher, an action not to be taken lightly from a legal point of view.</P>
+<P>But it is just to easy to say that by signing a code gives you accountability. After all, would you have an audit trail to use as supporting evidence?  Also, in the software industry, history shows that usually a piece of software is not liable for damages it may causes to a system!</P>
+<P>Although Authenticode is still the only deployed code-signing application, Netscape Navigator 4.0 already has code signing, and JavaSoft’s JDK1.1 as well. The bottom line?  You’ll need much more then Authenticode, and Microsoft response is SSPI</P>
+
+<H2><I> NT Security Support Provider Interface (SSPI) </I></H2>
+</B></I><P><HR ALIGN="LEFT" WIDTH="81%" SIZE=0>Microsoft’s Security Support Provider Interface (SSPI) is a common Application Programming Interface (API) for obtaining integrated security services for authentication, message integrity, message privacy, and security quality of service for any distributed application protocol. Application protocol designers can take advantage of this interface to obtain different security services without modification to the protocol itself.</P>
+<P>Figure 3.32 shows where the SSPI security services fit into the overall distributed application architecture.</P>
+
+<!--<B><P>Figure 3.32</P>-->
+<!--</B><I><P>Microsoft’s SSPI security services location within the overall distributed application architecture</P></I>-->
+<P>SSPI provides a common interface between transport-level applications, such as Microsoft RPC or a file system redirector, and security providers, such as Windows&nbsp;NT Distributed Security. SSPI provides a mechanism by which a distributed application can call one of several security providers to obtain an authenticated connection without knowledge of the details of the security protocol. </P>
+<P>SSPI consists of following APIs:</P>
+
+<UL>
+<B><LI>Credential Management APIs </B>— which provides access to credentials (password data, tickets, and so on) of a principal or free such access. The APIs are:</LI>
+<B><LI>AcquireCredentialsHandle </B>— Acquires a handle to the reference credentials.</LI>
+<B><LI>FreeCredentialsHandle </B>— Releases a credential handle and associated resources.</LI>
+<B><LI>QueryCredentialAttributes</B> — Allows queries on various credential attributes like associated name, domain name, and so forth.</LI>
+<B><LI>Context Management APIs</B> — Context management APIs provide methods for creating and using security contexts. The contexts are created on both the client and the server side of a communication link. These contexts can then be used later with the message support APIs. The APIs are:</LI>
+<B><LI>InitializeSecurityContext</B> — Initiates a security context by generating an security token that can be passed to the server.</LI>
+<B><LI>AcceptSecurityContext</B> — Creates a security context using the opaque message received from the client.</LI>
+<B><LI>DeleteSecurityContext</B> — Frees a security context and associated resources.</LI>
+<B><LI>QueryContextAttributes </B>— Allows queries on various context attributes.</LI>
+<B><LI>ApplyControlToken </B>— Applies a supplemental security message to an existing security context.</LI>
+<B><LI>CompleteAuthToken </B>— Completes an authentication token, since some protocols, like DCE RPC, need to revise the security information once the transport has updated some message fields.</LI>
+<B><LI>ImpersonateSecurityContext </B>— Attaches the client’s security context as an impersonation token to the calling thread.</LI>
+<B><LI>RevertSecurityContext </B>— Ceases impersonation and defaults the calling thread to its primary token.</LI>
+<B><LI>Message Support APIs </B>— Message support APIs provide communication integrity and privacy services based on a security context. The APIs are:</LI>
+<B><LI>MakeSignature </B>— Generates a secure signature based on a message and a security context.</LI>
+<B><LI>VerifySignature </B>— Verifies that the signature matches a received message.</LI>
+<B><LI>Package Management APIs</B> — Package Managment APIs provide services for different security packages that the security provider supports. The APIs are:</LI>
+<B><LI>EnumerateSecurityPackages</B> — Lists available security packages and their capabilities.</LI>
+<B><LI>QuerySecurityPackageInfo</B> — Queries an individual security package for its capabilities.</LI></UL>
+
+<P>SSPI does not currently provide any public interfaces for encryption/decryption functionality. A <I>security provider</I> is a dynamic-link library that implements the Security Support Provider Interface and makes one or more <I>security packages</I> available to applications. A security package maps the SSPI functions to an implementation of the security protocol specific to that package, such as NTLM, Kerberos, or SSL. Security packages are sometimes referred to as &quot;SSPs,&quot; such as the &quot;NTLM SSP.&quot; The name of the security package is used in the initialization step to identify a specific package.</P>
+<P>The Security Support Provider Interface allows an application to use any of the available security packages on a system without changing the interface to use security services. SSPI does not establish logon credentials because that is generally a privileged operation handled by the operating system.</P>
+<P>An application can use the package management functions to list the security packages available and select one to support its needs. The application then uses the credential management functions to obtain a handle to the credentials of the user on whose behalf they are executing. With this handle, the application can use the context management functions to create a security context to a service. A <I>security context</I> is an opaque data structure that contains the security data relevant to a connection, such as a session key, the duration of the session, and so on. Finally, the application uses the security context with the message support functions to ensure message integrity and privacy during the connection.</P>
+
+<H2><I> Microsoft Cryptographic API (CryptoAPI)</I></H2>
+</B></I><P>The Microsoft Cryptographic API (CryptoAPI) provides services that enable application developers to add cryptography to their Win32 applications. Applications can use the functions in CryptoAPI without knowing anything about the underlying implementation, in much the same way that an application can use a graphics library without knowing anything about the particular graphics hardware configuration.</P>
+<P>CryptoAPI is a set of functions that allow applications to encrypt or digitally sign data in a flexible manner, while providing protection for the user’s sensitive private key data. </P>
+<P>All cryptographic operations are performed by independent modules known as cryptographic service providers (CSPs). One CSP, the Microsoft RSA Base Provider, is bundled with the operating system. </P>
+<P>Each CSP provides a different implementation of the CryptoAPI. Some provide stronger cryptographic algorithms while others contain hardware components such as smartcards. In addition, some CSPs may occasionally communicate with users directly, such as when digital signatures are performed using the user’s signature private key. </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>For more and detailed information about CryptoAPI, check the URL http://www.graphcomp.com/info/specs/ms/capi.html.</P>
+</TD></TABLE>
+<H2><B><I>Cryptography and Firewalling: The Dynamic Dual</LI></H2>
+
+</B></I><P>No doubt, companies want, and need, a piece of the Internet. For some of you, Internet Managers, this may involve implementing an Intranet--a private IP network created with Web servers and browsers that runs over your protected network. But most likely, it will involve setting up the meaning for transferring data, including sensitive one, over the Internet. </P>
+<P>Firewalls play a major role in protecting corporate sites from the Internet, but the old firewall concept, based on routers and few deny/allow statements are no longer enough to keep the hackers and crackers out. The statistics are not encouraging, as according to the Computer Security Institute, 1/5 of all companies on the Internet have been or are going to be hacked. Worse, at least 1/3 of them will be hacked after a firewall has being in place!</P>
+<P>Chapter 7, &quot;What is an Internet/Intranet Firewall After All&quot; provides in depth details of the various types of firewalls available on the market, its features and, mostly important, the technology behind it. However, data can be stolen on the Internet, despite the presence of a firewall, as they can be intercepted outside the firewall, while still on the Internet.  Besides, as data can be stolen on the Internet, it can also be modified.  Anyone could, for example, insert an malicious applet as an attachment to an intercepted e-mail message, that once activated it could disable the firewall or even compromise the security of your protected network.</P>
+<P>Consider this scenario:  you contract me to develop some applications using ActiveX.  I develop some applications as plug-ins for you Internet Explorer and you get all happy.  However, once your users agree to use this plug-in I become registered with Explorer as a trusted publisher.  What it means is that from now on all the requisitions to download the plug-in I developed won’t trigger the permission dialog box!  Is it a bug or a feature?! Remember the ActiveX discussion earlier?</P>
+<P>Far from being a fiction, unfortunately it is real.  If you check C|net’s URL at http://www.news.com/News/Item/0,4,3707,00.html,</PRE></FONT> you see that earlier this year, around February of 1997, the same thing happened to InfoSpace.  Fortunately, InfoSpace folks saw this &quot;resource&quot; as a bug and did an update on their plug-in.  But here it is the question:  can we assume that all the plug-in editors for the Internet Explorer are as responsible as InfoSpace?</P>
+<P>When a download of an executable component is done, this component shouldn’t be able to silently manipulate the security policy of a system, especially since the firewall, if any present, could not stop the corrupted message from accessing the protected network.  However, it is almost impossible to prevent such a behavior from happening when we consider the active content model of Microsoft.</P>
+<P>It is not new that the Java model is more robust then ActiveX when addressing this problem.  But as a side effect, Java lacks such a feature, well, if we consider it a feature!</P>
+<P>A feature or a bug, what I am most concerned is the fact that a shrewd  developer could generate an ActiveX control that would do nothing more than open the doors of the system and let all the other programs come in without even passing through the Authenticode.  This ActiveX control could even let another version of itself access the system, accordingly signed, but without malicious codes, which would cover up any trace of it in the system.</P>
+<P>Unfortunately, with ActiveX,  when an user allows the code to run on the system, there are many &quot;distressing&quot; situations that could happen.  In a way, this is not a problem affecting only ActiveX.  It extends through all the platforms and type of codes.  If the Web made it easy for an editor to distribute his codes, it also made it easy to identify a malicious code and to alert and communicate the endangered parties.</P>
+<P>Without a doubt, the Authenticode helps a lot in the quality control and authenticity of the code.  The fact that we can rapidly identify the author of a code and demand from him a fix for a bug is an example of it.  If the author refuses to fix the code, there are several avenues one could take to force him to fix it, both in  the commercial level, refusing to use the code, as well as legally, bringing him to court.  This feature alone already grants Authenticode some merit.</P>
+<P>Even though, Java’s robustness and the existence of other security applets for Java, such as Java Blocking, for instance, is enough for one to argue on rather develop on ActiveX or Java.</P>
+<P>One alternative to prevent such a vulnerability is to run a filter in combination to the firewalls, so that these applets (Java, JavaScript or ActiveX objects) can be filtered. A major example of such a tool is the so called Java Blocking, which have created a lot of confusion as far as how to run it in the most effective way, as opinions are many.</P>
+<P>My recommendation is to run the Java Blocking as a service at the firewall.  This way, it will extend the level of protection against Java applets throughout the whole network.  Some browsers, such as Netscape Navigator, provide security against Java applets at the client level, allowing the user to disable Java applets at the browser.  However, it becomes very difficult to administer all the clients centrally.</P>
+<P>Carl V Claunch, from Hitachi Data Systems, developed a patch for the TIS firewall toolkit that converts the TIS http-gw proxy onto a proxy filter.  This filter can be implemented as an uniform or differentiated security policy at the level of IP/domain addresses.  This filter can block, permit or combine both instances based on the browser version.  The security policies are created separately for Java, JavaScript, VBScript, ActiveX, SSL e SHTTP</P>
+<P>According to Claunch, as far as blocking JavaScript, this process involves the scanning of various constructs:</P>
+<PRE><FONT SIZE=3><P>1  - &lt;SCRIPT language=javascript&gt; ... &lt;/SCRIPT&gt;</P>
+<P>2 - &lt;SCRIPT language=livescript&gt; . . . &lt;/SCRIPT&gt;</P>
+<P>3 - Attribute in other tags on form onXXXX= where XXXX indicates the browser’s actions, such as click, mouse movements, etc.</P>
+<P>4 - URLs at HREFs and SRCs with javascript: protocol</P>
+<P>5 - URLs at HREFs and SRCs with a livescript: protocol</P>
+<P>The Java Blocking consists in disactivating both tags &lt;APPLET ...&gt; and  &lt;/APPLET&gt;,</P>
+<P>while allowing characters to pass, which usually are alternatively HTML.</P>
+</PRE></FONT>
+<P>AS for the VBScript blocking it involves:</P>
+<PRE><FONT SIZE=3><P>1 -  The scanning and filtering sequence of &lt;SCRIPT language=VBScript&gt; ....</P>
+<P>&lt;/SCRIPT&gt;</P>
+<P>2 - Scanning and filtering sequence &lt;SCRIPT language=vbs&gt;...&lt;/SCRIPT&gt;</P>
+<P>3 - Removal of attributes on form onXXXXX= and many tags, just like with JavaScript</P>
+<P>The blocking of ActiveX involves the removal sequence of &lt;OBJECT...&gt;...&lt;/OBJECT&gt;.</P>
+</PRE></FONT>
+<P>However, the dialogs of SSL and SHTTP turns HTML blurry to the proxy.  Consequently, these shttp and https HTML pages can’t be effective filtered!</P>
+<P>But don’t you think that I’m hammering ActiveX and promoting Java!  Anyone could develop a malicious plug-in for Netscape if they wanted to.  As a matter of fact, the impact would have been even greater then with any ActiveX object when we consider the browsers.  After all, a plug-in has as much control over Windows as an ActiveX object. </P>
+<P>Don’t even tell me that the advantage is in having to install a plug-in versus automatically receiving an ActiveX object.  There are so many implementations of Netscape out there that for sure there would had been so many users installing such a malicious plug-in as ActiveX users facing a malicious ActiveX on their pages.  Furthermore, you have no way to better control the installation of a plug-in on Netscape better them you would control the installation of an ActiveX object.</P>
+<P>As professionals involved with network and site security, lets be realistic.  Many experts have been pointing out the security flaws existent on Java implementations, as well as fundamental problems with the Java security model.  As an example, I could cite attacks that confuses Java’s system, resulting in applets executing arbitrary codes with total permission from the user invoking the applet.  </P>
+
+<TABLE CELLSPACING=10 CELLPADDING=10 WIDTH=100%>
+<TD BGCOLOR=SILVER><B>Note:</B><P>There is a white paper, written by Dean, Felten e Wallach, entitled &quot;Java Security: From HotJava to Netscape and Beyond&quot; that discusses most of the problems and security flaws of Java.  The paper is available for download at Princeton University’s site, at URL http://www.cs.princeton.edu/sip</PRE></FONT>.</P>
+</TD></TABLE>
+<P>So far, users and systems developers have been content in considering these Java problems... &quot;temporary.&quot; They have been confident that bugs will be fixed quickly, limiting the margin of damages.  Netscape has been incredible quick in fixing serious problems!</P>
+<P>However, with the huge base of browsers capable of running Java, each one inviting a hostile applet to determine the actions of this browser, gives as the suspicion of a security flaw on Java at the implementation structure level.  </P>
+<P>There is another paper, available at Boston University’s URL at http://www.cs.bu.edu/techreports/96-026-java-firewalls.ps.Z</PRE></FONT>, that describes attacks to firewalls that can be launched from legitimate Java applets.  The document describes a situation where in some firewall environments, a Java applet running on a browser inside the firewall can force the firewall to accept connections such as TELNET, or any other TCP ones, directed to the host!  In some cases, the applet can even use the firewall to arbitrarily access other hosts supposedly protected by a firewall.</P>
+<P>Let me explain that the weaknesses exploited in these attacks are not caused by Java implementations themselves, nor by the firewall itself, but from the combination of both elements together, and on the security model resulted from the browsers access to hosts supposedly protected.</P>
+<P>For those skeptical about the security of Java applets running on the Web, especially on browsers, here it is a &quot;St. Thomas&quot; test:  for those running Netscape 3.0, check the URL at http://www.geocities.com/CapeCanaveral/4016/. </PRE></FONT>Once there, check the Java-Jive page and watch the &quot;little Java devils&quot; working!</P>
+<P>If you didn’t realize what happened, try again and pay attention:  every time you enter the page, a message is sent to the author of that page, Francesco Iannuzzelli (ianosh@mv.itline.it), this without even asking your permission!  The message he receives will contain your address (both user and SMTP server!) as you specified on your Netscape &quot;preferences.&quot;  According to Iannuzzelli, there is no way for you to be alerted about this bug!</P>
+<P>The only way you would have noticed something different was going on would had been the button you see on the page, which can be hidden, and the status bar showing a connection to your mail server, which can be hidden as well!</P>
+<P>What to do then? Encryption is the obvious alternative. The great news is that firewall vendors are realizing that an offering encryption features with their firewall products.  Many are even including applet filters. Vendors like Border Network Technologies Inc., Check Point Inc. and Trusted Information Systems Inc. are some of them.</P>
+<P>Router vendors are also working hard on increasing the level of protection they can offer to corporate networks through their products. Cisco Systems Inc. and Network Systems Corp. are some examples.</P>
+<P>According to Lee Bruno, in an article for Data Communications on the Web, back on April of 1996, mentioned few companies already offering standalone encryption devices. As Bruno suggests, &quot;choosing the right gear means grappling with some complex issues. Start with the basics: Where is the data being encrypted? Some vendors do it at the application level; others, in the IP stack. The former lets net managers pick and choose what they want to encrypt. The latter forces them to encrypt everything on a given link.&quot;</P>
+<P>The underlying truth here is that encryption and firewalling becomes a dynamic dual. You should review the information and recommendations on the whole Part II of this book, &quot;Firewall Implementations and Limitations,&quot; consider what we discussed in this chapter about cryptography and its applications and build your own security policy.  Keep in mind that you will need both, encryption and firewalls, to soundly protect your corporate network.  Don’t forget to read the Part III of this book, &quot;Firewall Resource Guide,&quot; which will help you to run a &quot;firewall attack drill&quot; and provide you with abundant information on firewall vendors, utilities and complementary information.</P>
+<TABLE BORDER=0 WIDTH=100%>
+<TR><TD><A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="bottom"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Orders"></A>
+<IMG SRC="./images/order_text.gif" WIDTH=103 HEIGHT=41 ALT="Orders"></TD>
+<TD ALIGN=RIGHT><A HREF="chap02.htm"><IMG SRC="./images/backward.gif" BORDER=0 ALT="Backward" WIDTH=32 HEIGHT=32></A>&nbsp;<A HREF="chap04.htm"><IMG SRC="./images/forward.gif" BORDER=0 ALT="Forward" WIDTH=32 HEIGHT=32></A></TD></TR>
+<TR><TD COLSPAN=2><A HREF="mailto:computing@mcgraw-hill.com"><IMG SRC="./images/hotkey.gif"  ALIGN=LEFT BORDER=0 WIDTH=40 HEIGHT=40 ALT="Comments"></A>
+<IMG SRC="./images/comment_text.gif" WIDTH=73 HEIGHT=39 ALT="Comments"></TD></TR>
+</TABLE>
+<HR>
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com/"target="_top">COMPUTING
+MCGRAW-HILL</A> 
+| <A HREF="http://www.betabooks.mcgraw-hill.com/"target="_top">Beta Books</A> | <A HREF="http://www.computing.mcgraw-hill.com/contact.htm" 
+target="_top">Contact Us</A> | 
+<A HREF="http://www.betabooks.mcgraw-hill.com/stores.htm" target="_top">Order Information</A> | 
+<A HREF="http://mcgraw-hill.inforonics.com/compsearch.shtml" target="_top">Online Catalog</A> <HR>
+<P ALIGN=CENTER><A HREF="http://www.mcgraw-hill.com" target="_top"><IMG SRC="images/division.gif" WIDTH="307" HEIGHT="50" BORDER="0" 
+ NATURALSIZEFLAG="3" ALIGN="BOTTOM"></A>
+<P ALIGN=CENTER>HTML conversions by <A HREF="mailto:barry@megaspace.com">Mega Space</A>.
+<P ALIGN=CENTER>This page updated on December 05, 1997 by 
+<A HREF="mailto:computing@mcgraw-hill.com">Webmaster</A>.
+<P ALIGN=CENTER><A HREF="http://www.computing.mcgraw-hill.com">Computing McGraw-Hill</A> is an imprint of the 
+<A HREF="http://www.pbg.mcgraw-hill.com">McGraw-Hill Professional Book Group</A>.
+<P ALIGN=CENTER>
+Copyright &copy;1997 <A HREF="http://www.mcgraw-hill.com">The McGraw-Hill Companies, Inc.</A> All Rights Reserved.<BR>
+Any use is subject to the rules stated in the 
+<A HREF="http://www.mcgraw-hill.com/corporate/news_info/copyrttm.htm" 
+target="_top">Terms of Use</A>.</P>
+</BODY>
+</HTML>
