@@ -1,1 +1,0 @@
-There are no code examples found in Chapter 27.

@@ -1,0 +1,1 @@
+The database used is xampp server for MySQL.
