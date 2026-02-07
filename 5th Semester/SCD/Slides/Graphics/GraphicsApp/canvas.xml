@@ -1,0 +1,1 @@
+<?xml version="1.0" ?><graphics.core.Canvas><shapesCollection><graphics.core.Rectangle><point><x>200</x><y>100</y></point><topLeft reference="../point"></topLeft><length>50</length><width>100</width></graphics.core.Rectangle><graphics.core.Circle><point><x>50</x><y>50</y></point><radius>75</radius></graphics.core.Circle></shapesCollection></graphics.core.Canvas>

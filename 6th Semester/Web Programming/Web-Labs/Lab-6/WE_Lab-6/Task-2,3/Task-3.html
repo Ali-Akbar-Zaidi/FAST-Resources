@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+        display: flex;
+    }
+
+    .div {
+        margin: auto;
+        border: solid black 2px;
+    }
+</style>
+
+<body>
+
+    <div class="div" id="div"></div>
+
+    <script>
+        const num = parseInt(prompt("Please enter a number: "));
+
+        const div = document.getElementById("div");
+        div.style.width = "fit-content";
+        div.style.height = "fit-content";
+        div.style.paddingBottom = "7px";
+
+        const heading = document.createElement('header');
+        heading.style.fontSize = "30px";
+        heading.style.textAlign = "center";
+        heading.style.fontWeight = "bold";
+        heading.style.margin = "5px";
+        heading.style.color = "rgb(190, 9, 9)";
+
+        heading.textContent = "The Table of " + num + " is as follows:-";
+        div.appendChild(heading);
+
+        for (let i = 1; i <= 10; i++) {
+            const label = document.createElement('input');
+            label.style.border = "solid black 2px";
+            label.style.margin = "3px";
+            label.style.padding = "2px";
+            label.style.fontSize = "20px";
+            label.style.width = "150px";
+            label.style.color = "red";
+            label.style.textAlign = "center";
+            label.readOnly = "true";
+
+            const br = document.createElement('br');
+
+            label.value = (num + " x " + i + " = " + (num * i));
+
+            div.appendChild(label);
+            div.appendChild(br);
+        }
+    </script>
+
+</body>
+
+</html>

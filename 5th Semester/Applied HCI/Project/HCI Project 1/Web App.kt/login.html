@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website with Login & Registration Form</title>
+  <link rel="stylesheet" href="./login.css" />
+  <link rel="stylesheet" href="./home.css" />
+  <!-- Unicons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <ul class="nav_items">
+        <!-- Dropdown for "Mental Health" -->
+        <li class="nav_item">
+          <a href="#" class="nav_link">
+            <img src="./assets/mind.png" alt="Mental Health" style="width: 20px; height: 20px; margin-right: 5px; vertical-align: middle;">
+            Mental Health
+          </a>
+          <div class="dropdown">
+            <a href="./sounds.html" class="dropdown_link">Sounds of Nature</a>
+            <a href="./breathe.html" class="dropdown_link">Breathing Exercise</a>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a href="./notes.html" class="nav_link">
+            <img src="./assets/text_snippet_FILL0_wght400_GRAD0_opsz48.svg" alt="Notes" style="width: 20px; height: 20px; margin-right: 5px; vertical-align: middle; filter: invert(1);">
+            Notes
+          </a>
+        </li>
+        <li class="nav_item">
+          <a href="#" class="nav_link">
+            <img src="./assets/person_FILL0_wght400_GRAD0_opsz48.svg" alt="Profile" style="width: 20px; height: 20px; margin-right: 5px; vertical-align: middle; filter: invert(1);">
+            Profile
+          </a>
+          <div class="dropdown">
+            <a href="./settings.html" class="dropdown_link" id="edit-profile">Edit Profile</a>
+          </div>
+        </li>
+      </ul>
+
+      <button class="button" id="form-open">Login</button>
+    </nav>
+  </header>
+
+  <div id="greeting">
+    Hello, <i>Abdullah!</i>
+  </div>
+
+  <section class="home">
+    <div class="form_container">
+      <i class="uil uil-times form_close"></i>
+
+      <div class="form login_form">
+        <form action="#">
+          <h2>Login</h2>
+
+          <div class="input_box">
+            <input type="email" id="login-email" placeholder="Enter your email" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" id="login-password" placeholder="Enter your password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+
+          <div class="option_field">
+            <span class="checkbox">
+              <input type="checkbox" id="check" />
+              <label for="check">Remember me</label>
+            </span>
+            <a href="#" class="forgot_pw">Forgot password?</a>
+          </div>
+
+          <button class="button">Login Now</button>
+
+          <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form signup_form">
+        <form action="#">
+          <h2>Signup</h2>
+
+          <div class="input_box">
+            <input type="email" placeholder="Enter your email" required />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Create password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input type="password" placeholder="Confirm password" required />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+
+          <button class="button">Signup Now</button>
+
+          <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+        </form>
+      </div>
+    </div>
+
+
+
+    <div id="main-card">
+
+      <div id="progress-card">
+        <div class="progress-chart-round">
+          <!-- <div id="progress-indicator"></div> -->
+          <div id="progress-chart-text">
+            33%
+          </div>
+        </div>
+
+        <div id="main-card-bottom-row">
+
+          <div class="main-card-metrics">
+            1467
+            <div class="help-text">
+              Steps
+            </div>
+          </div>
+
+          <div class="main-card-metrics">
+            29
+            <div class="help-text">
+              kCal
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="dashboard">
+        <div class="card">
+          <h2>
+            <img src="./assets/sleeping.png" alt="Sleep" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle;">
+            Sleep Tracker
+          </h2>
+          <div class="chart-container">
+            <canvas class="chart"></canvas>
+          </div>
+          <a href="./sleep.html">
+            <button class="add-sleep-button">
+              Add Sleep Record
+            </button>
+          </a>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+      <script src="dashboard.js"></script>
+
+      <div id="metrics-card">
+        <!-- <div id="txt">Body Metrics</div> -->
+        <!--TODO: add correct link-->
+        <button class="body-metric">
+          <!-- <div > -->
+          <div class="metric-name">
+            <img src="./assets/heart.png" alt="Heart" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+            Heart Rate
+          </div>
+          <div class="metric-value">
+            78
+          </div>
+          <div class="help-text metrics-unit">
+            bpm
+        </button>
+        <!-- </div> -->
+
+        <!--TODO: add correct link-->
+        <button class="body-metric">
+          <!-- <div class="body-metric"> -->
+          <div class="metric-name">
+            <img src="./assets/lungs.png" alt="Lungs" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+            SpO<sub>2</sub>
+          </div>
+          <div class="metric-value">
+            98
+          </div>
+          <div class="help-text metrics-unit">
+            %
+        </button>
+        <!-- </div> -->
+
+        <!--TODO: add correct link-->
+        <button class="body-metric">
+          <!-- <div class="body-metric"> -->
+          <div class="metric-name">
+            <img src="./assets/body.png" alt="Body" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+            Body Weight
+          </div>
+          <div class="metric-value">
+            75
+          </div>
+          <div class="help-text metrics-unit">
+            kg
+        </button>
+        <!-- </div> -->
+
+        <!--TODO: add correct link-->
+        <a href="./n.html">
+          <button class="body-metric">
+            <!-- <div class="body-metric"> -->
+            <div class="metric-name">
+              <img src="./assets/body_system_FILL0_wght400_GRAD0_opsz48.svg" alt="BMI" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+              BMI
+            </div>
+            <div class="metric-value">
+              25.51
+            </div>
+            <div class="help-text metrics-unit">
+              Overweight
+          </button>
+        </a>
+        <!-- </div> -->
+        </a>
+
+      </div>
+
+
+      <form id="progress-card">
+        Calorie Calculator
+        <!-- <input type="number"> -->
+        <input type="text" id="cal_input">
+        <button id="enter" type="submit">kCal / hr</button>
+        <input type="text" id="ans" value="">
+      </form>
+
+
+  </section>
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

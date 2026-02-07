@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1</title>
+</head>
+
+<style>
+    .body {
+        background-color: rgb(4, 158, 140);
+        text-align: center;
+        width: 50%;
+    }
+
+    .heading {
+        padding-top: 10px;
+        margin-bottom: 30px;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .bulb {
+        width: 250px;
+        height: 250px;
+    }
+
+    .on {
+        margin-right: 45px;
+        margin-bottom: 20px;
+    }
+
+    .off {
+        margin-left: 45px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <div class="body">
+        <header class="heading">Click on the buttons to Turn On/Off the light</header>
+        <section class="section">
+            <img class="bulb" id="bulb" src="./BulbOff.jpeg" alt="Bulb" onclick="changeBulb()">
+        </section>
+        <footer>
+            <img class="on" id="on" src="./On.png" alt="BulbOn">
+            <img class="off" id="off" src="./Off.png" alt="BulbOff">
+        </footer>
+    </div>
+
+
+    <script>
+        const on = document.getElementById("on");
+        on.addEventListener("click", function (event) {
+            document.getElementById("bulb").src = "./BulbOn.jpeg";
+        });
+        const off = document.getElementById("off");
+        off.addEventListener("click", function (event) {
+            document.getElementById("bulb").src = "./BulbOff.jpeg";
+        });
+    </script>
+</body>
+
+</html>

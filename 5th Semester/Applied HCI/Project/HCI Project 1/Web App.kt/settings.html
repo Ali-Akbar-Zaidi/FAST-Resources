@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile Settings - Fitness App</title>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #78909C;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-image: url('./assets/profile.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.edit-profile {
+    cursor: pointer;
+    background-color: #64B5F6;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    margin: 20px auto;
+}
+
+.settings-container {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.save-button {
+    padding: 10px;
+    width: 100%;
+    background-color: #81C784;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #66BB6A;
+}
+</style>
+</head>
+<body>
+
+<button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+    ← Back
+</button>
+
+<div class="profile-container">
+    <div class="profile-circle"></div>
+    <button class="edit-profile" onclick="toggleSettings()">Edit Profile</button>
+</div>
+
+<div class="settings-container" id="settings-container">
+    <!-- Settings form will be inserted here -->
+</div>
+
+<script>
+function toggleSettings() {
+    const settingsContainer = document.getElementById('settings-container');
+    const profileContainer = document.querySelector('.profile-container');
+    
+    if (settingsContainer.style.display === 'none' || settingsContainer.style.display === '') {
+        settingsContainer.style.display = 'block';
+        profileContainer.style.display = 'none';
+        settingsContainer.innerHTML = `
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" value="JohnDoe123">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" value="password123">
+            </div>
+            <div class="input-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" value="70">
+            </div>
+            <div class="input-group">
+                <label for="heartrate">Heart Rate (bpm):</label>
+                <input type="number" id="weight" value="78 bpm">
+            </div>
+            <div class="input-group">
+                <label for="Spo2">Spo2:</label>
+                <input type="number" id="weight" value="98%">
+            </div>
+            <div class="input-group">
+                <label for="steps-goal">Daily Steps Goal:</label>
+                <input type="number" id="steps-goal" value="10000">
+            </div>
+            <button class="save-button" onclick="saveSettings()">Save Changes</button>
+        `;
+    } else {
+        settingsContainer.style.display = 'none';
+        profileContainer.style.display = 'block';
+    }
+}
+
+function saveSettings() {
+    // Implement the logic to save settings
+    alert('Settings saved!');
+    toggleSettings(); // Close settings
+}
+</script>
+
+</body>
+</html>

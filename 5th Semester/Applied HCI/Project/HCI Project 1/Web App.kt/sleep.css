@@ -1,0 +1,120 @@
+*::selection {
+    background-color: inherit;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: antiquewhite;
+    /* color: #333; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.container{
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    max-width:1200px;
+    margin: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    background-color: #ffffffa1;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.922);
+}
+
+.transparent {
+    background: none;
+    padding: 0px;
+    box-shadow: none;
+}
+.container h1{
+    text-align: center;
+    /* padding: 10px; */
+    font-size: 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(82, 97, 76);
+    text-wrap: wrap;
+}
+.container p{
+    margin: 25px;
+    margin-top: 0px;
+    /* padding: 10px; */
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(82, 97, 76);
+    text-wrap: wrap;
+    /* line-height: 1.5; */
+}
+form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+form label{
+    display:inline-block;
+    /* flex-direction: column; */
+    /* flex: 1 1; */
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0b0909;
+}
+
+form input[type="date"],
+form input[type="number"]{
+    /* width: 200px; */
+    height: 100px; 
+    display: flex;
+    flex: 1 1 200px;
+    padding: 0 10px;
+    font-size: 24px;
+    color: #1e0c0c;
+    background-color: #fff;
+    border: 3px solid gray;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin: 25px;
+}
+form input[type="date"]:focus,
+form input[type="number"]:focus{
+    outline: none;
+    border-color: black;
+}
+form button[type="submit"]{
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #00b894;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+form button[type="clear-button"]{
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #00b894;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover{
+    background-color: #008b77;
+}
+.chart{
+    width: 100%;
+    height:300px;
+    margin:20px 0;
+}

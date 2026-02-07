@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"graphics"},{"l":"graphics.bean"},{"l":"graphics.core"},{"l":"graphics.data"},{"l":"graphics.serialization"},{"l":"graphics.ui"}];updateSearchResults();

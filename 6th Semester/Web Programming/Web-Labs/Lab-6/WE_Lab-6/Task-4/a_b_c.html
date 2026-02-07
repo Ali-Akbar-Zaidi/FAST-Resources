@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Task-4(a,b,c)</title>
+</head>
+
+<style>
+    .header {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(183, 171, 3);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        background-color: rgb(227, 227, 3);
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .footer {
+        display: flex;
+    }
+
+    img {
+        margin: auto;
+    }
+
+    .endingLine {
+        background-color: orange;
+        max-height: 2px;
+        margin-bottom: 30px;
+    }
+</style>
+
+<body>
+    <div class="endingLine">.</div>
+    <div class="partA" style="margin-bottom: 30px;">
+        <header class="header">(A) <br> Click the Button to Toggle the Image</header>
+        <section class="section">
+            <button id="button1" class="button" onclick="toggleVisibility('hi')">Toggle Visibility</button>
+        </section>
+        <footer class="footer">
+            <img src="./images/hi.jpeg" alt="hi" id="hi" class="hi">
+        </footer>
+    </div>
+
+    <div class="endingLine">.</div>
+    <div class="partB" style="margin-bottom: 30px;">
+        <header class="header">(B) <br> Click the Button to Display a Message</header>
+        <section class="section">
+            <button id="button2" class="button">Daba ke to Dekh Zara!</button>
+        </section>
+    </div>
+
+    <div class="endingLine">.</div>
+    <div class="partC" style="margin-bottom: 30px;">
+        <header class="header">(C) <br> Click the Button to Change the Background Color</header>
+        <section class="section">
+            <button id="button3" class="button" onclick="">Change Background Color</button>
+        </section>
+        <div class="footer" id="targetDiv">
+            <img src="./images/omg.jpg" alt="omg" id="omg" class="omg">
+        </div>
+    </div>
+
+    <div class="endingLine">.</div>
+</body>
+
+<script>
+    //Part-A
+    function toggleVisibility(elementId) {
+        var $element = $('#' + elementId);
+        if ($element.is(':visible')) {
+            $element.hide();
+        }
+        else {
+            $element.show();
+        }
+    }
+    //Part-B
+    $(document).ready(function () {
+        $("#button2").click(function () {
+            alert("Hey!!! So you dare to press the button!!!");
+        });
+    });
+    //Part-C
+    $(document).ready(function () {
+        var isBlue = true;
+        $("#button3").click(function () {
+            if (isBlue) {
+                $("#targetDiv").css("background-color", "orange");
+            } else {
+                $("#targetDiv").css("background-color", "lightblue");
+            }
+            isBlue = !isBlue;
+        });
+    });
+</script>
+
+</html>

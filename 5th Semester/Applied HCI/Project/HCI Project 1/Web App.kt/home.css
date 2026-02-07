@@ -1,0 +1,212 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: none;
+    /* z-index: 2; */
+}
+
+#greeting {
+    display: inline;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 48px;
+}
+
+#progress-card {
+    display: flex;
+    flex: 1 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+    padding: 50px;
+    /* width: 600px; */
+    /* height: 500px; */
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-chart-round {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 125px;
+    margin-right: 125px; */
+    background: conic-gradient(#4caf50 0% 33%, #e0e0e0 33% 100%);
+    width: 40vw;
+    max-width: 300px;
+    border-radius: 1250px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.progress-chart-round::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#progress-indicator {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    position: absolute;
+    align-items: last baseline;
+    justify-content: center;
+    height: 33%;
+    background-color: lightgreen;
+    width: inherit;
+    border-radius: 25px;
+}
+
+#progress-chart-text {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: center;
+    text-align: center;
+    font-size: 96px;
+    z-index: 2;
+    position: relative;
+}
+
+#main-card {
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#main-card-bottom-row {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.main-card-metrics {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 48px;
+    flex: 1 1 200px;
+    margin: 50px;
+    height: 50px;
+}
+
+.help-text {
+    font-size: 32px;
+    color: black;
+}
+
+#metrics-card {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-flow: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 25px;
+    margin: 25px;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.body-metric {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* border: 10px black; */
+    margin-right: 25px;
+    margin-bottom: 25px;
+    /* max-width: 250px;; */
+    background-color: antiquewhite;
+    border-radius: 25px;
+    padding: 25px;
+    box-shadow: 3px 3px grey;
+    transition: all 0.3s;
+    /* aspect-ratio: 1 / 1; */
+}
+
+.body-metric:hover {
+    background-color: rgb(82, 97, 76);
+    cursor: pointer;
+}
+
+.body-metric:active {
+    box-shadow: -1px -1px grey;
+    translate: 3px 3px;
+}
+
+.metric-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: black;
+}
+
+.metric-value {
+    padding: 10px;
+    font-size: 48px;
+    color: black;
+}
+
+.metrics-unit {
+    color: black;
+}
+
+#cal_input {
+    display: flex;
+    flex: 1 1;
+    width: 40%;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: 3px 3px grey;
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-wrap: wrap;
+    padding-bottom: 0px;
+    transition: all 0.3s;
+}
+
+#enter {
+    margin: 15px;
+    padding: 10px;
+    border-radius: 25px;
+    width: 50%;
+    height: 100px;
+    box-shadow: 3px 3px grey;
+    /* transition: box-shadow 0.3s; */
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+    text-wrap: wrap;
+    padding-bottom: 0px;
+    transition: all 0.3s;
+    display: flex;
+    flex: 1 1;
+}
+
+#txt{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    
+}

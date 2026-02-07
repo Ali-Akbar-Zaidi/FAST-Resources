@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2</title>
+</head>
+
+<style>
+    .header {
+        color: green;
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .form {
+        margin: auto;
+        background-color: rgb(249, 235, 223);
+    }
+
+    .itemDetails {
+        display: flex;
+    }
+
+    .column {
+        margin-right: 5px;
+        text-align: center;
+    }
+
+    .heading {
+        color: blue;
+        font-weight: bold;
+        background-color: rgb(222, 245, 252);
+        font-size: 20px;
+    }
+
+    .input {
+        width: 40px;
+    }
+
+    .calculation {
+        float: right;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+    .submit {
+        background-color: rgb(250, 211, 218);
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <header class="header">
+        <div>Medical Billing System</div>
+    </header>
+    <section class="section">
+        <form class="form">
+            <div class="itemDetails">
+                <div class="column">
+                    <header class="heading">S.No.</header>
+                    <section>
+                        <label class="label" for="">1</label><br>
+                        <label class="label" for="">2</label><br>
+                        <label class="label" for="">3</label><br>
+                    </section>
+                </div>
+                <div class="column">
+                    <header class="heading">Item</header>
+                    <section>
+                        <label class="label" for="">Erithrimycin 100mg</label><br>
+                        <label class="label" for="">Femramycin 500mg</label><br>
+                        <label class="label" for="">Oximycin 2mg</label><br>
+                    </section>
+                </div>
+                <div class="column">
+                    <header class="heading">Unit Cost (Rs.)</header>
+                    <section>
+                        <label id="c1" value="58" class="label" for="">58</label><br>
+                        <label id="c2" value="46" class="label" for="">46</label><br>
+                        <label id="c3" value="1090" class="label" for="">1090</label><br>
+                    </section>
+                </div>
+                <div class="column">
+                    <header class="heading">Quantity</header>
+                    <section>
+                        <input id="1" class="input" type="text" required><br>
+                        <input id="2" class="input" type="text" required><br>
+                        <input id="3" class="input" type="text" required><br>
+                    </section>
+                </div>
+                <div class="column">
+                    <header class="heading">Cost (Rs.)</header>
+                    <section>
+                        <input id="4" class="input" type="text" required><br>
+                        <input id="5" class="input" type="text" required><br>
+                        <input id="6" class="input" type="text" required><br>
+                    </section>
+                </div>
+            </div>
+            <div class="calculation">
+                <div class="total">
+                    <label for=""><b>Total</b></label>
+                    <input id="7" class="input" type="text" required>
+                </div>
+                <div class="GST">
+                    <label for=""><b>GST at 15%</b></label>
+                    <input id="8" class="input" type="text" required>
+                </div>
+                <div class="GTotal">
+                    <label for=""><b>Grand Total</b></label>
+                    <input id="9" class="input" type="text" required>
+                </div>
+            </div>
+            <br><br><br><br>
+            <div class="button">
+                <button class="submit" type="button" onclick="calculate();">Update Grand Total</button>
+            </div>
+        </form>
+    </section>
+
+</body>
+
+<script>
+    function calculate() {
+        var flag1 = true;
+        var inputs = [];
+        for (i = 0; i < 3; i++) {
+            if (document.getElementById(i + 1).value == "") {
+                flag1 = false;
+                break;
+            }
+        }
+        if (flag1) {
+            for (i = 0; i < 9; i++) {
+                inputs[i] = document.getElementById(i + 1).value;
+            }
+            if (inputs[0] > 5 || inputs[1] > 5 || inputs[2] > 5) {
+                alert("Quantity should be less than 5!");
+            }
+            else {
+                var val1 = inputs[0] * parseFloat(document.getElementById("c1").innerHTML);
+                var val2 = inputs[1] * parseFloat(document.getElementById("c2").innerHTML);
+                var val3 = inputs[2] * parseFloat(document.getElementById("c3").innerHTML);
+                var total = parseFloat(val1) + parseFloat(val2) + parseFloat(val3);
+                var gst = parseFloat(total * 0.15);
+                var grand = parseFloat(total + gst);
+                document.getElementById(4).value = val1;
+                document.getElementById(5).value = val2;
+                document.getElementById(6).value = val3;
+                document.getElementById(7).value = total;
+                document.getElementById(8).value = gst;
+                document.getElementById(9).value = grand;
+                alert("hello");
+            }
+        }
+        else {
+            alert("Please fill out all the fields!");
+        }
+    }
+</script>
+
+</html>

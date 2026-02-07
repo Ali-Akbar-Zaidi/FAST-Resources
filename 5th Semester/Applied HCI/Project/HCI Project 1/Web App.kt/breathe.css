@@ -1,0 +1,235 @@
+* {
+    background-color: antiquewhite;
+}
+
+*::selection {
+    background-color: inherit;
+}
+
+button:hover {
+    background-color: rgb(82, 97, 76);
+    cursor: pointer;
+}
+
+button:active {
+    box-shadow: -1px -1px grey;
+    translate: 3px 3px;
+}
+
+
+#Title {
+    margin: 5px;
+    font-size: 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: rgb(82, 97, 76);
+    text-wrap: wrap;
+    text-align: center;
+}
+
+#breathwork-elements-container {
+    display: flex;
+    width: 85vw;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    /* padding: 50px; */
+    flex: 1 1;
+}
+
+#abstract-shape-png {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 25px;
+    padding: 50px;
+    width: 50vw;
+    height: calc(50*1.36574074074)vw;
+    scale: 0.7;
+    background-color: transparent;
+    background: none;
+}
+
+#breathe-menu-container {
+    margin: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+    justify-content: right;
+    flex: 1 1;
+}
+
+.breathe-buttons {
+    margin: 25px;
+    padding: 50px;
+    border-radius: 25px;
+    width: 50%;
+    height: 100px;
+    box-shadow: 3px 3px grey;
+    /* transition: box-shadow 0.3s; */
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+    text-wrap: wrap;
+    padding-bottom: 0px;
+    transition: all 0.3s;
+    display: flex;
+    flex: 1 1;
+}
+
+
+#breath-time-input {
+    display: flex;
+    flex: 1 1;
+    width: 40%;
+    min-width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: 3px 3px grey;
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-wrap: wrap;
+    padding-bottom: 0px;
+    transition: all 0.3s;
+}
+
+#breath-time-input:hover {
+    background-color: rgb(82, 97, 76);
+}
+
+#time-buttons {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.inc-dec-button {
+    margin: 12.5px;
+    padding: 20px;
+    width: 40%;
+    height: 70px;
+    border-radius: 25px;
+    box-shadow: 3px 3px grey;
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+    text-wrap: wrap;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+    flex: 1 1;
+}
+
+#breathwork {
+    background-color: inherit;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 50px;
+    width: 90vw;
+    height: 40vh;
+    flex: 1 1;
+}
+
+#breathwork-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(186, 255, 186);
+    /* padding: 100px; */
+    width: 0px;
+    height: inherit;
+    border-radius: 50px;
+    /* flex: 1 1; */
+}
+
+#myInputField {
+    margin: 12.5px;
+    padding: 20px;
+    width: 100%;
+    height: 60px;
+    min-width: 200px;
+    border-radius: 25px;
+    box-shadow: 3px 3px grey;
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    text-wrap: wrap;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+    flex: 1 1;
+}
+
+@keyframes inhale {
+    from {
+        width: 0px;
+    }
+
+    to {
+        width: inherit;
+    }
+}
+
+@keyframes hold {
+    from {
+        background-color: rgb(186, 255, 186);
+        width: inherit;
+    }
+
+    to {
+        background-color: rgb(112, 173, 173);
+        width: inherit;
+    }
+}
+
+@keyframes exhale {
+    from {
+        /* transform: scale(1.7) rotate(315deg); */
+        width: inherit;
+        background-color: rgb(112, 173, 173);
+    }
+
+    to {
+        /* transform: scale(0.3) rotate(0deg); */
+        width: 0px;
+        background-color: rgb(0, 121, 121);
+    }
+}
+
+.inhale-class {
+    animation: inhale 4s ease 0s forwards;
+}
+
+.hold-class {
+    animation: hold 7s ease 0s  forwards;
+}
+
+.exhale-class {
+    animation: exhale 8s ease 0s  forwards;
+}
+
+.stop-class {
+    animation: stop-breathing 3s ease 0.5s forwards;
+}
+
+@keyframes stop-breathing {
+    from {
+        background-color: currentColor;
+    }
+
+    to {
+        width: 0px;
+        background-color: rgb(0, 121, 121);
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sleep Record</title>
+    <link rel="stylesheet" type="text/css" href="./sleep.css">
+</head>
+
+<body>
+    <button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+        ← Back
+    </button>
+
+    <div class="container">
+        <h1>
+            <img src="./assets/sleeping.png" alt="Sleep" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle;">
+            Sleep Recorder
+        </h1>
+        <p>Enter your sleep data to see how your sleep patterns change over time</p>
+        <form>
+            <div class="container transparent">
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" required><br>
+            </div>
+            <div class="container transparent">
+                <label for="hours">Hours of Sleep:</label><br>
+                <input type="number" id="hours"><br>
+            </div>
+            <div class="container transparent">
+                <button type="submit">Submit</button>
+                <button type="button" id="clear-button">Clear</button>
+            </div>
+        </form>
+        <canvas class="chart"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="./sleep.js"></script>
+</body>
+
+</html>

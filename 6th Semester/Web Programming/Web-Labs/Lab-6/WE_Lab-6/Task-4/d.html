@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Task-4(d)</title>
+</head>
+
+<style>
+    body {
+        display: flexbox;
+        color: white;
+        background-color: rgb(0, 0, 0);
+    }
+
+    .header {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .section {
+        font-size: 20px;
+        margin: auto;
+        margin-top: 30px;
+        width: 40%;
+        display: flex;
+    }
+
+    .image-div {
+        margin: auto;
+    }
+
+    img {
+        height: 530px;
+        width: auto;
+        float: left;
+    }
+
+    .form {
+        margin: auto;
+        display: flexbox;
+        float: right;
+    }
+
+    input {
+        width: 200px;
+        height: 25px;
+        background-color: rgb(229, 227, 227);
+        border-radius: 5px;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+    label {
+        font-size: 22px;
+    }
+
+    #form-div {
+        margin-bottom: 20px;
+    }
+
+    .button {
+        font-size: 20px;
+        width: 208px;
+        height: 30px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <header class="header"><b><i>(D) Registration Form</i></b></header>
+
+    <section class="section">
+        <div class="image-div">
+            <img src="./images/fallen-knight-dark-souls-3-from-software.jpg" alt="">
+        </div>
+        <form id="myForm" class="form" action="./d.html">
+            <div id="form-div">
+                <label for="">First Name</label><br>
+                <input class="form-input" type="text">
+            </div>
+            <div id="form-div">
+                <label for="">Last Name</label><br>
+                <input class="form-input" type="text">
+            </div>
+            <div id="form-div">
+                <label for="">Email</label><br>
+                <input id="email" class="form-input" type="text" placeholder="email@domain.com">
+            </div>
+            <div id="form-div">
+                <label for="">Phone Number</label><br>
+                <input id="phoneNumber" class="form-input" type="text" placeholder="03XX-XXXXXXX">
+            </div>
+            <div id="form-div">
+                <label for="">New Password</label><br>
+                <input id="password1" class="form-input" type="password">
+            </div>
+            <div id="form-div">
+                <label for="">Confirm Password</label><br>
+                <input id="password2" class="form-input" type="password">
+            </div>
+            <div id="form-div">
+                <input id="button" class="button" type="submit">
+            </div>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p></p>
+    </footer>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#myForm").submit(function (event) {
+            var inputs = $(this).find(".form-input");
+            var isEmpty = false;
+
+            inputs.each(function () {
+                if ($(this).val().trim() === "") {
+                    isEmpty = true;
+                    return false;
+                }
+            });
+            if (isEmpty) {
+                alert("Please fill in all required fields!");
+                event.preventDefault();
+            }
+            else {
+                alert("Form Submitted Successfully!");
+            }
+        });
+    });
+</script>
+
+</html>

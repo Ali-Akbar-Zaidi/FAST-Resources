@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bmi.css">
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h1>BMI Calculator</h1>
+            <div class="content">
+                <!-- Age input -->
+                <div class="input">
+                    <label for="age">Age</label>
+                    <div class="input-group">
+                        <!-- <button class="increment" onclick="increment('age')">+</button> -->
+                        <input type="text" class="text-input" id="age" autocomplete="off" required />
+                        <!-- <button class="decrement" onclick="decrement('age')">-</button> -->
+                    </div>
+                </div>
+                <!-- Gender input -->
+                <div class="gender">
+                    <!-- ... your existing gender radio buttons ... -->
+                </div>
+
+                <!-- Height and Weight input -->
+                <div class="containerHW">
+                    <div class="inputH">
+                        <label for="height">Height(cm)</label>
+                        <div class="input-group">
+                            <!-- <button class="increment" onclick="increment('height')">+</button> -->
+                            <input type="number" id="height" required />
+                            <!-- <button class="decrement" onclick="decrement('height')">-</button> -->
+                        </div>
+                    </div>
+
+                    <div class="inputW">
+                        <label for="weight">Weight(kg)</label>
+                        <div class="input-group">
+                            <!-- <button class="increment" onclick="increment('weight')">+</button> -->
+                            <input type="number" id="weight" required />
+                            <!-- <button class="decrement" onclick="decrement('weight')">-</button> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Calculate BMI button -->
+                <button class="calculate" id="submit" onclick="calculate();">Calculate BMI</button>
+            </div>
+            <!-- Result section -->
+            <div class="result">
+                <p>Your BMI is</p>
+                <div id="result">00.00</div>
+                <p class="comment"></p>
+            </div>
+    </div>
+    <script src="bmi.js"></script>
+</body>
+
+</html>

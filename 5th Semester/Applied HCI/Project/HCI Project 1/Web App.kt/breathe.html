@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Breath</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link href="./breathe.css" rel="stylesheet" type="text/css">
+    <link href="./help-button.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px ; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+        ← Back
+    </button>
+
+    <div id="Title">
+        Take a deep breath...
+    </div>
+    
+    <div id="breathwork">
+        <div id="breathwork-bg"></div>
+    </div>
+    <div id="breathwork-elements-container">
+        <img src="./assets/abstract-shape.png" id="abstract-shape-png">
+
+        <div id="breathe-menu-container">
+
+            <button class="breathe-buttons" onclick="animateBreath()">
+                Start
+            </button>
+
+            <button class="breathe-buttons" onclick="stopBreathe()">
+                Stop
+            </button>
+
+            <div id="time-buttons">
+
+                <button id="decrement-button" class="inc-dec-button" onclick="decrementValue()">-</button>
+                <input type="text" id="myInputField" value="3 minutes" onchange="correctValue()">
+                <button id="increment-button" class="inc-dec-button" onclick="incrementValue()">+</button>
+
+            </div>
+
+            <script>
+                const inputField = document.getElementById("myInputField");
+                let breatheInterval = parseInt(inputField.value);
+                let exercising = false;
+
+                function decrementValue() {
+                    if (exercising) {
+                        alert("Stop the exercise to change duration!");
+                        return;
+                    }
+                    const inputField = document.getElementById("myInputField");
+                    let currentValue = parseInt(inputField.value, 10);
+                    if (currentValue > 1) {
+                        if(currentValue == 2){
+                        inputField.value = ("1 minute");
+                        }
+                        inputField.value = (currentValue - 1 + " minutes");
+                    }
+                }
+
+                function incrementValue() {
+                    if (exercising) {
+                        alert("Stop the exercise to change duration!");
+                        return;
+                    }
+                    const inputField = document.getElementById("myInputField");
+                    let currentValue = parseInt(inputField.value, 10);
+                    if (currentValue < 15) {
+                        inputField.value = (currentValue + 1 + " minutes");
+                    }
+                }
+
+                function correctValue() {
+                    if (exercising) {
+                        alert("Stop the exercise to change duration!");
+                        return;
+                    }
+                    const inputField = document.getElementById("myInputField");
+                    let currentValue = parseInt(inputField.value, 10);
+                    if (currentValue > 15) {
+                        inputField.value = ("15 minutes")
+                    } else if (currentValue < 1) {
+                        inputField.value = ("1 minute")
+                    }
+                }
+
+
+                //This is the function which I use as an event handler 
+                //for the button which triggers the animation
+                let shape = document.getElementById("breathwork-bg");
+                function animateBreath() {
+                    exercising = true;
+                    let cycleTime = 19;
+                    var cycles = (inputField.value * 60) / 19; //How many breathe cycles to run?
+                    
+                    console.log(inputField.value);
+                    breathCycle(cycles);
+                    setInterval(() =>{
+                        breathCycle(cycles);
+                        // cycles--;
+                    }, 19000);
+                    // setInterval(() =>{
+                    //     cycles--;
+                    // }, 19000);
+                }
+
+                function stopBreathe() {
+                    if(!exercising){
+                        return;
+                    }
+                    clearInterval(breatheInterval);
+                    breatheInterval = null;
+                    console.log("Breathing exercise stopped.");
+                    exercising = false;
+                    if (shape.classList.contains("inhale-class")) {
+                        shape.classList.remove("inhale-class");
+                    }
+                    if (shape.classList.contains("hold-class")) {
+                        shape.classList.remove("hold-class");
+                    }
+                    if (shape.classList.contains("exhale-class")) {
+                        shape.classList.remove("exhale-class");
+                    }
+                    else {
+                        shape.classList.add("exhale-class");
+                        setTimeout(() => {
+                            shape.classList.remove("exhale-class");
+                        }, 8000);
+                    }
+                }
+
+                function breathCycle(cycles) {
+                    if(cycles <=0) {
+                        stopBreathe();
+                        return;
+                    }
+                    console.log("Starting breath cycle");
+                    shape.classList.add("inhale-class");
+                    setTimeout(() => {
+                        shape.classList.remove("inhale-class");
+                        console.log("Inhaled");
+                        shape.classList.add("hold-class");
+                        setTimeout(() => {
+                            shape.classList.remove("hold-class");
+                            console.log("Held");
+                            shape.classList.add("exhale-class");
+                            setTimeout(() => {
+                                shape.classList.remove("exhale-class");
+                            }, 8000);
+                            console.log("Exhaled");
+                        }, 7000);
+                    }, 4000);
+                }
+
+                function inhale() {
+                    console.log("Inhale");
+                }
+
+                function hold() {
+                    console.log("Hold");
+                }
+
+                function exhale() {
+                    console.log("Exhale");
+                }
+
+            </script>
+        </div>
+    </div>
+
+    <div class="help-button">
+        <img src="./assets/question.png" alt="Help">
+    </div>
+
+</body>
+
+</html>

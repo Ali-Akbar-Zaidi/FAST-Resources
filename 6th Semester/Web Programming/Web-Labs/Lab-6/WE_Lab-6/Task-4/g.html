@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Task-4(g)</title>
+</head>
+
+<style>
+    .header {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(150, 8, 140);
+        margin-bottom: 20px;
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .listDiv {
+        margin: auto;
+        font-size: 20px;
+        margin-bottom: 20px;
+        padding-right: 15px;
+        background-color: rgb(206, 167, 243);
+        color: rgb(54, 7, 51);
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .button {
+        background-color: rgb(90, 7, 84);
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <header class="header">(G) <br> Click the Button below to Sort the Given List!</header>
+    <section class="section">
+        <div class="listDiv">
+            <ul id="list">
+                <li>Banana</li>
+                <li>Pineapple</li>
+                <li>Orange</li>
+                <li>Blueberries</li>
+                <li>Watermelon</li>
+                <li>Apple</li>
+                <li>Strawberries</li>
+                <li>Grapes</li>
+            </ul>
+        </div>
+    </section>
+    <footer class="footer">
+        <button id="button" class="button">Sort Alphabetically</button>
+    </footer>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#button").click(function () {
+            var listItems = $("#list li").get();
+
+            listItems.sort(function (a, b) {
+                return $(a).text().localeCompare($(b).text());
+            });
+
+            $("#list").empty();
+
+            $(listItems).each(function () {
+                $("#list").append(this);
+            });
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #send {
+            text-align: center;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 475px;
+            margin: 0 auto;
+            background-color: #9c969650;
+            border-radius: 5px;
+            padding: 30px;
+        }
+
+        header {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            color: red;
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid;
+        }
+
+        th,
+        td {
+            border: 1px solid #030303e5;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #th1 {
+            text-align: right;
+            padding-right: 2px;
+        }
+
+        form {
+            background-color: rgb(188, 240, 234);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .content {
+            display: flex;
+            width: 100%;
+            padding-top: 10px;
+        }
+
+        label {
+            padding-right: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header><b>Continental Hotel Reservation Form</b></header>
+        <form action="#" method="post">
+            <table>
+                <tbody>
+
+                    <tr>
+                        <th>
+                            <div class="form-group" id="th1">
+                                <label for="name"><b>Name</label>
+                            </div>
+                        </th>
+                        <th colspan="2">
+                            <div class="form-group">
+                                <input type="text" class="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="email"><b>eMail</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group ">
+                                <input type="email" class="email" name="email" value="info@continental.pk" required>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="mobile_no"><b>Mobile No</b></label></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group ">
+                                <input type="tel" class="mobile_no" name="mobile_no"
+                                    placeholder="Enter your cell number" required>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="arrival_time"><b>Arrival Time</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input style="max-width: 140px;" type="text" id="arrival_time" name="arrival_time"
+                                    placeholder="Enter your arrival time" required>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="departure"><b>Departure</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input style="max-width: 140px;" type="text" id="departure" name="departure" required>
+                                <input style="max-width: 140px;" type="text" id="departure1" name="departure1" required>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="room_type"><b>Room Type</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <section class="content">
+                                <section>
+                                    <input type="radio" id="single" name="fav_language" value="S">
+                                    <label for="single">Single</label><br>
+                                </section>
+                                <section>
+                                    <input type="radio" id="double" name="fav_language" value="D">
+                                    <label for="double">Double</label><br>
+                                </section>
+                            </section>
+                            <input type="radio" id="Presidential_suite" name="fav_language" value="PS">
+                            <label for="presidential_suite"> Presidential Suite</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="preferences"><b>Preferences</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="checkbox" id="non-smoking" name="g" value="ns">
+                                <label for="preferences"> Non-Smoking</label><br>
+                                <input type="checkbox" id="Internet" name="g" value="I">
+                                <label for="preferences"> Internet</label><br>
+                                <input type="checkbox" id="firm_mattress" name="g" value="Boat">
+                                <label for="preferences"> Firm Mattress</label><br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group" id="th1">
+                                <label for="mode_of_payment"><b>Mode of Payment</b></label>
+                            </div>
+                        </td>
+                        <td>
+                            <section class="content">
+                                <section>
+                                    <input type="checkbox" id="cash" name="cash" value="c">
+                                    <label for="mode_of_payment"> Cash</label><br>
+                                </section>
+                                <section>
+                                    <input type="checkbox" id="cheque" name="cheque" value="ch">
+                                    <label for="mode_of_payment">Check</label><br>
+                                </section>
+                            </section>
+                            <section class="content">
+                                <section>
+                                    <input type="checkbox" id="credit_card" name="credit_card" value="cc">
+                                    <label for="mode_of_payment">Credit Card</label><br>
+                                </section>
+                                <select>
+                                    <option value="">Select Card</option>
+                                    <option value="">Credit Card</option>
+                                    <option value="">Debit Card</option>
+                                </select>
+                            </section>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group" id="send">
+                                <button type="submit">Send Data</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Task-4(e)</title>
+</head>
+
+<style>
+    .header {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(20, 34, 139);
+        margin-bottom: 20px;
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .scrollableContent {
+        height: 600px;
+    }
+
+    .fadeImage {
+        margin: auto;
+        width: 500px;
+        opacity: 0;
+        transition: opacity 10s;
+    }
+</style>
+
+<body>
+    <header class="header">(E) <br> Scroll Down to Fade-In the Image</header>
+    <section class="section">
+        <div class="scrollableContent" id="scrollableContent"></div>
+        <img src="./images/dog.jpg" alt="Fading Image" class="fadeImage" id="fadeImage">
+    </section>
+</body>
+
+<script>
+    $(window).scroll(function () {
+        var scrollPoint = 50;
+        if ($(window).scrollTop() > scrollPoint) {
+            $('#fadeImage').css('opacity', '1');
+        }
+    });
+</script>
+
+</html>

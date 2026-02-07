@@ -1,0 +1,60 @@
+body {
+    display: flexbox;
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+.header {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.section {
+    font-size: 20px;
+    margin: auto;
+    margin-top: 30px;
+    width: 40%;
+    display: flex;
+}
+
+.image-div {
+    margin: auto;
+}
+
+img {
+    height: 530px;
+    width: auto;
+    float: left;
+}
+
+.form {
+    margin: auto;
+    display: flexbox;
+    float: right;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+    background-color: rgb(229, 227, 227);
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+label {
+    font-size: 22px;
+}
+
+#form-div {
+    margin-bottom: 20px;
+}
+
+.button {
+    font-size: 20px;
+    width: 208px;
+    height: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+}

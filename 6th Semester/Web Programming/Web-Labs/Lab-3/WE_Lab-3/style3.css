@@ -1,0 +1,253 @@
+body {
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 10px;
+    /* background-color: blue; */
+}
+
+#header {
+    margin: 0 125px;
+}
+
+.logoText {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 35px;
+}
+
+.searchInput {
+    width: 280px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    padding-left: 10px;
+    background-color: rgb(237, 235, 235);
+}
+
+.searchInput::placeholder {
+    font-size: 15px;
+    color: rgb(156, 152, 152);
+}
+
+.login {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(73, 141, 209);
+}
+
+.signup {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgb(73, 141, 209);
+    background-color: rgb(253, 250, 250);
+}
+
+@font-face {
+    font-family: 'Brush Script MT';
+    src: url('path/to/brushscriptmt.woff2') format('woff2'), url('path/to/brushscriptmt.woff') format('woff');
+}
+
+.uname {
+    font-size: 20px;
+    padding-right: 60px;
+}
+
+.follow,
+.message {
+    margin-right: 5px;
+    width: 90px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(237, 235, 235);
+}
+
+#dd2 {
+    margin-right: 45px;
+    display: flex;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    background-color: rgb(237, 235, 235);
+    border-radius: 50%;
+    margin: 30px;
+}
+
+.square {
+    width: 90px;
+    height: 20px;
+    background-color: rgb(237, 235, 235);
+    margin: 30px;
+}
+
+.container {
+    padding: 35px;
+    margin: auto;
+    background-color: rgb(248, 248, 248);
+    border-top: 1.5px solid rgb(220, 217, 217);
+}
+
+img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.img {
+    grid-area: img;
+    display: flex;
+    margin-left: 40px;
+}
+
+.empty {
+    grid-area: empty;
+}
+
+.username {
+    grid-area: uname;
+    display: flex;
+}
+
+.bio {
+    grid-area: bio;
+}
+
+.followDetails {
+    display: flex;
+    grid-area: fd;
+    font-size: 20px;
+}
+
+.highlights {
+    display: flex;
+    grid-area: high;
+}
+
+.content {
+    background-color: rgb(248, 248, 248);
+    height: 70vh;
+    width: fit-content;
+    display: grid;
+    margin: auto;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-areas:
+        "img empty uname uname uname uname uname"
+        "img empty fd fd fd fd fd"
+        "img empty bio bio bio bio bio"
+        "img empty bio bio bio bio bio"
+        "high high high high high high high";
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+}
+
+@media only screen and (max-width: 640px) {
+    .container {
+        border-top: none;
+        padding: 0;
+    }
+
+    #header {
+        margin: 0 15px;
+    }
+
+    .logoText {
+        font-size: auto;
+    }
+
+    .searchInput {
+        display: none;
+    }
+
+    img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .img {
+        display: block;
+        margin-left: 15px;
+        margin-top: 10px;
+    }
+
+    .circle {
+        width: 45px;
+        height: 45px;
+        margin: 10px;
+    }
+
+    .square {
+        width: 45px;
+        height: 15px;
+        margin: 10px;
+    }
+
+    .followDetails {
+        border-top: 1px solid rgb(219, 217, 217);
+        margin: 10px;
+        display: flex;
+    }
+
+    #dd2 {
+        padding-top: 15px;
+        padding-bottom: 10px;
+        display: block;
+        margin-right: 0px;
+        margin: auto;
+    }
+
+    .highlights {
+        margin-top: 20px;
+    }
+
+    .bio {
+        margin-top: 25px;
+        margin-left: 15px;
+    }
+
+    .username {
+        margin-left: 15px;
+        margin-top: 15px;
+        display: block;
+    }
+
+    .uname {
+        font-size: 20px;
+        padding-right: 0px;
+    }
+
+    .buttons {
+        margin-top: 10px;
+    }
+
+    .content {
+        border-top: 1px solid rgb(219, 217, 217);
+        padding: 0;
+        margin: 0;
+        height: auto;
+        width: fit-content;
+        grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
+        grid-template-areas:
+            "img uname uname uname uname"
+            "bio bio bio bio bio"
+            "bio bio bio bio bio"
+            "high high high high high"
+            "fd fd fd fd fd";
+        grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
+    }
+}

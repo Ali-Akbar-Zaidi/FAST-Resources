@@ -1,0 +1,6 @@
+projectKey=Academics
+serverUrl=http://localhost:9000
+serverVersion=10.3.0.82913
+dashboardUrl=http://localhost:9000/dashboard?id=Academics
+ceTaskId=AY1-yHRoO6-u0VJgfdvh
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AY1-yHRoO6-u0VJgfdvh

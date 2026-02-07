@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" value="device-width">
+    <link href="home.css" rel="stylesheet" type="text/css">
+    <title>Hello, John!</title>
+</head>
+
+<body>
+
+    <button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+        ← Back
+    </button>
+
+    <a href="./settings.html">Settings</a>
+    <br>
+    <a href="./notes.html">Notes</a>
+
+    <div id="greeting">
+        Hello, <i>Abdullah!</i>
+    </div>
+
+    <div id="main-card">
+
+        <div id="progress-card">
+            <div class="progress-chart-round">
+                <!-- <div id="progress-indicator"></div> -->
+                <div id="progress-chart-text">
+                    33%
+                </div>
+            </div>
+
+            <div id="main-card-bottom-row">
+
+                <div class="main-card-metrics">
+                    1467
+                    <div class="help-text">
+                        Steps
+                    </div>
+                </div>
+
+                <div class="main-card-metrics">
+                    29
+                    <div class="help-text">
+                        kCal
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="metrics-card">
+            <div class="body-metric">
+                <div class="metric-name">
+                    <img src="./assets/heart.png" alt="Heart" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+                    Heart Rate
+                </div>
+                <div class="metric-value">
+                    78
+                </div>
+                <div class="help-text metrics-unit">
+                    bpm
+                </div>
+            </div>
+
+            <div class="body-metric">
+                <div class="metric-name">
+                    <img src="./assets/lungs.png" alt="Lungs" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+                    SpO<sub>2</sub>
+                </div>
+                <div class="metric-value">
+                    98
+                </div>
+                <div class="help-text metrics-unit">
+                    %
+                </div>
+            </div>
+
+            <div class="body-metric">
+                <div class="metric-name">
+                    <img src="./assets/body.png" alt="Body" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+                    Body Weight
+                </div>
+                <div class="metric-value">
+                    75
+                </div>
+                <div class="help-text metrics-unit">
+                    kg
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

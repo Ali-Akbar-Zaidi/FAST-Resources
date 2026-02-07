@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1</title>
+</head>
+
+<style>
+    body{
+        background-color: red;
+    }
+    header {
+        font-size: 30px;
+        margin-bottom: 50px;
+    }
+
+    .container {
+        margin: auto;
+        display: grid;
+        height: 85vh;
+        width: 120vh;
+        grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+        grid-template-areas:
+            "header header header header"
+            "nav nav nav nav"
+            "main main main aside"
+            "main main main aside"
+            "main main main aside"
+            "main main main aside"
+            "main main main aside"
+            "main main main aside"
+            "footer footer footer footer";
+        grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
+        grid-gap: 0.1rem;
+        color: white;
+    }
+
+    @media only screen and (max-width:600px) {
+        .container {
+            padding: 0;
+            height: 100vh;
+            width: auto;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "header"
+                "main"
+                "main"
+                "main"
+                "main"
+                "main"
+                "nav"
+                "aside"
+                "footer";
+        }
+    }
+
+    .header {
+        font-size: 30px;
+        /* background-color: blue; */
+        background-color: red;
+        grid-area: header;
+        display: flex;
+    }
+
+    .main {
+        font-size: 30px;
+        background-color: rgb(0, 128, 255);
+        grid-area: main;
+        display: flex;
+    }
+
+    .nav {
+        font-size: 30px;
+        background-color: rgb(3, 3, 146);
+        grid-area: nav;
+        display: flex;
+    }
+
+    .aside {
+        font-size: 30px;
+        background-color: rgb(68, 68, 149);
+        grid-area: aside;
+        display: flex;
+    }
+
+    .footer {
+        font-size: 30px;
+        background-color: rgb(104, 190, 236);
+        grid-area: footer;
+        display: flex;
+    }
+</style>
+
+<body>
+    <header><b>Task 1 (Grid/Flex)</b></header>
+    <section class="container">
+        <div class="header">
+            <div style="margin: auto;">Header</div>
+        </div>
+        <div class="main">
+            <div style="margin: auto;">Main</div>
+        </div>
+        <div class="nav">
+            <div style="margin: auto;">Nav</div>
+        </div>
+        <div class="aside">
+            <div style="margin: auto;">Aside</div>
+        </div>
+        <footer class="footer">
+            <div style="margin: auto;">Footer</div>
+        </footer>
+    </section>
+</body>
+
+</html>

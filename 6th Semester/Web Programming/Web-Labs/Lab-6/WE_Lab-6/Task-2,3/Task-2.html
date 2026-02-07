@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-2</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .header {
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .button {
+        height: 40px;
+        width: auto;
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <header id="text" class="header">Font size will be changed after clicking "Click Me"</header>
+    <section class="section">
+        <button id="button" class="button">Click Me</button>
+    </section>
+
+    <script>
+        document.getElementById("button").addEventListener("click", function (event) {
+            const text = document.getElementById("text");
+            text.style.fontSize = "50px";
+        });
+    </script>
+
+</body>
+
+</html>

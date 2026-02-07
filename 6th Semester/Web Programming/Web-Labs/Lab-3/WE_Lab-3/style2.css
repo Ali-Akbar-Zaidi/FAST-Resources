@@ -1,0 +1,22 @@
+header {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.hello {
+    background-color: blue;
+    height: 300px;
+    width: 300px;
+    display: flex;
+}
+
+.hi {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    position: absolute;
+    top: 50px;
+    left: 250px;
+    z-index: 1;
+}

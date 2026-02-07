@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Task-4(h)</title>
+</head>
+
+<style>
+    .header {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(169, 86, 3);
+        margin-bottom: 30px;
+    }
+
+    .tooltip {
+        position: relative;
+        display: flex;
+    }
+
+    .image {
+        margin: auto;
+        width: 500px;
+        height: auto;
+    }
+
+    .tooltip .text {
+        margin: auto;
+        display: none;
+        width: 400px;
+        background-color: rgb(248, 207, 165);
+        color: black;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        top: 150px;
+        right: 250px;
+        z-index: 1;
+    }
+
+    .tooltip:hover .text {
+        display: block;
+    }
+</style>
+
+<body>
+    <header class="header">(H) <br> Hover Over the Image to Show the Hidden Text</header>
+    <div class="tooltip">
+        <img src="./images/pyramids.jpg" alt="Hover over me" class="image">
+        <span class="text">Tombs of early Egyptian kings were bench-shaped mounds called mastabas. Around 2780 BCE, King
+            Djoser's architect,
+            Imhotep, built the first pyramid by placing six mastabas, each smaller than the one beneath, in a stack to
+            form a
+            pyramid rising in steps.</span>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $(".tooltip").hover(function () {
+            $(this).find(".text").css("display", "block");
+        }, function () {
+            $(this).find(".text").css("display", "none");
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes App</title>
+<style>
+/* Reset styles and set default font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #e5e5e5;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 80px; /* Give space for the add note button */
+}
+
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('./assets/notes.png');
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.notes-list {
+    list-style: none;
+    margin: 20px;
+    padding: 0;
+}
+
+.note {
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.note-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.add-note-button {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
+
+.add-note-button button {
+    background-color: #50bfa0;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 36px; /* Icon size */
+    background-image: url('./assets/add_notes_FILL0_wght400_GRAD0_opsz48.svg');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.add-note-button button:focus {
+    outline: none;
+}
+
+/* Input for adding new note */
+.note-input {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
+}
+
+</style>
+</head>
+<body>
+
+<button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+    ← Back
+</button>
+
+<div class="header">Notes</div>
+
+<ul class="notes-list">
+    <!-- Notes will be added here -->
+</ul>
+
+<div class="add-note-button">
+    <button onclick="createNoteInput()"></button>
+</div>
+
+<script>
+// JavaScript to handle creating new note inputs
+function createNoteInput() {
+    var list = document.querySelector('.notes-list');
+    var newNote = document.createElement('li');
+    newNote.className = 'note';
+    newNote.innerHTML = `
+        <input type="text" class="note-input" placeholder="Type your note here..." onblur="saveNote(this)" />
+        <div class="note-date">Now</div>`;
+    list.insertBefore(newNote, list.childNodes[0]);
+    newNote.querySelector('.note-input').focus();
+}
+
+// Function to save the note text
+function saveNote(inputElement) {
+    var text = inputElement.value.trim();
+    if (text) {
+        var listItem = inputElement.parentElement;
+        listItem.innerHTML = `
+            <div class="note-title">${text}</div>
+            <div class="note-date">${new Date().toLocaleDateString()}</div>`;
+    } else {
+        inputElement.parentElement.remove(); // Remove the item if no text was entered
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sounds of Nature</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./sounds.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <button onclick="history.back()" style="position: fixed; top: 20px; left: 20px; padding: 10px 20px; background-color: #7d2ae8; color: white; border: none; border-radius: 5px; cursor: pointer; z-index: 1000; font-size: 16px;">
+        ← Back
+    </button>
+
+    <!-- <header> -->
+        <div id="Title">
+            Sounds of Nature
+        </div>
+    <!-- </header> -->
+
+    <div id="sound-cards-container">
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/bird.png" alt="birds" class="center-img">
+            </div>
+            <button class="sound-card" id="birdsong">
+                <audio src="./assets/sounds/nature-soundstropicaljunglebirds-108380.mp3" loop></audio>
+                Birdsong
+            </button>
+        </div>
+
+
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/raindrop.png" alt="rain" class="center-img">
+            </div>
+            <button class="sound-card" id="rain">
+                <audio src="./assets/sounds/soft-rain-ambient-111154.mp3" loop></audio>
+                Raindrops
+            </button>
+        </div>
+
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/windy.png" alt="wind" class="center-img">
+            </div>
+            <button class="sound-card" id="wind">
+                <audio src="./assets/sounds/wind-outside-sound-ambient-141989.mp3" loop></audio>
+                Windy night
+            </button>
+        </div>
+
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/bonfire.png" alt="birds" class="center-img">
+            </div>
+            <button class="sound-card" id="campfire">
+                <audio src="./assets/sounds/crackling-fireplace-nature-sounds-8012.mp3" loop></audio>
+                Campfire
+            </button>
+        </div>
+
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/river.png" alt="birds" class="center-img">
+            </div>
+            <button class="sound-card" id="stream">
+                <audio src="./assets/sounds/forest-stream-birds-sound-loop-117526.mp3" loop></audio>
+                Stream
+            </button>
+        </div>
+
+        <div class="single-card-container">
+            <div class="sound-card-icon">
+                <img src="./assets/lake.png" alt="birds" class="center-img">
+            </div>
+            <button class="sound-card" id="lake">
+                <audio src="./assets/sounds/mixkit-birds-chirping-near-the-river-2473.wav" loop></audio>
+                Lake
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // var aud = document.getElementById("birdsong").children[0];
+        // var isPlaying = false;
+        // aud.pause();
+
+        // function ppBirdsong() {
+        //     if (isPlaying) {
+        //         aud.pause();
+        //     } else {
+        //         aud.play();
+        //     }
+        //     isPlaying = !isPlaying;
+        // }
+
+        const audioButtons = document.querySelectorAll(".sound-card");
+
+        // Define a function to play or stop audio
+        function playAudio(button) {
+            const audioElement = button.querySelector("audio");
+
+            // Check if audio is already playing
+            if (audioElement.paused) {
+                audioElement.play();
+                button.classList.add("playing");
+            } else {
+                audioElement.pause();
+                button.classList.remove("playing");
+            }
+        }
+
+        // Add click event listener to each button
+        audioButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                playAudio(button);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

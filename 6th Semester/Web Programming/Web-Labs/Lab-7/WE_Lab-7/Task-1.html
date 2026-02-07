@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Task-1</title>
+</head>
+
+<style>
+    body {
+        margin-top: 10%;
+        background-color: rgb(177, 255, 255);
+    }
+
+    .header {
+        font-size: 40px;
+        text-align: center;
+        font-weight: bold;
+        color: rgb(1, 1, 114);
+        margin-bottom: 20px;
+    }
+
+    .section {
+        display: flex;
+    }
+
+    .container {
+        margin: auto;
+    }
+
+    .input {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .input::placeholder {
+        font-style: italic;
+    }
+
+    .btnDiv {
+        text-align: center;
+    }
+
+    .button {
+        background-color: rgb(1, 1, 114);
+        color: white;
+        font-size: 20px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .footer {
+        margin-top: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <header class="header">University Search</header>
+    <section class="section">
+        <form class="container" id="searchForm">
+            <input class="input" type="text" id="searchInput" placeholder="Enter University Name">
+            <br><br>
+            <div class="btnDiv">
+                <button class="button" type="submit">Search</button>
+            </div>
+        </form>
+    </section>
+    <footer class="footer">
+        <div class="infoDiv" id="universityInfo"></div>
+    </footer>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $('#searchForm').submit(function (event) {
+            event.preventDefault();
+            var searchTerm = $('#searchInput').val();
+            if (searchTerm.trim() !== '') {
+                $.ajax({
+                    url: 'http://universities.hipolabs.com/search?name=' + searchTerm,
+                    method: 'GET',
+                    success: function (response) {
+                        displayUniversityInfo(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
+        });
+
+        function displayUniversityInfo(universities) {
+            $('#universityInfo').empty();
+            if (universities.length > 0) {
+                $('#universityInfo').append('<h2>University Information</h2>');
+                universities.forEach(function (university) {
+                    $('#universityInfo').append('<p><strong>Name:</strong> ' + university.name + '</p>');
+                    $('#universityInfo').append('<p><strong>Country:</strong> ' + university.country + '</p>');
+                    $('#universityInfo').append('<hr>');
+                });
+            } else {
+                $('#universityInfo').append('<p>No universities found</p>');
+            }
+        }
+    });
+</script>
+
+</html>

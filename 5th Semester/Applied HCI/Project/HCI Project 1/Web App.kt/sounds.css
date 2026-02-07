@@ -1,0 +1,87 @@
+* {
+    background-color: antiquewhite;
+    viewport-fit:contain;
+}
+
+*::selection{
+    background-color: inherit;
+}
+
+header{
+    position: fixed;
+}
+
+#Title {
+    margin: 50px;
+    font-size :78px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color:rgb(82, 97, 76);
+    background:none;
+}
+
+.sound-card-icon{
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    image-rendering: crisp-edges;
+    background:none;
+}
+
+.center-img{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto; 
+    width: 75px;
+    height: 75px;
+    background:none;
+}
+
+#sound-cards-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background:none;
+}
+
+.single-card-container{
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    background:none;
+
+}
+
+.sound-card{
+    margin: 25px;
+    padding: 25px;
+    border-radius: 25px;
+    /* width:300px; */
+    width: 300px;
+    height: 100px; 
+    box-shadow: 3px 3px grey;
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: right;
+    text-wrap:wrap;
+    padding-bottom: 0px;    
+    transition: all 0.3s;
+    background: none;
+}
+
+.playing{
+    background-color: rgb(189, 248, 189);
+}
+
+.sound-card:hover{
+    background-color: rgb(82, 97, 76);
+}
+
+.sound-card:active {
+    box-shadow: -1px -1px grey;
+    translate: 3px 3px;
+}
