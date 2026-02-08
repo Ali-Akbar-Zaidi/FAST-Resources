@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAST-NUCES Courses Offered</title>
+    <link rel="icon" type="image/png" href="./FAST.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+<div class="header">
+
+        <header class="header-content">
+
+            <a href="#logo" class="logo">
+                <img src="./FAST.png" alt="logoImage" class="logo-icon" />
+                <span class="logo-text">FAST-NUCES</span>
+            </a>
+
+            <nav class="nav">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./courses.html" class="nav-link">Courses</a>
+                <a href="./admissions.html" class="nav-link">Admissions</a>
+            </nav>
+
+            <a href="./contact.html" class="contact-button">
+                Contact Us
+            </a>
+
+              <button type="button" class="menu-button">
+                <img src="./Hamburger.svg" alt="menuButton" class="menu-icon" />
+            </button>
+        </header>
+
+    </div>
+<div class="container">
+  <div class="row">
+	<div class="col-sm-12 col-md-6 col-lg-2">
+        SE
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 250,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">DS
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 200,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">CS
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 150,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">AF
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 100,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">FinTech
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 250,000</div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-2">AI
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 200,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">CY
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 150,000</div>
+    </div>
+	<div class="col-sm-12 col-md-6 col-lg-2">Robotics
+        <div>Duration: 1 Semester</div>
+        <div>Fee: PKR 100,000</div>
+    </div>
+  </div>
+</div>
+
+<br>
+<h1>Fee Calculator:</h1>
+
+<div id="courseDetails">
+    <label for="courseSelect">Select a course:</label>
+<select name="courseSelect" id="courseSelect">
+    <option value="0">SE</option>
+    <option value="1">DS</option>
+    <option value="2">CS</option>
+    <option value="3">AF</option>
+    <option value="4">FinTech</option>
+    <option value="5">AI</option>
+    <option value="6">CY</option>
+    <option value="7">Robotics</option>
+</select>
+
+<div><label for="noOfSem">Number of Semesters:</label>
+<input type="number" max="8" min="1" id="noOfSem" placeholder="Enter number of semesters"></div>
+
+<div>
+    <label for="scholarship">Scholarship Percentage:</label>
+<input type="number" max="100" min="0" id="scholarship" placeholder="Enter Scholarship Percentage">
+</div>
+<br>
+
+<button type="button" class="btn btn-primary" onclick="calculateFee()">Calculate Fee</button>
+</div>
+
+<div id="result"></div>
+<footer>
+    <div class="Footer">
+        Copyright © 2026 FAST-NUCES. All rights reserved.
+    </div>
+</footer>
+<script src="./script.js"></script>
+
+</body>
+</html>

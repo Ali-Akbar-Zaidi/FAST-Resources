@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAST-NUCES Admissions</title>
+    <link rel="icon" type="image/png" href="./FAST.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+
+        <header class="header-content">
+
+            <a href="#logo" class="logo">
+                <img src="./FAST.png" alt="logoImage" class="logo-icon" />
+                <span class="logo-text">FAST-NUCES</span>
+            </a>
+
+            <nav class="nav">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./courses.html" class="nav-link">Courses</a>
+                <a href="./admissions.html" class="nav-link">Admissions</a>
+            </nav>
+
+            <a href="./contact.html" class="contact-button">
+                Contact Us
+            </a>
+
+              <button type="button" class="menu-button">
+                <img src="./Hamburger.svg" alt="menuButton" class="menu-icon" />
+            </button>
+        </header>
+
+    </div>
+
+
+
+    <div class="admissionForm container mt-5">
+        <form>
+            <fieldset class="p-3 border border-black rounded">
+                <legend class="px-2"><h1>Admissions Form</h1></legend>
+
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required pattern="[a-zA-Z\s]+">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Sub1" class="form-label">Physics</label>
+                    <input type="number" max="100" min="0" id="Sub1" name="Sub1" class="form-control" placeholder="Enter your Physics marks" required>
+                </div>
+
+                 <div class="mb-3">
+                    <label for="Sub2" class="form-label">Chemistry</label>
+                    <input type="number" max="100" min="0" id="Sub2" name="Sub2" class="form-control" placeholder="Enter your Chemistry marks" required>
+                </div>
+
+                 <div class="mb-3">
+                    <label for="Sub3" class="form-label">Mathematics</label>
+                    <input type="number" max="100" min="0" id="Sub3" name="Sub3" class="form-control" placeholder="Enter your Mathematics marks" required>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="checkEligibility(event)">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <br><br>
+<div class="container">
+    <fieldset class="p-3 border border-black rounded">
+        <legend class="px-2"><h1>Eligibility:</h1></legend>
+        <div id="eligibilityResult"></div>
+    </fieldset>
+</div>
+
+    
+<footer>
+    <div class="Footer">
+        Copyright © 2026 FAST-NUCES. All rights reserved.
+    </div>
+</footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
